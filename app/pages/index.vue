@@ -10,13 +10,15 @@ import necklaceUrl from '~/assets/images/necklace.jpeg?url'
 import ringUrl from '~/assets/images/ring.jpeg?url'
 import setsUrl from '~/assets/images/sets.jpeg?url'
 
-const curatedImages = [
-  bangleUrl,
-  braceletUrl,
-  earringsUrl,
-  necklaceUrl,
-  ringUrl,
-  setsUrl
+type CuratedItem = { src: string; label: string }
+
+const curatedItems: CuratedItem[] = [
+  { src: bangleUrl, label: 'Bangle' },
+  { src: braceletUrl, label: 'Bracelet' },
+  { src: earringsUrl, label: 'Earrings' },
+  { src: necklaceUrl, label: 'Necklace' },
+  { src: ringUrl, label: 'Ring' },
+  { src: setsUrl, label: 'Sets' }
 ]
 </script>
 
@@ -46,19 +48,25 @@ const curatedImages = [
     <!-- Image Grid -->
     <section
       class="py-12"
-      :style="{ background: 'linear-gradient(180deg, var(--color-gold-100) 0%, var(--color-gold-50) 60%, #FAFAF9 100%)' }"
+      :style="{ background: 'linear-gradient(180deg, var(--color-gold-150) 0%, var(--color-gold-50) 60%, #FAFAF9 100%)' }"
     >
       <UContainer>
         <div class="text-center mb-8">
-          <h2 class="text-2xl font-semibold">Gallery</h2>
-          <p class="text-gray-500">A curated selection from our collection</p>
+          <h2 class="text-2xl font-semibold text-white">Gallery</h2>
+          <p class="text-white/85">A curated selection from our collection</p>
         </div>
 
         <div class="mx-auto max-w-6xl">
           <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 place-items-center">
-            <div v-for="(src, idx) in curatedImages" :key="idx" class="w-full sm:w-[320px] group cursor-pointer">
-              <div class="rounded-md overflow-hidden shadow-sm ring-1 ring-transparent transition duration-500 ease-in-out hover:shadow-md hover:ring-[var(--color-gold-300)] hover:ring-offset-1 hover:ring-offset-white hover-gold-glow">
-                <img :src="src" alt="Gallery image" class="w-full h-48 object-cover transition-transform duration-500 ease-in-out group-hover:scale-[1.04] group-hover:brightness-105" />
+            <div v-for="(item, idx) in curatedItems" :key="idx" class="w-full sm:w-[320px] group cursor-pointer">
+              <div class="relative rounded-md overflow-hidden shadow-sm ring-1 ring-transparent transition duration-500 ease-in-out hover:shadow-md hover:ring-[var(--color-gold-300)] hover:ring-offset-1 hover:ring-offset-white hover-gold-glow">
+                <img :src="item.src" :alt="item.label" class="w-full h-48 object-cover transition-transform duration-500 ease-in-out group-hover:scale-[1.04]" />
+                <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out flex items-center justify-center" style="background-color: rgba(46, 36, 12, 0.35); backdrop-filter: blur(1.5px);">
+                  <div class="text-center">
+                    <span class="text-white/95 text-lg font-semibold tracking-wide drop-shadow">{{ item.label }}</span>
+                    <div class="mx-auto mt-2 h-[2px] w-12 rounded-full" :style="{ background: 'linear-gradient(90deg, var(--color-gold-400), var(--color-gold-600))' }"></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
