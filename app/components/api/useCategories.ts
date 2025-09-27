@@ -12,18 +12,22 @@ export const useCategories = () => {
         categories.value = data.value as ICategory[]
     }
 
-    const addCategory = async (category: FormData) => {
+    const addCategory = async (category: ICategoryInput) => {
+        const formData = new FormData()
+        
+        formData.append('name', category.name)
+        formData.append('description', category.description)
+        formData.append('image', category.image as File)
+
+        const plainObject = Object.fromEntries(formData.entries())
+
+        
         const { data } = await useFetch(`${apiUrl}/categories`, {
             method: 'POST',
-            body: category
+            body: JSON.stringify(plainObject)
         })
-
-        console.log("addCategory:", data)
-
+        
         categories.value.push(data.value as ICategory)
-
-        return data
-
     }
 
     return { categories, getCategories, addCategory }

@@ -20,18 +20,13 @@ const description = ref<string>('')
 const image = ref<File | null>(null)
 
 const handleAddCategory = async () => {
-    const formData = new FormData()
-    formData.append('name', name.value)
-    formData.append('description', description.value)
-    formData.append('image', image.value as File)
-    
-    const data = await addCategory(formData)
-    console.log("data:", data)
-    if(data) {
-        name.value = ''
-        description.value = ''
-        image.value = null
-    }
+     await addCategory(
+        {
+            name: name.value,
+            description: description.value,
+            image: image.value
+        }
+    )
 }
 
 
