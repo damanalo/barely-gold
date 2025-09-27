@@ -24,7 +24,7 @@ const price = ref('')
 const status = ref('')
 const images = ref('')
 
-//await getCategories()
+
 </script>
 
 <style scoped>
