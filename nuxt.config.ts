@@ -10,5 +10,10 @@ export default defineNuxtConfig({
     plugins: [
       tailwindcss(),
     ],
+  },
+  runtimeConfig: {
+    public: {
+      apiUrl: process.env.API_URL
+    }
   }
 })
