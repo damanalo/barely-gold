@@ -19,14 +19,8 @@ const name = ref<string>('')
 const description = ref<string>('')
 const image = ref<File | null>(null)
 
-const handleAddCategory = async () => {
-     await addCategory(
-        {
-            name: name.value,
-            description: description.value,
-            image: image.value
-        }
-    )
+const handleAddCategory = () => {
+    addCategory({ name: name.value, description: description.value, image: image.value })
 }
 
 
