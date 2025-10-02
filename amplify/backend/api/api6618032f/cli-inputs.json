@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/categories": {
+      "name": "/categories",
+      "lambdaFunction": "HonoFunction",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

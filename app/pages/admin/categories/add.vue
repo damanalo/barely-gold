@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import { useCategories } from '~/components/api/useCategories'
+import { useCategories } from '~/composables/api/useCategories'
 
 const { addCategory } = useCategories()
 

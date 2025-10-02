@@ -1,0 +1,87 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-barelygoldui-dev-2f0b8-authRole",
+      "UnauthRoleArn": "arn:aws:iam::260908402776:role/amplify-barelygoldui-dev-2f0b8-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::260908402776:role/amplify-barelygoldui-dev-2f0b8-authRole",
+      "Region": "ap-southeast-1",
+      "DeploymentBucketName": "amplify-barelygoldui-dev-2f0b8-deployment",
+      "UnauthRoleName": "amplify-barelygoldui-dev-2f0b8-unauthRole",
+      "StackName": "amplify-barelygoldui-dev-2f0b8",
+      "StackId": "arn:aws:cloudformation:ap-southeast-1:260908402776:stack/amplify-barelygoldui-dev-2f0b8/ad52bd60-9e92-11f0-a6c5-0294d4ce7eed",
+      "AmplifyAppId": "dw1oxhwn6roiy"
+    },
+    "categories": {
+      "auth": {
+        "barelygoldui0845b22d0845b22d": {},
+        "userPoolGroups": {}
+      },
+      "function": {
+        "HonoFunction": {
+          "deploymentBucketName": "amplify-barelygoldui-dev-2f0b8-deployment",
+          "s3Key": "amplify-builds/HonoFunction-4b44653756426a337175-build.zip"
+        }
+      },
+      "storage": {
+        "Addresses": {
+          "tableName": "Addresses",
+          "region": "ap-southeast-1",
+          "arn": "arn:aws:dynamodb:ap-southeast-1:260908402776:table/Addresses",
+          "partitionKeyName": "user_id",
+          "partitionKeyType": "S",
+          "sortKeyName": "id",
+          "sortKeyType": "S"
+        },
+        "Carts": {
+          "tableName": "Carts",
+          "region": "ap-southeast-1",
+          "arn": "arn:aws:dynamodb:ap-southeast-1:260908402776:table/Carts",
+          "partitionKeyName": "user_id",
+          "partitionKeyType": "S"
+        },
+        "Categories": {
+          "tableName": "Categories",
+          "region": "ap-southeast-1",
+          "arn": "arn:aws:dynamodb:ap-southeast-1:260908402776:table/Categories",
+          "partitionKeyName": "id",
+          "partitionKeyType": "S"
+        },
+        "Orders": {
+          "tableName": "Orders",
+          "region": "ap-southeast-1",
+          "arn": "arn:aws:dynamodb:ap-southeast-1:260908402776:table/Orders",
+          "partitionKeyName": "user_id",
+          "partitionKeyType": "S",
+          "sortKeyName": "id",
+          "sortKeyType": "S"
+        },
+        "Products": {
+          "tableName": "Products",
+          "region": "ap-southeast-1",
+          "arn": "arn:aws:dynamodb:ap-southeast-1:260908402776:table/Products",
+          "partitionKeyName": "category_id",
+          "partitionKeyType": "S",
+          "sortKeyName": "id",
+          "sortKeyType": "S"
+        },
+        "Stock": {
+          "tableName": "Stock",
+          "region": "ap-southeast-1",
+          "arn": "arn:aws:dynamodb:ap-southeast-1:260908402776:table/Stock",
+          "partitionKeyName": "item_id",
+          "partitionKeyType": "S"
+        },
+        "Users": {
+          "tableName": "Users",
+          "region": "ap-southeast-1",
+          "arn": "arn:aws:dynamodb:ap-southeast-1:260908402776:table/Users",
+          "partitionKeyName": "id",
+          "partitionKeyType": "S"
+        }
+      },
+      "api": {
+        "api6618032f": {}
+      }
+    }
+  }
+}
