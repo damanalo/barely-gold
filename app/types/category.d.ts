@@ -2,7 +2,7 @@ export interface ICategory {
     id: string,
     name: string,
     description: string,
-    image: File | null
+    image: string
 }
 
 export type ICategoryInput = Omit<ICategory, 'id'>

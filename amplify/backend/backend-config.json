@@ -9,6 +9,20 @@
           ],
           "category": "function",
           "resourceName": "HonoFunction"
+        },
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "barelygoldui0845b22d0845b22d"
+        },
+        {
+          "attributes": [
+            "AdminGroupRole"
+          ],
+          "category": "auth",
+          "resourceName": "userPoolGroups"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -66,6 +80,12 @@
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    }
+  },
+  "hosting": {
+    "S3AndCloudFront": {
+      "providerPlugin": "awscloudformation",
+      "service": "S3AndCloudFront"
     }
   },
   "parameters": {
@@ -412,6 +432,22 @@
           "resourceName": "Users"
         }
       ]
+    },
+    "AMPLIFY_storage_barelygoldui751c10da_bucketName": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "barelygoldui751c10da"
+        }
+      ]
+    },
+    "AMPLIFY_storage_barelygoldui751c10da_region": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "barelygoldui751c10da"
+        }
+      ]
     }
   },
   "storage": {
@@ -455,6 +491,12 @@
       "dependsOn": [],
       "providerPlugin": "awscloudformation",
       "service": "DynamoDB",
+      "serviceType": "imported"
+    },
+    "barelygoldui751c10da": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "S3",
       "serviceType": "imported"
     }
   }

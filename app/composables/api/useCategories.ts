@@ -1,36 +1,52 @@
-import type { ICategory, ICategoryInput } from '~/types/category'
-import { fetchAuthSession } from 'aws-amplify/auth';
+import type { ICategory } from '~/types/category'
 
 export const useCategories = () => {
-    const config = useRuntimeConfig()
-    const apiUrl = config.public.apiUrl
+    const { public: config } = useRuntimeConfig()
+    const categoryImageUrl = config.categoryImageUrl
+
     const categories = ref<ICategory[]>([])
     
     const getCategories = async () => {
-        const session = await fetchAuthSession()
-        const { data } = await useFetch(`${apiUrl}/categories`, {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${session.tokens?.idToken?.toString()}`
-            }
-        })
-        categories.value = data.value as ICategory[]
+        const data = [{
+            id: '1',
+            name: 'Bangles',
+            description: '',
+            image: categoryImageUrl + 'bangle.jpeg'
+        },
+        {
+            id: '2',
+            name: 'Bracelets',
+            description: '',
+            image: categoryImageUrl + 'bracelet.jpeg'
+        },
+        {
+            id: '3',
+            name: 'Earrings',
+            description: '',
+            image: categoryImageUrl + 'earrings.jpeg'
+        },
+        {
+            id: '4',
+            name: 'Necklaces',
+            description: '',
+            image: categoryImageUrl + 'necklace.jpeg'
+        },
+        {
+            id: '5',
+            name: 'Rings',
+            description: '',
+            image: categoryImageUrl + 'ring.jpeg'
+        },
+        {
+            id: '6',
+            name: 'Sets',
+            description: '',
+            image: categoryImageUrl + 'sets.jpeg'
+        },
+    ]
+    
+        categories.value = data as ICategory[]
     }
 
-    const addCategory = async (category: ICategoryInput) => {
-        const formData = new FormData()
-
-        formData.append('name', category.name)
-        formData.append('description', category.description)
-        formData.append('image', category.image as File)
-
-        const { data } = await useFetch(`${apiUrl}/categories`, {
-            method: 'POST',
-            body: formData
-        })
-        
-        categories.value.push(data.value as ICategory)
-    }
-
-    return { categories, getCategories, addCategory }
+    return { getCategories, categories }
 }

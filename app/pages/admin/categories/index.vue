@@ -4,7 +4,7 @@
         <div v-for="category in categories" :key="category.id">
             <h2>{{ category.name }}</h2>
             <h2>{{ category.description }}</h2>
-            <img :src="category.image?.name" alt="Category Image" />
+            <img :src="category.image" alt="Category Image" />
         </div>
     </div>
 </template>

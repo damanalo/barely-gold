@@ -77,10 +77,17 @@
           "arn": "arn:aws:dynamodb:ap-southeast-1:260908402776:table/Users",
           "partitionKeyName": "id",
           "partitionKeyType": "S"
+        },
+        "barelygoldui751c10da": {
+          "bucketName": "amplify-barelygoldui-dev-2f0b8-deployment",
+          "region": "ap-southeast-1"
         }
       },
       "api": {
         "api6618032f": {}
+      },
+      "hosting": {
+        "S3AndCloudFront": {}
       }
     }
   }

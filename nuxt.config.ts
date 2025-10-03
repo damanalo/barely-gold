@@ -13,7 +13,8 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      apiUrl: process.env.API_URL
+      apiUrl: process.env.API_URL,
+      categoryImageUrl: process.env.CATEGORY_IMAGE_URL
     }
   },
   ssr: false,

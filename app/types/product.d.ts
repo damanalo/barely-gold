@@ -1,4 +1,4 @@
-export interface Product {
+export interface IProduct {
     id: string,
     category_id: string,
     category_name: string,
@@ -12,3 +12,5 @@ export interface Product {
     created_at: string,
     updated_at: string
 }
+
+export type IProductInput = Omit<IProduct, 'id'>

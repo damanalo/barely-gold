@@ -5,7 +5,15 @@
       "name": "/categories",
       "lambdaFunction": "HonoFunction",
       "permissions": {
-        "setting": "open"
+        "groups": {
+          "Admin": [
+            "create",
+            "read",
+            "update",
+            "delete"
+          ]
+        },
+        "setting": "private"
       }
     }
   }
