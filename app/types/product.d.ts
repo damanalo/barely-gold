@@ -1,16 +1,13 @@
 export interface IProduct {
     id: string,
-    category_id: string,
-    category_name: string,
+    category: string,
     name: string,
     description: string,
     price: number,
-    sku: string,
     status: string,
     images: string[],
-    date_added: string,
-    created_at: string,
-    updated_at: string
+    created_at: string, //Unix timestamp
+    updated_at: string, //Unix timestamp
 }
 
 export type IProductInput = Omit<IProduct, 'id'>

@@ -1,6 +1,6 @@
 {
   "api": {
-    "api6618032f": {
+    "BarelyGoldAPI": {
       "dependsOn": [
         {
           "attributes": [
@@ -8,7 +8,7 @@
             "Arn"
           ],
           "category": "function",
-          "resourceName": "HonoFunction"
+          "resourceName": "ProductsCRUD"
         },
         {
           "attributes": [
@@ -20,6 +20,13 @@
         {
           "attributes": [
             "AdminGroupRole"
+          ],
+          "category": "auth",
+          "resourceName": "userPoolGroups"
+        },
+        {
+          "attributes": [
+            "CustomerGroupRole"
           ],
           "category": "auth",
           "resourceName": "userPoolGroups"
@@ -76,8 +83,45 @@
     }
   },
   "function": {
-    "HonoFunction": {
+    "ProductsCRUD": {
       "build": true,
+      "dependsOn": [
+        {
+          "attributeEnvMap": {
+            "Arn": "TABLE_ARN",
+            "Name": "TABLE_NAME"
+          },
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "storage",
+          "resourceName": "DynamoDB"
+        },
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "barelygoldui0845b22d0845b22d"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "DynamoDB"
+        },
+        {
+          "attributes": [
+            "HostingBucketName"
+          ],
+          "category": "hosting",
+          "resourceName": "S3AndCloudFront"
+        }
+      ],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
@@ -89,415 +133,27 @@
     }
   },
   "parameters": {
-    "AMPLIFY_function_HonoFunction_deploymentBucketName": {
+    "AMPLIFY_function_ProductsCRUD_deploymentBucketName": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "HonoFunction"
+          "resourceName": "ProductsCRUD"
         }
       ]
     },
-    "AMPLIFY_function_HonoFunction_s3Key": {
+    "AMPLIFY_function_ProductsCRUD_s3Key": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "HonoFunction"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Addresses_arn": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Addresses"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Addresses_partitionKeyName": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Addresses"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Addresses_partitionKeyType": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Addresses"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Addresses_region": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Addresses"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Addresses_sortKeyName": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Addresses"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Addresses_sortKeyType": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Addresses"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Addresses_tableName": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Addresses"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Carts_arn": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Carts"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Carts_partitionKeyName": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Carts"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Carts_partitionKeyType": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Carts"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Carts_region": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Carts"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Carts_tableName": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Carts"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Categories_arn": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Categories"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Categories_partitionKeyName": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Categories"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Categories_partitionKeyType": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Categories"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Categories_region": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Categories"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Categories_tableName": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Categories"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Orders_arn": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Orders"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Orders_partitionKeyName": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Orders"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Orders_partitionKeyType": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Orders"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Orders_region": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Orders"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Orders_sortKeyName": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Orders"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Orders_sortKeyType": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Orders"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Orders_tableName": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Orders"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Products_arn": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Products"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Products_partitionKeyName": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Products"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Products_partitionKeyType": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Products"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Products_region": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Products"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Products_sortKeyName": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Products"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Products_sortKeyType": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Products"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Products_tableName": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Products"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Stock_arn": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Stock"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Stock_partitionKeyName": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Stock"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Stock_partitionKeyType": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Stock"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Stock_region": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Stock"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Stock_tableName": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Stock"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Users_arn": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Users"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Users_partitionKeyName": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Users"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Users_partitionKeyType": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Users"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Users_region": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Users"
-        }
-      ]
-    },
-    "AMPLIFY_storage_Users_tableName": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "Users"
-        }
-      ]
-    },
-    "AMPLIFY_storage_barelygoldui751c10da_bucketName": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "barelygoldui751c10da"
-        }
-      ]
-    },
-    "AMPLIFY_storage_barelygoldui751c10da_region": {
-      "usedBy": [
-        {
-          "category": "storage",
-          "resourceName": "barelygoldui751c10da"
+          "resourceName": "ProductsCRUD"
         }
       ]
     }
   },
   "storage": {
-    "Addresses": {
-      "dependsOn": [],
+    "DynamoDB": {
       "providerPlugin": "awscloudformation",
-      "service": "DynamoDB",
-      "serviceType": "imported"
-    },
-    "Carts": {
-      "dependsOn": [],
-      "providerPlugin": "awscloudformation",
-      "service": "DynamoDB",
-      "serviceType": "imported"
-    },
-    "Categories": {
-      "dependsOn": [],
-      "providerPlugin": "awscloudformation",
-      "service": "DynamoDB",
-      "serviceType": "imported"
-    },
-    "Orders": {
-      "dependsOn": [],
-      "providerPlugin": "awscloudformation",
-      "service": "DynamoDB",
-      "serviceType": "imported"
-    },
-    "Products": {
-      "dependsOn": [],
-      "providerPlugin": "awscloudformation",
-      "service": "DynamoDB",
-      "serviceType": "imported"
-    },
-    "Stock": {
-      "dependsOn": [],
-      "providerPlugin": "awscloudformation",
-      "service": "DynamoDB",
-      "serviceType": "imported"
-    },
-    "Users": {
-      "dependsOn": [],
-      "providerPlugin": "awscloudformation",
-      "service": "DynamoDB",
-      "serviceType": "imported"
-    },
-    "barelygoldui751c10da": {
-      "dependsOn": [],
-      "providerPlugin": "awscloudformation",
-      "service": "S3",
-      "serviceType": "imported"
+      "service": "DynamoDB"
     }
   }
 }

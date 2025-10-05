@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "auth": {
+      "barelygoldui0845b22d0845b22d": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    },
+    "storage": {
+      "DynamoDB": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    },
+    "hosting": {
+      "S3AndCloudFront": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}

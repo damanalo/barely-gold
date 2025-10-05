@@ -42,7 +42,7 @@
           <!-- Product Details -->
           <div class="p-4">
             <div class="mb-2">
-              <span class="text-xs text-stone-500 uppercase tracking-wide">{{ product.category_name }}</span>
+              <span class="text-xs text-stone-500 uppercase tracking-wide">{{ product.category }}</span>
               <h3 class="text-lg font-semibold text-stone-800 mt-1">{{ product.name }}</h3>
             </div>
             <p class="text-sm text-stone-600 line-clamp-2 mb-3">{{ product.description }}</p>
@@ -61,7 +61,7 @@
             </div>
 
             <div class="mt-3 text-xs text-stone-500">
-              SKU: {{ product.sku }}
+              SKU: {{ product.id }}
             </div>
           </div>
         </div>
@@ -111,7 +111,7 @@ const categoryOptions = computed(() => [
   { label: 'All Categories', value: 'all' },
   ...categories.value.map(cat => ({
     label: cat.name,
-    value: cat.id
+    value: cat.name
   }))
 ])
 
@@ -119,14 +119,14 @@ const filteredProducts = computed(() => {
   if (selectedCategory.value === 'all') {
     return products.value
   }
-  return products.value.filter(product => product.category_id === selectedCategory.value)
+  return products.value.filter(product => product.category === selectedCategory.value)
 })
 
 const pageTitle = computed(() => {
   if (selectedCategory.value === 'all') {
     return 'All Products'
   }
-  const category = categories.value.find(cat => cat.id === selectedCategory.value)
+  const category = categories.value.find(cat => cat.name === selectedCategory.value)
   return category ? category.name : 'Products'
 })
 

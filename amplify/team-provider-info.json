@@ -16,78 +16,20 @@
         "barelygoldui0845b22d0845b22d": {},
         "userPoolGroups": {}
       },
-      "function": {
-        "HonoFunction": {
-          "deploymentBucketName": "amplify-barelygoldui-dev-2f0b8-deployment",
-          "s3Key": "amplify-builds/HonoFunction-4b44653756426a337175-build.zip"
-        }
+      "hosting": {
+        "S3AndCloudFront": {}
       },
-      "storage": {
-        "Addresses": {
-          "tableName": "Addresses",
-          "region": "ap-southeast-1",
-          "arn": "arn:aws:dynamodb:ap-southeast-1:260908402776:table/Addresses",
-          "partitionKeyName": "user_id",
-          "partitionKeyType": "S",
-          "sortKeyName": "id",
-          "sortKeyType": "S"
-        },
-        "Carts": {
-          "tableName": "Carts",
-          "region": "ap-southeast-1",
-          "arn": "arn:aws:dynamodb:ap-southeast-1:260908402776:table/Carts",
-          "partitionKeyName": "user_id",
-          "partitionKeyType": "S"
-        },
-        "Categories": {
-          "tableName": "Categories",
-          "region": "ap-southeast-1",
-          "arn": "arn:aws:dynamodb:ap-southeast-1:260908402776:table/Categories",
-          "partitionKeyName": "id",
-          "partitionKeyType": "S"
-        },
-        "Orders": {
-          "tableName": "Orders",
-          "region": "ap-southeast-1",
-          "arn": "arn:aws:dynamodb:ap-southeast-1:260908402776:table/Orders",
-          "partitionKeyName": "user_id",
-          "partitionKeyType": "S",
-          "sortKeyName": "id",
-          "sortKeyType": "S"
-        },
-        "Products": {
-          "tableName": "Products",
-          "region": "ap-southeast-1",
-          "arn": "arn:aws:dynamodb:ap-southeast-1:260908402776:table/Products",
-          "partitionKeyName": "category_id",
-          "partitionKeyType": "S",
-          "sortKeyName": "id",
-          "sortKeyType": "S"
-        },
-        "Stock": {
-          "tableName": "Stock",
-          "region": "ap-southeast-1",
-          "arn": "arn:aws:dynamodb:ap-southeast-1:260908402776:table/Stock",
-          "partitionKeyName": "item_id",
-          "partitionKeyType": "S"
-        },
-        "Users": {
-          "tableName": "Users",
-          "region": "ap-southeast-1",
-          "arn": "arn:aws:dynamodb:ap-southeast-1:260908402776:table/Users",
-          "partitionKeyName": "id",
-          "partitionKeyType": "S"
-        },
-        "barelygoldui751c10da": {
-          "bucketName": "amplify-barelygoldui-dev-2f0b8-deployment",
-          "region": "ap-southeast-1"
+      "function": {
+        "ProductsCRUD": {
+          "deploymentBucketName": "amplify-barelygoldui-dev-2f0b8-deployment",
+          "s3Key": "amplify-builds/ProductsCRUD-3634536b35474b675948-build.zip"
         }
       },
       "api": {
-        "api6618032f": {}
+        "BarelyGoldAPI": {}
       },
-      "hosting": {
-        "S3AndCloudFront": {}
+      "storage": {
+        "DynamoDB": {}
       }
     }
   }

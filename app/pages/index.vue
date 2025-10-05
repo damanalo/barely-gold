@@ -37,8 +37,8 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 place-items-center">
             <NuxtLink 
               v-for="category in categories" 
-              :key="category.id" 
-              :to="`/products?category=${category.id}`"
+              :key="category.name" 
+              :to="`/products?category=${category.name}`"
               class="w-full sm:w-[320px] group"
             >
               <div class="relative rounded-md overflow-hidden shadow-sm ring-1 ring-transparent transition duration-500 ease-in-out hover:shadow-md hover:ring-[var(--color-gold-300)] hover:ring-offset-1 hover:ring-offset-white hover-gold-glow">

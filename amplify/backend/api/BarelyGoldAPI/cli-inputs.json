@@ -1,9 +1,9 @@
 {
   "version": 1,
   "paths": {
-    "/categories": {
-      "name": "/categories",
-      "lambdaFunction": "HonoFunction",
+    "/products": {
+      "name": "/products",
+      "lambdaFunction": "ProductsCRUD",
       "permissions": {
         "groups": {
           "Admin": [
@@ -11,6 +11,9 @@
             "read",
             "update",
             "delete"
+          ],
+          "Customer": [
+            "read"
           ]
         },
         "setting": "private"
