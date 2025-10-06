@@ -14,7 +14,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       apiUrl: process.env.API_URL,
-      publicCloudfrontUrl: process.env.PUBLIC_CLOUDFRONT_URL
+      publicCloudfrontUrl: process.env.PUBLIC_CLOUDFRONT_URL,
+      showComingSoon: process.env.SHOW_COMING_SOON
     }
   },
   ssr: false,

@@ -6,10 +6,10 @@
   "javascript": {
     "framework": "vue",
     "config": {
-      "SourceDir": "src",
-      "DistributionDir": "dist",
-      "BuildCommand": "npm.cmd run-script build",
-      "StartCommand": "npm.cmd run-script serve"
+      "SourceDir": "app",
+      "DistributionDir": ".output",
+      "BuildCommand": "pnpm run build",
+      "StartCommand": "pnpm run preview"
     }
   },
   "providers": [

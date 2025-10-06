@@ -1,8 +1,21 @@
 <template>
   <UApp>
-    <NuxtLayout>
-      <NuxtRouteAnnouncer />
-      <NuxtPage />
-    </NuxtLayout>
+    <div class="pt-10">
+      <ComingSoon v-if="showComingSoon" />
+      <template v-else>
+        <NuxtLayout>
+          <NuxtRouteAnnouncer />
+          <NuxtPage />
+        </NuxtLayout>
+      </template>
+    </div>
   </UApp>
 </template>
+
+<script setup lang="ts">
+
+const { public: config } = useRuntimeConfig()
+
+const showComingSoon = ref(config.showComingSoon == 'true')
+
+</script>
