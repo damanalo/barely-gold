@@ -20,7 +20,7 @@
               {{ cartStore.itemCount }}
             </UBadge>
           </UButton>
-          <span>|</span>
+          <span v-if="authStore.isAuthenticated">|</span>
           <span v-if="authStore.isAuthenticated && user">Welcome, {{ user.given_name }} </span>
           <UButton v-if="authStore.isAuthenticated" @click="authStore.signOut" variant="ghost" class="cursor-pointer">Sign Out</UButton>
         </nav>
