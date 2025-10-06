@@ -1,6 +1,6 @@
 import { defineNuxtPlugin } from '#app';
 
-import awsExports from '../../src/aws-exports.js'; 
+import awsExports from '../aws-exports.js'; 
 
 import { Amplify } from 'aws-amplify';
 

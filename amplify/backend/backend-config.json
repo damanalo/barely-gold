@@ -132,24 +132,6 @@
       "service": "S3AndCloudFront"
     }
   },
-  "parameters": {
-    "AMPLIFY_function_BGProductsCRUD_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "BGProductsCRUD"
-        }
-      ]
-    },
-    "AMPLIFY_function_BGProductsCRUD_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "BGProductsCRUD"
-        }
-      ]
-    }
-  },
   "storage": {
     "BGDynamoDB": {
       "providerPlugin": "awscloudformation",
