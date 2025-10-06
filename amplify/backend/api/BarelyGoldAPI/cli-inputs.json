@@ -3,7 +3,7 @@
   "paths": {
     "/products": {
       "name": "/products",
-      "lambdaFunction": "ProductsCRUD",
+      "lambdaFunction": "BGProductsCRUD",
       "permissions": {
         "groups": {
           "Admin": [

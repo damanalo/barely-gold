@@ -20,16 +20,17 @@
         "S3AndCloudFront": {}
       },
       "function": {
-        "ProductsCRUD": {
+        "BGProductsCRUD": {
           "deploymentBucketName": "amplify-barelygoldui-dev-2f0b8-deployment",
-          "s3Key": "amplify-builds/ProductsCRUD-3634536b35474b675948-build.zip"
+          "s3Key": "amplify-builds/BGProductsCRUD-6c6c65336b4179537039-build.zip"
         }
       },
       "api": {
         "BarelyGoldAPI": {}
       },
       "storage": {
-        "DynamoDB": {}
+        "BGDynamoDB": {},
+        "BGS3Bucket": {}
       }
     }
   }

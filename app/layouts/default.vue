@@ -27,6 +27,8 @@
       </UContainer>
     </header>
 
+    <Breadcrumbs />
+
     <main>
       <slot />
     </main>
@@ -135,7 +137,7 @@
                 <span class="text-gray-600 dark:text-gray-400">Tax (10%)</span>
                 <span class="font-medium text-gray-900 dark:text-white">{{ formatPrice(cartStore.tax) }}</span>
               </div>
-              <UDivider />
+              <USeparator />
               <div class="flex justify-between text-base">
                 <span class="font-semibold text-gray-900 dark:text-white">Total</span>
                 <span class="font-semibold text-gray-900 dark:text-white">{{ formatPrice(cartStore.total) }}</span>

@@ -2,40 +2,45 @@ import type { ICategory } from '~/types/category'
 
 export const useCategories = () => {
     const { public: config } = useRuntimeConfig()
-    const categoryImageUrl = config.categoryImageUrl
 
     const categories = ref<ICategory[]>([])
     
     const getCategories = async () => {
         const data = [{
+            id: 'bangles',
             name: 'Bangles',
             description: '',
-            image: categoryImageUrl + 'bangle.jpeg'
+            image: config.publicCloudfrontUrl + '/bangles/category-bangles.jpg'
         },
         {
+            id: 'bracelets',
             name: 'Bracelets',
             description: '',
-            image: categoryImageUrl + 'bracelet.jpeg'
+            image: config.publicCloudfrontUrl + '/bracelets/category-bracelets.jpg'
         },
         {
+            id: 'earrings',
             name: 'Earrings',
             description: '',
-            image: categoryImageUrl + 'earrings.jpeg'
+            image: config.publicCloudfrontUrl + '/earrings/category-earrings.jpg'
         },
         {
+            id: 'necklaces',
             name: 'Necklaces',
             description: '',
-            image: categoryImageUrl + 'necklace.jpeg'
+            image: config.publicCloudfrontUrl + '/necklaces/category-necklaces.jpg'
         },
         {
+            id: 'rings',
             name: 'Rings',
             description: '',
-            image: categoryImageUrl + 'ring.jpeg'
+            image: config.publicCloudfrontUrl + '/rings/category-rings.jpg'
         },
         {
+            id: 'sets',
             name: 'Sets',
             description: '',
-            image: categoryImageUrl + 'sets.jpeg'
+            image: config.publicCloudfrontUrl + '/sets/category-sets.jpg'
         },
     ]
     

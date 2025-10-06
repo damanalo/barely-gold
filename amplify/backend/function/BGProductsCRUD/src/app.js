@@ -11,9 +11,9 @@ See the License for the specific language governing permissions and limitations 
 	ENV
 	HOSTING_S3ANDCLOUDFRONT_HOSTINGBUCKETNAME
 	REGION
-	STORAGE_DYNAMODB_ARN
-	STORAGE_DYNAMODB_NAME
-	STORAGE_DYNAMODB_STREAMARN
+	STORAGE_BGDYNAMODB_ARN
+	STORAGE_BGDYNAMODB_NAME
+	STORAGE_BGDYNAMODB_STREAMARN
 Amplify Params - DO NOT EDIT */
 
 const { DynamoDBClient } = require('@aws-sdk/client-dynamodb');
@@ -178,7 +178,7 @@ app.put(path, async function(req, res) {
   }
   try {
     let data = await ddbDocClient.send(new PutCommand(putItemParams));
-    res.json({ success: 'put call succeed!', url: req.url, data: data })
+    res.json({ success: true, url: req.url, data: data })
   } catch (err) {
     res.statusCode = 500;
     res.json({ error: err, url: req.url, body: req.body });
@@ -191,6 +191,7 @@ app.put(path, async function(req, res) {
 
 app.post(path, async function(req, res) {
 
+  
   if (userIdPresent) {
     req.body['userId'] = req.apiGateway.event.requestContext.identity.cognitoIdentityId || UNAUTH;
   }
@@ -201,7 +202,7 @@ app.post(path, async function(req, res) {
   }
   try {
     let data = await ddbDocClient.send(new PutCommand(putItemParams));
-    res.json({ success: 'post call succeed!', url: req.url, data: data })
+    res.json({ success: true, url: req.url, data: data })
   } catch (err) {
     res.statusCode = 500;
     res.json({ error: err, url: req.url, body: req.body });

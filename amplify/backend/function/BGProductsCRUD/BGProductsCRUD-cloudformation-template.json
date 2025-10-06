@@ -16,21 +16,21 @@
     "s3Key": {
       "Type": "String"
     },
-    "storageDynamoDBName": {
+    "storageBGDynamoDBName": {
       "Type": "String",
-      "Default": "storageDynamoDBName"
+      "Default": "storageBGDynamoDBName"
     },
-    "storageDynamoDBArn": {
+    "storageBGDynamoDBArn": {
       "Type": "String",
-      "Default": "storageDynamoDBArn"
+      "Default": "storageBGDynamoDBArn"
     },
     "authbarelygoldui0845b22d0845b22dUserPoolId": {
       "Type": "String",
       "Default": "authbarelygoldui0845b22d0845b22dUserPoolId"
     },
-    "storageDynamoDBStreamArn": {
+    "storageBGDynamoDBStreamArn": {
       "Type": "String",
-      "Default": "storageDynamoDBStreamArn"
+      "Default": "storageBGDynamoDBStreamArn"
     },
     "hostingS3AndCloudFrontHostingBucketName": {
       "Type": "String",
@@ -67,12 +67,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "ProductsCRUD",
+            "BGProductsCRUD",
             {
               "Fn::Join": [
                 "",
                 [
-                  "ProductsCRUD",
+                  "BGProductsCRUD",
                   "-",
                   {
                     "Ref": "env"
@@ -93,14 +93,14 @@
             "AUTH_BARELYGOLDUI0845B22D0845B22D_USERPOOLID": {
               "Ref": "authbarelygoldui0845b22d0845b22dUserPoolId"
             },
-            "STORAGE_DYNAMODB_NAME": {
-              "Ref": "storageDynamoDBName"
+            "STORAGE_BGDYNAMODB_NAME": {
+              "Ref": "storageBGDynamoDBName"
             },
-            "STORAGE_DYNAMODB_ARN": {
-              "Ref": "storageDynamoDBArn"
+            "STORAGE_BGDYNAMODB_ARN": {
+              "Ref": "storageBGDynamoDBArn"
             },
-            "STORAGE_DYNAMODB_STREAMARN": {
-              "Ref": "storageDynamoDBStreamArn"
+            "STORAGE_BGDYNAMODB_STREAMARN": {
+              "Ref": "storageBGDynamoDBStreamArn"
             },
             "HOSTING_S3ANDCLOUDFRONT_HOSTINGBUCKETNAME": {
               "Ref": "hostingS3AndCloudFrontHostingBucketName"
@@ -124,12 +124,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "barelygolduiLambdaRoledcd554d0",
+            "barelygolduiLambdaRole13c4c5ce",
             {
               "Fn::Join": [
                 "",
                 [
-                  "barelygolduiLambdaRoledcd554d0",
+                  "barelygolduiLambdaRole13c4c5ce",
                   "-",
                   {
                     "Ref": "env"
@@ -209,14 +209,14 @@
               ],
               "Resource": [
                 {
-                  "Ref": "storageDynamoDBArn"
+                  "Ref": "storageBGDynamoDBArn"
                 },
                 {
                   "Fn::Join": [
                     "/",
                     [
                       {
-                        "Ref": "storageDynamoDBArn"
+                        "Ref": "storageBGDynamoDBArn"
                       },
                       "index/*"
                     ]
@@ -372,14 +372,14 @@
               ],
               "Resource": [
                 {
-                  "Ref": "storageDynamoDBArn"
+                  "Ref": "storageBGDynamoDBArn"
                 },
                 {
                   "Fn::Join": [
                     "/",
                     [
                       {
-                        "Ref": "storageDynamoDBArn"
+                        "Ref": "storageBGDynamoDBArn"
                       },
                       "index/*"
                     ]

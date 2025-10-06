@@ -7,16 +7,6 @@
         <p class="text-stone-600 mt-2">Browse our collection of exquisite jewelry</p>
       </div>
 
-      <!-- Filter by Category -->
-      <div class="mb-8">
-        <USelectMenu
-          v-model="selectedCategory"
-          :options="categoryOptions"
-          placeholder="Filter by category"
-          class="w-full md:w-64"
-        />
-      </div>
-
       <!-- Products Grid -->
       <div v-if="filteredProducts.length > 0" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         <div
@@ -27,8 +17,9 @@
           <!-- Product Image -->
           <div class="relative aspect-square overflow-hidden bg-stone-100">
             <img
-              :src="product.images[0]"
+              :src="getImageUrl(product.images?.[0] as unknown as string)"
               :alt="product.name"
+              loading="lazy"
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
             <div
@@ -83,50 +74,42 @@ import type { IProduct } from '~/types/product'
 
 const route = useRoute()
 const cartStore = useCartStore()
+const config = useRuntimeConfig()
 
 const { getProducts, products } = useProducts()
 const { getCategories, categories } = useCategories()
 
-const selectedCategory = ref<string>('all')
+// Helper function to get full image URL from CloudFront
+const getImageUrl = (imagePath: string | undefined) => {
+  return `${config.public.publicCloudfrontUrl}/${imagePath || 'misc/bg_image_not_available.png'}`
+}
 
 onMounted(async () => {
   await getCategories()
   await getProducts()
-  
-  // Set initial category from query params
-  const categoryId = route.query.category as string
-  if (categoryId) {
-    selectedCategory.value = categoryId
-  }
 })
 
-// Watch for query parameter changes
-watch(() => route.query.category, (newCategory) => {
-  if (newCategory) {
-    selectedCategory.value = newCategory as string
-  }
-})
 
 const categoryOptions = computed(() => [
   { label: 'All Categories', value: 'all' },
   ...categories.value.map(cat => ({
     label: cat.name,
-    value: cat.name
+    value: cat.id
   }))
 ])
 
 const filteredProducts = computed(() => {
-  if (selectedCategory.value === 'all') {
+  if (route.query.category === 'all') {
     return products.value
   }
-  return products.value.filter(product => product.category === selectedCategory.value)
+  return products.value.filter(product => product.category === route.query.category)
 })
 
 const pageTitle = computed(() => {
-  if (selectedCategory.value === 'all') {
+  if (route.query.category === 'all') {
     return 'All Products'
   }
-  const category = categories.value.find(cat => cat.name === selectedCategory.value)
+  const category = categories.value.find(cat => cat.id === route.query.category)
   return category ? category.name : 'Products'
 })
 
@@ -135,7 +118,7 @@ const addToCart = (product: IProduct) => {
     id: product.id,
     name: product.name,
     price: product.price,
-    image: product.images[0]
+    image: getImageUrl(product.images?.[0] as unknown as string)
   })
   cartStore.openCart()
 }

@@ -22,7 +22,7 @@ export type AmplifyDependentResourcesAttributes = {
     }
   },
   "function": {
-    "ProductsCRUD": {
+    "BGProductsCRUD": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
       "LambdaExecutionRoleArn": "string",
@@ -43,7 +43,7 @@ export type AmplifyDependentResourcesAttributes = {
     }
   },
   "storage": {
-    "DynamoDB": {
+    "BGDynamoDB": {
       "Arn": "string",
       "Name": "string",
       "PartitionKeyName": "string",
@@ -52,6 +52,10 @@ export type AmplifyDependentResourcesAttributes = {
       "SortKeyName": "string",
       "SortKeyType": "string",
       "StreamArn": "string"
+    },
+    "BGS3Bucket": {
+      "BucketName": "string",
+      "Region": "string"
     }
   }
 }

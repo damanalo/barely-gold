@@ -1,5 +1,5 @@
 {
-  "resourceName": "DynamoDB",
+  "resourceName": "BGDynamoDB",
   "tableName": "products",
   "partitionKey": {
     "fieldName": "category",
