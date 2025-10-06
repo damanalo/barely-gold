@@ -1,14 +1,12 @@
 <template>
   <UApp>
-    <div class="pt-10">
-      <ComingSoon v-if="showComingSoon" />
-      <template v-else>
-        <NuxtLayout>
-          <NuxtRouteAnnouncer />
-          <NuxtPage />
-        </NuxtLayout>
-      </template>
-    </div>
+    <ComingSoon v-if="showComingSoon" />
+    <template v-else>
+      <NuxtLayout>
+        <NuxtRouteAnnouncer />
+        <NuxtPage />
+      </NuxtLayout>
+    </template>
   </UApp>
 </template>
 
