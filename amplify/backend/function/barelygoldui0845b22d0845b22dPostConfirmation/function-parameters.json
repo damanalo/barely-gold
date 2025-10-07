@@ -1,0 +1,16 @@
+{
+  "trigger": true,
+  "modules": [
+    "add-to-group"
+  ],
+  "parentResource": "barelygoldui0845b22d0845b22d",
+  "functionName": "barelygoldui0845b22d0845b22dPostConfirmation",
+  "resourceName": "barelygoldui0845b22d0845b22dPostConfirmation",
+  "parentStack": "auth",
+  "triggerEnvs": "[]",
+  "triggerDir": "C:\\snapshot\\amplify-cli\\build\\node_modules\\@aws-amplify\\amplify-category-auth\\provider-utils\\awscloudformation\\triggers\\PostConfirmation",
+  "triggerTemplate": "PostConfirmation.json.ejs",
+  "triggerEventPath": "PostConfirmation.event.json",
+  "roleName": "barelygoldui0845b22d0845b22dPostConfirmation",
+  "skipEdit": true
+}

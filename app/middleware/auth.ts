@@ -13,7 +13,11 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
     // User is not authenticated AND is trying to access a protected route
     return navigateTo('/login');
   }
-  
+
+  if(authStore.isAuthenticated && !authStore.user.groups.includes('Admin')) {
+    return navigateTo('/403');
+  }
+
   // Optional: Redirect authenticated users away from login/signup pages
   if (authStore.isAuthenticated && (to.path === '/login' || to.path === '/signup')) {
     return navigateTo('/'); // or your dashboard page

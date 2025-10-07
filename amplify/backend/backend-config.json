@@ -1,5 +1,27 @@
 {
   "api": {
+    "AdminQueries": {
+      "authorizationType": "AMAZON_COGNITO_USER_POOLS",
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "barelygoldui0845b22d0845b22d"
+        },
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "AdminQueries35b7b913"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    },
     "BarelyGoldAPI": {
       "dependsOn": [
         {
@@ -39,7 +61,17 @@
   "auth": {
     "barelygoldui0845b22d0845b22d": {
       "customAuth": false,
-      "dependsOn": [],
+      "dependsOn": [
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "barelygoldui0845b22d0845b22dPostConfirmation",
+          "triggerProvider": "Cognito"
+        }
+      ],
       "frontendAuthConfig": {
         "mfaConfiguration": "OFF",
         "mfaTypes": [
@@ -83,6 +115,20 @@
     }
   },
   "function": {
+    "AdminQueries35b7b913": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "barelygoldui0845b22d0845b22d"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "BGProductsCRUD": {
       "build": true,
       "dependsOn": [
@@ -124,6 +170,11 @@
       ],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    },
+    "barelygoldui0845b22d0845b22dPostConfirmation": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
     }
   },
   "hosting": {
@@ -133,6 +184,22 @@
     }
   },
   "parameters": {
+    "AMPLIFY_function_AdminQueries35b7b913_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "AdminQueries35b7b913"
+        }
+      ]
+    },
+    "AMPLIFY_function_AdminQueries35b7b913_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "AdminQueries35b7b913"
+        }
+      ]
+    },
     "AMPLIFY_function_BGProductsCRUD_deploymentBucketName": {
       "usedBy": [
         {
@@ -146,6 +213,30 @@
         {
           "category": "function",
           "resourceName": "BGProductsCRUD"
+        }
+      ]
+    },
+    "AMPLIFY_function_barelygoldui0845b22d0845b22dPostConfirmation_GROUP": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "barelygoldui0845b22d0845b22dPostConfirmation"
+        }
+      ]
+    },
+    "AMPLIFY_function_barelygoldui0845b22d0845b22dPostConfirmation_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "barelygoldui0845b22d0845b22dPostConfirmation"
+        }
+      ]
+    },
+    "AMPLIFY_function_barelygoldui0845b22d0845b22dPostConfirmation_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "barelygoldui0845b22d0845b22dPostConfirmation"
         }
       ]
     }

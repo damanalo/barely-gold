@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { fetchUserAttributes, signIn } from 'aws-amplify/auth'; // Import client-side Amplify Auth
+import { fetchUserAttributes, fetchAuthSession } from 'aws-amplify/auth'; // Import client-side Amplify Auth
 import { signOut } from 'aws-amplify/auth';
 import { navigateTo } from 'nuxt/app';
 
@@ -19,7 +19,11 @@ export const useAuthStore = defineStore('auth', {
       this.loading = true;
       try {
         const userAttributes = await fetchUserAttributes();
-        this.user = userAttributes;
+        const { tokens } = await fetchAuthSession();
+        const groups = tokens?.accessToken?.payload['cognito:groups'] || [];
+        const user = {userAttributes, groups};
+        
+        this.user = user;
         this.isAuthenticated = true;
         this.loading = false;
         navigateTo('/');
