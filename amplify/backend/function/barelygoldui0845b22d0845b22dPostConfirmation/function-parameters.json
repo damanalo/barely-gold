@@ -1,7 +1,8 @@
 {
   "trigger": true,
   "modules": [
-    "add-to-group"
+    "add-to-group",
+    "custom"
   ],
   "parentResource": "barelygoldui0845b22d0845b22d",
   "functionName": "barelygoldui0845b22d0845b22dPostConfirmation",
@@ -12,5 +13,13 @@
   "triggerTemplate": "PostConfirmation.json.ejs",
   "triggerEventPath": "PostConfirmation.event.json",
   "roleName": "barelygoldui0845b22d0845b22dPostConfirmation",
-  "skipEdit": true
+  "skipEdit": true,
+  "permissions": {
+    "storage": {
+      "BGDynamoDBUsers": [
+        "create",
+        "update"
+      ]
+    }
+  }
 }

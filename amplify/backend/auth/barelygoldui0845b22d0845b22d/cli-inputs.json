@@ -51,7 +51,8 @@
     "adminQueries": false,
     "triggers": {
       "PostConfirmation": [
-        "add-to-group"
+        "add-to-group",
+        "custom"
       ]
     },
     "hostedUI": false,

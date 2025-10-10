@@ -1,0 +1,18 @@
+{
+  "resourceName": "BGDynamoDBUsers",
+  "tableName": "BGDynamoDBUsers",
+  "partitionKey": {
+    "fieldName": "id",
+    "fieldType": "string"
+  },
+  "gsi": [
+    {
+      "name": "emailGSI",
+      "partitionKey": {
+        "fieldName": "email",
+        "fieldType": "string"
+      }
+    }
+  ],
+  "triggerFunctions": []
+}

@@ -173,6 +173,17 @@
     },
     "barelygoldui0845b22d0845b22dPostConfirmation": {
       "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "BGDynamoDBUsers"
+        }
+      ],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
@@ -243,6 +254,10 @@
   },
   "storage": {
     "BGDynamoDB": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    },
+    "BGDynamoDBUsers": {
       "providerPlugin": "awscloudformation",
       "service": "DynamoDB"
     },

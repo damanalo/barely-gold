@@ -43,6 +43,18 @@
     },
     "s3Key": {
       "Type": "String"
+    },
+    "storageBGDynamoDBUsersName": {
+      "Type": "String",
+      "Default": "storageBGDynamoDBUsersName"
+    },
+    "storageBGDynamoDBUsersArn": {
+      "Type": "String",
+      "Default": "storageBGDynamoDBUsersArn"
+    },
+    "storageBGDynamoDBUsersStreamArn": {
+      "Type": "String",
+      "Default": "storageBGDynamoDBUsersStreamArn"
     }
   },
   "Conditions": {
@@ -95,6 +107,15 @@
             },
             "GROUP": {
               "Ref": "GROUP"
+            },
+            "STORAGE_BGDYNAMODBUSERS_NAME": {
+              "Ref": "storageBGDynamoDBUsersName"
+            },
+            "STORAGE_BGDYNAMODBUSERS_ARN": {
+              "Ref": "storageBGDynamoDBUsersArn"
+            },
+            "STORAGE_BGDYNAMODBUSERS_STREAMARN": {
+              "Ref": "storageBGDynamoDBUsersStreamArn"
             }
           }
         },
@@ -193,6 +214,53 @@
                   }
                 ]
               }
+            }
+          ]
+        }
+      }
+    },
+    "AmplifyResourcesPolicy": {
+      "DependsOn": [
+        "LambdaExecutionRole"
+      ],
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyName": "amplify-lambda-execution-policy",
+        "Roles": [
+          {
+            "Ref": "LambdaExecutionRole"
+          }
+        ],
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "dynamodb:Put*",
+                "dynamodb:Create*",
+                "dynamodb:BatchWriteItem",
+                "dynamodb:PartiQLInsert",
+                "dynamodb:Update*",
+                "dynamodb:RestoreTable*",
+                "dynamodb:PartiQLUpdate"
+              ],
+              "Resource": [
+                {
+                  "Ref": "storageBGDynamoDBUsersArn"
+                },
+                {
+                  "Fn::Join": [
+                    "/",
+                    [
+                      {
+                        "Ref": "storageBGDynamoDBUsersArn"
+                      },
+                      "index/*"
+                    ]
+                  ]
+                }
+              ]
             }
           ]
         }
