@@ -1,47 +1,62 @@
 {
-  "dev": {
+  "prod": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-barelygoldui-dev-2f0b8-authRole",
-      "UnauthRoleArn": "arn:aws:iam::260908402776:role/amplify-barelygoldui-dev-2f0b8-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::260908402776:role/amplify-barelygoldui-dev-2f0b8-authRole",
+      "AuthRoleName": "amplify-barelygoldui-prod-15beb-authRole",
+      "UnauthRoleArn": "arn:aws:iam::260908402776:role/amplify-barelygoldui-prod-15beb-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::260908402776:role/amplify-barelygoldui-prod-15beb-authRole",
       "Region": "ap-southeast-1",
-      "DeploymentBucketName": "amplify-barelygoldui-dev-2f0b8-deployment",
-      "UnauthRoleName": "amplify-barelygoldui-dev-2f0b8-unauthRole",
-      "StackName": "amplify-barelygoldui-dev-2f0b8",
-      "StackId": "arn:aws:cloudformation:ap-southeast-1:260908402776:stack/amplify-barelygoldui-dev-2f0b8/ad52bd60-9e92-11f0-a6c5-0294d4ce7eed",
-      "AmplifyAppId": "dw1oxhwn6roiy",
-      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-barelygoldui-dev-2f0b8-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+      "DeploymentBucketName": "amplify-barelygoldui-prod-15beb-deployment",
+      "UnauthRoleName": "amplify-barelygoldui-prod-15beb-unauthRole",
+      "StackName": "amplify-barelygoldui-prod-15beb",
+      "StackId": "arn:aws:cloudformation:ap-southeast-1:260908402776:stack/amplify-barelygoldui-prod-15beb/1a188440-a526-11f0-8ad5-062f57d3cd8b",
+      "AmplifyAppId": "d16gyclt38xryx",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-barelygoldui-prod-15beb-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
     },
     "categories": {
       "auth": {
         "barelygoldui0845b22d0845b22d": {},
         "userPoolGroups": {}
       },
-      "hosting": {
-        "S3AndCloudFront": {}
-      },
       "function": {
+        "AdminQueries35b7b913": {
+          "deploymentBucketName": "amplify-barelygoldui-prod-15beb-deployment",
+          "s3Key": "amplify-builds/AdminQueries35b7b913-77353142514e784a5356-build.zip"
+        },
         "BGProductsCRUD": {
-          "deploymentBucketName": "amplify-barelygoldui-dev-2f0b8-deployment",
+          "deploymentBucketName": "amplify-barelygoldui-prod-15beb-deployment",
           "s3Key": "amplify-builds/BGProductsCRUD-6c6c65336b4179537039-build.zip"
         },
         "barelygoldui0845b22d0845b22dPostConfirmation": {
           "GROUP": "Customer",
-          "deploymentBucketName": "amplify-barelygoldui-dev-2f0b8-deployment",
-          "s3Key": "amplify-builds/barelygoldui0845b22d0845b22dPostConfirmation-362b626f5554474d6952-build.zip"
+          "deploymentBucketName": "amplify-barelygoldui-prod-15beb-deployment",
+          "s3Key": "amplify-builds/barelygoldui0845b22d0845b22dPostConfirmation-4e567a78535931474d79-build.zip"
         },
-        "AdminQueries35b7b913": {
-          "deploymentBucketName": "amplify-barelygoldui-dev-2f0b8-deployment",
-          "s3Key": "amplify-builds/AdminQueries35b7b913-77353142514e784a5356-build.zip"
-        }
+        "barelygoldui0845b22d0845b22d": {},
+        "BGDynamoDB": {},
+        "S3AndCloudFront": {}
       },
       "api": {
-        "BarelyGoldAPI": {},
-        "AdminQueries": {}
+        "AdminQueries": {},
+        "BarelyGoldAPI": {}
+      },
+      "hosting": {
+        "S3AndCloudFront": {}
       },
       "storage": {
         "BGDynamoDB": {},
         "BGS3Bucket": {}
+      }
+    }
+  },
+  "dev": {
+    "categories": {
+      "function": {
+        "AdminQueries35b7b913": {},
+        "BGProductsCRUD": {},
+        "barelygoldui0845b22d0845b22dPostConfirmation": {},
+        "barelygoldui0845b22d0845b22d": {},
+        "BGDynamoDB": {},
+        "S3AndCloudFront": {}
       }
     }
   }
