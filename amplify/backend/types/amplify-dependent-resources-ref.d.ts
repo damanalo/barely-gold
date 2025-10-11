@@ -41,6 +41,13 @@ export type AmplifyDependentResourcesAttributes = {
       "Name": "string",
       "Region": "string"
     },
+    "BGUsersCRUD": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
     "barelygoldui0845b22d0845b22dPostConfirmation": {
       "Arn": "string",
       "LambdaExecutionRole": "string",

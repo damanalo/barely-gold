@@ -32,8 +32,8 @@
 </template>
 
 <script setup lang="ts">
-import { useProducts } from '~/composables/api/useProducts'
-import { useCategories } from '~/composables/api/useCategories'
+import { useProductsStore } from '~/stores/products'
+import { useCategoriesStore } from '~/stores/categories'
 import type { SelectItem } from '@nuxt/ui'
 
 const statusOptions = ref<SelectItem[]>([
@@ -41,8 +41,8 @@ const statusOptions = ref<SelectItem[]>([
     { label: 'Out of Stock', value: 'out_of_stock' }
 ])
 
-const { addProduct } = useProducts()
-const { getCategories, categories } = useCategories()
+const productsStore = useProductsStore()
+const categoriesStore = useCategoriesStore()
 
 const category = ref<string>('')
 const name = ref<string>('')
@@ -52,11 +52,14 @@ const status = ref<'in_stock' | 'out_of_stock'>('in_stock')
 const images = ref<File[] | null>(null)
 
 onMounted(async () => {
-    await getCategories()
+    await categoriesStore.fetchCategories()
 })
 
-const handleAddProduct = () => {
-    addProduct({
+// Create computed property for categories
+const categories = computed(() => categoriesStore.categories)
+
+const handleAddProduct = async () => {
+    const success = await productsStore.addProduct({
         category: category.value,
         name: name.value,
         description: description.value,
@@ -66,6 +69,16 @@ const handleAddProduct = () => {
         created_at: Date.now(), 
         updated_at: Date.now() 
     })
+    
+    if (success) {
+        // Reset form
+        category.value = ''
+        name.value = ''
+        description.value = ''
+        price.value = 0
+        status.value = 'in_stock'
+        images.value = null
+    }
 }
 
 

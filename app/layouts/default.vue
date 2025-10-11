@@ -129,16 +129,7 @@
           <!-- Footer / Totals -->
           <div v-if="cartStore.items.length > 0" class="p-4 border-t border-gray-200 dark:border-gray-800">
             <div class="space-y-3">
-              <div class="flex justify-between text-sm">
-                <span class="text-gray-600 dark:text-gray-400">Subtotal</span>
-                <span class="font-medium text-gray-900 dark:text-white">{{ formatPrice(cartStore.subtotal) }}</span>
-              </div>
-              <div class="flex justify-between text-sm">
-                <span class="text-gray-600 dark:text-gray-400">Tax (10%)</span>
-                <span class="font-medium text-gray-900 dark:text-white">{{ formatPrice(cartStore.tax) }}</span>
-              </div>
-              <USeparator />
-              <div class="flex justify-between text-base">
+              <div class="flex justify-between text-lg">
                 <span class="font-semibold text-gray-900 dark:text-white">Total</span>
                 <span class="font-semibold text-gray-900 dark:text-white">{{ formatPrice(cartStore.total) }}</span>
               </div>
@@ -163,6 +154,36 @@ await authStore.checkAuthStatus();
 const user = authStore.user
 
 const cartStore = useCartStore()
+
+// Initialize user data and cart when authenticated
+const initializeUserData = async () => {
+  if (authStore.isAuthenticated) {
+    console.log('Initializing user data and cart...')
+    // Import and initialize user store
+    const { useUserStore } = await import('~/stores/user')
+    const userStore = useUserStore()
+    
+    // Initialize user data (includes cart)
+    await userStore.initUser()
+    
+    // Initialize cart from user data
+    await cartStore.initCart()
+    console.log('User data and cart initialized. Cart items:', cartStore.items)
+  }
+}
+
+// Initialize on mount
+onMounted(async () => {
+  await initializeUserData()
+})
+
+// Watch for authentication changes and reload cart
+watch(() => authStore.isAuthenticated, async (isAuth) => {
+  if (isAuth) {
+    console.log('User authenticated, loading cart...')
+    await initializeUserData()
+  }
+})
 
 const route = useRoute()
 

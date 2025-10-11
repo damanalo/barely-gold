@@ -38,7 +38,7 @@
       "given_name"
     ],
     "userpoolClientLambdaRole": "barely0845b22d_userpoolclient_lambda_role",
-    "userpoolClientSetAttributes": false,
+    "userpoolClientSetAttributes": true,
     "sharedId": "0845b22d",
     "resourceName": "barelygoldui0845b22d0845b22d",
     "authSelections": "identityPoolAndUserPool",

@@ -4,26 +4,28 @@ import { v4 as uuidv4 } from 'uuid';
 import { uploadData } from 'aws-amplify/storage';
 
 export const useProducts = () => {
-  const products = ref<IProduct[]>([])
+  const config = useRuntimeConfig()
+  const apiName = config.public.apiName
 
-  const getProducts = async () => {
+  const getProducts = async (): Promise<IProduct[]> => {
     try {
       const operation = await get({
-        apiName: 'BarelyGoldAPI', path: '/products'
+        apiName: apiName as string, path: '/products'
       }).response
 
       const data = await operation.body.json()
 
       console.log('API Response Data:', data);
 
-      products.value = data as unknown as IProduct[]
+      return data as unknown as IProduct[]
     }
     catch (error) {
       console.error("API call failed:", error);
+      return []
     }
   }
 
-  const addProduct = async (product: IProductInput) => {
+  const addProduct = async (product: IProductInput): Promise<boolean> => {
     try {
       const productId = uuidv4();
       
@@ -35,7 +37,7 @@ export const useProducts = () => {
       }) || [];
       
       const operation = await post({
-        apiName: 'BarelyGoldAPI', path: '/products',
+        apiName: apiName as string, path: '/products',
         options: {
           body: {
             id: productId,
@@ -71,11 +73,13 @@ export const useProducts = () => {
         })
       }
 
+      return response?.success || false
     }
     catch (error) {
       console.error("API call failed:", error);
+      return false
     }
   }
 
-  return { products, getProducts, addProduct }
+  return { getProducts, addProduct }
 }

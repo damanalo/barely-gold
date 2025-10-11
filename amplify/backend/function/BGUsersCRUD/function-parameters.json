@@ -1,0 +1,13 @@
+{
+  "lambdaLayers": [],
+  "permissions": {
+    "storage": {
+      "BGDynamoDBUsers": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  }
+}

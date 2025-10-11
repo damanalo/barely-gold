@@ -60,18 +60,21 @@
 
 <script setup lang="ts">
 import { useAuthStore } from '~/stores/auth'
-import { useCategories } from '~/composables/api/useCategories'
+import { useCategoriesStore } from '~/stores/categories'
 
-const { getCategories, categories } = useCategories()
+const categoriesStore = useCategoriesStore()
 const authStore = useAuthStore()
 
 onMounted(async () => {
-    await getCategories()
+    await categoriesStore.fetchCategories()
     await authStore.checkAuthStatus();
 })
 
 // Import the banner image explicitly
 import bannerUrl from '~/assets/images/banner.jpeg'
+
+// Create computed property for categories
+const categories = computed(() => categoriesStore.categories)
 </script>
 
 <style scoped>

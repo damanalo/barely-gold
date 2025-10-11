@@ -19,13 +19,12 @@ if (process.env.ENV && process.env.ENV !== "NONE") {
  * @type {import('@types/aws-lambda').PostConfirmationTriggerHandler}
  */
 exports.handler = async (event) => {
-  const { v4: uuidv4 } = require('uuid');
   const timestamp = Date.now();
   
   const userAttributes = event.request.userAttributes;
   
   const userItem = {
-    id: uuidv4(),
+    id: userAttributes.sub,
     email: userAttributes.email,
     first_name: userAttributes.given_name || '',
     last_name: userAttributes.family_name || '',

@@ -29,11 +29,15 @@
         "barelygoldui0845b22d0845b22dPostConfirmation": {
           "GROUP": "Customer",
           "deploymentBucketName": "amplify-barelygoldui-prod-15beb-deployment",
-          "s3Key": "amplify-builds/barelygoldui0845b22d0845b22dPostConfirmation-426d483270765a627332-build.zip"
+          "s3Key": "amplify-builds/barelygoldui0845b22d0845b22dPostConfirmation-57396d59746b3546796e-build.zip"
         },
         "barelygoldui0845b22d0845b22d": {},
         "BGDynamoDB": {},
-        "S3AndCloudFront": {}
+        "S3AndCloudFront": {},
+        "BGUsersCRUD": {
+          "deploymentBucketName": "amplify-barelygoldui-prod-15beb-deployment",
+          "s3Key": "amplify-builds/BGUsersCRUD-70674e58585551753841-build.zip"
+        }
       },
       "api": {
         "AdminQueries": {},

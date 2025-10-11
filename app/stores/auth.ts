@@ -45,6 +45,17 @@ export const useAuthStore = defineStore('auth', {
     async signOut() {
       await signOut(); // Call Amplify signOut
       this.setUser(null);
+      
+      // Clear user and cart data from stores
+      const { useUserStore } = await import('./user');
+      const { useCartStore } = await import('./cart');
+      
+      const userStore = useUserStore();
+      const cartStore = useCartStore();
+      
+      userStore.clearUser();
+      cartStore.resetCart();
+      
       navigateTo('/login');
     },
   },

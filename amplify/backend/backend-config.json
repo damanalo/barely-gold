@@ -52,6 +52,14 @@
           ],
           "category": "auth",
           "resourceName": "userPoolGroups"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "BGUsersCRUD"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -171,6 +179,22 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
+    "BGUsersCRUD": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "BGDynamoDBUsers"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "barelygoldui0845b22d0845b22dPostConfirmation": {
       "build": true,
       "dependsOn": [
@@ -224,6 +248,22 @@
         {
           "category": "function",
           "resourceName": "BGProductsCRUD"
+        }
+      ]
+    },
+    "AMPLIFY_function_BGUsersCRUD_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "BGUsersCRUD"
+        }
+      ]
+    },
+    "AMPLIFY_function_BGUsersCRUD_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "BGUsersCRUD"
         }
       ]
     },

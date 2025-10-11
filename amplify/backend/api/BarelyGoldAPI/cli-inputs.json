@@ -18,6 +18,25 @@
         },
         "setting": "private"
       }
+    },
+    "/users": {
+      "name": "/users",
+      "lambdaFunction": "BGUsersCRUD",
+      "permissions": {
+        "groups": {
+          "Admin": [
+            "create",
+            "read",
+            "update",
+            "delete"
+          ],
+          "Customer": [
+            "read",
+            "update"
+          ]
+        },
+        "setting": "private"
+      }
     }
   }
 }
