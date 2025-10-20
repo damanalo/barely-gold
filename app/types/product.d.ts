@@ -5,9 +5,18 @@ export interface IProduct {
     description: string,
     price: number,
     status: 'in_stock' | 'out_of_stock',
-    images: File[] | null,
+    images: string[] | null, // Image paths from database
     created_at: number, //Unix timestamp
     updated_at: number, //Unix timestamp
 }
 
-export type IProductInput = Omit<IProduct, 'id'>
+export interface IProductInput {
+    category: string,
+    name: string,
+    description: string,
+    price: number,
+    status: 'in_stock' | 'out_of_stock',
+    images: File[] | null, // File objects for upload
+    created_at: number,
+    updated_at: number
+}

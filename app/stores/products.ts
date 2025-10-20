@@ -72,6 +72,31 @@ export const useProductsStore = defineStore('products', {
       }
     },
 
+    async updateProduct(productId: string, product: IProductInput, existingImages?: string[]) {
+      this.loading = true
+      this.error = null
+      
+      try {
+        const productsApi = useProducts()
+        const success = await productsApi.updateProduct(productId, product, existingImages)
+        
+        if (success) {
+          // Refresh products after updating
+          await this.fetchProducts()
+        } else {
+          this.error = 'Failed to update product'
+        }
+        
+        return success
+      } catch (error) {
+        this.error = 'Failed to update product'
+        console.error('Error updating product:', error)
+        return false
+      } finally {
+        this.loading = false
+      }
+    },
+
     clearProducts() {
       this.products = []
     }
