@@ -34,7 +34,21 @@
         </div>
 
         <div class="mx-auto max-w-6xl">
-          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 place-items-center">
+          <!-- Loading Skeleton -->
+          <div v-if="categoriesStore.loading" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 place-items-center">
+            <div 
+              v-for="i in 6" 
+              :key="`skeleton-${i}`"
+              class="w-full sm:w-[320px]"
+            >
+              <div class="relative rounded-md overflow-hidden shadow-sm">
+                <USkeleton class="w-full h-48" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Categories Grid -->
+          <div v-else class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 place-items-center">
             <NuxtLink 
               v-for="category in categories" 
               :key="category.id" 

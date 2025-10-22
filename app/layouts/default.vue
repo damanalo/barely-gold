@@ -88,6 +88,8 @@
                       size="xs" 
                       color="neutral" 
                       variant="outline"
+                      :loading="cartStore.operationLoading.decrementQuantity[item.id] || false"
+                      :disabled="cartStore.isAnyCartOperationInProgress"
                       @click="cartStore.decrementQuantity(item.id)"
                     />
                     <span class="text-sm font-medium w-8 text-center">{{ item.quantity }}</span>
@@ -96,6 +98,8 @@
                       size="xs" 
                       color="neutral" 
                       variant="outline"
+                      :loading="cartStore.operationLoading.incrementQuantity[item.id] || false"
+                      :disabled="cartStore.isAnyCartOperationInProgress"
                       @click="cartStore.incrementQuantity(item.id)"
                     />
                     <UButton 
@@ -104,6 +108,8 @@
                       color="error" 
                       variant="ghost"
                       class="ml-auto"
+                      :loading="cartStore.operationLoading.removeItem[item.id] || false"
+                      :disabled="cartStore.isAnyCartOperationInProgress"
                       @click="cartStore.removeItem(item.id)"
                     />
                   </div>
@@ -133,7 +139,7 @@
                 <span class="font-semibold text-gray-900 dark:text-white">Total</span>
                 <span class="font-semibold text-gray-900 dark:text-white">{{ formatPrice(cartStore.total) }}</span>
               </div>
-              <UButton block color="primary" size="lg" class="mt-4">
+              <UButton block color="primary" size="lg" class="mt-4" @click="handleCheckout">
                 Checkout
               </UButton>
             </div>
@@ -163,12 +169,25 @@ const initializeUserData = async () => {
     const { useUserStore } = await import('~/stores/user')
     const userStore = useUserStore()
     
-    // Initialize user data (includes cart)
+    // Initialize user data
     await userStore.initUser()
     
-    // Initialize cart from user data
-    await cartStore.initCart()
+    // Sync guest cart to backend if exists, then initialize authenticated cart
+    const hasGuestCart = cartStore.items.length > 0 && cartStore.isGuest
+    
+    if (hasGuestCart) {
+      console.log('Syncing guest cart to backend...')
+      await cartStore.syncGuestCartToBackend()
+    } else {
+      // Initialize cart from backend
+      await cartStore.initCart(true)
+    }
+    
     console.log('User data and cart initialized. Cart items:', cartStore.items)
+  } else {
+    // Initialize guest cart from localStorage
+    console.log('Initializing guest cart...')
+    await cartStore.initCart(false)
   }
 }
 
@@ -180,8 +199,11 @@ onMounted(async () => {
 // Watch for authentication changes and reload cart
 watch(() => authStore.isAuthenticated, async (isAuth) => {
   if (isAuth) {
-    console.log('User authenticated, loading cart...')
+    console.log('User authenticated, syncing and loading cart...')
     await initializeUserData()
+  } else {
+    console.log('User logged out, switching to guest cart...')
+    cartStore.resetCart()
   }
 })
 
@@ -205,6 +227,12 @@ const formatPrice = (price: number) => {
     style: 'currency',
     currency: 'PHP'
   }).format(price)
+}
+
+const handleCheckout = () => {
+  // Close cart and navigate to checkout page
+  cartStore.closeCart()
+  navigateTo('/checkout')
 }
 </script>
 

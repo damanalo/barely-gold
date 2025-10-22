@@ -7,8 +7,38 @@
             </UButton>
         </div>
 
-        <div v-if="loading" class="flex justify-center items-center py-10">
-            <p>Loading products...</p>
+        <!-- Loading Skeleton -->
+        <div v-if="loading" class="border-2 border-gray-200 rounded-md overflow-hidden">
+            <table class="w-full">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th class="px-4 py-3 text-left text-sm font-semibold">ID</th>
+                        <th class="px-4 py-3 text-left text-sm font-semibold">Name</th>
+                        <th class="px-4 py-3 text-left text-sm font-semibold">Category</th>
+                        <th class="px-4 py-3 text-left text-sm font-semibold">Price</th>
+                        <th class="px-4 py-3 text-left text-sm font-semibold">Status</th>
+                        <th class="px-4 py-3 text-left text-sm font-semibold">Images</th>
+                        <th class="px-4 py-3 text-left text-sm font-semibold">Created</th>
+                        <th class="px-4 py-3 text-left text-sm font-semibold">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr 
+                        v-for="i in 5" 
+                        :key="`skeleton-${i}`"
+                        class="border-t border-gray-200"
+                    >
+                        <td class="px-4 py-3"><USkeleton class="h-4 w-20" /></td>
+                        <td class="px-4 py-3"><USkeleton class="h-4 w-32" /></td>
+                        <td class="px-4 py-3"><USkeleton class="h-6 w-24" /></td>
+                        <td class="px-4 py-3"><USkeleton class="h-4 w-16" /></td>
+                        <td class="px-4 py-3"><USkeleton class="h-6 w-20" /></td>
+                        <td class="px-4 py-3"><USkeleton class="h-4 w-16" /></td>
+                        <td class="px-4 py-3"><USkeleton class="h-4 w-24" /></td>
+                        <td class="px-4 py-3"><USkeleton class="h-7 w-12" /></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
         <div v-else-if="error" class="text-red-500 text-center py-10">

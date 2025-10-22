@@ -30,7 +30,7 @@
             "Arn"
           ],
           "category": "function",
-          "resourceName": "BGProductsCRUD"
+          "resourceName": "BGUsersCRUD"
         },
         {
           "attributes": [
@@ -59,7 +59,7 @@
             "Arn"
           ],
           "category": "function",
-          "resourceName": "BGUsersCRUD"
+          "resourceName": "BGProductsCRUD"
         }
       ],
       "providerPlugin": "awscloudformation",

@@ -1,24 +1,6 @@
 {
   "version": 1,
   "paths": {
-    "/products": {
-      "name": "/products",
-      "lambdaFunction": "BGProductsCRUD",
-      "permissions": {
-        "groups": {
-          "Admin": [
-            "create",
-            "read",
-            "update",
-            "delete"
-          ],
-          "Customer": [
-            "read"
-          ]
-        },
-        "setting": "private"
-      }
-    },
     "/users": {
       "name": "/users",
       "lambdaFunction": "BGUsersCRUD",
@@ -36,6 +18,30 @@
           ]
         },
         "setting": "private"
+      }
+    },
+    "/products": {
+      "name": "/products",
+      "lambdaFunction": "BGProductsCRUD",
+      "permissions": {
+        "setting": "protected",
+        "auth": [
+          "read"
+        ],
+        "guest": [
+          "read"
+        ],
+        "groups": {
+          "Admin": [
+            "create",
+            "read",
+            "update",
+            "delete"
+          ],
+          "Customer": [
+            "read"
+          ]
+        }
       }
     }
   }

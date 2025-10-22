@@ -2,8 +2,36 @@
     <div class="flex flex-col gap-4 m-5 border-2 border-gray-200 rounded-md p-5">
         <h1 class="text-3xl font-bold text-center">Edit Product</h1>
         
-        <div v-if="loading" class="flex justify-center items-center">
-            <p>Loading product...</p>
+        <!-- Loading Skeleton -->
+        <div v-if="loading" class="flex flex-col gap-4 w-1/4 mx-auto">
+            <div class="flex flex-col gap-2">
+                <USkeleton class="h-4 w-20 mb-1" />
+                <USkeleton class="h-10 w-full" />
+            </div>
+            <div class="flex flex-col gap-2">
+                <USkeleton class="h-4 w-20 mb-1" />
+                <USkeleton class="h-10 w-full" />
+            </div>
+            <div class="flex flex-col gap-2">
+                <USkeleton class="h-4 w-24 mb-1" />
+                <USkeleton class="h-10 w-full" />
+            </div>
+            <div class="flex flex-col gap-2">
+                <USkeleton class="h-4 w-16 mb-1" />
+                <USkeleton class="h-10 w-full" />
+            </div>
+            <div class="flex flex-col gap-2">
+                <USkeleton class="h-4 w-16 mb-1" />
+                <USkeleton class="h-10 w-full" />
+            </div>
+            <div class="flex flex-col gap-2">
+                <USkeleton class="h-4 w-20 mb-1" />
+                <USkeleton class="h-10 w-full" />
+            </div>
+            <div class="flex gap-2">
+                <USkeleton class="h-10 flex-1" />
+                <USkeleton class="h-10 flex-1" />
+            </div>
         </div>
 
         <div v-else-if="!product" class="flex justify-center items-center">
@@ -19,6 +47,7 @@
                     :items="categories" 
                     value-key="id" 
                     label-key="name"
+                    :disabled="productsStore.loading"
                     :class="{ 'border-red-500': errors.category }"
                 />
                 <span v-if="errors.category" class="text-red-500 text-sm">{{ errors.category }}</span>
@@ -27,7 +56,8 @@
                 <label for="name">Name <span class="text-red-500">*</span></label>
                 <UInput 
                     v-model="name" 
-                    placeholder="Name" 
+                    placeholder="Name"
+                    :disabled="productsStore.loading"
                     :class="{ 'border-red-500': errors.name }"
                 />
                 <span v-if="errors.name" class="text-red-500 text-sm">{{ errors.name }}</span>
@@ -36,7 +66,8 @@
                 <label for="description">Description <span class="text-red-500">*</span></label>
                 <UInput 
                     v-model="description" 
-                    placeholder="Description" 
+                    placeholder="Description"
+                    :disabled="productsStore.loading"
                     :class="{ 'border-red-500': errors.description }"
                 />
                 <span v-if="errors.description" class="text-red-500 text-sm">{{ errors.description }}</span>
@@ -45,7 +76,8 @@
                 <label for="price">Price <span class="text-red-500">*</span></label>
                 <UInputNumber 
                     v-model="price" 
-                    placeholder="Price" 
+                    placeholder="Price"
+                    :disabled="productsStore.loading"
                     :class="{ 'border-red-500': errors.price }"
                 />
                 <span v-if="errors.price" class="text-red-500 text-sm">{{ errors.price }}</span>
@@ -56,6 +88,7 @@
                     v-model="status" 
                     placeholder="Status" 
                     :items="statusOptions"
+                    :disabled="productsStore.loading"
                     :class="{ 'border-red-500': errors.status }"
                 />
                 <span v-if="errors.status" class="text-red-500 text-sm">{{ errors.status }}</span>
@@ -66,7 +99,8 @@
                     accept="image/jpeg, image/jpg" 
                     multiple 
                     v-model="images" 
-                    placeholder="Upload new images" 
+                    placeholder="Upload new images"
+                    :disabled="productsStore.loading"
                     :class="{ 'border-red-500': errors.images }"
                 />
                 <span v-if="errors.images" class="text-red-500 text-sm">{{ errors.images }}</span>
@@ -75,8 +109,24 @@
                 </span>
             </div>
             <div class="flex gap-2">
-                <UButton @click="handleUpdateProduct" class="justify-center flex-1" block>Update Product</UButton>
-                <UButton @click="handleCancel" color="neutral" class="justify-center flex-1" block>Cancel</UButton>
+                <UButton 
+                    @click="handleUpdateProduct" 
+                    class="justify-center flex-1" 
+                    block
+                    :loading="productsStore.loading"
+                    :disabled="productsStore.loading"
+                >
+                    Update Product
+                </UButton>
+                <UButton 
+                    @click="handleCancel" 
+                    color="neutral" 
+                    class="justify-center flex-1" 
+                    block
+                    :disabled="productsStore.loading"
+                >
+                    Cancel
+                </UButton>
             </div>
         </div>
     </div>

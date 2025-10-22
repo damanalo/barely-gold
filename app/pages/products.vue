@@ -7,8 +7,32 @@
         <p class="text-stone-600 mt-2">Browse our collection of exquisite jewelry</p>
       </div>
 
+      <!-- Loading Skeleton -->
+      <div v-if="productsStore.loading" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div
+          v-for="i in 8"
+          :key="`skeleton-${i}`"
+          class="bg-white rounded-lg shadow-sm overflow-hidden"
+        >
+          <!-- Skeleton Image -->
+          <USkeleton class="aspect-square w-full" />
+          
+          <!-- Skeleton Details -->
+          <div class="p-4">
+            <div class="mb-2">
+              <USkeleton class="h-6 w-3/4 mb-2" />
+            </div>
+            
+            <div class="flex items-center justify-between">
+              <USkeleton class="h-6 w-20" />
+              <USkeleton class="h-9 w-32" />
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Products Grid -->
-      <div v-if="filteredProducts.length > 0" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <div v-else-if="filteredProducts.length > 0" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         <div
           v-for="product in filteredProducts"
           :key="product.id"
@@ -43,7 +67,8 @@
               <span class="text-xl font-bold" style="color: var(--color-gold-600)">&#8369;{{ product.price.toFixed(2) }}</span>
               <UButton
                 @click="addToCart(product)"
-                :disabled="product.status === 'out_of_stock'"
+                :disabled="product.status === 'out_of_stock' || cartStore.isAnyCartOperationInProgress"
+                :loading="cartStore.operationLoading.addItem[product.id] || false"
                 color="primary"
                 size="sm"
                 icon="i-heroicons-shopping-cart"
@@ -138,7 +163,8 @@
                 <div class="mt-auto pt-4 border-t border-stone-200">
                   <UButton
                     @click="addToCartFromModal"
-                    :disabled="selectedProduct.status === 'out_of_stock'"
+                    :disabled="selectedProduct.status === 'out_of_stock' || cartStore.isAnyCartOperationInProgress"
+                    :loading="cartStore.operationLoading.addItem[selectedProduct.id] || false"
                     color="primary"
                     size="xl"
                     block

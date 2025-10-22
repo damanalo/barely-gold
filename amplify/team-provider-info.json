@@ -10,7 +10,8 @@
       "StackName": "amplify-barelygoldui-prod-15beb",
       "StackId": "arn:aws:cloudformation:ap-southeast-1:260908402776:stack/amplify-barelygoldui-prod-15beb/1a188440-a526-11f0-8ad5-062f57d3cd8b",
       "AmplifyAppId": "d16gyclt38xryx",
-      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-barelygoldui-prod-15beb-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-barelygoldui-prod-15beb-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-barelygoldui-prod-15beb-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
     },
     "categories": {
       "auth": {
