@@ -7,12 +7,13 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
   await authStore.checkAuthStatus();
 
   // Check if user is authenticated
-  if (!authStore.isAuthenticated && to.path !== '/login' && to.path !== '/signup') {
+  if (!authStore.isAuthenticated) {
     return navigateTo('/login');
   }
 
-  // Redirect authenticated users away from login/signup pages
-  if (authStore.isAuthenticated && (to.path === '/login' || to.path === '/signup')) {
-    return navigateTo('/');
+  // Check if user is in Admin group
+  if (!authStore.user.groups.includes('Admin')) {
+    return navigateTo('/403');
   }
 });
+

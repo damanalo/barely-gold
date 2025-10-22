@@ -11,10 +11,6 @@
         <p class="mt-4 text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
           Discover crafted pieces with a modern aesthetic.
         </p>
-        <div class="mt-8 flex items-center justify-center gap-3">
-          <UButton color="primary" size="lg" icon="i-heroicons-eye">Explore</UButton>
-          <UButton variant="ghost" size="lg" icon="i-heroicons-heart">Favorites</UButton>
-        </div>
       </div>
 
       <!-- Parallax effect -->

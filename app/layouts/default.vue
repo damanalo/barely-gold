@@ -7,22 +7,26 @@
           <span class="font-semibold">Barely Gold</span>
         </div>
         <nav class="flex items-center gap-4">
-          <ULink to="/" active-class="text-primary-600" class="hover:text-primary-600">Home</ULink>
-          <ULink @click="handleProductsClick" active-class="text-primary-600" class="hover:text-primary-600 cursor-pointer">Products</ULink>
           <UButton 
             @click="cartStore.openCart" 
             icon="i-heroicons-shopping-cart" 
+            color="primary"
             variant="ghost" 
             class="cursor-pointer relative"
           >
             Cart
-            <UBadge v-if="cartStore.itemCount > 0" color="primary" variant="solid" class="absolute -top-1 -right-1">
+            <UBadge v-if="cartStore.itemCount > 0" size="xs" color="primary" variant="solid" class="absolute -top-1 -right-1">
               {{ cartStore.itemCount }}
             </UBadge>
           </UButton>
-          <span v-if="authStore.isAuthenticated">|</span>
-          <span v-if="authStore.isAuthenticated && user">Welcome, {{ user.given_name }} </span>
-          <UButton v-if="authStore.isAuthenticated" @click="authStore.signOut" variant="ghost" class="cursor-pointer">Sign Out</UButton>
+          <UDropdownMenu v-if="authStore.isAuthenticated" :items="settingsMenuItems">
+            <UButton 
+              icon="i-heroicons-cog-6-tooth" 
+              color="primary"
+              variant="ghost" 
+              class="cursor-pointer"
+            />
+          </UDropdownMenu>
         </nav>
       </UContainer>
     </header>
@@ -64,7 +68,7 @@
             <h3 class="text-base font-semibold leading-6 text-gray-900 dark:text-white">
               Shopping Cart ({{ cartStore.itemCount }})
             </h3>
-            <UButton color="neutral" variant="ghost" icon="i-heroicons-x-mark-20-solid" @click="cartStore.closeCart" />
+            <UButton color="primary" variant="ghost" icon="i-heroicons-x-mark-20-solid" @click="cartStore.closeCart" />
           </div>
 
           <!-- Cart Items -->
@@ -86,7 +90,7 @@
                     <UButton 
                       icon="i-heroicons-minus" 
                       size="xs" 
-                      color="neutral" 
+                      color="primary" 
                       variant="outline"
                       :loading="cartStore.operationLoading.decrementQuantity[item.id] || false"
                       :disabled="cartStore.isAnyCartOperationInProgress"
@@ -96,7 +100,7 @@
                     <UButton 
                       icon="i-heroicons-plus" 
                       size="xs" 
-                      color="neutral" 
+                      color="primary" 
                       variant="outline"
                       :loading="cartStore.operationLoading.incrementQuantity[item.id] || false"
                       :disabled="cartStore.isAnyCartOperationInProgress"
@@ -234,6 +238,28 @@ const handleCheckout = () => {
   cartStore.closeCart()
   navigateTo('/checkout')
 }
+
+const settingsMenuItems = [
+  [
+    {
+      label: 'Account',
+      icon: 'i-heroicons-user-circle',
+      onSelect: () => navigateTo('/account')
+    },
+    {
+      label: 'Order History',
+      icon: 'i-heroicons-clipboard-document-list',
+      onSelect: () => navigateTo('/order-history')
+    }
+  ],
+  [
+    {
+      label: 'Sign Out',
+      icon: 'i-heroicons-arrow-right-on-rectangle',
+      onSelect: () => authStore.signOut()
+    }
+  ]
+]
 </script>
 
 <style scoped>

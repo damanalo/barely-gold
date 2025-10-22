@@ -73,6 +73,7 @@
           
           <UButton 
             @click="goBack"
+            color="primary"
             variant="ghost" 
             size="lg" 
             icon="i-heroicons-arrow-left"

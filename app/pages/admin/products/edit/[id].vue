@@ -111,6 +111,7 @@
             <div class="flex gap-2">
                 <UButton 
                     @click="handleUpdateProduct" 
+                    color="primary"
                     class="justify-center flex-1" 
                     block
                     :loading="productsStore.loading"
@@ -120,7 +121,8 @@
                 </UButton>
                 <UButton 
                     @click="handleCancel" 
-                    color="neutral" 
+                    color="primary"
+                    variant="outline"
                     class="justify-center flex-1" 
                     block
                     :disabled="productsStore.loading"

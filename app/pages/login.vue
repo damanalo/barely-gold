@@ -60,6 +60,7 @@
                   
                   <UButton 
                     @click="signOut"
+                    color="primary"
                     variant="ghost" 
                     size="lg" 
                     block

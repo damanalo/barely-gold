@@ -5,7 +5,7 @@
             <UInput v-model="name" placeholder="Name" />
             <UInput v-model="description" placeholder="Description" />
             <UFileUpload accept="image/jpeg, image/jpg" v-model="image" placeholder="Image" />
-            <UButton @click="handleAddCategory">Add Category</UButton>
+            <UButton color="primary" @click="handleAddCategory">Add Category</UButton>
         </div>
     </div>
 </template>
