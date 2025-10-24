@@ -218,6 +218,80 @@
       "service": "S3AndCloudFront"
     }
   },
+  "parameters": {
+    "AMPLIFY_function_AdminQueries35b7b913_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "AdminQueries35b7b913"
+        }
+      ]
+    },
+    "AMPLIFY_function_AdminQueries35b7b913_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "AdminQueries35b7b913"
+        }
+      ]
+    },
+    "AMPLIFY_function_BGProductsCRUD_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "BGProductsCRUD"
+        }
+      ]
+    },
+    "AMPLIFY_function_BGProductsCRUD_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "BGProductsCRUD"
+        }
+      ]
+    },
+    "AMPLIFY_function_BGUsersCRUD_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "BGUsersCRUD"
+        }
+      ]
+    },
+    "AMPLIFY_function_BGUsersCRUD_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "BGUsersCRUD"
+        }
+      ]
+    },
+    "AMPLIFY_function_barelygoldui0845b22d0845b22dPostConfirmation_GROUP": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "barelygoldui0845b22d0845b22dPostConfirmation"
+        }
+      ]
+    },
+    "AMPLIFY_function_barelygoldui0845b22d0845b22dPostConfirmation_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "barelygoldui0845b22d0845b22dPostConfirmation"
+        }
+      ]
+    },
+    "AMPLIFY_function_barelygoldui0845b22d0845b22dPostConfirmation_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "barelygoldui0845b22d0845b22dPostConfirmation"
+        }
+      ]
+    }
+  },
   "storage": {
     "BGDynamoDB": {
       "providerPlugin": "awscloudformation",
