@@ -26,7 +26,7 @@ export const useAuthStore = defineStore('auth', {
         this.user = user;
         this.isAuthenticated = true;
         this.loading = false;
-        navigateTo('/');
+        // Note: Removed automatic redirect to '/' - let middleware handle routing
       } catch (error) {
         this.user = null;
         this.isAuthenticated = false;

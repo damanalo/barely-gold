@@ -32,7 +32,7 @@
         
         <!-- Auth card -->
         <div class="auth-card backdrop-blur-md bg-white/95 rounded-2xl shadow-2xl border border-white/20">
-          <authenticator>
+          <authenticator :hide-sign-up="false">
             <template v-slot="{ user, signOut }">
               <!-- Authenticated state -->
               <div class="text-center py-6">
@@ -88,6 +88,15 @@ import { Authenticator } from '@aws-amplify/ui-vue';
 import "@aws-amplify/ui-vue/styles.css";
 import LogoMini from '~/components/LogoMini.vue';
 import bannerUrl from '~/assets/images/banner.jpeg';
+
+definePageMeta({
+  layout: 'empty',
+  middleware: ['auth']
+})
+
+// Get config to check if coming soon is enabled
+const { public: config } = useRuntimeConfig()
+const showComingSoon = computed(() => String(config.showComingSoon) === 'true')
 </script>
 
 <style scoped>
