@@ -32,7 +32,7 @@
         
         <!-- Auth card -->
         <div class="auth-card backdrop-blur-md bg-white/95 rounded-2xl shadow-2xl border border-white/20">
-          <authenticator :hide-sign-up="false">
+          <authenticator :hide-sign-up="showComingSoon">
             <template v-slot="{ user, signOut }">
               <!-- Authenticated state -->
               <div class="text-center py-6">
