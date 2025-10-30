@@ -40,6 +40,22 @@ export const useUser = () => {
 
       console.log('Get User API Response:', data);
 
+      // Normalize: if user does not exist yet, return a default object
+      if (!data || !data.id) {
+        const nowIso = new Date().toISOString()
+        const defaultUser: IUser = {
+          id: userId,
+          email: userAttributes.email || '',
+          given_name: userAttributes.given_name,
+          family_name: userAttributes.family_name,
+          phone_number: userAttributes.phone_number,
+          cart: [],
+          created_at: nowIso,
+          updated_at: nowIso
+        }
+        return defaultUser
+      }
+
       return data as IUser
     }
     catch (error) {
@@ -63,10 +79,14 @@ export const useUser = () => {
       }
 
       // Merge the updates with the current user data
-      const mergedUserData = {
+      const nowIso = new Date().toISOString()
+      const mergedUserData: IUser = {
         ...currentUser,
-        ...updates
-      };
+        ...updates,
+        id: currentUser.id, // ensure partition key present
+        updated_at: nowIso,
+        created_at: currentUser.created_at || nowIso,
+      } as IUser
 
       const operation = await put({
         apiName: apiName as string, 

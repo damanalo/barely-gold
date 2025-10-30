@@ -46,6 +46,18 @@
                 <span v-if="errors.price" class="text-red-500 text-sm">{{ errors.price }}</span>
             </div>
             <div class="flex flex-col gap-2">
+                <label for="quantity">Quantity <span class="text-red-500">*</span></label>
+                <UInputNumber 
+                    v-model="quantity" 
+                    placeholder="Quantity"
+                    :min="0"
+                    :max="1000"
+                    :disabled="productsStore.loading"
+                    :class="{ 'border-red-500': errors.quantity }"
+                />
+                <span v-if="errors.quantity" class="text-red-500 text-sm">{{ errors.quantity }}</span>
+            </div>
+            <div class="flex flex-col gap-2">
                 <label for="status">Status <span class="text-red-500">*</span></label>
                 <USelect 
                     v-model="status" 
@@ -104,8 +116,8 @@ import { ZodError, type ZodIssue } from 'zod'
 const router = useRouter()
 
 const statusOptions = ref<SelectItem[]>([
-    { label: 'In Stock', value: 'in_stock' },
-    { label: 'Out of Stock', value: 'out_of_stock' }
+    { label: 'Active', value: 'active' },
+    { label: 'Inactive', value: 'inactive' }
 ])
 
 const productsStore = useProductsStore()
@@ -115,7 +127,8 @@ const category = ref<string>('')
 const name = ref<string>('')
 const description = ref<string>('')
 const price = ref<number>(0)
-const status = ref<'in_stock' | 'out_of_stock'>('in_stock')
+const quantity = ref<number>(0)
+const status = ref<'active' | 'inactive'>('active')
 const images = ref<File[] | null>(null)
 
 // Validation errors
@@ -137,6 +150,7 @@ const handleAddProduct = async () => {
         name: name.value,
         description: description.value,
         price: price.value,
+        quantity: quantity.value,
         status: status.value,
         images: images.value || null
     }
@@ -151,6 +165,7 @@ const handleAddProduct = async () => {
             name: validatedData.name,
             description: validatedData.description,
             price: validatedData.price,
+            quantity: validatedData.quantity,
             status: validatedData.status,
             images: validatedData.images ?? null,
             created_at: Date.now(),

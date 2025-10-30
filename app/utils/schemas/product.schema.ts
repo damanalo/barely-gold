@@ -14,8 +14,11 @@ const baseProductValidation = {
   price: z.number()
     .positive('Price must be greater than 0')
     .min(0.01, 'Price must be at least 0.01'),
-  status: z.enum(['in_stock', 'out_of_stock'], {
-    message: 'Status must be either in_stock or out_of_stock'
+  quantity: z.number()
+    .min(0, 'Quantity must be at least 0')
+    .max(1000, 'Quantity must not exceed 1000'),
+  status: z.enum(['active', 'inactive'], {
+    message: 'Status must be either active or inactive'
   })
 }
 

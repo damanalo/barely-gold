@@ -50,7 +50,7 @@
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
             <div
-              v-if="product.status === 'out_of_stock'"
+              v-if="(product as any).quantity !== undefined && (product as any).quantity <= 0"
               class="absolute inset-0 bg-black/50 flex items-center justify-center"
             >
               <span class="bg-red-500 text-white px-4 py-2 rounded-md font-semibold">Out of Stock</span>
@@ -67,7 +67,7 @@
               <span class="text-xl font-bold" style="color: var(--color-gold-600)">&#8369;{{ product.price.toFixed(2) }}</span>
               <UButton
                 @click="addToCart(product)"
-                :disabled="product.status === 'out_of_stock' || cartStore.isAnyCartOperationInProgress"
+                :disabled="((product as any).quantity ?? 0) <= 0 || cartStore.isAnyCartOperationInProgress"
                 :loading="cartStore.operationLoading.addItem[product.id] || false"
                 color="primary"
                 size="sm"
@@ -138,14 +138,14 @@
 
                   <!-- Product Status -->
                   <div class="mb-6">
-                    <span 
-                      v-if="selectedProduct.status === 'in_stock'" 
+                    <span
+                      v-if="(selectedProduct as any).quantity !== undefined && (selectedProduct as any).quantity > 0"
                       class="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold"
                     >
                       In Stock
                     </span>
-                    <span 
-                      v-else 
+                    <span
+                      v-else
                       class="inline-block bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-semibold"
                     >
                       Out of Stock
@@ -163,7 +163,7 @@
                 <div class="mt-auto pt-4 border-t border-stone-200">
                   <UButton
                     @click="addToCartFromModal"
-                    :disabled="selectedProduct.status === 'out_of_stock' || cartStore.isAnyCartOperationInProgress"
+                    :disabled="(((selectedProduct as any)?.quantity ?? 0) <= 0) || cartStore.isAnyCartOperationInProgress"
                     :loading="cartStore.operationLoading.addItem[selectedProduct.id] || false"
                     color="primary"
                     size="xl"
@@ -214,10 +214,11 @@ onMounted(async () => {
 const categoryOptions = computed(() => categoriesStore.categoryOptions)
 
 const filteredProducts = computed(() => {
+  const source = productsStore.activeProducts
   if (route.query.category === 'all') {
-    return productsStore.products
+    return source
   }
-  return productsStore.products.filter(product => product.category === route.query.category)
+  return source.filter(product => product.category === route.query.category)
 })
 
 const pageTitle = computed(() => {

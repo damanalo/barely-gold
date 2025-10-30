@@ -16,6 +16,7 @@
                         <th class="px-4 py-3 text-left text-sm font-semibold">Name</th>
                         <th class="px-4 py-3 text-left text-sm font-semibold">Category</th>
                         <th class="px-4 py-3 text-left text-sm font-semibold">Price</th>
+                        <th class="px-4 py-3 text-left text-sm font-semibold">Quantity</th>
                         <th class="px-4 py-3 text-left text-sm font-semibold">Status</th>
                         <th class="px-4 py-3 text-left text-sm font-semibold">Images</th>
                         <th class="px-4 py-3 text-left text-sm font-semibold">Created</th>
@@ -84,16 +85,19 @@
                         <td class="px-4 py-3 text-sm font-medium text-green-600">
                             ${{ product.price.toFixed(2) }}
                         </td>
+                        <td class="px-4 py-3 text-sm font-medium">
+                            {{ (product as any).quantity ?? 0 }}
+                        </td>
                         <td class="px-4 py-3 text-sm">
                             <span 
                                 :class="[
                                     'px-2 py-1 rounded text-xs font-medium',
-                                    product.status === 'in_stock' 
+                                    product.status === 'active' 
                                         ? 'bg-green-100 text-green-800' 
-                                        : 'bg-red-100 text-red-800'
+                                        : 'bg-gray-200 text-gray-700'
                                 ]"
                             >
-                                {{ product.status === 'in_stock' ? 'In Stock' : 'Out of Stock' }}
+                                {{ product.status === 'active' ? 'Active' : 'Inactive' }}
                             </span>
                         </td>
                         <td class="px-4 py-3 text-sm text-gray-600">
@@ -153,10 +157,10 @@ const products = computed(() => productsStore.products)
 
 // Statistics
 const inStockCount = computed(() => 
-    products.value.filter(p => p.status === 'in_stock').length
+    products.value.filter((p: any) => (p.quantity ?? 0) > 0).length
 )
 const outOfStockCount = computed(() => 
-    products.value.filter(p => p.status === 'out_of_stock').length
+    products.value.filter((p: any) => (p.quantity ?? 0) <= 0).length
 )
 const uniqueCategories = computed(() => 
     new Set(products.value.map(p => p.category)).size

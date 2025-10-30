@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import type { ICartItem } from '../types/cart'
 import { useUserCart } from '../composables/api/useUserCart'
+import { useProductsStore } from '~/stores/products'
 
 const GUEST_CART_KEY = 'bg_guest_cart'
 
@@ -39,6 +40,15 @@ export const useCartStore = defineStore('cart', {
   },
 
   actions: {
+    // Helper: get available quantity for a product (0 if missing/inactive)
+    _availableQty(productId: string): number {
+      const productsStore = useProductsStore()
+      const product = productsStore.products.find(p => p.id === productId)
+      if (!product) return 0
+      if (product.status !== 'active') return 0
+      const qty = (product as any).quantity
+      return typeof qty === 'number' && qty > 0 ? qty : 0
+    },
     /**
      * Load cart from localStorage (for guest users)
      */
@@ -149,10 +159,25 @@ export const useCartStore = defineStore('cart', {
       this.operationLoading.addItem[itemId] = true
       
       try {
+        const toast = useToast()
         // Prepare the item
         const newItem: ICartItem = {
           ...item,
           quantity: item.quantity || 1
+        }
+
+        // Enforce stock limit
+        const existing = this.items.find(i => i.id === newItem.id)
+        const desired = (existing?.quantity || 0) + newItem.quantity
+        const limit = this._availableQty(newItem.id)
+        if (desired > limit) {
+          console.error(`Only ${limit} left in stock for this item.`)
+          toast.add({
+            title: 'Not enough stock',
+            description: limit > 0 ? `Only ${limit} left in stock` : 'This item is currently out of stock',
+            color: 'error'
+          })
+          return
         }
         
         if (this.isGuest) {
@@ -228,6 +253,19 @@ export const useCartStore = defineStore('cart', {
     async updateQuantity(itemId: string, quantity: number) {
       if (quantity <= 0) {
         await this.removeItem(itemId)
+        return
+      }
+
+      // Enforce stock limit
+      const limit = this._availableQty(itemId)
+      if (quantity > limit) {
+        const toast = useToast()
+        console.error(`Cannot set quantity to ${quantity}. Only ${limit} left in stock.`)
+        toast.add({
+          title: 'Quantity limit reached',
+          description: limit > 0 ? `Only ${limit} left in stock` : 'This item is currently out of stock',
+          color: 'error'
+        })
         return
       }
 

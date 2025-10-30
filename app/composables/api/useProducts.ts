@@ -46,6 +46,7 @@ export const useProducts = () => {
             description: product.description,
             images: imagePaths,
             price: product.price,
+            quantity: product.quantity,
             status: product.status,
             created_at: product.created_at,
             updated_at: product.updated_at
@@ -107,6 +108,7 @@ export const useProducts = () => {
             description: product.description,
             images: imagePaths,
             price: product.price,
+            quantity: product.quantity,
             status: product.status,
             created_at: product.created_at,
             updated_at: product.updated_at

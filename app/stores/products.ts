@@ -18,16 +18,19 @@ export const useProductsStore = defineStore('products', {
       return state.products.filter(product => product.category === categoryId)
     },
 
+    // Active products only (for storefront)
+    activeProducts: (state) => state.products.filter(product => product.status === 'active'),
+
     // Get product by ID
     getProductById: (state) => (productId: string) => {
       return state.products.find(product => product.id === productId)
     },
 
-    // Get in-stock products
-    inStockProducts: (state) => state.products.filter(product => product.status === 'in_stock'),
+    // Get in-stock products (quantity based)
+    inStockProducts: (state) => state.products.filter((product: any) => (product.quantity ?? 0) > 0),
 
-    // Get out-of-stock products
-    outOfStockProducts: (state) => state.products.filter(product => product.status === 'out_of_stock')
+    // Get out-of-stock products (quantity based)
+    outOfStockProducts: (state) => state.products.filter((product: any) => (product.quantity ?? 0) <= 0)
   },
 
   actions: {
