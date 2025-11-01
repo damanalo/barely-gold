@@ -185,6 +185,7 @@
 </template>
 
 <script setup lang="ts">
+
 import { useCartStore } from '~/stores/cart'
 import { useProductsStore } from '~/stores/products'
 import { useCategoriesStore } from '~/stores/categories'
@@ -200,10 +201,6 @@ const config = useRuntimeConfig()
 const isModalOpen = ref(false)
 const selectedProduct = ref<IProduct | null>(null)
 
-// Helper function to get full image URL from CloudFront
-const getImageUrl = (imagePath: string | undefined) => {
-  return `${config.public.publicCloudfrontUrl}/${imagePath || 'misc/bg_image_not_available.png'}`
-}
 
 onMounted(async () => {
   await categoriesStore.fetchCategories()

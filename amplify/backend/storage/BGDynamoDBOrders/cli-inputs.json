@@ -1,0 +1,14 @@
+{
+  "resourceName": "BGDynamoDBOrders",
+  "tableName": "orders",
+  "partitionKey": {
+    "fieldName": "user_id",
+    "fieldType": "string"
+  },
+  "sortKey": {
+    "fieldName": "created_at",
+    "fieldType": "number"
+  },
+  "gsi": [],
+  "triggerFunctions": []
+}

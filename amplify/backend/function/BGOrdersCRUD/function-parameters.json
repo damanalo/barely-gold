@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "storage": {
+      "BGDynamoDBOrders": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}

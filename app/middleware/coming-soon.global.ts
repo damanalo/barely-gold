@@ -1,4 +1,4 @@
-export default defineNuxtRouteMiddleware((to, from) => {
+export default defineNuxtRouteMiddleware(async (to, from) => {
   const timestamp = new Date().toISOString()
   console.log(`\n🔵 [${timestamp}] COMING-SOON MIDDLEWARE START`)
   console.log('  📍 From:', from.path || 'initial')
@@ -19,6 +19,16 @@ export default defineNuxtRouteMiddleware((to, from) => {
     // Coming soon is disabled, allow all routes
     console.log('  ⏭️  Coming soon DISABLED - allowing all routes')
     console.log('🔵 COMING-SOON MIDDLEWARE END: ALLOW\n')
+    return
+  }
+  
+  // Check if user is admin - admins can access all pages
+  const authStore = useAuthStore()
+  await authStore.checkAuthStatus()
+  
+  if (authStore.isAuthenticated && authStore.user?.groups?.includes('Admin')) {
+    console.log('  👑 User is ADMIN - allowing access to all routes')
+    console.log('🔵 COMING-SOON MIDDLEWARE END: ALLOW (ADMIN)\n')
     return
   }
   

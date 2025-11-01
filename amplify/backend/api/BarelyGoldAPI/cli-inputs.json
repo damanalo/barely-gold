@@ -43,6 +43,24 @@
           ]
         }
       }
+    },
+    "/orders": {
+      "name": "/orders",
+      "lambdaFunction": "BGOrdersCRUD",
+      "permissions": {
+        "groups": {
+          "Admin": [
+            "create",
+            "read",
+            "update"
+          ],
+          "Customer": [
+            "create",
+            "read"
+          ]
+        },
+        "setting": "private"
+      }
     }
   }
 }

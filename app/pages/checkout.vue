@@ -125,73 +125,93 @@
             <!-- Main Content -->
             <div class="max-w-4xl mx-auto">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <!-- Payment Instructions (Left Column) -->
+                    <!-- Order Details Form (Left Column) -->
                     <div class="md:col-span-2 bg-white rounded-lg shadow p-6">
-                        <h2 class="text-2xl font-bold mb-4">Payment Instructions</h2>
+                        <h2 class="text-2xl font-bold mb-4">Complete Your Order</h2>
                         
-                        <div class="space-y-4">
-                            <div class="border-l-4 border-primary-600 pl-4 py-2 bg-primary-50">
-                                <h3 class="font-semibold text-lg">Pay via GCash</h3>
-                                <p class="text-sm text-gray-600">Scan the QR code below to complete your payment</p>
-                            </div>
-
-                            <!-- QR Code Placeholder -->
-                            <div class="flex justify-center p-8 bg-gray-50 rounded-lg border-2 border-dashed border-gray-300">
-                                <div class="text-center">
-                                    <div class="w-64 h-64 bg-white flex items-center justify-center rounded-lg shadow-sm mb-4">
-                                        <div class="text-gray-400">
-                                            <UIcon name="i-heroicons-qr-code" class="w-32 h-32 mb-2" />
-                                            <p class="text-sm">GCash QR Code</p>
-                                            <p class="text-xs">(To be uploaded)</p>
+                        <div class="space-y-6">
+                            <!-- Shipping Address Section -->
+                            <div>
+                                <h3 class="font-semibold text-lg mb-3">Shipping Address</h3>
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Street Address *</label>
+                                        <input
+                                            v-model="shippingAddress.street"
+                                            type="text"
+                                            placeholder="House no., Street name"
+                                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-600 focus:border-transparent"
+                                            required
+                                        />
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">City *</label>
+                                            <input
+                                                v-model="shippingAddress.city"
+                                                type="text"
+                                                placeholder="City"
+                                                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-600 focus:border-transparent"
+                                                required
+                                            />
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Province *</label>
+                                            <input
+                                                v-model="shippingAddress.province"
+                                                type="text"
+                                                placeholder="Province"
+                                                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-600 focus:border-transparent"
+                                                required
+                                            />
                                         </div>
                                     </div>
-                                    <p class="text-sm text-gray-600">Scan this QR code with your GCash app</p>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Postal Code</label>
+                                        <input
+                                            v-model="shippingAddress.postal_code"
+                                            type="text"
+                                            placeholder="Postal Code"
+                                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-600 focus:border-transparent"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Country</label>
+                                        <input
+                                            v-model="shippingAddress.country"
+                                            type="text"
+                                            disabled
+                                            class="w-full px-4 py-2 border border-gray-300 rounded-md bg-gray-50"
+                                        />
+                                    </div>
                                 </div>
                             </div>
 
-                            <!-- Payment Steps -->
-                            <div class="space-y-3">
-                                <h4 class="font-semibold">How to pay:</h4>
-                                <ol class="space-y-2">
-                                    <li class="flex items-start gap-3">
-                                        <span class="flex-shrink-0 w-6 h-6 bg-primary-600 text-white rounded-full flex items-center justify-center text-sm">1</span>
-                                        <span class="text-gray-700">Open your GCash app</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <span class="flex-shrink-0 w-6 h-6 bg-primary-600 text-white rounded-full flex items-center justify-center text-sm">2</span>
-                                        <span class="text-gray-700">Tap "Scan QR" to scan the QR code above</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <span class="flex-shrink-0 w-6 h-6 bg-primary-600 text-white rounded-full flex items-center justify-center text-sm">3</span>
-                                        <span class="text-gray-700">Verify the amount (₱{{ formatPrice(cartStore.total) }})</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <span class="flex-shrink-0 w-6 h-6 bg-primary-600 text-white rounded-full flex items-center justify-center text-sm">4</span>
-                                        <span class="text-gray-700">Complete the payment and take a screenshot of the confirmation</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <span class="flex-shrink-0 w-6 h-6 bg-primary-600 text-white rounded-full flex items-center justify-center text-sm">5</span>
-                                        <span class="text-gray-700">Upload your proof of payment below</span>
-                                    </li>
-                                </ol>
+                            <!-- Payment Information -->
+                            <div class="border-t pt-4">
+                                <div class="border-l-4 border-primary-600 pl-4 py-3 bg-primary-50">
+                                    <h3 class="font-semibold text-lg">Payment Method: GCash / Bank Transfer</h3>
+                                    <p class="text-sm text-gray-600 mt-1">After confirming your order, you can upload proof of payment from your Order History.</p>
+                                </div>
                             </div>
 
-                            <!-- Upload Proof of Payment -->
-                            <div class="border-t pt-4">
-                                <label class="block font-semibold mb-2">Upload Proof of Payment</label>
-                                <input
-                                    type="file"
-                                    accept="image/jpeg, image/jpg, image/png"
-                                    @change="handleFileChange"
-                                    class="block w-full text-sm text-gray-500
-                                        file:mr-4 file:py-2 file:px-4
-                                        file:rounded-md file:border-0
-                                        file:text-sm file:font-semibold
-                                        file:bg-primary-50 file:text-primary-700
-                                        hover:file:bg-primary-100
-                                        cursor-pointer border border-gray-300 rounded-md"
-                                />
-                                <p class="text-xs text-gray-500 mt-2">Accepted formats: JPG, JPEG, PNG (Max 5MB)</p>
+                            <!-- QR Code Preview -->
+                            <div class="flex justify-center p-4 bg-gray-50 rounded-lg border border-gray-200">
+                                <div class="text-center">
+                                    <p class="text-sm text-gray-600 mb-3">Payment QR codes will be available in your order details</p>
+                                    <div class="flex gap-4 justify-center">
+                                        <img
+                                            :src="getImageUrl('misc/gcash_qr_code_250_290.jpg')"
+                                            alt="GCash QR Code"
+                                            class="w-24 h-24 object-cover rounded"
+                                        />
+                                        <img
+                                            :src="getImageUrl('misc/bdo_qr_code_250_290.jpg')"
+                                            alt="BDO QR Code"
+                                            class="w-24 h-24 object-cover rounded"
+                                        />
+                                    </div>
+                                </div>
                             </div>
 
                             <!-- Submit Button -->
@@ -199,11 +219,16 @@
                                 block 
                                 color="primary" 
                                 size="lg" 
-                                @click="handleSubmitPayment"
-                                :disabled="!proofOfPayment"
+                                @click="handleSubmitOrder"
+                                :loading="isSubmitting"
+                                :disabled="isSubmitting"
                             >
-                                Submit Payment
+                                {{ isSubmitting ? 'Creating Order...' : 'Confirm Order' }}
                             </UButton>
+
+                            <p class="text-xs text-gray-500 text-center">
+                                By confirming this order, you agree to our terms and conditions
+                            </p>
                         </div>
                     </div>
 
@@ -252,16 +277,31 @@
 <script setup lang="ts">
 import { useCartStore } from '~/stores/cart'
 import { useAuthStore } from '~/stores/auth'
+import { useOrdersStore } from '~/stores/orders'
+import { useUser } from '~/composables/api/useUser'
+import type { IOrderItem, IOrderInput } from '~/types/order'
+import getImageUrl from '~/utils/get-image-url'
 
 const router = useRouter()
+const toast = useToast()
 const cartStore = useCartStore()
 const authStore = useAuthStore()
+const ordersStore = useOrdersStore()
 
 // Current step in the order process
 const currentStep = ref(1) // 1: Payment, 2: Processing, 3: Shipped, 4: Received
 
-// Proof of payment file
-const proofOfPayment = ref<File | null>(null)
+// Shipping address form
+const shippingAddress = ref({
+    street: '',
+    city: '',
+    province: '',
+    postal_code: '',
+    country: 'Philippines'
+})
+
+// Loading state
+const isSubmitting = ref(false)
 
 // Check authentication and cart on mount
 onMounted(() => {
@@ -273,7 +313,11 @@ onMounted(() => {
     
     // Redirect to login if not authenticated
     if (!authStore.isAuthenticated) {
-        alert('Please sign in or register to proceed with checkout')
+        toast.add({
+            title: 'Authentication Required',
+            description: 'Please sign in or register to proceed with checkout',
+            color: 'error'
+        })
         router.push('/login')
     }
 })
@@ -282,37 +326,105 @@ const formatPrice = (price: number) => {
     return price.toFixed(2)
 }
 
-const handleFileChange = (event: Event) => {
-    const target = event.target as HTMLInputElement
-    if (target.files && target.files.length > 0) {
-        proofOfPayment.value = target.files[0] || null
-    } else {
-        proofOfPayment.value = null
-    }
-}
-
-const handleSubmitPayment = () => {
-    if (!proofOfPayment.value) {
-        alert('Please upload proof of payment')
-        return
-    }
-
-    // Check authentication again before submitting
+const handleSubmitOrder = async () => {
+    // Validate authentication
     if (!authStore.isAuthenticated) {
-        alert('Please sign in to complete your order')
+        toast.add({
+            title: 'Authentication Required',
+            description: 'Please sign in to complete your order',
+            color: 'error'
+        })
         router.push('/login')
         return
     }
 
-    // TODO: Upload proof of payment and create order
-    console.log('Submitting payment proof:', proofOfPayment.value)
-    
-    // Show success message (you can add a toast notification here)
-    alert('Payment submitted successfully! We will verify your payment and process your order shortly.')
-    
-    // Clear cart and redirect
-    cartStore.clearCart()
-    router.push('/')
+    // Validate shipping address
+    if (!shippingAddress.value.street || !shippingAddress.value.city || !shippingAddress.value.province) {
+        toast.add({
+            title: 'Missing Information',
+            description: 'Please fill in all shipping address fields',
+            color: 'error'
+        })
+        return
+    }
+
+    isSubmitting.value = true
+
+    try {
+        // Get user information
+        const { getUser } = useUser()
+        const user = await getUser()
+
+        if (!user) {
+            toast.add({
+                title: 'Error',
+                description: 'Failed to retrieve user information',
+                color: 'error'
+            })
+            isSubmitting.value = false
+            return
+        }
+
+        // Create order items from cart (snapshot product details)
+        const orderItems: IOrderItem[] = cartStore.items.map(item => ({
+            id: item.id,
+            name: item.name,
+            price: item.price,
+            quantity: item.quantity,
+            image: item.image
+        }))
+
+        // Prepare shipping address string (JSON)
+        const shippingAddressStr = JSON.stringify(shippingAddress.value)
+
+        // Prepare order input
+        const orderInput: IOrderInput = {
+            items: orderItems,
+            subtotal: cartStore.total,
+            shipping_cost: 0,
+            total: cartStore.total,
+            customer_name: user.given_name && user.family_name 
+                ? `${user.given_name} ${user.family_name}` 
+                : user.email,
+            email: user.email,
+            phone_number: user.phone_number || '',
+            shipping_address: shippingAddressStr,
+            payment_method: 'GCash/Bank Transfer'
+        }
+
+        // Create order
+        const order = await ordersStore.createOrder(orderInput)
+
+        if (order) {
+            // Clear cart
+            await cartStore.clearCart()
+
+            // Show success message
+            toast.add({
+                title: 'Order Created!',
+                description: `Order ${order.order_number} has been created. Please upload payment proof in your order history.`,
+                color: 'success'
+            })
+
+            // Redirect to order history
+            router.push('/order-history')
+        } else {
+            toast.add({
+                title: 'Order Failed',
+                description: 'Failed to create order. Please try again.',
+                color: 'error'
+            })
+        }
+    } catch (error) {
+        console.error('Order creation failed:', error)
+        toast.add({
+            title: 'Error',
+            description: 'An error occurred while creating your order',
+            color: 'error'
+        })
+    } finally {
+        isSubmitting.value = false
+    }
 }
 </script>
 

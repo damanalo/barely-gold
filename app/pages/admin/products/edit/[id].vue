@@ -115,6 +115,7 @@
                     :disabled="productsStore.loading"
                     :class="{ 'border-red-500': errors.images }"
                 />
+                <small class="text-gray-500">300px x 300px JPG image is recommended</small>
                 <span v-if="errors.images" class="text-red-500 text-sm">{{ errors.images }}</span>
                 <span v-if="existingImageCount > 0" class="text-gray-600 text-sm">
                     Currently has {{ existingImageCount }} existing image(s)

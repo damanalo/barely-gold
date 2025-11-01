@@ -38,6 +38,10 @@
         "BGUsersCRUD": {
           "deploymentBucketName": "amplify-barelygoldui-prod-15beb-deployment",
           "s3Key": "amplify-builds/BGUsersCRUD-70674e58585551753841-build.zip"
+        },
+        "BGOrdersCRUD": {
+          "deploymentBucketName": "amplify-barelygoldui-prod-15beb-deployment",
+          "s3Key": "amplify-builds/BGOrdersCRUD-4d39626a306d4b6c7449-build.zip"
         }
       },
       "api": {
@@ -50,7 +54,8 @@
       "storage": {
         "BGDynamoDB": {},
         "BGS3Bucket": {},
-        "BGDynamoDBUsers": {}
+        "BGDynamoDBUsers": {},
+        "BGDynamoDBOrders": {}
       }
     }
   },

@@ -83,7 +83,7 @@
                             </span>
                         </td>
                         <td class="px-4 py-3 text-sm font-medium text-green-600">
-                            ${{ product.price.toFixed(2) }}
+                            {{ formatPrice(product.price as number) }}
                         </td>
                         <td class="px-4 py-3 text-sm font-medium">
                             {{ (product as any).quantity ?? 0 }}
@@ -188,6 +188,13 @@ const formatDate = (timestamp: number): string => {
         month: 'short', 
         day: 'numeric' 
     })
+}
+
+const formatPrice = (price: number) => {
+    return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'PHP'
+    }).format(price)
 }
 
 const navigateToEdit = (productId: string) => {

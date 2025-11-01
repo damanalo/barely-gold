@@ -60,6 +60,14 @@
           ],
           "category": "function",
           "resourceName": "BGProductsCRUD"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "BGOrdersCRUD"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -132,6 +140,34 @@
           ],
           "category": "auth",
           "resourceName": "barelygoldui0845b22d0845b22d"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "BGOrdersCRUD": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributeEnvMap": {
+            "Arn": "TABLE_ARN",
+            "Name": "TABLE_NAME"
+          },
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "storage",
+          "resourceName": "BGDynamoDBOrders"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ],
+          "category": "storage",
+          "resourceName": "BGDynamoDBOrders"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -235,6 +271,22 @@
         }
       ]
     },
+    "AMPLIFY_function_BGOrdersCRUD_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "BGOrdersCRUD"
+        }
+      ]
+    },
+    "AMPLIFY_function_BGOrdersCRUD_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "BGOrdersCRUD"
+        }
+      ]
+    },
     "AMPLIFY_function_BGProductsCRUD_deploymentBucketName": {
       "usedBy": [
         {
@@ -294,6 +346,10 @@
   },
   "storage": {
     "BGDynamoDB": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    },
+    "BGDynamoDBOrders": {
       "providerPlugin": "awscloudformation",
       "service": "DynamoDB"
     },
