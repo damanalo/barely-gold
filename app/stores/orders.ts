@@ -5,6 +5,7 @@ import { useOrders } from '../composables/api/useOrders'
 export const useOrdersStore = defineStore('orders', {
   state: () => ({
     orders: [] as IOrder[],
+    allOrders: [] as IOrder[], // For admin view - all orders
     currentOrder: null as IOrder | null,
     loading: false,
     error: null as string | null
@@ -44,6 +45,30 @@ export const useOrdersStore = defineStore('orders', {
         return state.orders.find(
           order => order.user_id === userId && order.created_at === createdAt
         )
+      }
+    },
+
+    /**
+     * Get all orders sorted by created_at DESC (for admin)
+     */
+    sortedAllOrders: (state) => {
+      return [...state.allOrders].sort((a, b) => b.created_at - a.created_at)
+    },
+
+    /**
+     * Get quick stats for dashboard
+     */
+    orderStats: (state) => {
+      const total = state.allOrders.length
+      const pendingPayments = state.allOrders.filter(o => o.payment_status === 'pending').length
+      const processing = state.allOrders.filter(o => o.status === 'processing').length
+      const totalRevenue = state.allOrders.reduce((sum, order) => sum + order.total, 0)
+      
+      return {
+        total,
+        pendingPayments,
+        processing,
+        totalRevenue
       }
     }
   },
@@ -165,6 +190,69 @@ export const useOrdersStore = defineStore('orders', {
     },
 
     /**
+     * Fetch all orders (admin only)
+     */
+    async fetchAllOrders() {
+      this.loading = true
+      this.error = null
+
+      try {
+        const { getAllOrders } = useOrders()
+        const orders = await getAllOrders()
+        this.allOrders = orders
+        console.log('All orders fetched:', orders)
+      } catch (error) {
+        console.error('Failed to fetch all orders:', error)
+        this.error = 'Failed to load all orders'
+      } finally {
+        this.loading = false
+      }
+    },
+
+    /**
+     * Update an order
+     */
+    async updateOrder(order: IOrder): Promise<boolean> {
+      this.loading = true
+      this.error = null
+
+      try {
+        const { updateOrder } = useOrders()
+        const success = await updateOrder(order)
+
+        if (success) {
+          // Update in allOrders list if exists
+          const index = this.allOrders.findIndex(
+            o => o.user_id === order.user_id && o.created_at === order.created_at
+          )
+          if (index > -1) {
+            this.allOrders[index] = order
+          }
+
+          // Update in user's orders list if exists
+          const userIndex = this.orders.findIndex(
+            o => o.user_id === order.user_id && o.created_at === order.created_at
+          )
+          if (userIndex > -1) {
+            this.orders[userIndex] = order
+          }
+
+          console.log('Order updated successfully')
+          return true
+        } else {
+          this.error = 'Failed to update order'
+          return false
+        }
+      } catch (error) {
+        console.error('Failed to update order:', error)
+        this.error = 'Failed to update order'
+        return false
+      } finally {
+        this.loading = false
+      }
+    },
+
+    /**
      * Refresh orders from API
      */
     async refreshOrders() {
@@ -183,6 +271,7 @@ export const useOrdersStore = defineStore('orders', {
      */
     resetStore() {
       this.orders = []
+      this.allOrders = []
       this.currentOrder = null
       this.loading = false
       this.error = null

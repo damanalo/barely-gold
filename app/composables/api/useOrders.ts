@@ -110,7 +110,7 @@ export const useOrders = () => {
         apiName: apiName as string,
         path: '/orders',
         options: {
-          body: orderData
+          body: orderData as any
         }
       }).response
 
@@ -162,7 +162,7 @@ export const useOrders = () => {
         apiName: apiName as string,
         path: '/orders',
         options: {
-          body: updatedOrder
+          body: updatedOrder as any
         }
       }).response
 
@@ -200,12 +200,44 @@ export const useOrders = () => {
     }
   }
 
+  /**
+   * Update an order (admin or user with proper permissions)
+   */
+  const updateOrder = async (order: IOrder): Promise<boolean> => {
+    try {
+      // Update the updated_at timestamp
+      const updatedOrder: IOrder = {
+        ...order,
+        updated_at: Date.now()
+      }
+
+      const operation = await put({
+        apiName: apiName as string,
+        path: '/orders',
+        options: {
+          body: updatedOrder as any
+        }
+      }).response
+
+      const response = await operation.body.json() as any
+
+      console.log('Update Order API Response:', response)
+
+      return response?.success || false
+    }
+    catch (error) {
+      console.error("Update order failed:", error)
+      return false
+    }
+  }
+
   return {
     getUserOrders,
     getOrder,
     createOrder,
     updateOrderPaymentProof,
-    getAllOrders
+    getAllOrders,
+    updateOrder
   }
 }
 

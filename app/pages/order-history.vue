@@ -257,15 +257,15 @@ const formatDate = (timestamp: number) => {
     })
 }
 
-const getStatusColor = (status: string) => {
-    const colors: Record<string, string> = {
-        pending_payment: 'orange',
-        processing: 'blue',
-        shipped: 'purple',
-        delivered: 'green',
-        cancelled: 'red'
+const getStatusColor = (status: string): 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning' | 'neutral' => {
+    const colors: Record<string, 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning' | 'neutral'> = {
+        pending_payment: 'warning',
+        processing: 'info',
+        shipped: 'secondary',
+        delivered: 'success',
+        cancelled: 'error'
     }
-    return colors[status] || 'gray'
+    return colors[status] || 'neutral'
 }
 
 const getStatusLabel = (status: string) => {
@@ -279,13 +279,13 @@ const getStatusLabel = (status: string) => {
     return labels[status] || status
 }
 
-const getPaymentStatusColor = (status: string) => {
-    const colors: Record<string, string> = {
-        pending: 'orange',
-        verified: 'green',
-        failed: 'red'
+const getPaymentStatusColor = (status: string): 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning' | 'neutral' => {
+    const colors: Record<string, 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning' | 'neutral'> = {
+        pending: 'warning',
+        verified: 'success',
+        failed: 'error'
     }
-    return colors[status] || 'gray'
+    return colors[status] || 'neutral'
 }
 
 const getShippingAddress = (addressString: string) => {
@@ -301,6 +301,7 @@ const handlePaymentProofUpload = async (event: Event, order: IOrder) => {
     if (!target.files || target.files.length === 0) return
 
     const file = target.files[0]
+    if (!file) return
     
     // Validate file size (5MB)
     if (file.size > 5 * 1024 * 1024) {

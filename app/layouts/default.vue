@@ -239,8 +239,26 @@ const handleCheckout = () => {
   navigateTo('/checkout')
 }
 
-const settingsMenuItems = [
-  [
+const isAdmin = computed(() => {
+  return authStore.user?.groups?.includes('Admin') || false
+})
+
+const settingsMenuItems = computed(() => {
+  const items = []
+  
+  // Admin section (only if user is admin)
+  if (isAdmin.value) {
+    items.push([
+      {
+        label: 'Admin Dashboard',
+        icon: 'i-heroicons-cog-6-tooth',
+        onSelect: () => navigateTo('/admin')
+      }
+    ])
+  }
+  
+  // User sections
+  items.push([
     {
       label: 'Account',
       icon: 'i-heroicons-user-circle',
@@ -251,15 +269,19 @@ const settingsMenuItems = [
       icon: 'i-heroicons-clipboard-document-list',
       onSelect: () => navigateTo('/order-history')
     }
-  ],
-  [
+  ])
+  
+  // Sign out section
+  items.push([
     {
       label: 'Sign Out',
       icon: 'i-heroicons-arrow-right-on-rectangle',
       onSelect: () => authStore.signOut()
     }
-  ]
-]
+  ])
+  
+  return items
+})
 </script>
 
 <style scoped>
