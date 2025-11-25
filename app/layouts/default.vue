@@ -37,7 +37,7 @@
       <slot />
     </main>
 
-    <footer class="mt-12">
+    <footer class="mt-12 bg-[#f7e7ce]">
       <UContainer class="py-6 text-sm text-gray-500 flex items-center justify-between">
         <span>© {{ new Date().getFullYear() }} Barely Gold</span>
         <div class="flex items-center gap-3">
