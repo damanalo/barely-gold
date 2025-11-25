@@ -83,6 +83,17 @@
                 <span v-if="errors.price" class="text-red-500 text-sm">{{ errors.price }}</span>
             </div>
             <div class="flex flex-col gap-2">
+                <label for="salePrice">Sale Price (optional)</label>
+                <UInputNumber 
+                    v-model="salePrice" 
+                    placeholder="Sale Price"
+                    :disabled="productsStore.loading"
+                    :class="{ 'border-red-500': errors.salePrice }"
+                />
+                <small class="text-gray-500">Leave empty if not on sale</small>
+                <span v-if="errors.salePrice" class="text-red-500 text-sm">{{ errors.salePrice }}</span>
+            </div>
+            <div class="flex flex-col gap-2">
                 <label for="quantity">Quantity <span class="text-red-500">*</span></label>
                 <UInputNumber 
                     v-model="quantity" 
@@ -170,6 +181,7 @@ const category = ref<string>('')
 const name = ref<string>('')
 const description = ref<string>('')
 const price = ref<number>(0)
+const salePrice = ref<number | null>(null)
 const quantity = ref<number>(0)
 const status = ref<'active' | 'inactive'>('active')
 const images = ref<File[] | null>(null)
@@ -204,6 +216,7 @@ onMounted(async () => {
         name.value = product.value.name
         description.value = product.value.description
         price.value = product.value.price
+        salePrice.value = product.value.salePrice ?? null
         quantity.value = (product.value as any).quantity ?? 0
         status.value = product.value.status as 'active' | 'inactive'
         originalCreatedAt.value = product.value.created_at
@@ -228,6 +241,7 @@ const handleUpdateProduct = async () => {
         name: name.value,
         description: description.value,
         price: price.value,
+        salePrice: salePrice.value,
         quantity: quantity.value,
         status: status.value,
         images: images.value || null
@@ -245,6 +259,7 @@ const handleUpdateProduct = async () => {
                 name: validatedData.name,
                 description: validatedData.description,
                 price: validatedData.price,
+                salePrice: validatedData.salePrice,
                 quantity: validatedData.quantity,
                 status: validatedData.status,
                 images: validatedData.images ?? null,

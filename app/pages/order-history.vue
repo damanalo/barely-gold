@@ -78,6 +78,127 @@
                         </div>
                     </div>
 
+                    <!-- Order Progress Steps (Show only if not cancelled) -->
+                    <div v-if="order.status !== 'cancelled'" class="px-6 py-4 border-t border-gray-200 bg-gray-50">
+                        <div class="flex items-center justify-between max-w-3xl mx-auto">
+                            <!-- Step 1: Payment -->
+                            <div class="flex flex-col items-center flex-1">
+                                <div 
+                                    :class="[
+                                        'w-10 h-10 rounded-full flex items-center justify-center font-semibold text-base transition-all duration-300',
+                                        getOrderStep(order.status) >= 1 
+                                            ? 'bg-primary-600 text-white shadow-lg' 
+                                            : 'bg-gray-200 text-gray-400'
+                                    ]"
+                                >
+                                    <UIcon v-if="getOrderStep(order.status) > 1" name="i-heroicons-check" class="w-5 h-5" />
+                                    <span v-else>1</span>
+                                </div>
+                                <span 
+                                    :class="[
+                                        'mt-1 text-xs font-medium',
+                                        getOrderStep(order.status) === 1 ? 'text-primary-600' : 'text-gray-500'
+                                    ]"
+                                >
+                                    Payment
+                                </span>
+                            </div>
+
+                            <!-- Connector Line -->
+                            <div 
+                                :class="[
+                                    'h-1 flex-1 mx-2 transition-all duration-300',
+                                    getOrderStep(order.status) >= 2 ? 'bg-primary-600' : 'bg-gray-200'
+                                ]"
+                            ></div>
+
+                            <!-- Step 2: Processing -->
+                            <div class="flex flex-col items-center flex-1">
+                                <div 
+                                    :class="[
+                                        'w-10 h-10 rounded-full flex items-center justify-center font-semibold text-base transition-all duration-300',
+                                        getOrderStep(order.status) >= 2 
+                                            ? 'bg-primary-600 text-white shadow-lg' 
+                                            : 'bg-gray-200 text-gray-400'
+                                    ]"
+                                >
+                                    <UIcon v-if="getOrderStep(order.status) > 2" name="i-heroicons-check" class="w-5 h-5" />
+                                    <span v-else>2</span>
+                                </div>
+                                <span 
+                                    :class="[
+                                        'mt-1 text-xs font-medium',
+                                        getOrderStep(order.status) === 2 ? 'text-primary-600' : 'text-gray-500'
+                                    ]"
+                                >
+                                    Processing
+                                </span>
+                            </div>
+
+                            <!-- Connector Line -->
+                            <div 
+                                :class="[
+                                    'h-1 flex-1 mx-2 transition-all duration-300',
+                                    getOrderStep(order.status) >= 3 ? 'bg-primary-600' : 'bg-gray-200'
+                                ]"
+                            ></div>
+
+                            <!-- Step 3: Shipped -->
+                            <div class="flex flex-col items-center flex-1">
+                                <div 
+                                    :class="[
+                                        'w-10 h-10 rounded-full flex items-center justify-center font-semibold text-base transition-all duration-300',
+                                        getOrderStep(order.status) >= 3 
+                                            ? 'bg-primary-600 text-white shadow-lg' 
+                                            : 'bg-gray-200 text-gray-400'
+                                    ]"
+                                >
+                                    <UIcon v-if="getOrderStep(order.status) > 3" name="i-heroicons-check" class="w-5 h-5" />
+                                    <span v-else>3</span>
+                                </div>
+                                <span 
+                                    :class="[
+                                        'mt-1 text-xs font-medium',
+                                        getOrderStep(order.status) === 3 ? 'text-primary-600' : 'text-gray-500'
+                                    ]"
+                                >
+                                    Shipped
+                                </span>
+                            </div>
+
+                            <!-- Connector Line -->
+                            <div 
+                                :class="[
+                                    'h-1 flex-1 mx-2 transition-all duration-300',
+                                    getOrderStep(order.status) >= 4 ? 'bg-primary-600' : 'bg-gray-200'
+                                ]"
+                            ></div>
+
+                            <!-- Step 4: Received -->
+                            <div class="flex flex-col items-center flex-1">
+                                <div 
+                                    :class="[
+                                        'w-10 h-10 rounded-full flex items-center justify-center font-semibold text-base transition-all duration-300',
+                                        getOrderStep(order.status) >= 4 
+                                            ? 'bg-primary-600 text-white shadow-lg' 
+                                            : 'bg-gray-200 text-gray-400'
+                                    ]"
+                                >
+                                    <UIcon v-if="getOrderStep(order.status) >= 4" name="i-heroicons-check" class="w-5 h-5" />
+                                    <span v-else>4</span>
+                                </div>
+                                <span 
+                                    :class="[
+                                        'mt-1 text-xs font-medium',
+                                        getOrderStep(order.status) === 4 ? 'text-primary-600' : 'text-gray-500'
+                                    ]"
+                                >
+                                    Received
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Expanded Order Details -->
                     <div
                         v-if="expandedOrders.has(`${order.user_id}-${order.created_at}`)"
@@ -112,12 +233,22 @@
                             </div>
                         </div>
 
-                        <!-- Shipping Address -->
-                        <div class="px-6 py-4 border-t border-gray-200 bg-gray-50">
+                        <!-- Delivery Method -->
+                        <div v-if="order.delivery_method" class="px-6 py-4 border-t border-gray-200 bg-gray-50">
+                            <h4 class="font-semibold mb-2">Delivery Method</h4>
+                            <div class="text-sm text-gray-700">
+                                <p class="font-medium">
+                                    {{ getDeliveryMethodLabel(order.delivery_method) }}
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Shipping Address (Only show if shipping via J&T) -->
+                        <div v-if="order.delivery_method === 'ship_via_jt' && getShippingAddress(order.shipping_address)" class="px-6 py-4 border-t border-gray-200 bg-gray-50">
                             <h4 class="font-semibold mb-2">Shipping Address</h4>
                             <div class="text-sm text-gray-700">
                                 <p>{{ order.customer_name }}</p>
-                                <p v-if="getShippingAddress(order.shipping_address)">
+                                <p>
                                     {{ getShippingAddress(order.shipping_address).street }}<br />
                                     {{ getShippingAddress(order.shipping_address).city }}, 
                                     {{ getShippingAddress(order.shipping_address).province }}
@@ -190,6 +321,12 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+
+                        <!-- Additional Notes -->
+                        <div v-if="order.notes" class="px-6 py-4 border-t border-gray-200">
+                            <h4 class="font-semibold mb-2">Additional Notes</h4>
+                            <p class="text-sm text-gray-700 whitespace-pre-wrap">{{ order.notes }}</p>
                         </div>
 
                         <!-- Order Totals -->
@@ -294,6 +431,25 @@ const getShippingAddress = (addressString: string) => {
     } catch {
         return null
     }
+}
+
+const getOrderStep = (status: string): number => {
+    const statusMap: Record<string, number> = {
+        pending_payment: 1,
+        processing: 2,
+        shipped: 3,
+        delivered: 4
+    }
+    return statusMap[status] || 1
+}
+
+const getDeliveryMethodLabel = (method: string): string => {
+    const labels: Record<string, string> = {
+        meet_up: 'Meet up',
+        pick_up: 'Pick up',
+        ship_via_jt: 'Ship via J&T'
+    }
+    return labels[method] || method
 }
 
 const handlePaymentProofUpload = async (event: Event, order: IOrder) => {

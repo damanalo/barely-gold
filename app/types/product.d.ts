@@ -4,6 +4,7 @@ export interface IProduct {
     name: string,
     description: string,
     price: number,
+    salePrice?: number | null,
     status: 'active' | 'inactive',
     quantity: number,
     images: string[] | null, // Image paths from database
@@ -16,6 +17,7 @@ export interface IProductInput {
     name: string,
     description: string,
     price: number,
+    salePrice?: number | null,
     status: 'active' | 'inactive',
     quantity: number,
     images: File[] | null, // File objects for upload

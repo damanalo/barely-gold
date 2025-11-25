@@ -14,6 +14,11 @@ const baseProductValidation = {
   price: z.number()
     .positive('Price must be greater than 0')
     .min(0.01, 'Price must be at least 0.01'),
+  salePrice: z.number()
+    .positive('Sale price must be greater than 0')
+    .min(0.01, 'Sale price must be at least 0.01')
+    .nullable()
+    .optional(),
   quantity: z.number()
     .min(0, 'Quantity must be at least 0')
     .max(1000, 'Quantity must not exceed 1000'),
@@ -30,6 +35,15 @@ export const productSchema = z.object({
     if (!Array.isArray(value)) return false
     return value.every(item => item instanceof File)
   }, 'Images must be valid files').nullable().optional()
+}).refine((data) => {
+  // If salePrice is provided, it must be less than the regular price
+  if (data.salePrice !== null && data.salePrice !== undefined) {
+    return data.salePrice < data.price
+  }
+  return true
+}, {
+  message: 'Sale price must be lower than the regular price',
+  path: ['salePrice']
 })
 
 // Schema for editing products (images truly optional)
@@ -40,6 +54,15 @@ export const productUpdateSchema = z.object({
     if (!Array.isArray(value)) return false
     return value.every(item => item instanceof File)
   }, 'Images must be valid files').nullable().optional()
+}).refine((data) => {
+  // If salePrice is provided, it must be less than the regular price
+  if (data.salePrice !== null && data.salePrice !== undefined) {
+    return data.salePrice < data.price
+  }
+  return true
+}, {
+  message: 'Sale price must be lower than the regular price',
+  path: ['salePrice']
 })
 
 export type ProductFormData = z.infer<typeof productSchema>

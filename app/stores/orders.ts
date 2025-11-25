@@ -62,7 +62,9 @@ export const useOrdersStore = defineStore('orders', {
       const total = state.allOrders.length
       const pendingPayments = state.allOrders.filter(o => o.payment_status === 'pending').length
       const processing = state.allOrders.filter(o => o.status === 'processing').length
-      const totalRevenue = state.allOrders.reduce((sum, order) => sum + order.total, 0)
+      const totalRevenue = state.allOrders
+        .filter(o => o.payment_status === 'verified')
+        .reduce((sum, order) => sum + order.total, 0)
       
       return {
         total,

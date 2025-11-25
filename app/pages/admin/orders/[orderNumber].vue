@@ -261,6 +261,7 @@
 
 <script setup lang="ts">
 import { useOrdersStore } from '~/stores/orders'
+import { useProductsStore } from '~/stores/products'
 import type { IOrder } from '~/types/order'
 import getImageUrl from '~/utils/get-image-url'
 
@@ -270,6 +271,7 @@ definePageMeta({
 
 const route = useRoute()
 const ordersStore = useOrdersStore()
+const productsStore = useProductsStore()
 const toast = useToast()
 
 const orderNumber = route.params.orderNumber as string
@@ -302,6 +304,11 @@ const orderStatusOptions = [
 // Fetch order on mount
 onMounted(async () => {
   loading.value = true
+  
+  // Fetch products to ensure they're available for quantity updates
+  if (productsStore.products.length === 0) {
+    await productsStore.fetchProducts()
+  }
   
   // First check if orders are already loaded in store
   if (ordersStore.allOrders.length === 0) {
@@ -360,6 +367,9 @@ const updateOrder = async () => {
   updating.value = true
 
   try {
+    const previousPaymentStatus = order.value.payment_status
+    const isPaymentVerified = editForm.value.payment_status === 'verified' && previousPaymentStatus !== 'verified'
+
     const updatedOrder: IOrder = {
       ...order.value,
       payment_status: editForm.value.payment_status,
@@ -373,6 +383,11 @@ const updateOrder = async () => {
         : order.value.delivered_at
     }
 
+    // If payment is being verified for the first time, deduct product quantities
+    if (isPaymentVerified) {
+      await deductProductQuantities(updatedOrder)
+    }
+
     const success = await ordersStore.updateOrder(updatedOrder)
 
     if (success) {
@@ -381,7 +396,9 @@ const updateOrder = async () => {
       
       toast.add({
         title: 'Success',
-        description: 'Order updated successfully!',
+        description: isPaymentVerified 
+          ? 'Order updated successfully! Product quantities have been deducted.' 
+          : 'Order updated successfully!',
         color: 'success'
       })
     } else {
@@ -400,6 +417,49 @@ const updateOrder = async () => {
     })
   } finally {
     updating.value = false
+  }
+}
+
+const deductProductQuantities = async (order: IOrder) => {
+  try {
+    // Ensure products are loaded
+    if (productsStore.products.length === 0) {
+      await productsStore.fetchProducts()
+    }
+
+    // Deduct quantities for each item in the order
+    for (const orderItem of order.items) {
+      // Find the product by ID
+      const product = productsStore.getProductById(orderItem.id)
+      
+      if (product) {
+        // Calculate new quantity (ensure it doesn't go below 0)
+        const newQuantity = Math.max(0, product.quantity - orderItem.quantity)
+        
+        // Update the product quantity
+        const productInput = {
+          category: product.category,
+          name: product.name,
+          description: product.description,
+          price: product.price,
+          salePrice: product.salePrice,
+          status: product.status,
+          quantity: newQuantity,
+          images: null,
+          created_at: product.created_at,
+          updated_at: Date.now()
+        }
+        
+        await productsStore.updateProduct(product.id, productInput, product.images || undefined)
+        
+        console.log(`Deducted ${orderItem.quantity} from product ${product.name}. New quantity: ${newQuantity}`)
+      } else {
+        console.warn(`Product with ID ${orderItem.id} not found. Cannot deduct quantity.`)
+      }
+    }
+  } catch (error) {
+    console.error('Error deducting product quantities:', error)
+    throw error // Re-throw to handle in updateOrder
   }
 }
 </script>

@@ -17,6 +17,8 @@ export interface IOrder {
   payment_method: string
   payment_status: 'pending' | 'verified' | 'failed'
   status: 'pending_payment' | 'processing' | 'shipped' | 'delivered' | 'cancelled'
+  delivery_method?: 'meet_up' | 'pick_up' | 'ship_via_jt'
+  notes?: string
   created_at: number  // Unix timestamp
   updated_at: number  // Unix timestamp
   delivered_at?: number  // Unix timestamp
@@ -41,5 +43,7 @@ export interface IOrderInput {
   phone_number: string
   shipping_address: string
   payment_method: string
+  delivery_method?: 'meet_up' | 'pick_up' | 'ship_via_jt'
+  notes?: string
 }
 

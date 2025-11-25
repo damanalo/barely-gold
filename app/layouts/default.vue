@@ -41,116 +41,95 @@
       <UContainer class="py-6 text-sm text-gray-500 flex items-center justify-between">
         <span>© {{ new Date().getFullYear() }} Barely Gold</span>
         <div class="flex items-center gap-3">
-          <ULink to="/" class="hover:text-primary-600">Home</ULink>
+          <ULink to="/" class="hover:text-primary-600">FAQs</ULink>
+          <ULink to="/terms-and-conditions" class="hover:text-primary-600">Terms and Conditions</ULink>
+          <ULink to="/" class="hover:text-primary-600">Contact Us</ULink>
+          <ULink to="/" class="hover:text-primary-600">About Us</ULink>
         </div>
       </UContainer>
     </footer>
 
     <!-- Cart Slideover -->
-    <Teleport to="body">
-      <!-- Overlay -->
-      <Transition name="fade">
-        <div 
-          v-if="cartStore.isCartOpen" 
-          class="fixed inset-0 bg-black/50 z-40" 
-          @click="cartStore.closeCart"
-        ></div>
-      </Transition>
-      
-      <!-- Cart Panel -->
-      <Transition name="slide-right">
-        <div 
-          v-if="cartStore.isCartOpen" 
-          class="fixed top-0 right-0 h-full w-full sm:w-96 bg-white dark:bg-gray-900 shadow-xl z-50 flex flex-col"
-        >
-          <!-- Header -->
-          <div class="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-800">
-            <h3 class="text-base font-semibold leading-6 text-gray-900 dark:text-white">
-              Shopping Cart ({{ cartStore.itemCount }})
-            </h3>
-            <UButton color="primary" variant="ghost" icon="i-heroicons-x-mark-20-solid" @click="cartStore.closeCart" />
-          </div>
+    <USlideover
+      v-model:open="isCartOpen"
+      :title="`Shopping Cart (${cartStore.itemCount})`"
+      :ui="{ body: 'p-4 flex-1 overflow-y-auto', footer: 'p-4 border-t' }"
+    >
+      <template #body>
+        <div v-if="cartStore.items.length > 0" class="flex flex-col gap-4">
+          <div v-for="item in cartStore.items" :key="item.id" class="flex gap-4 p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
+            <div v-if="item.image" class="w-20 h-20 flex-shrink-0">
+              <img :src="item.image" :alt="item.name" class="w-full h-full object-cover rounded" />
+            </div>
+            <div v-else class="w-20 h-20 flex-shrink-0 bg-gray-100 dark:bg-gray-800 rounded flex items-center justify-center">
+              <UIcon name="i-heroicons-photo" class="w-8 h-8 text-gray-400" />
+            </div>
 
-          <!-- Cart Items -->
-          <div class="flex-1 overflow-y-auto p-4">
-            <div v-if="cartStore.items.length > 0" class="flex flex-col gap-4">
-              <div v-for="item in cartStore.items" :key="item.id" class="flex gap-4 p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
-                <div v-if="item.image" class="w-20 h-20 flex-shrink-0">
-                  <img :src="item.image" :alt="item.name" class="w-full h-full object-cover rounded" />
-                </div>
-                <div v-else class="w-20 h-20 flex-shrink-0 bg-gray-100 dark:bg-gray-800 rounded flex items-center justify-center">
-                  <UIcon name="i-heroicons-photo" class="w-8 h-8 text-gray-400" />
-                </div>
-
-                <div class="flex-1 min-w-0">
-                  <h4 class="text-sm font-medium text-gray-900 dark:text-white truncate">{{ item.name }}</h4>
-                  <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">{{ formatPrice(item.price) }}</p>
-                  
-                  <div class="flex items-center gap-2 mt-3">
-                    <UButton 
-                      icon="i-heroicons-minus" 
-                      size="xs" 
-                      color="primary" 
-                      variant="outline"
-                      :loading="cartStore.operationLoading.decrementQuantity[item.id] || false"
-                      :disabled="cartStore.isAnyCartOperationInProgress"
-                      @click="cartStore.decrementQuantity(item.id)"
-                    />
-                    <span class="text-sm font-medium w-8 text-center">{{ item.quantity }}</span>
-                    <UButton 
-                      icon="i-heroicons-plus" 
-                      size="xs" 
-                      color="primary" 
-                      variant="outline"
-                      :loading="cartStore.operationLoading.incrementQuantity[item.id] || false"
-                      :disabled="cartStore.isAnyCartOperationInProgress"
-                      @click="cartStore.incrementQuantity(item.id)"
-                    />
-                    <UButton 
-                      icon="i-heroicons-trash" 
-                      size="xs" 
-                      color="error" 
-                      variant="ghost"
-                      class="ml-auto"
-                      :loading="cartStore.operationLoading.removeItem[item.id] || false"
-                      :disabled="cartStore.isAnyCartOperationInProgress"
-                      @click="cartStore.removeItem(item.id)"
-                    />
-                  </div>
-                </div>
-
-                <div class="text-right">
-                  <p class="text-sm font-medium text-gray-900 dark:text-white">
-                    {{ formatPrice(item.price * item.quantity) }}
-                  </p>
-                </div>
+            <div class="flex-1 min-w-0">
+              <h4 class="text-sm font-medium text-gray-900 dark:text-white truncate">{{ item.name }}</h4>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">{{ formatPrice(item.price) }}</p>
+              
+              <div class="flex items-center gap-2 mt-3">
+                <UButton 
+                  icon="i-heroicons-minus" 
+                  size="xs" 
+                  color="primary" 
+                  variant="outline"
+                  :loading="cartStore.operationLoading.decrementQuantity[item.id] || false"
+                  :disabled="cartStore.isAnyCartOperationInProgress"
+                  @click="cartStore.decrementQuantity(item.id)"
+                />
+                <span class="text-sm font-medium w-8 text-center">{{ item.quantity }}</span>
+                <UButton 
+                  icon="i-heroicons-plus" 
+                  size="xs" 
+                  color="primary" 
+                  variant="outline"
+                  :loading="cartStore.operationLoading.incrementQuantity[item.id] || false"
+                  :disabled="cartStore.isAnyCartOperationInProgress"
+                  @click="cartStore.incrementQuantity(item.id)"
+                />
+                <UButton 
+                  icon="i-heroicons-trash" 
+                  size="xs" 
+                  color="error" 
+                  variant="ghost"
+                  class="ml-auto"
+                  :loading="cartStore.operationLoading.removeItem[item.id] || false"
+                  :disabled="cartStore.isAnyCartOperationInProgress"
+                  @click="cartStore.removeItem(item.id)"
+                />
               </div>
             </div>
 
-            <!-- Empty Cart State -->
-            <div v-else class="flex flex-col items-center justify-center py-12 text-center">
-              <UIcon name="i-heroicons-shopping-cart" class="w-16 h-16 text-gray-300 dark:text-gray-600 mb-4" />
-              <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-2">Your cart is empty</h4>
-              <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Add some items to get started!</p>
-              <UButton @click="cartStore.closeCart" color="primary">Continue Shopping</UButton>
-            </div>
-          </div>
-
-          <!-- Footer / Totals -->
-          <div v-if="cartStore.items.length > 0" class="p-4 border-t border-gray-200 dark:border-gray-800">
-            <div class="space-y-3">
-              <div class="flex justify-between text-lg">
-                <span class="font-semibold text-gray-900 dark:text-white">Total</span>
-                <span class="font-semibold text-gray-900 dark:text-white">{{ formatPrice(cartStore.total) }}</span>
-              </div>
-              <UButton block color="primary" size="lg" class="mt-4" @click="handleCheckout">
-                Checkout
-              </UButton>
+            <div class="text-right">
+              <p class="text-sm font-medium text-gray-900 dark:text-white">
+                {{ formatPrice(item.price * item.quantity) }}
+              </p>
             </div>
           </div>
         </div>
-      </Transition>
-    </Teleport>
+
+        <div v-else class="flex flex-col items-center justify-center py-12 text-center">
+          <UIcon name="i-heroicons-shopping-cart" class="w-16 h-16 text-gray-300 dark:text-gray-600 mb-4" />
+          <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-2">Your cart is empty</h4>
+          <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Add some items to get started!</p>
+          <UButton @click="cartStore.closeCart" color="primary">Continue Shopping</UButton>
+        </div>
+      </template>
+
+      <template v-if="cartStore.items.length > 0" #footer="{ close }">
+        <div class="space-y-3">
+          <div class="flex justify-between text-lg">
+            <span class="font-semibold text-gray-900 dark:text-white">Total</span>
+            <span class="font-semibold text-gray-900 dark:text-white">{{ formatPrice(cartStore.total) }}</span>
+          </div>
+          <UButton block color="primary" size="lg" class="mt-2" @click="() => handleCheckout(close)">
+            Checkout
+          </UButton>
+        </div>
+      </template>
+    </USlideover>
   </UApp>
 </template>
 
@@ -164,6 +143,18 @@ await authStore.checkAuthStatus();
 const user = authStore.user
 
 const cartStore = useCartStore()
+
+// Computed property for cart v-model binding
+const isCartOpen = computed({
+  get: () => cartStore.isCartOpen,
+  set: (value: boolean) => {
+    if (value) {
+      cartStore.openCart()
+    } else {
+      cartStore.closeCart()
+    }
+  }
+})
 
 // Initialize user data and cart when authenticated
 const initializeUserData = async () => {
@@ -233,10 +224,11 @@ const formatPrice = (price: number) => {
   }).format(price)
 }
 
-const handleCheckout = () => {
-  // Close cart and navigate to checkout page
+const handleCheckout = async (close?: () => void) => {
+  // Close the slideover UI and navigate to checkout
+  close?.()
   cartStore.closeCart()
-  navigateTo('/checkout')
+  await navigateTo('/checkout')
 }
 
 const isAdmin = computed(() => {
@@ -284,31 +276,3 @@ const settingsMenuItems = computed(() => {
 })
 </script>
 
-<style scoped>
-/* Fade transition for overlay */
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-
-/* Slide from right transition for cart panel */
-.slide-right-enter-active,
-.slide-right-leave-active {
-  transition: transform 0.3s ease;
-}
-
-.slide-right-enter-from,
-.slide-right-leave-to {
-  transform: translateX(100%);
-}
-
-.slide-right-enter-to,
-.slide-right-leave-from {
-  transform: translateX(0);
-}
-</style>

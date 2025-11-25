@@ -130,8 +130,51 @@
                         <h2 class="text-2xl font-bold mb-4">Complete Your Order</h2>
                         
                         <div class="space-y-6">
-                            <!-- Shipping Address Section -->
+                            <!-- Delivery Method Selection -->
                             <div>
+                                <h3 class="font-semibold text-lg mb-3">Delivery Method</h3>
+                                <div class="space-y-3">
+                                    <label class="flex items-center p-4 border-2 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors" :class="deliveryMethod === 'meet_up' ? 'border-primary-600 bg-primary-50' : 'border-gray-200'">
+                                        <input
+                                            v-model="deliveryMethod"
+                                            type="radio"
+                                            value="meet_up"
+                                            class="mr-3 w-4 h-4 text-primary-600 focus:ring-primary-500"
+                                        />
+                                        <div class="flex-1">
+                                            <span class="font-medium text-gray-900">Meet up</span>
+                                            <p class="text-sm text-gray-500">Arrange a meeting location</p>
+                                        </div>
+                                    </label>
+                                    <label class="flex items-center p-4 border-2 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors" :class="deliveryMethod === 'pick_up' ? 'border-primary-600 bg-primary-50' : 'border-gray-200'">
+                                        <input
+                                            v-model="deliveryMethod"
+                                            type="radio"
+                                            value="pick_up"
+                                            class="mr-3 w-4 h-4 text-primary-600 focus:ring-primary-500"
+                                        />
+                                        <div class="flex-1">
+                                            <span class="font-medium text-gray-900">Pick up</span>
+                                            <p class="text-sm text-gray-500">Pick up from our location</p>
+                                        </div>
+                                    </label>
+                                    <label class="flex items-center p-4 border-2 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors" :class="deliveryMethod === 'ship_via_jt' ? 'border-primary-600 bg-primary-50' : 'border-gray-200'">
+                                        <input
+                                            v-model="deliveryMethod"
+                                            type="radio"
+                                            value="ship_via_jt"
+                                            class="mr-3 w-4 h-4 text-primary-600 focus:ring-primary-500"
+                                        />
+                                        <div class="flex-1">
+                                            <span class="font-medium text-gray-900">Ship via J&T</span>
+                                            <p class="text-sm text-gray-500">Ship to your address via J&T Express</p>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Shipping Address Section (Conditional) -->
+                            <div v-if="deliveryMethod === 'ship_via_jt'">
                                 <h3 class="font-semibold text-lg mb-3">Shipping Address</h3>
                                 <div class="space-y-4">
                                     <div>
@@ -214,6 +257,17 @@
                                 </div>
                             </div>
 
+                            <!-- Additional Notes -->
+                            <div>
+                                <h3 class="font-semibold text-lg mb-3">Additional Notes</h3>
+                                <textarea
+                                    v-model="additionalNotes"
+                                    rows="4"
+                                    placeholder="Any special instructions or notes for your order (optional)"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-600 focus:border-transparent resize-none"
+                                ></textarea>
+                            </div>
+
                             <!-- Submit Button -->
                             <UButton 
                                 block 
@@ -227,7 +281,10 @@
                             </UButton>
 
                             <p class="text-xs text-gray-500 text-center">
-                                By confirming this order, you agree to our terms and conditions
+                                By confirming this order, you agree to our 
+                                <NuxtLink to="/terms-and-conditions" class="text-primary-600 hover:text-primary-700 underline">
+                                    terms and conditions
+                                </NuxtLink>
                             </p>
                         </div>
                     </div>
@@ -235,24 +292,22 @@
                     <!-- Order Summary (Right Column) -->
                     <div class="bg-white rounded-lg shadow p-6 h-fit sticky top-4">
                         <h3 class="text-lg font-bold mb-4">Order Summary</h3>
-                        
-                        <div class="space-y-3">
-                            <div v-for="item in cartStore.items" :key="item.id" class="flex justify-between text-sm">
-                                <span class="text-gray-600">{{ item.name }} x {{ item.quantity }}</span>
-                                <span class="font-medium">₱{{ (item.price * item.quantity).toFixed(2) }}</span>
-                            </div>
-                        </div>
-
-                        <div class="border-t my-4"></div>
 
                         <div class="space-y-2">
+                            <!-- Item Breakdown -->
+                            <div v-for="item in cartStore.items" :key="item.id" class="flex justify-between text-sm">
+                                <span class="text-gray-600">{{ item.name }} x {{ item.quantity }}</span>
+                                <span>₱{{ (item.price * item.quantity).toFixed(2) }}</span>
+                            </div>
                             <div class="flex justify-between text-sm">
                                 <span class="text-gray-600">Subtotal</span>
                                 <span>₱{{ cartStore.total.toFixed(2) }}</span>
                             </div>
                             <div class="flex justify-between text-sm">
-                                <span class="text-gray-600">Shipping</span>
-                                <span class="text-green-600">FREE</span>
+                                <span class="text-gray-600">Shipping ({{ getDeliveryMethodLabel(deliveryMethod) }})</span>
+                                <span :class="shippingCost === 0 ? 'text-green-600' : ''">
+                                    {{ shippingCost === 0 ? 'FREE' : `₱${shippingCost.toFixed(2)}` }}
+                                </span>
                             </div>
                         </div>
 
@@ -260,7 +315,7 @@
 
                         <div class="flex justify-between text-lg font-bold">
                             <span>Total</span>
-                            <span class="text-primary-600">₱{{ cartStore.total.toFixed(2) }}</span>
+                            <span class="text-primary-600">₱{{ orderTotal.toFixed(2) }}</span>
                         </div>
 
                         <div class="mt-4 p-3 bg-blue-50 rounded text-xs text-blue-800">
@@ -291,6 +346,9 @@ const ordersStore = useOrdersStore()
 // Current step in the order process
 const currentStep = ref(1) // 1: Payment, 2: Processing, 3: Shipped, 4: Received
 
+// Delivery method selection
+const deliveryMethod = ref<'meet_up' | 'pick_up' | 'ship_via_jt'>('meet_up')
+
 // Shipping address form
 const shippingAddress = ref({
     street: '',
@@ -299,6 +357,9 @@ const shippingAddress = ref({
     postal_code: '',
     country: 'Philippines'
 })
+
+// Additional notes
+const additionalNotes = ref('')
 
 // Loading state
 const isSubmitting = ref(false)
@@ -326,6 +387,29 @@ const formatPrice = (price: number) => {
     return price.toFixed(2)
 }
 
+// Calculate shipping cost based on delivery method
+const shippingCost = computed(() => {
+    if (deliveryMethod.value === 'ship_via_jt') {
+        return 75
+    }
+    return 0 // Free for meet_up and pick_up
+})
+
+// Calculate order total including shipping
+const orderTotal = computed(() => {
+    return cartStore.total + shippingCost.value
+})
+
+// Get delivery method label
+const getDeliveryMethodLabel = (method: string): string => {
+    const labels: Record<string, string> = {
+        meet_up: 'Meet up',
+        pick_up: 'Pick up',
+        ship_via_jt: 'Ship via J&T'
+    }
+    return labels[method] || method
+}
+
 const handleSubmitOrder = async () => {
     // Validate authentication
     if (!authStore.isAuthenticated) {
@@ -338,14 +422,16 @@ const handleSubmitOrder = async () => {
         return
     }
 
-    // Validate shipping address
-    if (!shippingAddress.value.street || !shippingAddress.value.city || !shippingAddress.value.province) {
-        toast.add({
-            title: 'Missing Information',
-            description: 'Please fill in all shipping address fields',
-            color: 'error'
-        })
-        return
+    // Validate shipping address only if Ship via J&T is selected
+    if (deliveryMethod.value === 'ship_via_jt') {
+        if (!shippingAddress.value.street || !shippingAddress.value.city || !shippingAddress.value.province) {
+            toast.add({
+                title: 'Missing Information',
+                description: 'Please fill in all shipping address fields',
+                color: 'error'
+            })
+            return
+        }
     }
 
     isSubmitting.value = true
@@ -375,21 +461,29 @@ const handleSubmitOrder = async () => {
         }))
 
         // Prepare shipping address string (JSON)
-        const shippingAddressStr = JSON.stringify(shippingAddress.value)
+        // If not shipping via J&T, use empty address or delivery method info
+        const shippingAddressStr = deliveryMethod.value === 'ship_via_jt' 
+            ? JSON.stringify(shippingAddress.value)
+            : JSON.stringify({
+                ...shippingAddress.value,
+                delivery_method: deliveryMethod.value
+            })
 
         // Prepare order input
         const orderInput: IOrderInput = {
             items: orderItems,
             subtotal: cartStore.total,
-            shipping_cost: 0,
-            total: cartStore.total,
+            shipping_cost: shippingCost.value,
+            total: orderTotal.value,
             customer_name: user.given_name && user.family_name 
                 ? `${user.given_name} ${user.family_name}` 
                 : user.email,
             email: user.email,
             phone_number: user.phone_number || '',
             shipping_address: shippingAddressStr,
-            payment_method: 'GCash/Bank Transfer'
+            payment_method: 'GCash/Bank Transfer',
+            delivery_method: deliveryMethod.value,
+            notes: additionalNotes.value.trim() || undefined
         }
 
         // Create order

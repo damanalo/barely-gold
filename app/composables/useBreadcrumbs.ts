@@ -1,4 +1,5 @@
 import type { RouteLocationNormalizedLoaded } from 'vue-router'
+import { useCategoriesStore } from '~/stores/categories'
 
 export interface Breadcrumb {
   label: string
@@ -8,6 +9,7 @@ export interface Breadcrumb {
 
 export const useBreadcrumbs = () => {
   const route = useRoute()
+  const categoriesStore = useCategoriesStore()
   
   const shouldShowBreadcrumbs = computed(() => {
     // Hide breadcrumbs on home page and login page
@@ -41,7 +43,7 @@ export const useBreadcrumbs = () => {
       builtPath += `/${segment}`
       
       // Determine label for the segment with custom mappings
-      let label = getLabelForSegment(segment)
+      const label = getLabelForSegment(segment)
       
       // Check if this is the last segment (current page)
       const isLast = i === pathSegments.length - 1
@@ -55,14 +57,18 @@ export const useBreadcrumbs = () => {
     
     // Handle query parameters for products page
     if (currentRoute.path === '/products' && currentRoute.query.category) {
-      const category = currentRoute.query.category as string
-      breadcrumbs.push({
-        label: category,
-        active: true
-      })
-      // Make the "Products" breadcrumb clickable to go back to all products
-      breadcrumbs[breadcrumbs.length - 2].to = '/products'
-      breadcrumbs[breadcrumbs.length - 2].active = false
+      const categoryId = currentRoute.query.category as string
+      const displayLabel = getCategoryLabel(categoryId)
+
+      if (displayLabel) {
+        breadcrumbs.push({
+          label: displayLabel,
+          active: true
+        })
+        // Make the "Products" breadcrumb clickable to go back to all products
+        breadcrumbs[breadcrumbs.length - 2].to = '/products'
+        breadcrumbs[breadcrumbs.length - 2].active = false
+      }
     }
     
     return breadcrumbs
@@ -89,6 +95,19 @@ export const useBreadcrumbs = () => {
       .split('-')
       .map(word => word.charAt(0).toUpperCase() + word.slice(1))
       .join(' ')
+  }
+
+  const getCategoryLabel = (categoryId: string): string | null => {
+    if (!categoryId || categoryId === 'all') {
+      return null
+    }
+
+    const category = categoriesStore.getCategoryById(categoryId)
+    if (category) {
+      return category.name
+    }
+
+    return getLabelForSegment(categoryId)
   }
   
   const breadcrumbs = computed(() => generateBreadcrumbs(route))

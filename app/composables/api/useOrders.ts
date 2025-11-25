@@ -103,7 +103,9 @@ export const useOrders = () => {
         payment_status: 'pending',
         status: 'pending_payment',
         created_at: now,
-        updated_at: now
+        updated_at: now,
+        delivery_method: orderInput.delivery_method,
+        notes: orderInput.notes
       }
 
       const operation = await post({
