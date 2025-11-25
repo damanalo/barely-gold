@@ -30,7 +30,6 @@
                             </p>
                             <ul class="list-disc list-inside text-gray-700 space-y-1 ml-4">
                                 <li>Orders are confirmed once payment is verified</li>
-                                <li>You will receive an order confirmation via email</li>
                                 <li>We reserve the right to cancel any order at our discretion</li>
                             </ul>
                         </section>
@@ -44,7 +43,7 @@
                             <ul class="list-disc list-inside text-gray-700 space-y-1 ml-4">
                                 <li>We accept GCash and bank transfers (BDO)</li>
                                 <li>Payment proof must be uploaded within 24 hours of order placement</li>
-                                <li>Orders may be cancelled if payment is not verified within 3 business days</li>
+                                <li>Orders may be cancelled if payment is not verified within 24 hours</li>
                                 <li>All prices are in Philippine Peso (₱)</li>
                             </ul>
                         </section>
@@ -73,9 +72,11 @@
                             </p>
                             <ul class="list-disc list-inside text-gray-700 space-y-1 ml-4">
                                 <li>Returns are accepted within 7 days of delivery</li>
-                                <li>Items must be in original condition, unused, and with all tags attached</li>
-                                <li>Refunds will be processed within 5-10 business days</li>
-                                <li>Custom or personalized items are not eligible for return</li>
+                                <li>A clear video of the parcel/item being opened must be provided</li>
+                                <li>No warranty is offered on the item</li>
+                                <li>Returns or refunds will only be issued if the item is defective upon arrival or if the wrong item was delivered</li>
+                                <li>We will not process returns or refunds for wrong size or color orders</li>
+                                <li class="font-bold">STRICTLY NO VIDEO = NO RETURN/REFUND</li>
                             </ul>
                         </section>
 
@@ -100,13 +101,6 @@
                             </p>
                         </section>
 
-                        <!-- Contact Information -->
-                        <section>
-                            <h2 class="text-xl font-semibold text-gray-900 mb-3">7. Contact Us</h2>
-                            <p class="text-gray-700">
-                                If you have any questions about these Terms and Conditions, please contact us through your account settings or via the contact information provided in your order confirmation.
-                            </p>
-                        </section>
                     </div>
 
                     <div class="mt-8 pt-6 border-t border-gray-200">

@@ -41,10 +41,10 @@
       <UContainer class="py-6 text-sm text-gray-500 flex items-center justify-between">
         <span>© {{ new Date().getFullYear() }} Barely Gold</span>
         <div class="flex items-center gap-3">
-          <ULink to="/" class="hover:text-primary-600">FAQs</ULink>
+          <ULink to="/faqs" class="hover:text-primary-600">FAQs</ULink>
           <ULink to="/terms-and-conditions" class="hover:text-primary-600">Terms and Conditions</ULink>
-          <ULink to="/" class="hover:text-primary-600">Contact Us</ULink>
-          <ULink to="/" class="hover:text-primary-600">About Us</ULink>
+          <ULink to="/contact" class="hover:text-primary-600">Contact Us</ULink>
+          <ULink to="/about" class="hover:text-primary-600">About Us</ULink>
         </div>
       </UContainer>
     </footer>

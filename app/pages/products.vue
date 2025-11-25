@@ -114,38 +114,43 @@
               <h3 class="text-lg font-semibold text-stone-800 mt-1">{{ product.name }}</h3>
             </div>
             
-            <div class="flex flex-col gap-2">
-              <!-- Price Display -->
-              <div v-if="product.salePrice" class="flex flex-col gap-1">
-                <div class="flex items-center gap-2">
-                  <span class="text-xl font-bold" style="color: var(--color-gold-600)">&#8369;{{ product.salePrice.toFixed(2) }}</span>
-                  <span class="text-sm text-stone-500 line-through">&#8369;{{ product.price.toFixed(2) }}</span>
+            <div class="flex flex-col gap-3">
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
+                <!-- Price Display -->
+                <div class="flex-1">
+                  <div v-if="product.salePrice" class="flex items-center gap-2">
+                    <span class="text-xl font-bold" style="color: var(--color-gold-600)">&#8369;{{ product.salePrice.toFixed(2) }}</span>
+                    <span class="text-sm text-stone-500 line-through">&#8369;{{ product.price.toFixed(2) }}</span>
+                  </div>
+                  <div v-else>
+                    <span class="text-xl font-bold" style="color: var(--color-gold-600)">&#8369;{{ product.price.toFixed(2) }}</span>
+                  </div>
                 </div>
-                <div class="flex items-center gap-2">
-                  <span class="inline-block bg-green-100 text-green-800 px-2 py-0.5 rounded text-xs font-semibold">
-                    Save &#8369;{{ (product.price - product.salePrice).toFixed(2) }}
-                  </span>
-                  <span class="inline-block bg-green-100 text-green-800 px-2 py-0.5 rounded text-xs font-semibold">
-                    {{ Math.round(((product.price - product.salePrice) / product.price) * 100) }}% OFF
-                  </span>
-                </div>
+
+                <!-- Add to Cart Button -->
+                <UButton
+                  @click="addToCart(product)"
+                  :disabled="((product as any).quantity ?? 0) <= 0 || cartStore.isAnyCartOperationInProgress"
+                  :loading="cartStore.operationLoading.addItem[product.id] || false"
+                  color="primary"
+                  size="sm"
+                  icon="i-heroicons-shopping-cart"
+                >
+                  Add to Cart
+                </UButton>
               </div>
-              <div v-else>
-                <span class="text-xl font-bold" style="color: var(--color-gold-600)">&#8369;{{ product.price.toFixed(2) }}</span>
-              </div>
-              
-              <!-- Add to Cart Button -->
-              <UButton
-                @click="addToCart(product)"
-                :disabled="((product as any).quantity ?? 0) <= 0 || cartStore.isAnyCartOperationInProgress"
-                :loading="cartStore.operationLoading.addItem[product.id] || false"
-                color="primary"
-                size="sm"
-                icon="i-heroicons-shopping-cart"
-                class="w-full"
+
+              <div
+                v-if="product.salePrice"
+                class="flex flex-wrap items-center gap-2"
               >
-                Add to Cart
-              </UButton>
+                <span class="inline-block bg-green-100 text-green-800 px-2 py-0.5 rounded text-xs font-semibold">
+                  Save &#8369;{{ (product.price - product.salePrice).toFixed(2) }}
+                </span>
+                <span class="inline-block bg-green-100 text-green-800 px-2 py-0.5 rounded text-xs font-semibold">
+                  {{ Math.round(((product.price - product.salePrice) / product.price) * 100) }}% OFF
+                </span>
+              </div>
             </div>
 
           </div>
