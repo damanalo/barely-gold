@@ -38,6 +38,7 @@
                         <th class="px-4 py-3 text-left text-sm font-semibold">Name</th>
                         <th class="px-4 py-3 text-left text-sm font-semibold">Category</th>
                         <th class="px-4 py-3 text-left text-sm font-semibold">Price</th>
+                        <th class="px-4 py-3 text-left text-sm font-semibold">Sale Price</th>
                         <th class="px-4 py-3 text-left text-sm font-semibold">Quantity</th>
                         <th class="px-4 py-3 text-left text-sm font-semibold">Status</th>
                         <th class="px-4 py-3 text-left text-sm font-semibold">Images</th>
@@ -54,6 +55,7 @@
                         <td class="px-4 py-3"><USkeleton class="h-4 w-20" /></td>
                         <td class="px-4 py-3"><USkeleton class="h-4 w-32" /></td>
                         <td class="px-4 py-3"><USkeleton class="h-6 w-24" /></td>
+                        <td class="px-4 py-3"><USkeleton class="h-4 w-16" /></td>
                         <td class="px-4 py-3"><USkeleton class="h-4 w-16" /></td>
                         <td class="px-4 py-3"><USkeleton class="h-6 w-20" /></td>
                         <td class="px-4 py-3"><USkeleton class="h-4 w-16" /></td>
@@ -84,6 +86,8 @@
                         <th class="px-4 py-3 text-left text-sm font-semibold">Name</th>
                         <th class="px-4 py-3 text-left text-sm font-semibold">Category</th>
                         <th class="px-4 py-3 text-left text-sm font-semibold">Price</th>
+                        <th class="px-4 py-3 text-left text-sm font-semibold">Sale Price</th>
+                        <th class="px-4 py-3 text-left text-sm font-semibold">Quantity</th>
                         <th class="px-4 py-3 text-left text-sm font-semibold">Status</th>
                         <th class="px-4 py-3 text-left text-sm font-semibold">Images</th>
                         <th class="px-4 py-3 text-left text-sm font-semibold">Created</th>
@@ -110,6 +114,9 @@
                         </td>
                         <td class="px-4 py-3 text-sm font-medium text-green-600">
                             {{ formatPrice(product.price as number) }}
+                        </td>
+                        <td class="px-4 py-3 text-sm font-medium" :class="product.salePrice ? 'text-orange-600' : 'text-gray-500'">
+                            {{ product.salePrice ? formatPrice(product.salePrice) : 'N/A' }}
                         </td>
                         <td class="px-4 py-3 text-sm font-medium">
                             {{ (product as any).quantity ?? 0 }}
