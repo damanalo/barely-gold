@@ -53,7 +53,7 @@
     <USlideover
       v-model:open="isCartOpen"
       :title="`Shopping Cart (${cartStore.itemCount})`"
-      :ui="{ body: 'p-4 flex-1 overflow-y-auto', footer: 'p-4 border-t' }"
+      :ui="{ body: 'p-4 flex-1 overflow-y-auto', footer: 'p-6 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 block' }"
     >
       <template #body>
         <div v-if="cartStore.items.length > 0" class="flex flex-col gap-4">
@@ -119,14 +119,28 @@
       </template>
 
       <template v-if="cartStore.items.length > 0" #footer="{ close }">
-        <div class="space-y-3">
-          <div class="flex justify-between text-lg">
-            <span class="font-semibold text-gray-900 dark:text-white">Total</span>
-            <span class="font-semibold text-gray-900 dark:text-white">{{ formatPrice(cartStore.total) }}</span>
+        <div class="flex items-center justify-between gap-6">
+          <!-- Total Label -->
+          <div>
+            <span class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+              Total
+            </span>
+            <div class="text-3xl font-bold" style="color: var(--color-gold-600)">
+              {{ formatPrice(cartStore.total) }}
+            </div>
           </div>
-          <UButton block color="primary" size="lg" class="mt-2" @click="() => handleCheckout(close)">
-            Checkout
-          </UButton>
+
+          <!-- Amount + Action -->
+          <div>
+            <UButton
+              color="primary"
+              size="lg"
+              class="font-semibold tracking-wide shadow-md hover:shadow-lg transition-all duration-200"
+              @click="() => handleCheckout(close)"
+            >
+              Checkout
+            </UButton>
+          </div>
         </div>
       </template>
     </USlideover>

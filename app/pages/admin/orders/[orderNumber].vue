@@ -262,6 +262,7 @@
 <script setup lang="ts">
 import { useOrdersStore } from '~/stores/orders'
 import { useProductsStore } from '~/stores/products'
+import { useInventoryAdjustments } from '~/composables/useInventoryAdjustments'
 import type { IOrder } from '~/types/order'
 import getImageUrl from '~/utils/get-image-url'
 
@@ -368,7 +369,10 @@ const updateOrder = async () => {
 
   try {
     const previousPaymentStatus = order.value.payment_status
+    const previousStatus = order.value.status
     const isPaymentVerified = editForm.value.payment_status === 'verified' && previousPaymentStatus !== 'verified'
+    const isCancelled = editForm.value.status === 'cancelled' && previousStatus !== 'cancelled'
+    const { reserveInventory, releaseInventory } = useInventoryAdjustments()
 
     const updatedOrder: IOrder = {
       ...order.value,
@@ -380,12 +384,44 @@ const updateOrder = async () => {
       // Set delivered_at when status changes to delivered
       delivered_at: editForm.value.status === 'delivered' && order.value.status !== 'delivered' 
         ? Date.now() 
-        : order.value.delivered_at
+        : order.value.delivered_at,
+      updated_at: Date.now()
     }
 
-    // If payment is being verified for the first time, deduct product quantities
-    if (isPaymentVerified) {
-      await deductProductQuantities(updatedOrder)
+    let inventoryMessage = ''
+
+    // Handle inventory release when order is cancelled
+    if (isCancelled && order.value.inventory_reserved && !order.value.inventory_restocked) {
+      const releaseResult = await releaseInventory(order.value)
+      
+      if (releaseResult.success) {
+        updatedOrder.inventory_restocked = true
+        inventoryMessage = ' Inventory has been returned to stock.'
+      } else {
+        console.error('Failed to release inventory:', releaseResult.errors)
+        toast.add({
+          title: 'Warning',
+          description: 'Order status updated, but failed to return inventory to stock. Please check manually.',
+          color: 'warning'
+        })
+      }
+    }
+
+    // Handle inventory reservation (fallback for old orders that weren't reserved at checkout)
+    if (isPaymentVerified && !order.value.inventory_reserved) {
+      const reserveResult = await reserveInventory(order.value)
+      
+      if (reserveResult.success) {
+        updatedOrder.inventory_reserved = true
+        inventoryMessage = ' Product quantities have been deducted.'
+      } else {
+        console.error('Failed to reserve inventory:', reserveResult.errors)
+        toast.add({
+          title: 'Warning',
+          description: 'Payment verified, but failed to deduct product quantities. Please check manually.',
+          color: 'warning'
+        })
+      }
     }
 
     const success = await ordersStore.updateOrder(updatedOrder)
@@ -396,9 +432,7 @@ const updateOrder = async () => {
       
       toast.add({
         title: 'Success',
-        description: isPaymentVerified 
-          ? 'Order updated successfully! Product quantities have been deducted.' 
-          : 'Order updated successfully!',
+        description: 'Order updated successfully!' + inventoryMessage,
         color: 'success'
       })
     } else {
@@ -420,47 +454,5 @@ const updateOrder = async () => {
   }
 }
 
-const deductProductQuantities = async (order: IOrder) => {
-  try {
-    // Ensure products are loaded
-    if (productsStore.products.length === 0) {
-      await productsStore.fetchProducts()
-    }
-
-    // Deduct quantities for each item in the order
-    for (const orderItem of order.items) {
-      // Find the product by ID
-      const product = productsStore.getProductById(orderItem.id)
-      
-      if (product) {
-        // Calculate new quantity (ensure it doesn't go below 0)
-        const newQuantity = Math.max(0, product.quantity - orderItem.quantity)
-        
-        // Update the product quantity
-        const productInput = {
-          category: product.category,
-          name: product.name,
-          description: product.description,
-          price: product.price,
-          salePrice: product.salePrice,
-          status: product.status,
-          quantity: newQuantity,
-          images: null,
-          created_at: product.created_at,
-          updated_at: Date.now()
-        }
-        
-        await productsStore.updateProduct(product.id, productInput, product.images || undefined)
-        
-        console.log(`Deducted ${orderItem.quantity} from product ${product.name}. New quantity: ${newQuantity}`)
-      } else {
-        console.warn(`Product with ID ${orderItem.id} not found. Cannot deduct quantity.`)
-      }
-    }
-  } catch (error) {
-    console.error('Error deducting product quantities:', error)
-    throw error // Re-throw to handle in updateOrder
-  }
-}
 </script>
 

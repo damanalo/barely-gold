@@ -31,22 +31,27 @@
             type="button"
             @click="handleCategorySelect(category.id)"
             :aria-pressed="currentCategoryId === category.id ? 'true' : 'false'"
-            class="relative flex-shrink-0 min-w-[160px] h-20 rounded-2xl text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 cursor-pointer"
+            class="relative flex-shrink-0 min-w-[160px] h-20 rounded-2xl text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 cursor-pointer border border-transparent"
             :class="currentCategoryId === category.id 
-              ? 'ring-1 ring-[var(--color-gold-200)] shadow-[0_12px_32px_-18px_rgba(0,0,0,0.75)] scale-105' 
-              : 'opacity-80 hover:opacity-100'"
+              ? 'scale-105' 
+              : 'opacity-60 saturate-75 hover:opacity-80'"
           >
             <span
-              class="absolute inset-0 rounded-2xl bg-cover bg-center"
+              class="absolute inset-0 rounded-2xl bg-cover bg-center z-0"
               :style="category.image ? { backgroundImage: `url('${category.image}')` } : { backgroundImage: 'linear-gradient(135deg,#f3f4f6,#e7e5e4)' }"
               aria-hidden="true"
             ></span>
             <span
-              class="absolute inset-0 rounded-2xl bg-gradient-to-r from-stone-950/70 to-stone-900/30"
+              class="absolute inset-0 rounded-2xl bg-gradient-to-r from-stone-950/70 to-stone-900/30 z-10"
               :class="currentCategoryId === category.id ? 'from-stone-950/75 via-stone-900/25 to-transparent' : ''"
               aria-hidden="true"
             ></span>
-            <span class="relative z-10 flex flex-col h-full justify-center px-4 text-white">
+            <span
+              v-if="currentCategoryId === category.id"
+              class="absolute inset-[5px] rounded-[1rem] border border-[var(--color-gold-400)] z-20 pointer-events-none"
+              aria-hidden="true"
+            ></span>
+            <span class="relative z-30 flex flex-col h-full justify-center px-4 text-white">
               <span
                 class="text-lg font-semibold"
                 :class="currentCategoryId === category.id ? 'text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.3)]' : 'text-white/90'"
@@ -55,6 +60,44 @@
               </span>
             </span>
           </button>
+        </div>
+      </section>
+
+      <!-- Search and Sort Controls -->
+      <section class="mb-6" aria-labelledby="search-sort-heading">
+        <div class="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
+          <!-- Search Input -->
+          <div class="flex-1">
+            <UInput
+              v-model="searchQuery"
+              placeholder="Search products by name or description..."
+              icon="i-heroicons-magnifying-glass"
+              size="lg"
+              class="w-full"
+            />
+          </div>
+          
+          <!-- Sort Dropdown and Arrow Button -->
+          <div class="flex gap-2 sm:w-64">
+            <USelect
+              v-model="_sortField"
+              :items="sortOptions"
+              value-key="value"
+              label-key="label"
+              size="lg"
+              placeholder="Sort by..."
+              class="flex-1"
+            />
+            <UButton
+              :icon="sortDirection === 'asc' ? 'i-heroicons-arrow-up' : 'i-heroicons-arrow-down'"
+              :disabled="!_sortField"
+              size="lg"
+              color="primary"
+              variant="outline"
+              @click="toggleSortDirection"
+              :aria-label="`Sort ${sortDirection === 'asc' ? 'descending' : 'ascending'}`"
+            />
+          </div>
         </div>
       </section>
 
@@ -91,8 +134,9 @@
         >
           <!-- Product Image -->
           <div 
-            class="relative aspect-square overflow-hidden bg-stone-100 cursor-pointer"
-            @click="openProductModal(product)"
+            class="relative aspect-square overflow-hidden bg-stone-100"
+            :class="isProductOutOfStock(product) ? 'cursor-not-allowed opacity-80' : 'cursor-pointer'"
+            @click="handleProductClick(product)"
           >
             <img
               :src="getImageUrl(product.images?.[0] as unknown as string)"
@@ -115,7 +159,7 @@
             </div>
             
             <div class="flex flex-col gap-3">
-              <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-2">
                 <!-- Price Display -->
                 <div class="flex-1">
                   <div v-if="product.salePrice" class="flex items-center gap-2">
@@ -126,18 +170,6 @@
                     <span class="text-xl font-bold" style="color: var(--color-gold-600)">&#8369;{{ product.price.toFixed(2) }}</span>
                   </div>
                 </div>
-
-                <!-- Add to Cart Button -->
-                <UButton
-                  @click="addToCart(product)"
-                  :disabled="((product as any).quantity ?? 0) <= 0 || cartStore.isAnyCartOperationInProgress"
-                  :loading="cartStore.operationLoading.addItem[product.id] || false"
-                  color="primary"
-                  size="sm"
-                  icon="i-heroicons-shopping-cart"
-                >
-                  Add to Cart
-                </UButton>
               </div>
 
               <div
@@ -151,6 +183,18 @@
                   {{ Math.round(((product.price - product.salePrice) / product.price) * 100) }}% OFF
                 </span>
               </div>
+
+              <!-- Add to Cart Button -->
+                <UButton
+                  @click="addToCart(product)"
+                  :disabled="((product as any).quantity ?? 0) <= 0 || cartStore.isAnyCartOperationInProgress"
+                  :loading="cartStore.operationLoading.addItem[product.id] || false"
+                  color="primary"
+                  size="sm"
+                  icon="i-heroicons-shopping-cart"
+                >
+                  Add to Cart
+                </UButton>
             </div>
 
           </div>
@@ -159,7 +203,10 @@
 
       <!-- No Products Found -->
       <div v-else class="text-center py-12">
-        <p class="text-stone-600 text-lg">No products found in this category.</p>
+        <p class="text-stone-600 text-lg">
+          <span v-if="searchQuery.trim()">No products found matching your search.</span>
+          <span v-else>No products found in this category.</span>
+        </p>
       </div>
     </UContainer>
 
@@ -260,7 +307,6 @@ import { useProductsStore } from '~/stores/products'
 import { useCategoriesStore } from '~/stores/categories'
 import type { IProduct } from '~/types/product'
 import getImageUrl from '~/utils/get-image-url'
-
 const route = useRoute()
 const router = useRouter()
 const cartStore = useCartStore()
@@ -270,6 +316,37 @@ const categoriesStore = useCategoriesStore()
 // Modal state
 const isModalOpen = ref(false)
 const selectedProduct = ref<IProduct | null>(null)
+
+// Search and sort state
+const searchQuery = ref('')
+const _sortField = ref<string | undefined>(undefined)
+const sortDirection = ref<'asc' | 'desc'>('asc')
+
+// Sort options (simple labels without arrows)
+const sortOptions = [
+  {
+    label: 'Price',
+    value: 'price'
+  },
+  {
+    label: 'Name',
+    value: 'name'
+  }
+]
+
+// Toggle sort direction
+const toggleSortDirection = () => {
+  if (_sortField.value) {
+    sortDirection.value = sortDirection.value === 'asc' ? 'desc' : 'asc'
+  }
+}
+
+// Reset to ascending when sort field changes
+watch(_sortField, (newValue) => {
+  if (newValue) {
+    sortDirection.value = 'asc'
+  }
+})
 
 type DisplayCategory = {
   id: string
@@ -297,7 +374,8 @@ const displayCategories = computed<DisplayCategory[]>(() => {
     {
       id: 'all',
       name: 'All Products',
-      description: 'Browse our complete lineup'
+      description: 'Browse our complete lineup',
+      image: getImageUrl('misc/all_categories.jpg')
     },
     ...formatted
   ]
@@ -319,11 +397,46 @@ onMounted(async () => {
 
 
 const filteredProducts = computed(() => {
-  const source = productsStore.activeProducts
-  if (currentCategoryId.value === 'all') {
-    return source
+  // Start with active products from store
+  let source = productsStore.activeProducts
+  
+  // Filter by category
+  if (currentCategoryId.value !== 'all') {
+    source = source.filter(product => product.category === currentCategoryId.value)
   }
-  return source.filter(product => product.category === currentCategoryId.value)
+  
+  // Apply search filter
+  if (searchQuery.value.trim()) {
+    const query = searchQuery.value.toLowerCase()
+    source = source.filter(product => {
+      const nameMatch = product.name.toLowerCase().includes(query)
+      const descriptionMatch = product.description.toLowerCase().includes(query)
+      return nameMatch || descriptionMatch
+    })
+  }
+  
+  // Apply sort
+  if (_sortField.value) {
+    const sorted = [...source]
+    if (_sortField.value === 'price') {
+      sorted.sort((a, b) => {
+        const priceA = a.salePrice ?? a.price
+        const priceB = b.salePrice ?? b.price
+        return sortDirection.value === 'asc' 
+          ? priceA - priceB 
+          : priceB - priceA
+      })
+      return sorted
+    } else if (_sortField.value === 'name') {
+      sorted.sort((a, b) => {
+        const comparison = a.name.localeCompare(b.name)
+        return sortDirection.value === 'asc' ? comparison : -comparison
+      })
+      return sorted
+    }
+  }
+  
+  return source
 })
 
 const pageTitle = computed(() => {
@@ -369,6 +482,17 @@ const addToCartFromModal = () => {
     addToCart(selectedProduct.value)
     closeModal()
   }
+}
+
+const isProductOutOfStock = (product: IProduct) => {
+  return ((product as any).quantity ?? 0) <= 0
+}
+
+const handleProductClick = (product: IProduct) => {
+  if (isProductOutOfStock(product)) {
+    return
+  }
+  openProductModal(product)
 }
 </script>
 

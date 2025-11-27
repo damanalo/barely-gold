@@ -102,6 +102,8 @@ export const useOrders = () => {
         payment_method: orderInput.payment_method,
         payment_status: 'pending',
         status: 'pending_payment',
+        inventory_reserved: false, // Will be set to true after inventory is reserved
+        inventory_restocked: false, // Will be set to true if order is cancelled and inventory is returned
         created_at: now,
         updated_at: now,
         delivery_method: orderInput.delivery_method,

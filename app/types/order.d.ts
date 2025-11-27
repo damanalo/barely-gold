@@ -19,6 +19,8 @@ export interface IOrder {
   status: 'pending_payment' | 'processing' | 'shipped' | 'delivered' | 'cancelled'
   delivery_method?: 'meet_up' | 'pick_up' | 'ship_via_jt'
   notes?: string
+  inventory_reserved?: boolean  // Whether inventory has been deducted
+  inventory_restocked?: boolean  // Whether inventory has been returned (for cancelled orders)
   created_at: number  // Unix timestamp
   updated_at: number  // Unix timestamp
   delivered_at?: number  // Unix timestamp

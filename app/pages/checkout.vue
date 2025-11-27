@@ -334,6 +334,7 @@ import { useCartStore } from '~/stores/cart'
 import { useAuthStore } from '~/stores/auth'
 import { useOrdersStore } from '~/stores/orders'
 import { useUser } from '~/composables/api/useUser'
+import { useInventoryAdjustments } from '~/composables/useInventoryAdjustments'
 import type { IOrderItem, IOrderInput } from '~/types/order'
 import getImageUrl from '~/utils/get-image-url'
 
@@ -486,29 +487,82 @@ const handleSubmitOrder = async () => {
             notes: additionalNotes.value.trim() || undefined
         }
 
+        // Create a temporary order object for stock checking
+        // We need to create a mock order with the items to check stock
+        const tempOrderForStockCheck: any = {
+            items: orderItems,
+            user_id: user.id || '',
+            order_number: '', // Will be set after order creation
+            id: '', // Will be set after order creation
+            created_at: Date.now()
+        }
+
+        // Check stock availability before creating order
+        const { checkStockAvailability } = useInventoryAdjustments()
+        const stockCheck = await checkStockAvailability(tempOrderForStockCheck as any)
+
+        if (!stockCheck.success) {
+            toast.add({
+                title: 'Insufficient Stock',
+                description: stockCheck.errors?.join(', ') || 'One or more products are out of stock',
+                color: 'error'
+            })
+            isSubmitting.value = false
+            return
+        }
+
         // Create order
         const order = await ordersStore.createOrder(orderInput)
 
-        if (order) {
-            // Clear cart
-            await cartStore.clearCart()
-
-            // Show success message
-            toast.add({
-                title: 'Order Created!',
-                description: `Order ${order.order_number} has been created. Please upload payment proof in your order history.`,
-                color: 'success'
-            })
-
-            // Redirect to order history
-            router.push('/order-history')
-        } else {
+        if (!order) {
             toast.add({
                 title: 'Order Failed',
                 description: 'Failed to create order. Please try again.',
                 color: 'error'
             })
+            isSubmitting.value = false
+            return
         }
+
+        // Reserve inventory after order is successfully created
+        const { reserveInventory } = useInventoryAdjustments()
+        const reserveResult = await reserveInventory(order)
+
+        if (!reserveResult.success) {
+            // Order was created but inventory reservation failed
+            // This is a critical error - we should log it and notify the user
+            console.error('Inventory reservation failed after order creation:', reserveResult.errors)
+            toast.add({
+                title: 'Order Created with Warning',
+                description: `Order ${order.order_number} was created, but there was an issue reserving inventory. Please contact support.`,
+                color: 'warning'
+            })
+            // Still redirect to order history, but admin will need to handle this
+            router.push('/order-history')
+            isSubmitting.value = false
+            return
+        }
+
+        // Update order with inventory_reserved flag
+        const updatedOrder = {
+            ...order,
+            inventory_reserved: true,
+            updated_at: Date.now()
+        }
+        await ordersStore.updateOrder(updatedOrder)
+
+        // Clear cart only after both order creation and inventory reservation succeed
+        await cartStore.clearCart()
+
+        // Show success message
+        toast.add({
+            title: 'Order Created!',
+            description: `Order ${order.order_number} has been created. Please upload payment proof in your order history.`,
+            color: 'success'
+        })
+
+        // Redirect to order history
+        router.push('/order-history')
     } catch (error) {
         console.error('Order creation failed:', error)
         toast.add({
