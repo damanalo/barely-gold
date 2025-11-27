@@ -19,6 +19,8 @@ export interface IOrder {
   status: 'pending_payment' | 'processing' | 'shipped' | 'delivered' | 'cancelled'
   delivery_method?: 'meet_up' | 'pick_up' | 'ship_via_jt'
   notes?: string
+  paper_bag_quantity?: number  // Number of paper bags
+  paper_bag_cost?: number  // Cost of paper bags (0 if free)
   inventory_reserved?: boolean  // Whether inventory has been deducted
   inventory_restocked?: boolean  // Whether inventory has been returned (for cancelled orders)
   created_at: number  // Unix timestamp
@@ -47,5 +49,7 @@ export interface IOrderInput {
   payment_method: string
   delivery_method?: 'meet_up' | 'pick_up' | 'ship_via_jt'
   notes?: string
+  paper_bag_quantity?: number  // Number of paper bags
+  paper_bag_cost?: number  // Cost of paper bags (0 if free)
 }
 

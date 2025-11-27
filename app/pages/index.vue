@@ -114,9 +114,9 @@
     <!-- Promise -->
     <section id="promise" class="py-15 bg-white reveal-section">
       <UContainer>
-        <div class="mb-14">
+        <div class="mb-14 text-right">
           <h2 class="display-heading text-[#c59042]">Elegance without compromise.</h2>
-          <p class="section-copy">
+          <p class="section-copy ml-auto">
             Designed for everyday ease yet polished enough for celebrations—crafted with premium finishes rooted in our champagne-gold palette.
           </p>
         </div>

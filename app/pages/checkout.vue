@@ -133,6 +133,18 @@
                             <!-- Delivery Method Selection -->
                             <div>
                                 <h3 class="font-semibold text-lg mb-3">Delivery Method</h3>
+                                <div class="mb-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+                                    <div class="flex items-start gap-2">
+                                        <UIcon name="i-heroicons-information-circle" class="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                                        <div class="text-sm text-blue-800">
+                                            <p class="font-medium mb-1">How to get a free shipping fee:</p>
+                                            <ul class="list-disc list-outside pl-5 space-y-1 text-blue-700">
+                                                <li class="pl-1">Orders containing items from the "Sets" category qualify for free shipping</li>
+                                                <li class="pl-1">Orders with 5 or more items qualify for free shipping</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="space-y-3">
                                     <label class="flex items-center p-4 border-2 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors" :class="deliveryMethod === 'meet_up' ? 'border-primary-600 bg-primary-50' : 'border-gray-200'">
                                         <input
@@ -170,6 +182,72 @@
                                             <p class="text-sm text-gray-500">Ship to your address via J&T Express</p>
                                         </div>
                                     </label>
+                                </div>
+                            </div>
+
+                            <!-- Paper Bag Section -->
+                            <div>
+                                <h3 class="font-semibold text-lg mb-3">Paper Bag</h3>
+                                
+                                <!-- Information about free paper bag -->
+                                <div class="mb-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+                                    <div class="flex items-start gap-2">
+                                        <UIcon name="i-heroicons-information-circle" class="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                                        <div class="text-sm text-blue-800">
+                                            <p class="font-medium mb-1">How to get a free paper bag:</p>
+                                            <ul class="list-disc list-outside pl-5 space-y-1 text-blue-700">
+                                                <li class="pl-1">Orders with 4 or more items automatically get free paper bags (1 bag per 4 items)</li>
+                                                <li class="pl-1">Orders containing items from the "Sets" category automatically get at least 1 free paper bag</li>
+                                                <li class="pl-1">Each bag can hold up to 5 jewelries</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="space-y-3">
+                                    <!-- Free paper bag for 4+ items -->
+                                    <div v-if="totalItemCount >= 4" class="p-4 border-2 border-green-200 bg-green-50 rounded-lg">
+                                        <div class="flex items-center gap-2 mb-1">
+                                            <UIcon name="i-heroicons-check-circle" class="w-5 h-5 text-green-600" />
+                                            <span class="font-medium text-green-800">Free paper bag included</span>
+                                        </div>
+                                        <p class="text-sm text-green-700">
+                                            Your order qualifies for {{ paperBagQuantity }} free paper bag{{ paperBagQuantity > 1 ? 's' : '' }} (auto-calculated based on item count)
+                                        </p>
+                                        <p class="text-xs text-green-600 mt-1">Each bag can hold up to 5 jewelries</p>
+                                    </div>
+                                    
+                                    <!-- Free paper bag for Sets items -->
+                                    <div v-else-if="hasSetsItems" class="p-4 border-2 border-green-200 bg-green-50 rounded-lg">
+                                        <div class="flex items-center gap-2 mb-1">
+                                            <UIcon name="i-heroicons-check-circle" class="w-5 h-5 text-green-600" />
+                                            <span class="font-medium text-green-800">Free paper bag included</span>
+                                        </div>
+                                        <p class="text-sm text-green-700">
+                                            Your order includes Sets items, so you'll receive {{ paperBagQuantity }} free paper bag{{ paperBagQuantity > 1 ? 's' : '' }} (1 bag per 4 items)
+                                        </p>
+                                        <p class="text-xs text-green-600 mt-1">Each bag can hold up to 5 jewelries</p>
+                                    </div>
+                                    
+                                    <!-- Optional paper bag for < 4 items (no Sets) -->
+                                    <div v-else class="p-4 border-2 rounded-lg" :class="includePaperBag ? 'border-primary-600 bg-primary-50' : 'border-gray-200'">
+                                        <label class="flex items-start cursor-pointer">
+                                            <input
+                                                v-model="includePaperBag"
+                                                type="checkbox"
+                                                class="mt-1 mr-3 w-4 h-4 text-primary-600 focus:ring-primary-500 rounded"
+                                            />
+                                            <div class="flex-1">
+                                                <span class="font-medium text-gray-900">Add mini paper bag (+₱20)</span>
+                                                <p class="text-sm text-gray-600 mt-1">
+                                                    Optionally add a paper bag for your order. Can hold up to 5 jewelries.
+                                                </p>
+                                                <p v-if="includePaperBag && paperBagQuantity > 0" class="text-sm text-primary-600 mt-1">
+                                                    {{ paperBagQuantity }} paper bag{{ paperBagQuantity > 1 ? 's' : '' }} will be added
+                                                </p>
+                                            </div>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
 
@@ -246,12 +324,12 @@
                                         <img
                                             :src="getImageUrl('misc/gcash_qr_code_250_290.jpg')"
                                             alt="GCash QR Code"
-                                            class="w-24 h-24 object-cover rounded"
+                                            class="w-48 h-48 object-cover rounded"
                                         />
                                         <img
                                             :src="getImageUrl('misc/bdo_qr_code_250_290.jpg')"
                                             alt="BDO QR Code"
-                                            class="w-24 h-24 object-cover rounded"
+                                            class="w-48 h-48 object-cover rounded"
                                         />
                                     </div>
                                 </div>
@@ -304,9 +382,20 @@
                                 <span>₱{{ cartStore.total.toFixed(2) }}</span>
                             </div>
                             <div class="flex justify-between text-sm">
-                                <span class="text-gray-600">Shipping ({{ getDeliveryMethodLabel(deliveryMethod) }})</span>
-                                <span :class="shippingCost === 0 ? 'text-green-600' : ''">
+                                <span class="text-gray-600">
+                                    Shipping ({{ getDeliveryMethodLabel(deliveryMethod) }})
+                                    <span v-if="totalItemCount >= 5" class="text-xs text-green-600">(Free for 5+ items)</span>
+                                </span>
+                                <span :class="shippingCost === 0 ? 'text-green-600 font-medium' : ''">
                                     {{ shippingCost === 0 ? 'FREE' : `₱${shippingCost.toFixed(2)}` }}
+                                </span>
+                            </div>
+                            <div v-if="paperBagQuantity > 0" class="flex justify-between text-sm">
+                                <span class="text-gray-600">
+                                    Paper Bag{{ paperBagQuantity > 1 ? ` (x${paperBagQuantity})` : '' }}
+                                </span>
+                                <span :class="paperBagCost === 0 ? 'text-green-600 font-medium' : ''">
+                                    {{ paperBagCost === 0 ? 'FREE' : `₱${paperBagCost.toFixed(2)}` }}
                                 </span>
                             </div>
                         </div>
@@ -319,7 +408,7 @@
                         </div>
 
                         <div class="mt-4 p-3 bg-blue-50 rounded text-xs text-blue-800">
-                            <UIcon name="i-heroicons-information-circle" class="inline mr-1" />
+                            <UIcon name="i-heroicons-information-circle" class="inline" />
                             Your order will be processed after payment verification
                         </div>
                     </div>
@@ -333,6 +422,7 @@
 import { useCartStore } from '~/stores/cart'
 import { useAuthStore } from '~/stores/auth'
 import { useOrdersStore } from '~/stores/orders'
+import { useProductsStore } from '~/stores/products'
 import { useUser } from '~/composables/api/useUser'
 import { useInventoryAdjustments } from '~/composables/useInventoryAdjustments'
 import type { IOrderItem, IOrderInput } from '~/types/order'
@@ -343,6 +433,7 @@ const toast = useToast()
 const cartStore = useCartStore()
 const authStore = useAuthStore()
 const ordersStore = useOrdersStore()
+const productsStore = useProductsStore()
 
 // Current step in the order process
 const currentStep = ref(1) // 1: Payment, 2: Processing, 3: Shipped, 4: Received
@@ -362,11 +453,14 @@ const shippingAddress = ref({
 // Additional notes
 const additionalNotes = ref('')
 
+// Paper bag selection for orders < 4 items (and no Sets)
+const includePaperBag = ref(false)
+
 // Loading state
 const isSubmitting = ref(false)
 
 // Check authentication and cart on mount
-onMounted(() => {
+onMounted(async () => {
     // Redirect if cart is empty
     if (cartStore.items.length === 0) {
         router.push('/')
@@ -381,6 +475,12 @@ onMounted(() => {
             color: 'error'
         })
         router.push('/login')
+        return
+    }
+    
+    // Ensure products are loaded for category lookups
+    if (productsStore.products.length === 0) {
+        await productsStore.fetchProducts()
     }
 })
 
@@ -388,17 +488,69 @@ const formatPrice = (price: number) => {
     return price.toFixed(2)
 }
 
+// Calculate total item count (sum of quantities)
+const totalItemCount = computed(() => {
+    return cartStore.items.reduce((sum, item) => sum + item.quantity, 0)
+})
+
+// Check if cart contains any items from "Sets" category
+const hasSetsItems = computed(() => {
+    return cartStore.items.some(item => {
+        const product = productsStore.getProductById(item.id)
+        return product?.category === 'Sets'
+    })
+})
+
+// Calculate paper bag quantity
+const paperBagQuantity = computed(() => {
+    if (hasSetsItems.value) {
+        // Sets items always get at least 1 free bag
+        return Math.max(1, Math.ceil(totalItemCount.value / 4))
+    }
+    if (totalItemCount.value >= 4) {
+        // 4+ items get free bags (1 bag per 4 items)
+        return Math.ceil(totalItemCount.value / 4)
+    }
+    if (totalItemCount.value < 4 && includePaperBag.value) {
+        // Optional bag for < 4 items
+        return 1
+    }
+    return 0
+})
+
+// Calculate paper bag cost
+const paperBagCost = computed(() => {
+    if (hasSetsItems.value) {
+        // Free for Sets items
+        return 0
+    }
+    if (totalItemCount.value >= 4) {
+        // Free for 4+ items
+        return 0
+    }
+    if (totalItemCount.value < 4 && includePaperBag.value) {
+        // 20 pesos per bag for < 4 items
+        return 20 * paperBagQuantity.value
+    }
+    return 0
+})
+
 // Calculate shipping cost based on delivery method
 const shippingCost = computed(() => {
+    // Free shipping for 5+ items regardless of delivery method
+    if (totalItemCount.value >= 5) {
+        return 0
+    }
+    // Otherwise use existing logic
     if (deliveryMethod.value === 'ship_via_jt') {
         return 75
     }
     return 0 // Free for meet_up and pick_up
 })
 
-// Calculate order total including shipping
+// Calculate order total including shipping and paper bag
 const orderTotal = computed(() => {
-    return cartStore.total + shippingCost.value
+    return cartStore.total + shippingCost.value + paperBagCost.value
 })
 
 // Get delivery method label
@@ -453,13 +605,17 @@ const handleSubmitOrder = async () => {
         }
 
         // Create order items from cart (snapshot product details)
-        const orderItems: IOrderItem[] = cartStore.items.map(item => ({
-            id: item.id,
-            name: item.name,
-            price: item.price,
-            quantity: item.quantity,
-            image: item.image
-        }))
+        const orderItems: IOrderItem[] = cartStore.items.map(item => {
+            const product = productsStore.getProductById(item.id)
+            return {
+                id: item.id,
+                name: item.name,
+                price: item.price,
+                quantity: item.quantity,
+                image: item.image,
+                category: product?.category
+            }
+        })
 
         // Prepare shipping address string (JSON)
         // If not shipping via J&T, use empty address or delivery method info
@@ -484,7 +640,9 @@ const handleSubmitOrder = async () => {
             shipping_address: shippingAddressStr,
             payment_method: 'GCash/Bank Transfer',
             delivery_method: deliveryMethod.value,
-            notes: additionalNotes.value.trim() || undefined
+            notes: additionalNotes.value.trim() || undefined,
+            paper_bag_quantity: paperBagQuantity.value,
+            paper_bag_cost: paperBagCost.value
         }
 
         // Create a temporary order object for stock checking
