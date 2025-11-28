@@ -166,6 +166,9 @@
           <div class="p-4">
             <div class="mb-2">
               <h3 class="text-lg font-semibold text-stone-800 mt-1">{{ product.name }}</h3>
+              <p v-if="getCategoryName(product.category)" class="text-sm text-stone-500 mt-1">
+                {{ getCategoryName(product.category) }}
+              </p>
             </div>
             
             <div class="flex flex-col gap-3">
@@ -224,7 +227,7 @@
     <UModal
       v-model:open="isModalOpen"
       :title="selectedProduct?.name || ''"
-      :ui="{ content: 'max-w-6xl', body: 'p-0', footer: 'px-6 py-4 border-t border-stone-200' }"
+      :ui="{ content: 'max-w-6xl', body: 'p-0' }"
     >
       <template #body>
         <div v-if="selectedProduct" class="flex flex-col md:flex-row">
@@ -238,7 +241,7 @@
           </div>
 
           <!-- Product Details - 30% -->
-          <div class="md:w-[30%] p-6 flex flex-col max-h-[80vh] overflow-y-auto">
+          <div class="md:w-[30%] p-6 flex flex-col max-h-[80vh] overflow-y-auto relative">
             <!-- Product Price -->
             <div class="mb-6">
               <div v-if="selectedProduct.salePrice" class="flex flex-col gap-2">
@@ -266,6 +269,13 @@
               </div>
             </div>
 
+            <!-- Product Category -->
+            <div v-if="getCategoryName(selectedProduct.category)" class="mb-4">
+              <span class="inline-block bg-stone-100 text-stone-700 px-3 py-1 rounded-full text-sm font-semibold">
+                {{ getCategoryName(selectedProduct.category) }}
+              </span>
+            </div>
+
             <!-- Product Status -->
             <div class="mb-6">
               <span
@@ -283,28 +293,29 @@
             </div>
 
             <!-- Product Description -->
-            <div class="space-y-4 text-stone-600 leading-relaxed">
+            <div class="space-y-4 text-stone-600 leading-relaxed mb-6">
               <div>
                 <h3 class="text-sm font-semibold text-stone-700 uppercase mb-2">Description</h3>
                 <p>{{ selectedProduct.description }}</p>
               </div>
             </div>
+
+            <!-- Add to Cart Button - Positioned at bottom -->
+            <div class="mt-auto">
+              <UButton
+                @click="addToCartFromModal"
+                :disabled="(((selectedProduct as any)?.quantity ?? 0) <= 0) || cartStore.isAnyCartOperationInProgress"
+                :loading="cartStore.operationLoading.addItem[selectedProduct.id] || false"
+                color="primary"
+                size="xl"
+                block
+                icon="i-heroicons-shopping-cart"
+              >
+                Add to Cart
+              </UButton>
+            </div>
           </div>
         </div>
-      </template>
-
-      <template v-if="selectedProduct" #footer>
-        <UButton
-          @click="addToCartFromModal"
-          :disabled="(((selectedProduct as any)?.quantity ?? 0) <= 0) || cartStore.isAnyCartOperationInProgress"
-          :loading="cartStore.operationLoading.addItem[selectedProduct.id] || false"
-          color="primary"
-          size="xl"
-          block
-          icon="i-heroicons-shopping-cart"
-        >
-          Add to Cart
-        </UButton>
       </template>
     </UModal>
   </div>
@@ -503,6 +514,12 @@ const handleProductClick = (product: IProduct) => {
     return
   }
   openProductModal(product)
+}
+
+// Helper function to get category name from product category ID
+const getCategoryName = (categoryId: string): string | null => {
+  const category = categoriesStore.getCategoryById(categoryId)
+  return category?.name || null
 }
 </script>
 

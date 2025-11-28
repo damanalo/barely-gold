@@ -12,9 +12,8 @@ export const useBreadcrumbs = () => {
   const categoriesStore = useCategoriesStore()
   
   const shouldShowBreadcrumbs = computed(() => {
-    // Hide breadcrumbs on home page and login page
-    const hiddenPages = ['/', '/login']
-    return !hiddenPages.includes(route.path)
+    // Only show breadcrumbs on admin pages
+    return route.path.startsWith('/admin')
   })
   
   const generateBreadcrumbs = (currentRoute: RouteLocationNormalizedLoaded): Breadcrumb[] => {

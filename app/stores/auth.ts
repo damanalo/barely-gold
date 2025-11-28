@@ -111,13 +111,17 @@ export const useAuthStore = defineStore('auth', {
     },
     
     // Sign up action
-    async signUp(email: string, password: string, name?: string, phone?: string) {
+    async signUp(email: string, password: string, firstName: string, lastName: string, phone?: string) {
       this.error = null;
       this.loading = true;
       
       try {
         const attributes: any = {};
-        if (name) attributes.name = name;
+        
+        // Set given_name and family_name (required by Cognito)
+        attributes.given_name = firstName.trim();
+        attributes.family_name = lastName.trim();
+        
         if (phone) attributes.phone_number = phone;
         
         const result = await amplifySignUp({
@@ -157,6 +161,12 @@ export const useAuthStore = defineStore('auth', {
             success: false, 
             error: error.message || 'Invalid input. Please check your information.',
             code: 'InvalidParameterException'
+          };
+        } else if (error.name === 'NotAuthorizedException') {
+          return { 
+            success: false, 
+            error: error.message || 'You are not authorized to perform this action. Please check your information.',
+            code: 'NotAuthorizedException'
           };
         }
         

@@ -120,7 +120,7 @@
     <USlideover
       v-model:open="isCartOpen"
       :title="`Shopping Cart (${cartStore.itemCount})`"
-      :ui="{ body: 'p-4 flex-1 overflow-y-auto', footer: 'p-6 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 block' }"
+      :ui="{ body: 'p-4 flex-1 overflow-y-auto flex flex-col', footer: 'p-6 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 block' }"
     >
       <template #body>
         <div v-if="cartStore.items.length > 0" class="flex flex-col gap-4">
@@ -177,11 +177,11 @@
           </div>
         </div>
 
-        <div v-else class="flex flex-col items-center justify-center py-12 text-center">
+        <div v-else class="flex flex-col items-center justify-center flex-1 py-12 text-center">
           <UIcon name="i-heroicons-shopping-cart" class="w-16 h-16 text-gray-300 dark:text-gray-600 mb-4" />
           <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-2">Your cart is empty</h4>
           <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Add some items to get started!</p>
-          <UButton @click="cartStore.closeCart" color="primary">Continue Shopping</UButton>
+          <UButton @click="handleContinueShopping" color="primary">Continue Shopping</UButton>
         </div>
       </template>
 
@@ -332,6 +332,11 @@ const handleCheckout = async (close?: () => void) => {
   await navigateTo('/checkout')
 }
 
+const handleContinueShopping = async () => {
+  cartStore.closeCart()
+  await navigateTo('/products')
+}
+
 const isAdmin = computed(() => {
   return authStore.user?.groups?.includes('Admin') || false
 })
@@ -353,12 +358,12 @@ const settingsMenuItems = computed(() => {
   // User sections
   items.push([
     {
-      label: 'Account',
+      label: 'My Account',
       icon: 'i-heroicons-user-circle',
       onSelect: () => navigateTo('/account')
     },
     {
-      label: 'Order History',
+      label: 'My Orders',
       icon: 'i-heroicons-clipboard-document-list',
       onSelect: () => navigateTo('/order-history')
     }

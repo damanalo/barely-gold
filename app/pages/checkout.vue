@@ -1,6 +1,12 @@
 <template>
     <div class="min-h-screen bg-gray-50 py-8">
         <UContainer>
+            <!-- Page Heading -->
+            <div class="text-center mb-8">
+                <h1 class="text-4xl font-bold text-gray-900 mb-2">Checkout</h1>
+                <p class="text-lg text-gray-600">Review your order and complete your purchase</p>
+            </div>
+
             <!-- Order Progress Steps -->
             <div class="mb-8">
                 <div class="flex items-center justify-between max-w-3xl mx-auto">
@@ -123,7 +129,7 @@
             </div>
 
             <!-- Main Content -->
-            <div class="max-w-4xl mx-auto">
+            <div class="max-w-6xl mx-auto">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <!-- Order Details Form (Left Column) -->
                     <div class="md:col-span-2 bg-white rounded-lg shadow p-6">
@@ -155,7 +161,14 @@
                                         />
                                         <div class="flex-1">
                                             <span class="font-medium text-gray-900">Meet up</span>
-                                            <p class="text-sm text-gray-500">Arrange a meeting location</p>
+                                            <p class="text-sm text-gray-500">
+                                                <p class="text-sm text-gray-500"><span class="font-medium">Meet up locations:</span> McDonalds Lipa Cathedral or Levitown.</p>
+                                                Please contact us at our official social media pages &#8211;
+                                                <NuxtLink to="https://www.facebook.com/BarelyGoldPH" target="_blank" class="text-primary-600 underline hover:text-primary-700">Facebook</NuxtLink>
+                                                or
+                                                <NuxtLink to="https://www.instagram.com/barely.gold/" target="_blank" class="text-primary-600 underline hover:text-primary-700">Instagram</NuxtLink>
+                                                to arrange a meet up schedule.
+                                            </p>
                                         </div>
                                     </label>
                                     <label class="flex items-center p-4 border-2 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors" :class="deliveryMethod === 'pick_up' ? 'border-primary-600 bg-primary-50' : 'border-gray-200'">
@@ -166,8 +179,15 @@
                                             class="mr-3 w-4 h-4 text-primary-600 focus:ring-primary-500"
                                         />
                                         <div class="flex-1">
-                                            <span class="font-medium text-gray-900">Pick up</span>
-                                            <p class="text-sm text-gray-500">Pick up from our location</p>
+                                            <span class="font-medium text-gray-900">Pickup</span>
+                                            <p class="text-sm text-gray-500">
+                                                <p class="text-sm text-gray-500"><span class="font-medium">Pickup locations:</span> Lipa City District Hospital or Grove Park Malvar.</p>
+                                                Please contact us at our official social media pages &#8211;
+                                                <NuxtLink to="https://www.facebook.com/BarelyGoldPH" target="_blank" class="text-primary-600 underline hover:text-primary-700">Facebook</NuxtLink>
+                                                or
+                                                <NuxtLink to="https://www.instagram.com/barely.gold/" target="_blank" class="text-primary-600 underline hover:text-primary-700">Instagram</NuxtLink>
+                                                to arrange a pickup schedule.
+                                            </p>
                                         </div>
                                     </label>
                                     <label class="flex items-center p-4 border-2 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors" :class="deliveryMethod === 'ship_via_jt' ? 'border-primary-600 bg-primary-50' : 'border-gray-200'">
@@ -182,6 +202,63 @@
                                             <p class="text-sm text-gray-500">Ship to your address via J&T Express</p>
                                         </div>
                                     </label>
+                                </div>
+                            </div>
+
+                            <!-- Shipping Address Section (Conditional) -->
+                            <div v-if="deliveryMethod === 'ship_via_jt'">
+                                <h3 class="font-semibold text-lg mb-3">Shipping Address</h3>
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Street Address *</label>
+                                        <input
+                                            v-model="shippingAddress.street"
+                                            type="text"
+                                            placeholder="House no., Street name"
+                                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-600 focus:border-transparent"
+                                            required
+                                        />
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">City *</label>
+                                            <input
+                                                v-model="shippingAddress.city"
+                                                type="text"
+                                                placeholder="City"
+                                                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-600 focus:border-transparent"
+                                                required
+                                            />
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-1">Province *</label>
+                                            <input
+                                                v-model="shippingAddress.province"
+                                                type="text"
+                                                placeholder="Province"
+                                                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-600 focus:border-transparent"
+                                                required
+                                            />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Postal Code</label>
+                                        <input
+                                            v-model="shippingAddress.postal_code"
+                                            type="text"
+                                            placeholder="Postal Code"
+                                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-600 focus:border-transparent"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Country</label>
+                                        <input
+                                            v-model="shippingAddress.country"
+                                            type="text"
+                                            disabled
+                                            class="w-full px-4 py-2 border border-gray-300 rounded-md bg-gray-50"
+                                        />
+                                    </div>
                                 </div>
                             </div>
 
@@ -247,90 +324,6 @@
                                                 </p>
                                             </div>
                                         </label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Shipping Address Section (Conditional) -->
-                            <div v-if="deliveryMethod === 'ship_via_jt'">
-                                <h3 class="font-semibold text-lg mb-3">Shipping Address</h3>
-                                <div class="space-y-4">
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-1">Street Address *</label>
-                                        <input
-                                            v-model="shippingAddress.street"
-                                            type="text"
-                                            placeholder="House no., Street name"
-                                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-600 focus:border-transparent"
-                                            required
-                                        />
-                                    </div>
-                                    <div class="grid grid-cols-2 gap-4">
-                                        <div>
-                                            <label class="block text-sm font-medium text-gray-700 mb-1">City *</label>
-                                            <input
-                                                v-model="shippingAddress.city"
-                                                type="text"
-                                                placeholder="City"
-                                                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-600 focus:border-transparent"
-                                                required
-                                            />
-                                        </div>
-                                        <div>
-                                            <label class="block text-sm font-medium text-gray-700 mb-1">Province *</label>
-                                            <input
-                                                v-model="shippingAddress.province"
-                                                type="text"
-                                                placeholder="Province"
-                                                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-600 focus:border-transparent"
-                                                required
-                                            />
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-1">Postal Code</label>
-                                        <input
-                                            v-model="shippingAddress.postal_code"
-                                            type="text"
-                                            placeholder="Postal Code"
-                                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-600 focus:border-transparent"
-                                        />
-                                    </div>
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-1">Country</label>
-                                        <input
-                                            v-model="shippingAddress.country"
-                                            type="text"
-                                            disabled
-                                            class="w-full px-4 py-2 border border-gray-300 rounded-md bg-gray-50"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Payment Information -->
-                            <div class="border-t pt-4">
-                                <div class="border-l-4 border-primary-600 pl-4 py-3 bg-primary-50">
-                                    <h3 class="font-semibold text-lg">Payment Method: GCash / Bank Transfer</h3>
-                                    <p class="text-sm text-gray-600 mt-1">After confirming your order, you can upload proof of payment from your Order History.</p>
-                                </div>
-                            </div>
-
-                            <!-- QR Code Preview -->
-                            <div class="flex justify-center p-4 bg-gray-50 rounded-lg border border-gray-200">
-                                <div class="text-center">
-                                    <p class="text-sm text-gray-600 mb-3">Payment QR codes will be available in your order details</p>
-                                    <div class="flex gap-4 justify-center">
-                                        <img
-                                            :src="getImageUrl('misc/gcash_qr_code_250_290.jpg')"
-                                            alt="GCash QR Code"
-                                            class="w-48 h-48 object-cover rounded"
-                                        />
-                                        <img
-                                            :src="getImageUrl('misc/bdo_qr_code_250_290.jpg')"
-                                            alt="BDO QR Code"
-                                            class="w-48 h-48 object-cover rounded"
-                                        />
                                     </div>
                                 </div>
                             </div>
@@ -505,11 +498,11 @@ const hasSetsItems = computed(() => {
 const paperBagQuantity = computed(() => {
     if (hasSetsItems.value) {
         // Sets items always get at least 1 free bag
-        return Math.max(1, Math.ceil(totalItemCount.value / 4))
+        return Math.max(1, Math.floor(totalItemCount.value / 4))
     }
     if (totalItemCount.value >= 4) {
         // 4+ items get free bags (1 bag per 4 items)
-        return Math.ceil(totalItemCount.value / 4)
+        return Math.floor(totalItemCount.value / 4)
     }
     if (totalItemCount.value < 4 && includePaperBag.value) {
         // Optional bag for < 4 items
@@ -732,6 +725,11 @@ const handleSubmitOrder = async () => {
         isSubmitting.value = false
     }
 }
+
+// Set page title
+useHead({
+    title: 'Checkout | Barely Gold'
+})
 </script>
 
 <style scoped>

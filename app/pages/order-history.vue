@@ -247,6 +247,36 @@
                                     <!-- Payment Information -->
                                     <div class="bg-white rounded-lg border border-gray-200 shadow-sm p-6">
                                         <h4 class="font-semibold mb-3 text-gray-900">Payment Information</h4>
+                                        
+                                        <!-- Payment Method Card with QR Codes (shown when payment proof is editable) -->
+                                        <div v-if="isPaymentProofEditable(order)" class="mb-6">
+                                            <!-- Payment Information -->
+                                            <div class="pt-4 mb-4">
+                                                <div class="border-l-4 border-primary-600 pl-4 py-3 bg-primary-50">
+                                                    <h3 class="font-semibold text-lg">Payment Method: GCash / Bank Transfer (BDO)</h3>
+                                                    <p class="text-sm text-gray-600 mt-1">To confirm your order, please 1) pay using the QR codes below, and 2) upload your proof of payment. Order processing begins once your payment has been successfully verified.</p>
+                                                </div>
+                                            </div>
+
+                                            <!-- QR Code Preview -->
+                                            <div class="flex justify-center p-4 bg-gray-50 rounded-lg border border-gray-200">
+                                                <div class="text-center">
+                                                    <div class="flex flex-col md:flex-row gap-4 justify-center">
+                                                        <img
+                                                            :src="getImageUrl('misc/gcash_qr_code_250_290.jpg')"
+                                                            alt="GCash QR Code"
+                                                            class="object-cover rounded"
+                                                        />
+                                                        <img
+                                                            :src="getImageUrl('misc/bdo_qr_code_250_290.jpg')"
+                                                            alt="BDO QR Code"
+                                                            class="object-cover rounded"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                         <div class="space-y-3 text-sm">
                                             <div class="flex justify-between">
                                                 <span class="text-gray-600">Payment Method:</span>
@@ -258,6 +288,8 @@
                                                     {{ order.payment_status.charAt(0).toUpperCase() + order.payment_status.slice(1) }}
                                                 </UBadge>
                                             </div>
+
+                                            
 
                                             <!-- Payment Proof Upload/View -->
                                             <div class="mt-4">
@@ -534,7 +566,7 @@ const getDeliveryMethodLabel = (method: string): string => {
 }
 
 const isPaymentProofEditable = (order: IOrder): boolean => {
-    return order.payment_status === 'pending' || order.payment_status === 'failed'
+    return (order.payment_status === 'pending' || order.payment_status === 'failed') && order.status !== 'cancelled'
 }
 
 const handlePaymentProofUpload = async (event: Event, order: IOrder) => {

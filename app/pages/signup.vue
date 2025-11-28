@@ -19,15 +19,28 @@
         autocomplete="email"
       />
       
-      <!-- Name field (optional) -->
+      <!-- First Name field -->
       <AuthInput
-        v-model="name"
+        v-model="firstName"
         type="text"
-        label="Full Name"
-        placeholder="John Doe"
-        :error="nameError"
+        label="First Name"
+        placeholder="John"
+        :error="firstNameError"
         :disabled="loading"
-        autocomplete="name"
+        required
+        autocomplete="given-name"
+      />
+      
+      <!-- Last Name field -->
+      <AuthInput
+        v-model="lastName"
+        type="text"
+        label="Last Name"
+        placeholder="Doe"
+        :error="lastNameError"
+        :disabled="loading"
+        required
+        autocomplete="family-name"
       />
       
       <!-- Password field -->
@@ -132,14 +145,16 @@ onMounted(() => {
 
 // Form state
 const email = ref('');
-const name = ref('');
+const firstName = ref('');
+const lastName = ref('');
 const password = ref('');
 const confirmPassword = ref('');
 const acceptedTerms = ref(false);
 const loading = ref(false);
 const errorMessage = ref('');
 const emailError = ref('');
-const nameError = ref('');
+const firstNameError = ref('');
+const lastNameError = ref('');
 const passwordError = ref('');
 const confirmPasswordError = ref('');
 const termsError = ref('');
@@ -162,7 +177,8 @@ const isPasswordStrong = computed(() => {
 const validateForm = () => {
   let isValid = true;
   emailError.value = '';
-  nameError.value = '';
+  firstNameError.value = '';
+  lastNameError.value = '';
   passwordError.value = '';
   confirmPasswordError.value = '';
   termsError.value = '';
@@ -173,6 +189,16 @@ const validateForm = () => {
     isValid = false;
   } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
     emailError.value = 'Please enter a valid email address';
+    isValid = false;
+  }
+  
+  if (!firstName.value || !firstName.value.trim()) {
+    firstNameError.value = 'First name is required';
+    isValid = false;
+  }
+  
+  if (!lastName.value || !lastName.value.trim()) {
+    lastNameError.value = 'Last name is required';
     isValid = false;
   }
   
@@ -212,7 +238,8 @@ const handleSignUp = async () => {
     const result = await authStore.signUp(
       email.value,
       password.value,
-      name.value || undefined
+      firstName.value.trim(),
+      lastName.value.trim()
     );
     
     if (result.success) {

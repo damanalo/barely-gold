@@ -1,5 +1,5 @@
 <template>
-  <AuthCard title="Welcome Back" subtitle="Sign in to your Barely Gold account">
+  <AuthCard title="Welcome to Barely Gold" subtitle="Sign in to your Barely Gold account">
     <form @submit.prevent="handleSignIn" class="space-y-4">
       <!-- Error message -->
       <div v-if="errorMessage" class="error-alert">
