@@ -67,13 +67,23 @@
       <section class="mb-6" aria-labelledby="search-sort-heading">
         <div class="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
           <!-- Search Input -->
-          <div class="flex-1">
+          <div class="flex-1 relative">
             <UInput
               v-model="searchQuery"
               placeholder="Search products by name or description..."
               icon="i-heroicons-magnifying-glass"
               size="lg"
               class="w-full"
+            />
+            <UButton
+              v-if="searchQuery.trim()"
+              @click="searchQuery = ''"
+              icon="i-heroicons-x-mark"
+              color="gray"
+              variant="ghost"
+              size="sm"
+              class="absolute right-2 top-1/2 -translate-y-1/2"
+              aria-label="Clear search"
             />
           </div>
           
@@ -148,7 +158,7 @@
               v-if="(product as any).quantity !== undefined && (product as any).quantity <= 0"
               class="absolute inset-0 bg-black/50 flex items-center justify-center"
             >
-              <span class="bg-red-500 text-white px-4 py-2 rounded-md font-semibold">Out of Stock</span>
+              <span class="bg-amber-500 text-white px-4 py-2 rounded-md font-semibold">Coming Soon</span>
             </div>
           </div>
 
@@ -266,9 +276,9 @@
               </span>
               <span
                 v-else
-                class="inline-block bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-semibold"
+                class="inline-block bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm font-semibold"
               >
-                Out of Stock
+                Coming Soon
               </span>
             </div>
 

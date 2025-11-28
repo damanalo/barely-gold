@@ -75,6 +75,12 @@
           </div>
         </div>
 
+        <!-- Additional Notes -->
+        <div v-if="order.notes" class="bg-white rounded-lg shadow p-6">
+          <h3 class="font-semibold text-lg mb-4">Additional Notes</h3>
+          <p class="text-sm text-gray-700 whitespace-pre-wrap">{{ order.notes }}</p>
+        </div>
+
         <!-- Customer & Shipping Info -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <!-- Customer Information -->
@@ -193,11 +199,11 @@
 
                 <div>
                   <label class="block text-sm font-medium text-gray-700 mb-2">
-                    Carrier
+                    Courier
                   </label>
-                  <UInput
+                  <USelect
                     v-model="editForm.carrier"
-                    placeholder="e.g., LBC, J&T, Ninja Van"
+                    :items="courierOptions"
                   />
                 </div>
               </div>
@@ -302,6 +308,10 @@ const orderStatusOptions = [
   { label: 'Cancelled', value: 'cancelled' }
 ]
 
+const courierOptions = [
+  { label: 'J&T', value: 'J&T' }
+]
+
 // Fetch order on mount
 onMounted(async () => {
   loading.value = true
@@ -326,7 +336,9 @@ onMounted(async () => {
       payment_status: foundOrder.payment_status,
       status: foundOrder.status,
       tracking_number: foundOrder.tracking_number || '',
-      carrier: foundOrder.carrier || '',
+      carrier: foundOrder.delivery_method === 'ship_via_jt' 
+        ? (foundOrder.carrier || 'J&T')
+        : (foundOrder.carrier || ''),
       estimated_delivery: foundOrder.estimated_delivery || ''
     }
   }

@@ -204,147 +204,196 @@
                             </div>
                         </div>
 
-                        <!-- Order Items -->
-                        <div class="px-6 py-4">
-                            <h4 class="font-semibold mb-3">Order Items</h4>
-                            <div class="space-y-3">
-                                <div
-                                    v-for="item in order.items"
-                                    :key="item.id"
-                                    class="flex gap-4"
-                                >
-                                    <div v-if="item.image" class="flex-shrink-0">
-                                        <img
-                                            :src="item.image"
-                                            :alt="item.name"
-                                            class="w-16 h-16 object-cover rounded"
-                                        />
-                                    </div>
-                                    <div class="flex-1">
-                                        <p class="font-medium">{{ item.name }}</p>
-                                        <p class="text-sm text-gray-600">
-                                            Qty: {{ item.quantity }} × ₱{{ item.price.toFixed(2) }}
-                                        </p>
-                                    </div>
-                                    <div class="text-right">
-                                        <p class="font-semibold">₱{{ (item.price * item.quantity).toFixed(2) }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Delivery Method -->
-                        <div v-if="order.delivery_method" class="px-6 py-4 border-t border-gray-200 bg-gray-50">
-                            <h4 class="font-semibold mb-2">Delivery Method</h4>
-                            <div class="text-sm text-gray-700">
-                                <p class="font-medium">
-                                    {{ getDeliveryMethodLabel(order.delivery_method) }}
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Shipping Address (Only show if shipping via J&T) -->
-                        <div v-if="order.delivery_method === 'ship_via_jt' && getShippingAddress(order.shipping_address)" class="px-6 py-4 border-t border-gray-200 bg-gray-50">
-                            <h4 class="font-semibold mb-2">Shipping Address</h4>
-                            <div class="text-sm text-gray-700">
-                                <p>{{ order.customer_name }}</p>
-                                <p>
-                                    {{ getShippingAddress(order.shipping_address).street }}<br />
-                                    {{ getShippingAddress(order.shipping_address).city }}, 
-                                    {{ getShippingAddress(order.shipping_address).province }}
-                                    <span v-if="getShippingAddress(order.shipping_address).postal_code">
-                                        {{ getShippingAddress(order.shipping_address).postal_code }}
-                                    </span><br />
-                                    {{ getShippingAddress(order.shipping_address).country }}
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Payment Information -->
-                        <div class="px-6 py-4 border-t border-gray-200">
-                            <h4 class="font-semibold mb-3">Payment Information</h4>
-                            <div class="space-y-3">
-                                <div class="flex justify-between text-sm">
-                                    <span class="text-gray-600">Payment Method:</span>
-                                    <span class="font-medium">{{ order.payment_method }}</span>
-                                </div>
-                                <div class="flex justify-between text-sm">
-                                    <span class="text-gray-600">Payment Status:</span>
-                                    <UBadge :color="getPaymentStatusColor(order.payment_status)">
-                                        {{ order.payment_status.charAt(0).toUpperCase() + order.payment_status.slice(1) }}
-                                    </UBadge>
-                                </div>
-
-                                <!-- Payment Proof Upload/View -->
-                                <div class="mt-4">
-                                    <div v-if="order.payment_proof">
-                                        <p class="text-sm font-medium text-gray-700 mb-2">Payment Proof:</p>
-                                        <div class="relative inline-block">
-                                            <img
-                                                :src="getImageUrl(order.payment_proof)"
-                                                alt="Payment Proof"
-                                                class="w-48 h-48 object-cover rounded border border-gray-300"
-                                            />
+                        <!-- Main Content Grid -->
+                        <div class="px-6 py-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <!-- Left Column -->
+                                <div class="space-y-6">
+                                    <!-- Order Items -->
+                                    <div class="bg-white rounded-lg border border-gray-200 shadow-sm p-6">
+                                        <h4 class="font-semibold mb-3 text-gray-900">Order Items</h4>
+                                        <div class="space-y-3">
+                                            <div
+                                                v-for="item in order.items"
+                                                :key="item.id"
+                                                class="flex gap-4"
+                                            >
+                                                <div v-if="item.image" class="flex-shrink-0">
+                                                    <img
+                                                        :src="item.image"
+                                                        :alt="item.name"
+                                                        class="w-16 h-16 object-cover rounded"
+                                                    />
+                                                </div>
+                                                <div class="flex-1">
+                                                    <p class="font-medium">{{ item.name }}</p>
+                                                    <p class="text-sm text-gray-600">
+                                                        Qty: {{ item.quantity }} × ₱{{ item.price.toFixed(2) }}
+                                                    </p>
+                                                </div>
+                                                <div class="text-right">
+                                                    <p class="font-semibold">₱{{ (item.price * item.quantity).toFixed(2) }}</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div v-else class="space-y-3">
-                                        <div class="flex items-start gap-2 p-3 bg-yellow-50 border border-yellow-200 rounded">
-                                            <UIcon name="i-heroicons-exclamation-triangle" class="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
-                                            <p class="text-sm text-yellow-800">
-                                                Please upload your proof of payment to proceed with your order.
+
+                                    <!-- Additional Notes -->
+                                    <div v-if="order.notes" class="bg-white rounded-lg border border-gray-200 shadow-sm p-6">
+                                        <h4 class="font-semibold mb-2 text-gray-900">Additional Notes</h4>
+                                        <p class="text-sm text-gray-700 whitespace-pre-wrap">{{ order.notes }}</p>
+                                    </div>
+
+                                    <!-- Payment Information -->
+                                    <div class="bg-white rounded-lg border border-gray-200 shadow-sm p-6">
+                                        <h4 class="font-semibold mb-3 text-gray-900">Payment Information</h4>
+                                        <div class="space-y-3 text-sm">
+                                            <div class="flex justify-between">
+                                                <span class="text-gray-600">Payment Method:</span>
+                                                <span class="font-medium">{{ order.payment_method }}</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="text-gray-600">Payment Status:</span>
+                                                <UBadge :color="getPaymentStatusColor(order.payment_status)">
+                                                    {{ order.payment_status.charAt(0).toUpperCase() + order.payment_status.slice(1) }}
+                                                </UBadge>
+                                            </div>
+
+                                            <!-- Payment Proof Upload/View -->
+                                            <div class="mt-4">
+                                                <!-- Show payment proof image if it exists -->
+                                                <div v-if="order.payment_proof" class="mb-4">
+                                                    <div class="flex items-center gap-2 mb-2">
+                                                        <p class="text-sm font-medium text-gray-700">Payment Proof:</p>
+                                                    </div>
+                                                    <div class="relative inline-block">
+                                                        <img
+                                                            :src="getImageUrl(order.payment_proof)"
+                                                            alt="Payment Proof"
+                                                            class="w-48 h-48 object-cover rounded border border-gray-300"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- Show upload field if payment proof is editable (pending or failed status) -->
+                                                <div v-if="isPaymentProofEditable(order)" class="space-y-3">
+                                                    <div v-if="!order.payment_proof" class="flex items-start gap-2 p-3 bg-yellow-50 border border-yellow-200 rounded">
+                                                        <UIcon name="i-heroicons-exclamation-triangle" class="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
+                                                        <p class="text-sm text-yellow-800">
+                                                            Please upload your proof of payment to proceed with your order.
+                                                        </p>
+                                                    </div>
+                                                    <div>
+                                                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                                                            {{ order.payment_proof ? 'Replace Payment Proof' : 'Upload Proof of Payment' }}
+                                                        </label>
+                                                        <input
+                                                            type="file"
+                                                            accept="image/jpeg, image/jpg, image/png"
+                                                            @change="handlePaymentProofUpload($event, order)"
+                                                            :disabled="uploadingProof.has(`${order.user_id}-${order.created_at}`)"
+                                                            class="block w-full text-sm text-gray-500
+                                                                file:mr-4 file:py-2 file:px-4
+                                                                file:rounded-md file:border-0
+                                                                file:text-sm file:font-semibold
+                                                                file:bg-primary-50 file:text-primary-700
+                                                                hover:file:bg-primary-100
+                                                                disabled:opacity-50 disabled:cursor-not-allowed
+                                                                cursor-pointer border border-gray-300 rounded-md"
+                                                        />
+                                                        <p class="text-xs text-gray-500 mt-1">JPG, JPEG, PNG (Max 5MB)</p>
+                                                    </div>
+                                                    <div v-if="uploadingProof.has(`${order.user_id}-${order.created_at}`)" class="flex items-center gap-2 text-sm text-primary-600">
+                                                        <UIcon name="i-heroicons-arrow-path" class="w-4 h-4 animate-spin" />
+                                                        Uploading payment proof...
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Right Column -->
+                                <div class="space-y-6">
+                                    <!-- Shipping Address (Only show if shipping via J&T) -->
+                                    <div v-if="order.delivery_method === 'ship_via_jt' && getShippingAddress(order.shipping_address)" class="bg-white rounded-lg border border-gray-200 shadow-sm p-6">
+                                        <h4 class="font-semibold mb-2 text-gray-900">Shipping Address</h4>
+                                        <div class="text-sm text-gray-700">
+                                            <p class="font-medium">{{ order.customer_name }}</p>
+                                            <p class="mt-1">
+                                                {{ getShippingAddress(order.shipping_address).street }}<br />
+                                                {{ getShippingAddress(order.shipping_address).city }}, 
+                                                {{ getShippingAddress(order.shipping_address).province }}
+                                                <span v-if="getShippingAddress(order.shipping_address).postal_code">
+                                                    {{ getShippingAddress(order.shipping_address).postal_code }}
+                                                </span><br />
+                                                {{ getShippingAddress(order.shipping_address).country }}
                                             </p>
                                         </div>
-                                        <div>
-                                            <label class="block text-sm font-medium text-gray-700 mb-2">
-                                                Upload Proof of Payment
-                                            </label>
-                                            <input
-                                                type="file"
-                                                accept="image/jpeg, image/jpg, image/png"
-                                                @change="handlePaymentProofUpload($event, order)"
-                                                :disabled="uploadingProof.has(`${order.user_id}-${order.created_at}`)"
-                                                class="block w-full text-sm text-gray-500
-                                                    file:mr-4 file:py-2 file:px-4
-                                                    file:rounded-md file:border-0
-                                                    file:text-sm file:font-semibold
-                                                    file:bg-primary-50 file:text-primary-700
-                                                    hover:file:bg-primary-100
-                                                    disabled:opacity-50 disabled:cursor-not-allowed
-                                                    cursor-pointer border border-gray-300 rounded-md"
-                                            />
-                                            <p class="text-xs text-gray-500 mt-1">JPG, JPEG, PNG (Max 5MB)</p>
+                                    </div>
+
+                                    <!-- Delivery Method -->
+                                    <div v-if="order.delivery_method" class="bg-white rounded-lg border border-gray-200 shadow-sm p-6">
+                                        <h4 class="font-semibold mb-2 text-gray-900">Delivery Method</h4>
+                                        <div class="text-sm text-gray-700">
+                                            <p class="font-medium">
+                                                {{ getDeliveryMethodLabel(order.delivery_method) }}
+                                            </p>
                                         </div>
-                                        <div v-if="uploadingProof.has(`${order.user_id}-${order.created_at}`)" class="flex items-center gap-2 text-sm text-primary-600">
-                                            <UIcon name="i-heroicons-arrow-path" class="w-4 h-4 animate-spin" />
-                                            Uploading payment proof...
+                                    </div>
+
+                                    <!-- Tracking Information (Only show for shipped/delivered J&T orders with tracking number) -->
+                                    <div v-if="(order.status === 'shipped' || order.status === 'delivered') && order.delivery_method === 'ship_via_jt' && order.tracking_number" class="bg-white rounded-lg border border-gray-200 shadow-sm p-6">
+                                        <h4 class="font-semibold mb-3 text-gray-900">Tracking Information</h4>
+                                        <div class="space-y-3 text-sm">
+                                            <div class="flex justify-between">
+                                                <span class="text-gray-600">Courier:</span>
+                                                <span class="font-medium">J&T</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span class="text-gray-600">Tracking Number:</span>
+                                                <span class="font-mono font-medium">{{ order.tracking_number }}</span>
+                                            </div>
+                                            <div v-if="order.estimated_delivery" class="flex justify-between">
+                                                <span class="text-gray-600">Estimated Delivery:</span>
+                                                <span class="font-medium">{{ formatEstimatedDelivery(order.estimated_delivery) }}</span>
+                                            </div>
+                                            <div class="mt-3 pt-3 border-t border-gray-200">
+                                                <a
+                                                    href="https://www.jtexpress.ph"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    class="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-medium transition-colors"
+                                                >
+                                                    <UIcon name="i-heroicons-arrow-top-right-on-square" class="w-4 h-4" />
+                                                    Track Package on J&T Website
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Additional Notes -->
-                        <div v-if="order.notes" class="px-6 py-4 border-t border-gray-200">
-                            <h4 class="font-semibold mb-2">Additional Notes</h4>
-                            <p class="text-sm text-gray-700 whitespace-pre-wrap">{{ order.notes }}</p>
                         </div>
 
                         <!-- Order Totals -->
-                        <div class="px-6 py-4 border-t border-gray-200 bg-gray-50">
-                            <div class="space-y-2">
-                                <div class="flex justify-between text-sm">
-                                    <span class="text-gray-600">Subtotal:</span>
-                                    <span>₱{{ order.subtotal.toFixed(2) }}</span>
-                                </div>
-                                <div class="flex justify-between text-sm">
-                                    <span class="text-gray-600">Shipping:</span>
-                                    <span class="text-green-600">
-                                        {{ order.shipping_cost === 0 ? 'FREE' : `₱${order.shipping_cost.toFixed(2)}` }}
-                                    </span>
-                                </div>
-                                <div class="flex justify-between text-lg font-bold border-t pt-2">
-                                    <span>Total:</span>
-                                    <span class="text-primary-600">₱{{ order.total.toFixed(2) }}</span>
+                        <div class="px-6 pb-6">
+                            <div class="bg-white rounded-lg border border-gray-200 shadow-sm p-6">
+                                <h4 class="font-semibold mb-4 text-gray-900">Order Summary</h4>
+                                <div class="space-y-2">
+                                    <div class="flex justify-between text-sm">
+                                        <span class="text-gray-600">Subtotal:</span>
+                                        <span class="font-medium">₱{{ order.subtotal.toFixed(2) }}</span>
+                                    </div>
+                                    <div class="flex justify-between text-sm">
+                                        <span class="text-gray-600">Shipping:</span>
+                                        <span class="font-medium text-green-600">
+                                            {{ order.shipping_cost === 0 ? 'FREE' : `₱${order.shipping_cost.toFixed(2)}` }}
+                                        </span>
+                                    </div>
+                                    <div class="flex justify-between text-lg font-bold border-t border-gray-200 pt-3 mt-2">
+                                        <span>Total:</span>
+                                        <span class="text-primary-600">₱{{ order.total.toFixed(2) }}</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -375,8 +424,10 @@ onMounted(async () => {
     // Auto-expand the most recent order (first in sortedOrders)
     if (ordersStore.sortedOrders.length > 0) {
         const mostRecentOrder = ordersStore.sortedOrders[0]
-        const orderKey = `${mostRecentOrder.user_id}-${mostRecentOrder.created_at}`
-        expandedOrders.value.add(orderKey)
+        if (mostRecentOrder) {
+            const orderKey = `${mostRecentOrder.user_id}-${mostRecentOrder.created_at}`
+            expandedOrders.value.add(orderKey)
+        }
     }
 })
 
@@ -384,8 +435,10 @@ onMounted(async () => {
 watch(() => ordersStore.sortedOrders, (newOrders) => {
     if (newOrders.length > 0 && expandedOrders.value.size === 0) {
         const mostRecentOrder = newOrders[0]
-        const orderKey = `${mostRecentOrder.user_id}-${mostRecentOrder.created_at}`
-        expandedOrders.value.add(orderKey)
+        if (mostRecentOrder) {
+            const orderKey = `${mostRecentOrder.user_id}-${mostRecentOrder.created_at}`
+            expandedOrders.value.add(orderKey)
+        }
     }
 }, { immediate: true })
 
@@ -407,6 +460,19 @@ const formatDate = (timestamp: number) => {
         hour: '2-digit',
         minute: '2-digit'
     })
+}
+
+const formatEstimatedDelivery = (dateString: string) => {
+    try {
+        const date = new Date(dateString)
+        return date.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        })
+    } catch {
+        return dateString
+    }
 }
 
 const getStatusColor = (status: string): 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning' | 'neutral' => {
@@ -465,6 +531,10 @@ const getDeliveryMethodLabel = (method: string): string => {
         ship_via_jt: 'Ship via J&T'
     }
     return labels[method] || method
+}
+
+const isPaymentProofEditable = (order: IOrder): boolean => {
+    return order.payment_status === 'pending' || order.payment_status === 'failed'
 }
 
 const handlePaymentProofUpload = async (event: Event, order: IOrder) => {
