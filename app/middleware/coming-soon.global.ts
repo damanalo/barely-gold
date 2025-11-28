@@ -36,6 +36,10 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
   const allowedRoutes = [
     '/coming-soon',
     '/login',
+    '/signup',
+    '/forgot-password',
+    '/reset-password',
+    '/verify-email',
     '/403',  // Allow forbidden page to show when user doesn't have access
   ]
   
