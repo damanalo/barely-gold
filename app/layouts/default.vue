@@ -2,10 +2,43 @@
   <UApp>
     <header class="border-b border-primary-200 bg-white/70 backdrop-blur sticky top-0 z-50">
       <UContainer class="py-3 flex items-center justify-between">
-        <div @click="navigateTo('/')" class="flex items-center gap-2 cursor-pointer">
-          <LogoMini :size="28" rounded />
-          <span class="font-semibold">Barely Gold</span>
+        <!-- Logo and Mobile Hamburger -->
+        <div class="flex items-center gap-3">
+          <UButton 
+            @click="isMobileMenuOpen = true" 
+            icon="i-heroicons-bars-3" 
+            color="primary"
+            variant="ghost" 
+            class="md:hidden cursor-pointer"
+            aria-label="Open menu"
+          />
+          <div @click="navigateTo('/')" class="flex items-center gap-2 cursor-pointer">
+            <LogoMini :size="28" rounded />
+            <span class="font-semibold">Barely Gold</span>
+          </div>
         </div>
+
+        <!-- Desktop Category Navigation -->
+        <nav class="hidden md:flex items-center gap-1">
+          <button
+            v-for="category in categoriesStore.categories"
+            :key="category.id"
+            @click="handleCategoryClick(category.id)"
+            class="px-3 py-2 text-sm font-medium transition-all duration-200 cursor-pointer relative"
+            :class="activeCategory === category.id 
+              ? 'text-[var(--color-gold-700)]' 
+              : 'text-gray-600 hover:text-gray-900'"
+          >
+            {{ category.name }}
+            <span 
+              v-if="activeCategory === category.id"
+              class="absolute bottom-0 left-0 right-0 h-0.5 rounded-full"
+              style="background-color: var(--color-gold-700)"
+            ></span>
+          </button>
+        </nav>
+
+        <!-- Cart and Settings -->
         <nav class="flex items-center gap-4">
           <UButton 
             @click="cartStore.openCart" 
@@ -18,6 +51,16 @@
             <UBadge v-if="cartStore.itemCount > 0" size="xs" color="primary" variant="solid" class="absolute -top-1 -right-1">
               {{ cartStore.itemCount }}
             </UBadge>
+          </UButton>
+          <UButton 
+            v-if="!authStore.isAuthenticated"
+            @click="navigateTo('/login')" 
+            icon="i-heroicons-arrow-right-on-rectangle" 
+            color="primary"
+            variant="ghost" 
+            class="cursor-pointer"
+          >
+            Login
           </UButton>
           <UDropdownMenu v-if="authStore.isAuthenticated" :items="settingsMenuItems">
             <UButton 
@@ -48,6 +91,30 @@
         </div>
       </UContainer>
     </footer>
+
+    <!-- Mobile Navigation Menu -->
+    <USlideover
+      v-model:open="isMobileMenuOpen"
+      title="Categories"
+      side="left"
+      :ui="{ body: 'p-4 flex-1 overflow-y-auto' }"
+    >
+      <template #body>
+        <div class="flex flex-col gap-1">
+          <button
+            v-for="category in categoriesStore.categories"
+            :key="category.id"
+            @click="handleMobileCategoryClick(category.id)"
+            class="px-4 py-3 text-left text-base font-medium transition-all duration-200 cursor-pointer relative rounded-lg"
+            :class="activeCategory === category.id 
+              ? 'text-[var(--color-gold-700)] bg-[var(--color-gold-50)]' 
+              : 'text-gray-700 hover:bg-gray-50'"
+          >
+            {{ category.name }}
+          </button>
+        </div>
+      </template>
+    </USlideover>
 
     <!-- Cart Slideover -->
     <USlideover
@@ -151,12 +218,18 @@
 import LogoMini from '~/components/LogoMini.vue'
 import { useAuthStore } from '~/stores/auth'
 import { useCartStore } from '~/stores/cart'
+import { useCategoriesStore } from '~/stores/categories'
 
 const authStore = useAuthStore()
 await authStore.checkAuthStatus();
 const user = authStore.user
 
 const cartStore = useCartStore()
+const categoriesStore = useCategoriesStore()
+const route = useRoute()
+
+// Mobile menu state
+const isMobileMenuOpen = ref(false)
 
 // Computed property for cart v-model binding
 const isCartOpen = computed({
@@ -169,6 +242,21 @@ const isCartOpen = computed({
     }
   }
 })
+
+// Active category based on route query
+const activeCategory = computed(() => {
+  return route.query.category as string | undefined
+})
+
+// Category navigation handlers
+const handleCategoryClick = async (categoryId: string) => {
+  await navigateTo(`/products?category=${categoryId}`)
+}
+
+const handleMobileCategoryClick = async (categoryId: string) => {
+  isMobileMenuOpen.value = false
+  await navigateTo(`/products?category=${categoryId}`)
+}
 
 // Initialize user data and cart when authenticated
 const initializeUserData = async () => {
@@ -202,6 +290,7 @@ const initializeUserData = async () => {
 
 // Initialize on mount
 onMounted(async () => {
+  await categoriesStore.fetchCategories()
   await initializeUserData()
 })
 
@@ -215,8 +304,6 @@ watch(() => authStore.isAuthenticated, async (isAuth) => {
     cartStore.resetCart()
   }
 })
-
-const route = useRoute()
 
 const handleProductsClick = async () => {
   if (route.path === '/') {

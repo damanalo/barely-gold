@@ -136,22 +136,18 @@ const togglePasswordVisibility = () => {
   transform: translateY(-50%);
   color: var(--color-gold-600);
   background: transparent;
-  border: 2px solid var(--color-gold-300);
-  box-shadow: none;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
+  border: none;
+  padding: 0;
   height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s;
+  transition: color 0.2s;
   cursor: pointer;
 }
 
 .auth-password-toggle:hover:not(:disabled) {
-  color: var(--color-gold-700);
-  background: var(--color-gold-50);
-  border-color: var(--color-gold-400);
+  color: var(--color-gold-800);
 }
 
 .auth-password-toggle:disabled {

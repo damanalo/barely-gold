@@ -9,36 +9,42 @@
           <h2 class="text-xl font-semibold text-gray-900">Personal Information</h2>
         </template>
 
-        <UForm :state="personalInfoState" @submit="updatePersonalInfo" class="space-y-4">
-          <UFormGroup label="First Name" name="given_name">
-            <UInput 
-              v-model="personalInfoState.given_name" 
+        <UForm :state="personalInfoState" @submit="updatePersonalInfo">
+          <div class="mb-6">
+            <AuthInput
+              v-model="personalInfoState.given_name"
+              type="text"
+              label="First Name"
               placeholder="Enter your first name"
               :disabled="loadingPersonalInfo"
             />
-          </UFormGroup>
+          </div>
 
-          <UFormGroup label="Last Name" name="family_name">
-            <UInput 
-              v-model="personalInfoState.family_name" 
+          <div class="mb-6">
+            <AuthInput
+              v-model="personalInfoState.family_name"
+              type="text"
+              label="Last Name"
               placeholder="Enter your last name"
               :disabled="loadingPersonalInfo"
             />
-          </UFormGroup>
+          </div>
 
-          <UFormGroup label="Email" name="email">
-            <UInput 
-              v-model="personalInfoState.email" 
-              disabled
+          <div class="mb-6">
+            <AuthInput
+              v-model="personalInfoState.email"
+              type="email"
+              label="Email"
               placeholder="Your email"
-              :ui="{ base: 'cursor-not-allowed opacity-75' }"
+              disabled
             />
-            <template #help>
-              <span class="text-xs text-gray-500">Email cannot be changed</span>
-            </template>
-          </UFormGroup>
+            <div class="mt-3 flex items-center gap-2 rounded-md border border-blue-100 bg-blue-50 px-3 py-2 text-xs text-blue-700">
+              <UIcon name="i-heroicons-information-circle" class="h-4 w-4 flex-shrink-0" />
+              <span>Email cannot be changed</span>
+            </div>
+          </div>
 
-          <div class="flex justify-end">
+          <div class="flex justify-end mt-8">
             <UButton 
               type="submit" 
               color="primary"
@@ -57,43 +63,47 @@
           <h2 class="text-xl font-semibold text-gray-900">Change Password</h2>
         </template>
 
-        <UForm :state="passwordState" @submit="changePassword" class="space-y-4">
-          <UFormGroup label="Current Password" name="oldPassword" required>
-            <UInput 
-              v-model="passwordState.oldPassword" 
-              type="password"
-              placeholder="Enter current password"
-              :disabled="loadingPassword"
-            />
-          </UFormGroup>
+        <UForm :state="passwordState" @submit="changePassword" class="space-y-6">
+          <AuthInput
+            v-model="passwordState.oldPassword"
+            type="password"
+            label="Current Password"
+            placeholder="Enter current password"
+            :disabled="loadingPassword"
+            autocomplete="current-password"
+            required
+          />
 
-          <UFormGroup label="New Password" name="newPassword" required>
-            <UInput 
-              v-model="passwordState.newPassword" 
+          <div class="space-y-4">
+            <AuthInput
+              v-model="passwordState.newPassword"
               type="password"
+              label="New Password"
               placeholder="Enter new password"
               :disabled="loadingPassword"
+              autocomplete="new-password"
+              required
             />
-            <template #help>
-              <span class="text-xs text-gray-500">Minimum 8 characters</span>
-            </template>
-          </UFormGroup>
 
-          <UFormGroup label="Confirm New Password" name="confirmPassword" required>
-            <UInput 
-              v-model="passwordState.confirmPassword" 
-              type="password"
-              placeholder="Confirm new password"
-              :disabled="loadingPassword"
-            />
-          </UFormGroup>
+            <PasswordStrength :password="passwordState.newPassword" />
+          </div>
 
-          <div class="flex justify-end">
+          <AuthInput
+            v-model="passwordState.confirmPassword"
+            type="password"
+            label="Confirm New Password"
+            placeholder="Confirm new password"
+            :disabled="loadingPassword"
+            autocomplete="new-password"
+            required
+          />
+
+          <div class="flex justify-end mt-8">
             <UButton 
               type="submit" 
               color="primary"
               :loading="loadingPassword"
-              :disabled="loadingPassword"
+              :disabled="loadingPassword || !isPasswordStrong"
             >
               Update Password
             </UButton>
@@ -105,7 +115,9 @@
 </template>
 
 <script setup lang="ts">
-import { updatePassword } from 'aws-amplify/auth'
+import { updatePassword, updateUserAttributes } from 'aws-amplify/auth'
+import AuthInput from '~/components/auth/AuthInput.vue'
+import PasswordStrength from '~/components/auth/PasswordStrength.vue'
 import { useUserStore } from '~/stores/user'
 import { useAuthStore } from '~/stores/auth'
 
@@ -135,6 +147,22 @@ const passwordState = reactive({
 
 const loadingPassword = ref(false)
 
+const hasMinLength = computed(() => passwordState.newPassword.length >= 8)
+const hasUppercase = computed(() => /[A-Z]/.test(passwordState.newPassword))
+const hasLowercase = computed(() => /[a-z]/.test(passwordState.newPassword))
+const hasNumber = computed(() => /[0-9]/.test(passwordState.newPassword))
+const hasSpecialChar = computed(() => /[^A-Za-z0-9]/.test(passwordState.newPassword))
+
+const isPasswordStrong = computed(() => {
+  return (
+    hasMinLength.value &&
+    hasUppercase.value &&
+    hasLowercase.value &&
+    hasNumber.value &&
+    hasSpecialChar.value
+  )
+})
+
 // Initialize user data
 onMounted(async () => {
   await userStore.initUser()
@@ -151,6 +179,15 @@ const updatePersonalInfo = async () => {
   loadingPersonalInfo.value = true
   
   try {
+    // Update Cognito user attributes
+    await updateUserAttributes({
+      userAttributes: {
+        given_name: personalInfoState.given_name,
+        family_name: personalInfoState.family_name
+      }
+    })
+
+    // Update DynamoDB user record
     const success = await userStore.updateUserData({
       given_name: personalInfoState.given_name,
       family_name: personalInfoState.family_name
@@ -160,21 +197,27 @@ const updatePersonalInfo = async () => {
       toast.add({
         title: 'Success',
         description: 'Personal information updated successfully',
-        color: 'green'
+        color: 'success'
       })
     } else {
       toast.add({
         title: 'Error',
         description: 'Failed to update personal information',
-        color: 'red'
+        color: 'error'
       })
     }
   } catch (error) {
     console.error('Error updating personal info:', error)
+    
+    let errorMessage = 'An error occurred while updating your information'
+    if (error instanceof Error && error.message) {
+      errorMessage = error.message
+    }
+    
     toast.add({
       title: 'Error',
-      description: 'An error occurred while updating your information',
-      color: 'red'
+      description: errorMessage,
+      color: 'error'
     })
   } finally {
     loadingPersonalInfo.value = false
@@ -188,7 +231,7 @@ const changePassword = async () => {
     toast.add({
       title: 'Validation Error',
       description: 'Password must be at least 8 characters long',
-      color: 'red'
+      color: 'error'
     })
     return
   }
@@ -197,7 +240,16 @@ const changePassword = async () => {
     toast.add({
       title: 'Validation Error',
       description: 'New passwords do not match',
-      color: 'red'
+      color: 'error'
+    })
+    return
+  }
+
+  if (!isPasswordStrong.value) {
+    toast.add({
+      title: 'Validation Error',
+      description: 'Password must meet all security requirements',
+      color: 'error'
     })
     return
   }
@@ -213,7 +265,7 @@ const changePassword = async () => {
     toast.add({
       title: 'Success',
       description: 'Password updated successfully',
-      color: 'green'
+      color: 'success'
     })
 
     // Clear password form
@@ -236,7 +288,7 @@ const changePassword = async () => {
     toast.add({
       title: 'Error',
       description: errorMessage,
-      color: 'red'
+      color: 'error'
     })
   } finally {
     loadingPassword.value = false
