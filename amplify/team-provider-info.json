@@ -21,7 +21,7 @@
       "function": {
         "AdminQueries35b7b913": {
           "deploymentBucketName": "amplify-barelygoldui-prod-15beb-deployment",
-          "s3Key": "amplify-builds/AdminQueries35b7b913-77353142514e784a5356-build.zip"
+          "s3Key": "amplify-builds/AdminQueries35b7b913-2b70546f623573676a32-build.zip"
         },
         "BGProductsCRUD": {
           "deploymentBucketName": "amplify-barelygoldui-prod-15beb-deployment",
@@ -30,7 +30,7 @@
         "barelygoldui0845b22d0845b22dPostConfirmation": {
           "GROUP": "Customer",
           "deploymentBucketName": "amplify-barelygoldui-prod-15beb-deployment",
-          "s3Key": "amplify-builds/barelygoldui0845b22d0845b22dPostConfirmation-57396d59746b3546796e-build.zip"
+          "s3Key": "amplify-builds/barelygoldui0845b22d0845b22dPostConfirmation-45332f4346447a37436f-build.zip"
         },
         "barelygoldui0845b22d0845b22d": {},
         "BGDynamoDB": {},
@@ -68,6 +68,9 @@
         "barelygoldui0845b22d0845b22d": {},
         "BGDynamoDB": {},
         "S3AndCloudFront": {}
+      },
+      "auth": {
+        "barelygoldui0845b22d0845b22d": {}
       }
     }
   }
