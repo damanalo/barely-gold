@@ -150,7 +150,10 @@
                         <div class="space-y-2">
                             <!-- Item Breakdown -->
                             <div v-for="item in cartStore.items" :key="item.id" class="flex justify-between text-sm">
-                                <span class="text-gray-600">{{ item.name }} x {{ item.quantity }}</span>
+                                <div class="flex flex-col">
+                                    <span class="text-gray-600">{{ item.name }} x {{ item.quantity }}</span>
+                                    <span class="text-xs text-gray-400">{{ capitalizeFirst(productsStore.getProductById(item.id)?.category) }}</span>
+                                </div>
                                 <span>₱{{ formatPrice(item.price * item.quantity) }}</span>
                             </div>
                             <div class="border-t border-gray-200 my-2"></div>
@@ -198,20 +201,21 @@
                         
                         <div class="space-y-6">
                             <!-- Delivery Method Selection -->
-                            <div>
+                            <div ref="deliveryMethodRef">
                                 <h3 class="font-semibold text-lg mb-3">Delivery Method</h3>
                                 <div class="space-y-3">
-                                    <label class="flex items-center p-4 border-2 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors" :class="deliveryMethod === 'meet_up' ? 'border-primary-600 bg-primary-50' : 'border-gray-200'">
+                                    <label class="flex items-center p-4 border-2 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors" :class="deliveryMethod === 'meet_up' ? 'border-primary-600 bg-primary-50' : fieldErrors.deliveryMethod ? 'border-red-500' : 'border-gray-200'">
                                         <input
                                             v-model="deliveryMethod"
                                             type="radio"
                                             value="meet_up"
                                             class="mr-3 w-4 h-4 text-primary-600 focus:ring-primary-500"
+                                            @change="fieldErrors.deliveryMethod = ''"
                                         />
                                         <div class="flex-1">
                                             <span class="font-medium text-gray-900">Meet up</span>
                                             <p class="text-sm text-gray-500">
-                                                <span class="font-medium">Meet up locations:</span> McDonalds Lipa Cathedral or Levitown.
+                                                <span class="font-medium">Meet up locations:</span> McDonalds Lipa Cathedral or Jollibee Levitown.
                                                 Please contact us at our official social media pages &#8211;
                                                 <NuxtLink to="https://www.facebook.com/BarelyGoldPH" target="_blank" class="text-primary-600 underline hover:text-primary-700">Facebook</NuxtLink>
                                                 or
@@ -220,12 +224,13 @@
                                             </p>
                                         </div>
                                     </label>
-                                    <label class="flex items-center p-4 border-2 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors" :class="deliveryMethod === 'pick_up' ? 'border-primary-600 bg-primary-50' : 'border-gray-200'">
+                                    <label class="flex items-center p-4 border-2 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors" :class="deliveryMethod === 'pick_up' ? 'border-primary-600 bg-primary-50' : fieldErrors.deliveryMethod ? 'border-red-500' : 'border-gray-200'">
                                         <input
                                             v-model="deliveryMethod"
                                             type="radio"
                                             value="pick_up"
                                             class="mr-3 w-4 h-4 text-primary-600 focus:ring-primary-500"
+                                            @change="fieldErrors.deliveryMethod = ''"
                                         />
                                         <div class="flex-1">
                                             <span class="font-medium text-gray-900">Pickup</span>
@@ -239,12 +244,13 @@
                                             </p>
                                         </div>
                                     </label>
-                                    <label class="flex items-center p-4 border-2 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors" :class="deliveryMethod === 'ship_via_jt' ? 'border-primary-600 bg-primary-50' : 'border-gray-200'">
+                                    <label class="flex items-center p-4 border-2 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors" :class="deliveryMethod === 'ship_via_jt' ? 'border-primary-600 bg-primary-50' : fieldErrors.deliveryMethod ? 'border-red-500' : 'border-gray-200'">
                                         <input
                                             v-model="deliveryMethod"
                                             type="radio"
                                             value="ship_via_jt"
                                             class="mr-3 w-4 h-4 text-primary-600 focus:ring-primary-500"
+                                            @change="fieldErrors.deliveryMethod = ''"
                                         />
                                         <div class="flex-1">
                                             <span class="font-medium text-gray-900">Ship via J&T</span>
@@ -252,6 +258,9 @@
                                         </div>
                                     </label>
                                 </div>
+                                <p v-if="fieldErrors.deliveryMethod" class="mt-2 text-sm text-red-600">
+                                    {{ fieldErrors.deliveryMethod }}
+                                </p>
                             </div>
 
                             <!-- Free Shipping Information (Conditional - Only for Ship via J&T) -->
@@ -270,39 +279,66 @@
                             </div>
 
                             <!-- Shipping Address Section (Conditional) -->
-                            <div v-if="deliveryMethod === 'ship_via_jt'">
+                            <div v-if="deliveryMethod === 'ship_via_jt'" ref="shippingAddressRef">
                                 <h3 class="font-semibold text-lg mb-3">Shipping Address</h3>
                                 <div class="space-y-4">
-                                    <div>
+                                    <div ref="streetAddressRef">
                                         <label class="block text-sm font-medium text-gray-700 mb-1">Street Address *</label>
                                         <input
                                             v-model="shippingAddress.street"
                                             type="text"
                                             placeholder="House no., Street name"
-                                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-600 focus:border-transparent"
+                                            :class="[
+                                                'w-full px-4 py-2 border rounded-md focus:ring-2 focus:border-transparent transition-colors',
+                                                fieldErrors.shippingAddress.street 
+                                                    ? 'border-red-500 focus:ring-red-500' 
+                                                    : 'border-gray-300 focus:ring-primary-600'
+                                            ]"
                                             required
+                                            @input="fieldErrors.shippingAddress.street = ''"
                                         />
+                                        <p v-if="fieldErrors.shippingAddress.street" class="mt-1 text-sm text-red-600">
+                                            {{ fieldErrors.shippingAddress.street }}
+                                        </p>
                                     </div>
                                     <div class="grid grid-cols-2 gap-4">
-                                        <div>
+                                        <div ref="cityRef">
                                             <label class="block text-sm font-medium text-gray-700 mb-1">City *</label>
                                             <input
                                                 v-model="shippingAddress.city"
                                                 type="text"
                                                 placeholder="City"
-                                                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-600 focus:border-transparent"
+                                                :class="[
+                                                    'w-full px-4 py-2 border rounded-md focus:ring-2 focus:border-transparent transition-colors',
+                                                    fieldErrors.shippingAddress.city 
+                                                        ? 'border-red-500 focus:ring-red-500' 
+                                                        : 'border-gray-300 focus:ring-primary-600'
+                                                ]"
                                                 required
+                                                @input="fieldErrors.shippingAddress.city = ''"
                                             />
+                                            <p v-if="fieldErrors.shippingAddress.city" class="mt-1 text-sm text-red-600">
+                                                {{ fieldErrors.shippingAddress.city }}
+                                            </p>
                                         </div>
-                                        <div>
+                                        <div ref="provinceRef">
                                             <label class="block text-sm font-medium text-gray-700 mb-1">Province *</label>
                                             <input
                                                 v-model="shippingAddress.province"
                                                 type="text"
                                                 placeholder="Province"
-                                                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-600 focus:border-transparent"
+                                                :class="[
+                                                    'w-full px-4 py-2 border rounded-md focus:ring-2 focus:border-transparent transition-colors',
+                                                    fieldErrors.shippingAddress.province 
+                                                        ? 'border-red-500 focus:ring-red-500' 
+                                                        : 'border-gray-300 focus:ring-primary-600'
+                                                ]"
                                                 required
+                                                @input="fieldErrors.shippingAddress.province = ''"
                                             />
+                                            <p v-if="fieldErrors.shippingAddress.province" class="mt-1 text-sm text-red-600">
+                                                {{ fieldErrors.shippingAddress.province }}
+                                            </p>
                                         </div>
                                     </div>
                                     <div>
@@ -337,7 +373,7 @@
                                         <div class="text-sm text-blue-800">
                                             <p class="font-medium mb-1">How to get a free paper bag:</p>
                                             <ul class="list-disc list-outside pl-5 space-y-1 text-blue-700">
-                                                <li class="pl-1">Orders with 4 or more items automatically get free paper bags (1 bag per 4 items)</li>
+                                                <li class="pl-1">Orders with 4 or more items automatically get a free paper bag (1 bag per 4 items)</li>
                                                 <li class="pl-1">Orders containing items from the "Sets" category automatically get at least 1 free paper bag</li>
                                                 <li class="pl-1">Each bag can hold up to 5 jewelries</li>
                                             </ul>
@@ -482,6 +518,87 @@ const includePaperBag = ref(false)
 // Loading state
 const isSubmitting = ref(false)
 
+// Field errors state management
+const fieldErrors = reactive({
+    deliveryMethod: '',
+    shippingAddress: {
+        street: '',
+        city: '',
+        province: ''
+    }
+})
+
+// Helper function to clear all field errors
+const clearAllErrors = () => {
+    fieldErrors.deliveryMethod = ''
+    fieldErrors.shippingAddress.street = ''
+    fieldErrors.shippingAddress.city = ''
+    fieldErrors.shippingAddress.province = ''
+}
+
+// Helper function to clear shipping address errors
+const clearShippingAddressErrors = () => {
+    fieldErrors.shippingAddress.street = ''
+    fieldErrors.shippingAddress.city = ''
+    fieldErrors.shippingAddress.province = ''
+}
+
+// Template refs for scrolling to error fields
+const deliveryMethodRef = ref<HTMLElement | null>(null)
+const shippingAddressRef = ref<HTMLElement | null>(null)
+const streetAddressRef = ref<HTMLElement | null>(null)
+const cityRef = ref<HTMLElement | null>(null)
+const provinceRef = ref<HTMLElement | null>(null)
+
+// Function to scroll to the first field with an error
+const scrollToFirstError = () => {
+    // Use nextTick to ensure DOM is updated with error messages
+    nextTick(() => {
+        // Check delivery method error first
+        if (fieldErrors.deliveryMethod && deliveryMethodRef.value) {
+            deliveryMethodRef.value.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'center' 
+            })
+            return
+        }
+
+        // Check shipping address errors (only if ship_via_jt is selected)
+        if (deliveryMethod.value === 'ship_via_jt') {
+            if (fieldErrors.shippingAddress.street && streetAddressRef.value) {
+                streetAddressRef.value.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center' 
+                })
+                return
+            }
+            if (fieldErrors.shippingAddress.city && cityRef.value) {
+                cityRef.value.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center' 
+                })
+                return
+            }
+            if (fieldErrors.shippingAddress.province && provinceRef.value) {
+                provinceRef.value.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center' 
+                })
+                return
+            }
+        }
+    })
+}
+
+// Watch delivery method changes to clear shipping address errors when switching away from ship_via_jt
+watch(deliveryMethod, (newMethod) => {
+    if (newMethod !== 'ship_via_jt') {
+        clearShippingAddressErrors()
+    }
+    // Clear delivery method error when user selects a method
+    fieldErrors.deliveryMethod = ''
+})
+
 // Check authentication and cart on mount
 onMounted(async () => {
     // Redirect if cart is empty
@@ -592,7 +709,16 @@ const getDeliveryMethodLabel = (method: string): string => {
     return labels[method] || method
 }
 
+// Capitalize first letter of a string
+const capitalizeFirst = (str: string | undefined): string => {
+    if (!str) return ''
+    return str.charAt(0).toUpperCase() + str.slice(1)
+}
+
 const handleSubmitOrder = async () => {
+    // Clear previous errors
+    clearAllErrors()
+
     // Auth middleware ensures user is authenticated, but double-check for safety
     if (!authStore.isAuthenticated) {
         toast.add({
@@ -603,14 +729,34 @@ const handleSubmitOrder = async () => {
         return
     }
 
+    // Validate delivery method (always required)
+    if (!deliveryMethod.value) {
+        fieldErrors.deliveryMethod = 'Please select a delivery method'
+        scrollToFirstError()
+        return
+    }
+
     // Validate shipping address only if Ship via J&T is selected
     if (deliveryMethod.value === 'ship_via_jt') {
-        if (!shippingAddress.value.street || !shippingAddress.value.city || !shippingAddress.value.province) {
-            toast.add({
-                title: 'Missing Information',
-                description: 'Please fill in all shipping address fields',
-                color: 'error'
-            })
+        let hasErrors = false
+
+        if (!shippingAddress.value.street || !shippingAddress.value.street.trim()) {
+            fieldErrors.shippingAddress.street = 'Street address is required'
+            hasErrors = true
+        }
+
+        if (!shippingAddress.value.city || !shippingAddress.value.city.trim()) {
+            fieldErrors.shippingAddress.city = 'City is required'
+            hasErrors = true
+        }
+
+        if (!shippingAddress.value.province || !shippingAddress.value.province.trim()) {
+            fieldErrors.shippingAddress.province = 'Province is required'
+            hasErrors = true
+        }
+
+        if (hasErrors) {
+            scrollToFirstError()
             return
         }
     }

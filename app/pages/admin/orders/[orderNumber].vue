@@ -46,7 +46,7 @@
         <!-- Order Items -->
         <div class="bg-white rounded-lg shadow p-6">
           <h3 class="font-semibold text-lg mb-4">Order Items</h3>
-          <div class="space-y-3 max-h-96 overflow-y-auto">
+          <div class="space-y-3">
             <div
               v-for="item in order.items"
               :key="item.id"
@@ -62,14 +62,50 @@
               <div class="flex-1">
                 <p class="font-medium">{{ item.name }}</p>
                 <p class="text-sm text-gray-600">
-                  Qty: {{ item.quantity }} × ₱{{ item.price.toFixed(2) }}
+                  Qty: {{ item.quantity }} × ₱{{ formatPrice(item.price) }}
                 </p>
                 <p v-if="item.category" class="text-xs text-gray-500 mt-1">
                   Category: {{ item.category }}
                 </p>
               </div>
               <div class="text-right">
-                <p class="font-semibold">₱{{ (item.price * item.quantity).toFixed(2) }}</p>
+                <p class="font-semibold">₱{{ formatPrice(item.price * item.quantity) }}</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Order Summary -->
+          <div class="mt-6 pt-3 border-t border-gray-200">
+            <div class="space-y-2">
+              <div class="flex justify-between text-sm mb-3">
+                <span class="text-gray-600">Subtotal:</span>
+                <span class="font-medium">₱{{ formatPrice(order.subtotal) }}</span>
+              </div>
+              <div v-if="order.promotional_discount_amount && order.promotional_discount_amount > 0" class="flex justify-between text-sm text-green-600">
+                <span class="text-gray-600 font-bold">
+                  Promotional Discount (10%)
+                </span>
+                <span class="font-medium">-₱{{ formatPrice(order.promotional_discount_amount) }}</span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span class="text-gray-600 font-bold">
+                  Shipping{{ order.delivery_method ? ` (${getDeliveryMethodLabel(order.delivery_method)})` : '' }}:
+                </span>
+                <span class="font-medium text-green-600">
+                  {{ order.shipping_cost === 0 ? 'FREE' : `₱${formatPrice(order.shipping_cost)}` }}
+                </span>
+              </div>
+              <div v-if="order.paper_bag_quantity && order.paper_bag_quantity > 0" class="flex justify-between text-sm">
+                <span class="text-gray-600 font-bold">
+                  Paper Bag{{ order.paper_bag_quantity > 1 ? ` (x${order.paper_bag_quantity})` : '' }}
+                </span>
+                <span :class="(order.paper_bag_cost ?? 0) === 0 ? 'text-green-600 font-medium' : ''">
+                  {{ (order.paper_bag_cost ?? 0) === 0 ? 'FREE' : `₱${formatPrice(order.paper_bag_cost ?? 0)}` }}
+                </span>
+              </div>
+              <div class="flex justify-between text-lg font-bold border-t border-gray-200 pt-3 mt-2">
+                <span>Total:</span>
+                <span class="text-primary-600">₱{{ formatPrice(order.total) }}</span>
               </div>
             </div>
           </div>
@@ -144,7 +180,7 @@
             <div v-if="order.payment_proof" class="mt-4">
               <p class="text-sm font-medium text-gray-700 mb-2">Payment Proof:</p>
               <img
-                :src="getImageUrl(order.payment_proof)"
+                :src="getImageUrl(order.payment_proof, order.updated_at)"
                 alt="Payment Proof"
                 class="w-full max-w-md h-auto object-contain rounded border border-gray-300"
               />
@@ -240,26 +276,6 @@
           </form>
         </div>
 
-        <!-- Order Totals -->
-        <div class="bg-white rounded-lg shadow p-6">
-          <h3 class="font-semibold text-lg mb-4">Order Summary</h3>
-          <div class="space-y-2">
-            <div class="flex justify-between text-sm">
-              <span class="text-gray-600">Subtotal:</span>
-              <span>₱{{ order.subtotal.toFixed(2) }}</span>
-            </div>
-            <div class="flex justify-between text-sm">
-              <span class="text-gray-600">Shipping:</span>
-              <span class="text-green-600">
-                {{ order.shipping_cost === 0 ? 'FREE' : `₱${order.shipping_cost.toFixed(2)}` }}
-              </span>
-            </div>
-            <div class="flex justify-between text-lg font-bold border-t pt-2 mt-2">
-              <span>Total:</span>
-              <span class="text-primary-600">₱{{ order.total.toFixed(2) }}</span>
-            </div>
-          </div>
-        </div>
       </div>
     </UContainer>
   </div>
@@ -271,6 +287,7 @@ import { useProductsStore } from '~/stores/products'
 import { useInventoryAdjustments } from '~/composables/useInventoryAdjustments'
 import type { IOrder } from '~/types/order'
 import getImageUrl from '~/utils/get-image-url'
+import formatPrice from '~/utils/format-price'
 
 definePageMeta({
   middleware: ['admin']
@@ -372,6 +389,16 @@ const getShippingAddress = (addressString: string) => {
   } catch {
     return null
   }
+}
+
+const getDeliveryMethodLabel = (method: string | undefined): string => {
+  if (!method) return ''
+  const labels: Record<string, string> = {
+    meet_up: 'Meet up',
+    pick_up: 'Pick up',
+    ship_via_jt: 'Ship via J&T'
+  }
+  return labels[method] || method
 }
 
 const updateOrder = async () => {

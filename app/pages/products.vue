@@ -485,7 +485,6 @@ const addToCart = async (product: IProduct) => {
     price: product.salePrice ?? product.price,
     image: getImageUrl(product.images?.[0] as unknown as string)
   })
-  cartStore.openCart()
 }
 
 // Modal functions

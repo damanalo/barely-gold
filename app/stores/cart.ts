@@ -190,6 +190,12 @@ export const useCartStore = defineStore('cart', {
           }
           this.saveGuestCart()
           console.log('Item added to guest cart')
+          // Show success toast
+          toast.add({
+            title: 'Added to cart',
+            description: `${newItem.name} has been added to your cart`,
+            color: 'success'
+          })
         } else {
           // Authenticated user - save to backend
           const { addToCart } = useUserCart()
@@ -203,8 +209,19 @@ export const useCartStore = defineStore('cart', {
             } else {
               this.items.push(newItem)
             }
+            // Show success toast
+            toast.add({
+              title: 'Added to cart',
+              description: `${newItem.name} has been added to your cart`,
+              color: 'success'
+            })
           } else {
             console.error('Failed to add item to backend cart')
+            toast.add({
+              title: 'Failed to add item',
+              description: 'There was an error adding the item to your cart. Please try again.',
+              color: 'error'
+            })
           }
         }
       } finally {

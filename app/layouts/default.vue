@@ -134,6 +134,7 @@
 
             <div class="flex-1 min-w-0">
               <h4 class="text-sm font-medium text-gray-900 dark:text-white truncate">{{ item.name }}</h4>
+              <p class="text-xs text-gray-400 dark:text-gray-500">{{ capitalizeFirst(productsStore.getProductById(item.id)?.category) }}</p>
               <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">₱{{ formatPrice(item.price) }}</p>
               
               <div class="flex items-center gap-2 mt-3">
@@ -219,6 +220,7 @@ import LogoMini from '~/components/LogoMini.vue'
 import { useAuthStore } from '~/stores/auth'
 import { useCartStore } from '~/stores/cart'
 import { useCategoriesStore } from '~/stores/categories'
+import { useProductsStore } from '~/stores/products'
 import formatPrice from '~/utils/format-price'
 
 const authStore = useAuthStore()
@@ -227,6 +229,7 @@ const user = authStore.user
 
 const cartStore = useCartStore()
 const categoriesStore = useCategoriesStore()
+const productsStore = useProductsStore()
 const route = useRoute()
 
 // Mobile menu state
@@ -292,6 +295,10 @@ const initializeUserData = async () => {
 // Initialize on mount
 onMounted(async () => {
   await categoriesStore.fetchCategories()
+  // Load products for category lookups in cart
+  if (productsStore.products.length === 0) {
+    await productsStore.fetchProducts()
+  }
   await initializeUserData()
 })
 
@@ -339,6 +346,12 @@ const handleLoginClick = async () => {
     path: '/login',
     query: { redirect: currentPath }
   })
+}
+
+// Capitalize first letter of a string
+const capitalizeFirst = (str: string | undefined): string => {
+  if (!str) return ''
+  return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
 const isAdmin = computed(() => {
