@@ -3,7 +3,7 @@
         <UContainer>
             <!-- Page Header -->
             <div class="mb-8">
-                <h1 class="text-3xl font-bold text-gray-900">Order History</h1>
+                <h1 class="text-3xl font-bold text-gray-900">Orders</h1>
                 <p class="text-gray-600 mt-2">View and manage your orders</p>
             </div>
 
@@ -40,8 +40,8 @@
                     class="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow duration-200"
                 >
                     <!-- Order Header -->
-                    <div class="px-6 py-4 border-b border-gray-200 bg-gray-200">
-                        <div class="flex flex-wrap items-center justify-between gap-4">
+                    <div class="px-6 py-4 border-b border-gray-200 bg-gray-200 relative">
+                        <div class="flex flex-wrap items-center justify-between gap-4 pr-10 md:pr-0">
                             <div>
                                 <h3 class="text-lg font-semibold text-gray-900">
                                     Order #{{ order.order_number }}
@@ -54,14 +54,24 @@
                                 <UBadge :color="getStatusColor(order.status)" size="lg">
                                     {{ getStatusLabel(order.status) }}
                                 </UBadge>
+                                <!-- Chevron button visible on large screens only -->
                                 <UButton
                                     icon="i-heroicons-chevron-down"
                                     variant="ghost"
                                     @click="toggleOrderDetails(order)"
                                     :class="{ 'rotate-180': expandedOrders.has(`${order.user_id}-${order.created_at}`) }"
+                                    class="hidden md:inline-flex"
                                 />
                             </div>
                         </div>
+                        <!-- Chevron button - positioned top right on small screens -->
+                        <UButton
+                            icon="i-heroicons-chevron-down"
+                            variant="ghost"
+                            @click="toggleOrderDetails(order)"
+                            :class="{ 'rotate-180': expandedOrders.has(`${order.user_id}-${order.created_at}`) }"
+                            class="absolute top-2 right-2 md:hidden"
+                        />
                     </div>
 
                     <!-- Order Summary (Always Visible) -->

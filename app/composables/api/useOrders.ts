@@ -107,7 +107,10 @@ export const useOrders = () => {
         created_at: now,
         updated_at: now,
         delivery_method: orderInput.delivery_method,
-        notes: orderInput.notes
+        notes: orderInput.notes,
+        paper_bag_quantity: orderInput.paper_bag_quantity,
+        paper_bag_cost: orderInput.paper_bag_cost,
+        promotional_discount_amount: orderInput.promotional_discount_amount
       }
 
       const operation = await post({

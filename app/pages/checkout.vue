@@ -130,9 +130,61 @@
 
             <!-- Main Content -->
             <div class="max-w-6xl mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="flex flex-col md:grid md:grid-cols-3 gap-6">
+                    <!-- Order Summary (Right Column) -->
+                    <div class="bg-white rounded-lg shadow p-6 h-fit md:sticky md:top-20 order-1 md:row-start-1 md:col-start-3 md:col-span-1">
+                        <h3 class="text-lg font-bold mb-4">Order Summary</h3>
+
+                        <div class="space-y-2">
+                            <!-- Item Breakdown -->
+                            <div v-for="item in cartStore.items" :key="item.id" class="flex justify-between text-sm">
+                                <span class="text-gray-600">{{ item.name }} x {{ item.quantity }}</span>
+                                <span>₱{{ (item.price * item.quantity).toFixed(2) }}</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">Subtotal</span>
+                                <span>₱{{ cartStore.total.toFixed(2) }}</span>
+                            </div>
+                            <div v-if="promotionalDiscountAmount > 0" class="flex justify-between text-sm text-green-600">
+                                <span class="text-gray-600">
+                                    Promotional Discount (10%)
+                                </span>
+                                <span class="font-medium">-₱{{ promotionalDiscountAmount.toFixed(2) }}</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">
+                                    Shipping ({{ getDeliveryMethodLabel(deliveryMethod) }})
+                                    <span v-if="totalItemCount >= 5" class="text-xs text-green-600">(Free for 5+ items)</span>
+                                </span>
+                                <span :class="shippingCost === 0 ? 'text-green-600 font-medium' : ''">
+                                    {{ shippingCost === 0 ? 'FREE' : `₱${shippingCost.toFixed(2)}` }}
+                                </span>
+                            </div>
+                            <div v-if="paperBagQuantity > 0" class="flex justify-between text-sm">
+                                <span class="text-gray-600">
+                                    Paper Bag{{ paperBagQuantity > 1 ? ` (x${paperBagQuantity})` : '' }}
+                                </span>
+                                <span :class="paperBagCost === 0 ? 'text-green-600 font-medium' : ''">
+                                    {{ paperBagCost === 0 ? 'FREE' : `₱${paperBagCost.toFixed(2)}` }}
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="border-t my-4"></div>
+
+                        <div class="flex justify-between text-lg font-bold">
+                            <span>Total</span>
+                            <span class="text-primary-600">₱{{ orderTotal.toFixed(2) }}</span>
+                        </div>
+
+                        <div class="mt-4 p-3 bg-blue-50 rounded text-xs text-blue-800">
+                            <UIcon name="i-heroicons-information-circle" class="inline" />
+                            Your order will be processed after payment verification
+                        </div>
+                    </div>
+
                     <!-- Order Details Form (Left Column) -->
-                    <div class="md:col-span-2 bg-white rounded-lg shadow p-6">
+                    <div class="bg-white rounded-lg shadow p-6 order-2 md:row-start-1 md:col-start-1 md:col-span-2">
                         <h2 class="text-2xl font-bold mb-4">Complete Your Order</h2>
                         
                         <div class="space-y-6">
@@ -162,7 +214,7 @@
                                         <div class="flex-1">
                                             <span class="font-medium text-gray-900">Meet up</span>
                                             <p class="text-sm text-gray-500">
-                                                <p class="text-sm text-gray-500"><span class="font-medium">Meet up locations:</span> McDonalds Lipa Cathedral or Levitown.</p>
+                                                <span class="font-medium">Meet up locations:</span> McDonalds Lipa Cathedral or Levitown.
                                                 Please contact us at our official social media pages &#8211;
                                                 <NuxtLink to="https://www.facebook.com/BarelyGoldPH" target="_blank" class="text-primary-600 underline hover:text-primary-700">Facebook</NuxtLink>
                                                 or
@@ -181,7 +233,7 @@
                                         <div class="flex-1">
                                             <span class="font-medium text-gray-900">Pickup</span>
                                             <p class="text-sm text-gray-500">
-                                                <p class="text-sm text-gray-500"><span class="font-medium">Pickup locations:</span> Lipa City District Hospital or Grove Park Malvar.</p>
+                                                <span class="font-medium">Pickup locations:</span> Lipa City District Hospital or Grove Park Malvar.
                                                 Please contact us at our official social media pages &#8211;
                                                 <NuxtLink to="https://www.facebook.com/BarelyGoldPH" target="_blank" class="text-primary-600 underline hover:text-primary-700">Facebook</NuxtLink>
                                                 or
@@ -348,7 +400,7 @@
                                 :loading="isSubmitting"
                                 :disabled="isSubmitting"
                             >
-                                {{ isSubmitting ? 'Creating Order...' : 'Confirm Order' }}
+                                {{ isSubmitting ? 'Processing...' : 'Proceed to Payment' }}
                             </UButton>
 
                             <p class="text-xs text-gray-500 text-center">
@@ -357,52 +409,6 @@
                                     terms and conditions
                                 </NuxtLink>
                             </p>
-                        </div>
-                    </div>
-
-                    <!-- Order Summary (Right Column) -->
-                    <div class="bg-white rounded-lg shadow p-6 h-fit sticky top-4">
-                        <h3 class="text-lg font-bold mb-4">Order Summary</h3>
-
-                        <div class="space-y-2">
-                            <!-- Item Breakdown -->
-                            <div v-for="item in cartStore.items" :key="item.id" class="flex justify-between text-sm">
-                                <span class="text-gray-600">{{ item.name }} x {{ item.quantity }}</span>
-                                <span>₱{{ (item.price * item.quantity).toFixed(2) }}</span>
-                            </div>
-                            <div class="flex justify-between text-sm">
-                                <span class="text-gray-600">Subtotal</span>
-                                <span>₱{{ cartStore.total.toFixed(2) }}</span>
-                            </div>
-                            <div class="flex justify-between text-sm">
-                                <span class="text-gray-600">
-                                    Shipping ({{ getDeliveryMethodLabel(deliveryMethod) }})
-                                    <span v-if="totalItemCount >= 5" class="text-xs text-green-600">(Free for 5+ items)</span>
-                                </span>
-                                <span :class="shippingCost === 0 ? 'text-green-600 font-medium' : ''">
-                                    {{ shippingCost === 0 ? 'FREE' : `₱${shippingCost.toFixed(2)}` }}
-                                </span>
-                            </div>
-                            <div v-if="paperBagQuantity > 0" class="flex justify-between text-sm">
-                                <span class="text-gray-600">
-                                    Paper Bag{{ paperBagQuantity > 1 ? ` (x${paperBagQuantity})` : '' }}
-                                </span>
-                                <span :class="paperBagCost === 0 ? 'text-green-600 font-medium' : ''">
-                                    {{ paperBagCost === 0 ? 'FREE' : `₱${paperBagCost.toFixed(2)}` }}
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="border-t my-4"></div>
-
-                        <div class="flex justify-between text-lg font-bold">
-                            <span>Total</span>
-                            <span class="text-primary-600">₱{{ orderTotal.toFixed(2) }}</span>
-                        </div>
-
-                        <div class="mt-4 p-3 bg-blue-50 rounded text-xs text-blue-800">
-                            <UIcon name="i-heroicons-information-circle" class="inline" />
-                            Your order will be processed after payment verification
                         </div>
                     </div>
                 </div>
@@ -427,6 +433,7 @@ const cartStore = useCartStore()
 const authStore = useAuthStore()
 const ordersStore = useOrdersStore()
 const productsStore = useProductsStore()
+const config = useRuntimeConfig()
 
 // Current step in the order process
 const currentStep = ref(1) // 1: Payment, 2: Processing, 3: Shipped, 4: Received
@@ -528,6 +535,25 @@ const paperBagCost = computed(() => {
     return 0
 })
 
+// Check if promotional discount should be applied
+const applyPromotionalDiscount = computed(() => {
+    const flagValue = config.public.apply10Discount as string | undefined
+    return flagValue === 'true' || flagValue === 'True'
+})
+
+// Calculate promotional discount amount (10% of subtotal)
+const promotionalDiscountAmount = computed(() => {
+    if (applyPromotionalDiscount.value) {
+        return cartStore.total * 0.1
+    }
+    return 0
+})
+
+// Calculate discounted subtotal (subtotal minus promotional discount)
+const discountedSubtotal = computed(() => {
+    return cartStore.total - promotionalDiscountAmount.value
+})
+
 // Calculate shipping cost based on delivery method
 const shippingCost = computed(() => {
     // Free shipping for 5+ items regardless of delivery method
@@ -541,9 +567,9 @@ const shippingCost = computed(() => {
     return 0 // Free for meet_up and pick_up
 })
 
-// Calculate order total including shipping and paper bag
+// Calculate order total including shipping and paper bag (using discounted subtotal)
 const orderTotal = computed(() => {
-    return cartStore.total + shippingCost.value + paperBagCost.value
+    return discountedSubtotal.value + shippingCost.value + paperBagCost.value
 })
 
 // Get delivery method label
@@ -635,7 +661,8 @@ const handleSubmitOrder = async () => {
             delivery_method: deliveryMethod.value,
             notes: additionalNotes.value.trim() || undefined,
             paper_bag_quantity: paperBagQuantity.value,
-            paper_bag_cost: paperBagCost.value
+            paper_bag_cost: paperBagCost.value,
+            promotional_discount_amount: promotionalDiscountAmount.value > 0 ? promotionalDiscountAmount.value : undefined
         }
 
         // Create a temporary order object for stock checking

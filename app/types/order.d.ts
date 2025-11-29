@@ -21,6 +21,7 @@ export interface IOrder {
   notes?: string
   paper_bag_quantity?: number  // Number of paper bags
   paper_bag_cost?: number  // Cost of paper bags (0 if free)
+  promotional_discount_amount?: number  // Promotional discount amount (separate from coupon discounts)
   inventory_reserved?: boolean  // Whether inventory has been deducted
   inventory_restocked?: boolean  // Whether inventory has been returned (for cancelled orders)
   created_at: number  // Unix timestamp
@@ -51,5 +52,6 @@ export interface IOrderInput {
   notes?: string
   paper_bag_quantity?: number  // Number of paper bags
   paper_bag_cost?: number  // Cost of paper bags (0 if free)
+  promotional_discount_amount?: number  // Promotional discount amount (separate from coupon discounts)
 }
 

@@ -81,14 +81,14 @@
     </main>
 
     <footer class="mt-12 bg-[#f7e7ce]">
-      <UContainer class="py-6 text-sm text-gray-500 flex items-center justify-between">
-        <span>© {{ new Date().getFullYear() }} Barely Gold</span>
-        <div class="flex items-center gap-3">
+      <UContainer class="py-6 text-sm text-gray-500 flex flex-col md:flex-row items-center justify-center md:justify-between gap-4">
+        <div class="flex items-center gap-3 flex-wrap justify-center order-1 md:order-2">
           <ULink to="/faqs" class="hover:text-primary-600">FAQs</ULink>
           <ULink to="/terms-and-conditions" class="hover:text-primary-600">Terms and Conditions</ULink>
           <ULink to="/contact" class="hover:text-primary-600">Contact Us</ULink>
           <ULink to="/about" class="hover:text-primary-600">About Us</ULink>
         </div>
+        <span class="order-2 md:order-1">© {{ new Date().getFullYear() }} Barely Gold</span>
       </UContainer>
     </footer>
 

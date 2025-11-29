@@ -15,7 +15,8 @@ export default defineNuxtConfig({
     public: {
       apiName: process.env.API_NAME,
       publicCloudfrontUrl: process.env.PUBLIC_CLOUDFRONT_URL,
-      showComingSoon: process.env.SHOW_COMING_SOON
+      showComingSoon: process.env.SHOW_COMING_SOON,
+      apply10Discount: process.env.APPLY_10_DISCOUNT
     }
   },
   ssr: false,

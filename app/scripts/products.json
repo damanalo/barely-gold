@@ -1,0 +1,5617 @@
+[
+    {
+        "quantity": 1,
+        "updated_at": 1764263557024,
+        "salePrice": 679,
+        "created_at": 1764263557024,
+        "status": "active",
+        "category": "sets",
+        "images": [],
+        "price": 847,
+        "description": "9mm Gold Clover Motif with a Push-Back Lock; 17-22cm Adjustable Bracelet with 9mm Gold Clover Motif; and 43-48mm Adjustable Necklace with Multiple 9mm Gold Clover Motifs",
+        "id": "059a6781-97a7-41c6-b828-3fb15a3dab0b",
+        "name": "Multiple Mini Gold Clover"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764303101472,
+        "salePrice": 579,
+        "created_at": 1764302607955,
+        "status": "active",
+        "category": "sets",
+        "images": [
+            "sets/12d85ed0-b2c0-4d44-8b58-7b5dfdb3eddc/379-0.jpg"
+        ],
+        "price": 698,
+        "description": "16cm Gold Tennis Bracelet with Circle Stones and a Premium Lock; and 40-45cm Adjustable Gold Tennis Necklace",
+        "id": "12d85ed0-b2c0-4d44-8b58-7b5dfdb3eddc",
+        "name": "Gold Tennis"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764348174004,
+        "salePrice": 949,
+        "created_at": 1764262871892,
+        "status": "active",
+        "category": "sets",
+        "images": [
+            "sets/1be01c99-207c-4557-8d35-67979c34c872/377-0.jpg"
+        ],
+        "price": 1017,
+        "description": "Coded 15mm Shiny Silver Clover Motif with a Push-Back Lock; 20-21cm Adjustable Bracelet with 15mm Premium Silver Clover Motif; and 43-46cm Adjustable Necklace with a 15mm Premium Silver Center Chain Clover Motif",
+        "id": "1be01c99-207c-4557-8d35-67979c34c872",
+        "name": "Premium Silver Clover"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764263823655,
+        "salePrice": 579,
+        "created_at": 1764263823655,
+        "status": "active",
+        "category": "sets",
+        "images": [],
+        "price": 717,
+        "description": "13mm White Marble Clover Motif with a Push-Back Lock; 17-22cm Adjustable Bracelet with 11mm White Clover Motif; and 44cm Necklace with a 15mm White Clover Motif Pendant",
+        "id": "40419638-14c8-4cd7-bd31-6ef5c1a5e300",
+        "name": "White Clover"
+    },
+    {
+        "quantity": 2,
+        "updated_at": 1764263492876,
+        "salePrice": 679,
+        "created_at": 1764263492876,
+        "status": "active",
+        "category": "sets",
+        "images": [],
+        "price": 847,
+        "description": "9mm Black Clover Motif with a Push-Back Lock; 17-22cm Adjustable Bracelet with 9mm Black Clover Motif; and 43-48cm/ 45-50cm Adjustable Necklace with Multiple 9mm Black Clover Motifs",
+        "id": "50fa2edb-91fb-4c57-9821-55de3e730728",
+        "name": "Multiple Mini Black Clover"
+    },
+    {
+        "quantity": 2,
+        "updated_at": 1764264115960,
+        "salePrice": 679,
+        "created_at": 1764263401112,
+        "status": "active",
+        "category": "sets",
+        "images": [
+            "sets/9c01c716-40ef-4239-817a-3dc8d561e596/366-0.jpg"
+        ],
+        "price": 847,
+        "description": "9mm White Marble Clover Motif with a Push-Back Lock; 17-22cm Adjustable Bracelet with 9mm White Clover Motif; and 40-45cm/42-47cm Adjustable Necklace with Multiple 9mm White Clover Motifs",
+        "id": "9c01c716-40ef-4239-817a-3dc8d561e596",
+        "name": "Multiple Mini White Clover"
+    },
+    {
+        "quantity": 2,
+        "updated_at": 1764264099956,
+        "salePrice": 579,
+        "created_at": 1764263159519,
+        "status": "active",
+        "category": "sets",
+        "images": [
+            "sets/b2ea5763-1900-40b2-800a-52125f2d3542/365-0.jpg"
+        ],
+        "price": 717,
+        "description": "13mm Black Clover Motif with a Push-Back Lock; 17-22cm Adjustable Bracelet with 11mm Black Clover Motif; and 44cm Necklace with a 15mm Black Clover Motif Pendant",
+        "id": "b2ea5763-1900-40b2-800a-52125f2d3542",
+        "name": "Black Clover"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764303117581,
+        "salePrice": 579,
+        "created_at": 1764302666932,
+        "status": "active",
+        "category": "sets",
+        "images": [
+            "sets/b810c4b1-5870-49a2-bfdf-a39a0b94a907/380-0.jpg"
+        ],
+        "price": 698,
+        "description": "16cm Silver Tennis Bracelet with Square Stones and a Premium Lock; and 40-45cm Adjustable Silver Tennis Necklace",
+        "id": "b810c4b1-5870-49a2-bfdf-a39a0b94a907",
+        "name": "Silver Tennis"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764303087507,
+        "salePrice": 1109,
+        "created_at": 1764302438198,
+        "status": "active",
+        "category": "sets",
+        "images": [
+            "sets/beacb4b7-3642-44cd-9b8b-b19e6ffc4c2f/378-0.jpg"
+        ],
+        "price": 1297,
+        "description": "Coded 15mm Shiny Gold Clover Motif with a Push-Back Lock; 20-21cm Adjustable Bracelet with 15mm Premium Gold Clover Motif; and 43-46cm Adjustable Necklace with a 15mm Premium Gold Center Chain Clover Motif",
+        "id": "beacb4b7-3642-44cd-9b8b-b19e6ffc4c2f",
+        "name": "Premium Gold Clover"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764264090952,
+        "salePrice": 579,
+        "created_at": 1764262581085,
+        "status": "active",
+        "category": "sets",
+        "images": [
+            "sets/c37ad75f-2782-426b-acc8-6ff23901d212/364-0.jpg"
+        ],
+        "price": 717,
+        "description": "9mm Gold Clover Motif with a Push-Back Lock; 17-22cm Adjustable Bracelet with 9mm Gold Clover Motif; and 44cm Necklace with a 9mm Gold Clover Motif Pendant",
+        "id": "c37ad75f-2782-426b-acc8-6ff23901d212",
+        "name": "Mini Gold Clover"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764303148030,
+        "salePrice": 529,
+        "created_at": 1764302804026,
+        "status": "active",
+        "category": "sets",
+        "images": [
+            "sets/e018b23a-8c88-481f-9f85-dfb43c8c0f80/381-0.jpg"
+        ],
+        "price": 618,
+        "description": "19cm Bangle with Stoned Tie Design; and 45-50cm Adjustable Necklace with a Stoned Tie Design",
+        "id": "e018b23a-8c88-481f-9f85-dfb43c8c0f80",
+        "name": "Stoned Tie"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764145556809,
+        "salePrice": null,
+        "created_at": 1763703969903,
+        "status": "active",
+        "category": "rings",
+        "images": [
+            "rings/0344e364-e494-4a5b-87bb-62a0f48ca757/2-0.jpg"
+        ],
+        "price": 119,
+        "description": "Size 7 Gold Love Ring",
+        "id": "0344e364-e494-4a5b-87bb-62a0f48ca757",
+        "name": "Love Ring (7)"
+    },
+    {
+        "quantity": 4,
+        "updated_at": 1764152786992,
+        "salePrice": null,
+        "created_at": 1763703910805,
+        "status": "active",
+        "category": "rings",
+        "images": [
+            "rings/0c509856-245c-4824-84fc-85ab471b33cd/156-0.jpg"
+        ],
+        "price": 199,
+        "description": "Size 8 Gold Ring with a Medium Diamond Design",
+        "id": "0c509856-245c-4824-84fc-85ab471b33cd",
+        "name": "Medium Diamond"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259301452,
+        "salePrice": null,
+        "created_at": 1764234954563,
+        "status": "active",
+        "category": "rings",
+        "images": [
+            "rings/10984ea7-12d6-411c-ae9f-56ac4b855b42/272-0.jpg"
+        ],
+        "price": 179,
+        "description": "----------",
+        "id": "10984ea7-12d6-411c-ae9f-56ac4b855b42",
+        "name": "Stoned Nail"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764257869890,
+        "salePrice": null,
+        "created_at": 1764226479895,
+        "status": "active",
+        "category": "rings",
+        "images": [
+            "rings/15b0c583-66c2-4cfa-8660-53382e8258dc/197-0.jpg"
+        ],
+        "price": 219,
+        "description": "----------",
+        "id": "15b0c583-66c2-4cfa-8660-53382e8258dc",
+        "name": "Mother Pearl"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764146531742,
+        "salePrice": null,
+        "created_at": 1763703693224,
+        "status": "active",
+        "category": "rings",
+        "images": [
+            "rings/1a392854-1941-42ce-bc88-4892e8b81ef7/37-0.jpg"
+        ],
+        "price": 199,
+        "description": "Adjustable Twisted Ring with a Stoned Sharp-Cut Design",
+        "id": "1a392854-1941-42ce-bc88-4892e8b81ef7",
+        "name": "Twisted Ring"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764146776691,
+        "salePrice": null,
+        "created_at": 1763704105242,
+        "status": "active",
+        "category": "rings",
+        "images": [
+            "rings/2dadcc8f-c396-4059-8230-1caaf3792ba9/46-0.jpg"
+        ],
+        "price": 149,
+        "description": "Size 8 Gold Twisted Love Ring with a Stone and \"Cartier\" Word",
+        "id": "2dadcc8f-c396-4059-8230-1caaf3792ba9",
+        "name": "Twisted Love Ring (8)"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764146503875,
+        "salePrice": null,
+        "created_at": 1763703812851,
+        "status": "active",
+        "category": "rings",
+        "images": [
+            "rings/2df9aeb6-c339-495d-8edc-befdeba3e951/36-0.jpg"
+        ],
+        "price": 199,
+        "description": "Adjustable Silver Ring with a Stoned Stoned Fan Design",
+        "id": "2df9aeb6-c339-495d-8edc-befdeba3e951",
+        "name": "Stoned Fan"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259317486,
+        "salePrice": null,
+        "created_at": 1764234897555,
+        "status": "active",
+        "category": "rings",
+        "images": [
+            "rings/33079107-30c2-4b43-8e76-bd304cd450af/274-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "33079107-30c2-4b43-8e76-bd304cd450af",
+        "name": "Infinity Ring"
+    },
+    {
+        "quantity": 2,
+        "updated_at": 1764145571909,
+        "salePrice": null,
+        "created_at": 1763704278611,
+        "status": "active",
+        "category": "rings",
+        "images": [
+            "rings/36527f95-8448-4d74-a34a-e41347bdac0f/1-0.jpg"
+        ],
+        "price": 149,
+        "description": "Size 10 Silver Twisted Love Ring with a Stone and \"Cartier\" Word",
+        "id": "36527f95-8448-4d74-a34a-e41347bdac0f",
+        "name": "Silver Twisted Love Ring (10)"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764152768797,
+        "salePrice": null,
+        "created_at": 1763703888652,
+        "status": "active",
+        "category": "rings",
+        "images": [
+            "rings/51e1dcd9-d5da-4b03-8f40-98bec770b8e6/176-0.jpg"
+        ],
+        "price": 199,
+        "description": "Size 8 Gold Ring with a Small Diamond Design",
+        "id": "51e1dcd9-d5da-4b03-8f40-98bec770b8e6",
+        "name": "Small Diamond"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259308999,
+        "salePrice": null,
+        "created_at": 1764234868468,
+        "status": "active",
+        "category": "rings",
+        "images": [
+            "rings/5a579ad1-1401-4bfe-af69-1d16d580b8d7/273-0.jpg"
+        ],
+        "price": 119,
+        "description": "----------",
+        "id": "5a579ad1-1401-4bfe-af69-1d16d580b8d7",
+        "name": "Plain Ring"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764146787484,
+        "salePrice": null,
+        "created_at": 1763704136707,
+        "status": "active",
+        "category": "rings",
+        "images": [
+            "rings/6e9b7d1f-48a8-4770-9a68-5b79a328d328/46-0.jpg"
+        ],
+        "price": 149,
+        "description": "Size 9 Gold Twisted Love Ring with a Stone and \"Cartier\" Word",
+        "id": "6e9b7d1f-48a8-4770-9a68-5b79a328d328",
+        "name": "Twisted Love Ring (9)"
+    },
+    {
+        "quantity": 2,
+        "updated_at": 1764145602373,
+        "salePrice": null,
+        "created_at": 1763704231736,
+        "status": "active",
+        "category": "rings",
+        "images": [
+            "rings/70f8b989-8921-44e2-870e-ab09fe611bb4/1-0.jpg"
+        ],
+        "price": 149,
+        "description": "Size 9 Silver Twisted Love Ring with a Stone and \"Cartier\" Word",
+        "id": "70f8b989-8921-44e2-870e-ab09fe611bb4",
+        "name": "Silver Twisted Love Ring (9)"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764153098016,
+        "salePrice": null,
+        "created_at": 1763703224396,
+        "status": "active",
+        "category": "rings",
+        "images": [
+            "rings/73aa0e5c-44b5-4116-88dc-b4c3afaf9e45/175-0.jpg"
+        ],
+        "price": 149,
+        "description": "Adjustable Stoned Clover",
+        "id": "73aa0e5c-44b5-4116-88dc-b4c3afaf9e45",
+        "name": "Stoned Clover"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764257879594,
+        "salePrice": 119,
+        "created_at": 1764226519205,
+        "status": "active",
+        "category": "rings",
+        "images": [
+            "rings/76768ac5-c76e-4574-bc1d-b5ce5662b93c/198-0.jpg"
+        ],
+        "price": 149,
+        "description": "----------",
+        "id": "76768ac5-c76e-4574-bc1d-b5ce5662b93c",
+        "name": "H Ring"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764147743917,
+        "salePrice": null,
+        "created_at": 1763704333057,
+        "status": "active",
+        "category": "rings",
+        "images": [
+            "rings/77fe9296-39a7-42cd-9f15-af1908e4be14/97-0.jpg"
+        ],
+        "price": 249,
+        "description": "Size 6 V Ring",
+        "id": "77fe9296-39a7-42cd-9f15-af1908e4be14",
+        "name": "V Ring (6)"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764145612938,
+        "salePrice": null,
+        "created_at": 1763704187217,
+        "status": "active",
+        "category": "rings",
+        "images": [
+            "rings/9155a9b0-e2fb-4e84-a24c-82f78f8e3041/1-0.jpg"
+        ],
+        "price": 149,
+        "description": "Size 8 Silver Twisted Love Ring with a Stone and \"Cartier\" Word",
+        "id": "9155a9b0-e2fb-4e84-a24c-82f78f8e3041",
+        "name": "Silver Twisted Love Ring (8)"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764146839494,
+        "salePrice": null,
+        "created_at": 1763704483087,
+        "status": "active",
+        "category": "rings",
+        "images": [
+            "rings/91ff9ec2-83bd-486f-a911-11f1004abdaa/49-0.jpg"
+        ],
+        "price": 99,
+        "description": "Adjustable Gold Charriol Ring",
+        "id": "91ff9ec2-83bd-486f-a911-11f1004abdaa",
+        "name": "Charriol Ring"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764147751819,
+        "salePrice": null,
+        "created_at": 1763704347424,
+        "status": "active",
+        "category": "rings",
+        "images": [
+            "rings/98d19fc5-c435-47c4-8789-5694c1f91572/97-0.jpg"
+        ],
+        "price": 249,
+        "description": "Size 7 V Ring",
+        "id": "98d19fc5-c435-47c4-8789-5694c1f91572",
+        "name": "V Ring (7)"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764145622884,
+        "salePrice": null,
+        "created_at": 1763703995436,
+        "status": "active",
+        "category": "rings",
+        "images": [
+            "rings/a2a4fa62-d40e-4307-ac3f-e060dee8867a/2-0.jpg"
+        ],
+        "price": 119,
+        "description": "Size 8 Gold Love Ring",
+        "id": "a2a4fa62-d40e-4307-ac3f-e060dee8867a",
+        "name": "Love Ring (8)"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764146802391,
+        "salePrice": null,
+        "created_at": 1763704444304,
+        "status": "active",
+        "category": "rings",
+        "images": [
+            "rings/a4878062-5818-4862-a016-57149d3aaf7a/47-0.jpg"
+        ],
+        "price": 119,
+        "description": "Size 10 Crown Ring",
+        "id": "a4878062-5818-4862-a016-57149d3aaf7a",
+        "name": "Crown Ring (10)"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764148377323,
+        "salePrice": null,
+        "created_at": 1763703746742,
+        "status": "active",
+        "category": "rings",
+        "images": [
+            "rings/b2feac50-40b4-45e0-8677-6a0e7723bca4/131-0.jpg"
+        ],
+        "price": 199,
+        "description": "Adjustable Silver Ring with a Stoned Hollow Circle Design",
+        "id": "b2feac50-40b4-45e0-8677-6a0e7723bca4",
+        "name": "Stoned Hollow Circle"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764148391374,
+        "salePrice": null,
+        "created_at": 1763703542670,
+        "status": "active",
+        "category": "rings",
+        "images": [
+            "rings/cb6c0dba-b605-4c23-beac-58a28923ba03/132-0.jpg"
+        ],
+        "price": 199,
+        "description": "Adjustable Twisted Ring with a Single Stone",
+        "id": "cb6c0dba-b605-4c23-beac-58a28923ba03",
+        "name": "Twisted Ring"
+    },
+    {
+        "quantity": 2,
+        "updated_at": 1764146795928,
+        "salePrice": null,
+        "created_at": 1763704162985,
+        "status": "active",
+        "category": "rings",
+        "images": [
+            "rings/e6df9b6b-6c75-4865-ba1e-45caf4cd3d83/46-0.jpg"
+        ],
+        "price": 149,
+        "description": "Size 10 Gold Twisted Love Ring with a Stone and \"Cartier\" Word",
+        "id": "e6df9b6b-6c75-4865-ba1e-45caf4cd3d83",
+        "name": "Twisted Love Ring (10)"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259326694,
+        "salePrice": null,
+        "created_at": 1764234816139,
+        "status": "active",
+        "category": "rings",
+        "images": [
+            "rings/f0ecd64c-4d01-43a2-bac1-0bc2842f4e14/275-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "f0ecd64c-4d01-43a2-bac1-0bc2842f4e14",
+        "name": "Large Diamond"
+    },
+    {
+        "quantity": 2,
+        "updated_at": 1764152680429,
+        "salePrice": null,
+        "created_at": 1763704417801,
+        "status": "active",
+        "category": "rings",
+        "images": [
+            "rings/ff6d5374-cdc7-491d-bb5a-81727d2d1520/153-0.jpg"
+        ],
+        "price": 119,
+        "description": "Size 9 Stoned Belt Ring",
+        "id": "ff6d5374-cdc7-491d-bb5a-81727d2d1520",
+        "name": "Belt Ring (9)"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259420818,
+        "salePrice": 349,
+        "created_at": 1764235714265,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/02624d6e-b066-4e63-ba89-847a841015b9/282-0.jpg"
+        ],
+        "price": 399,
+        "description": "----------",
+        "id": "02624d6e-b066-4e63-ba89-847a841015b9",
+        "name": "Multiple Hearts"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764145995361,
+        "salePrice": 199,
+        "created_at": 1763638696070,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/02895349-6d01-481e-bced-45aa79d8eef0/16-0.jpg"
+        ],
+        "price": 249,
+        "description": "19-24cm Adjustable Bracelet with a Black Clover Motif in a Circle, a Gem, and Gold Beads Design",
+        "id": "02895349-6d01-481e-bced-45aa79d8eef0",
+        "name": "Black Circle Clover"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764260645877,
+        "salePrice": 249,
+        "created_at": 1764055907272,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/057ff47c-b036-4468-90b1-ccacbe20e6ee/362-0.jpg"
+        ],
+        "price": 299,
+        "description": "18cm Hollow Square Bracelet with Premium Lock",
+        "id": "057ff47c-b036-4468-90b1-ccacbe20e6ee",
+        "name": "Hollow Square"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764300143195,
+        "salePrice": 179,
+        "created_at": 1764226039574,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/0c9f4233-b004-4815-a1a1-27bbd771ca98/367-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "0c9f4233-b004-4815-a1a1-27bbd771ca98",
+        "name": "Silver Paperclip"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764348337853,
+        "salePrice": 299,
+        "created_at": 1763637170530,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/0f833ada-febc-4a19-bf03-cd926ce419a3/80-0.jpg"
+        ],
+        "price": 349,
+        "description": "17-22cm Adjustable Bracelet with 11mm White Clover Motif",
+        "id": "0f833ada-febc-4a19-bf03-cd926ce419a3",
+        "name": "White Clover"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764153438247,
+        "salePrice": 149,
+        "created_at": 1763639412807,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/182a3d12-fb55-4f67-ac03-1f174372c5b3/191-0.jpg"
+        ],
+        "price": 179,
+        "description": "18-20cm Adjustable Tennis Bracelet with a Circle Mother Pearl Motif and Circle Stones",
+        "id": "182a3d12-fb55-4f67-ac03-1f174372c5b3",
+        "name": "Mother Pearl Tennis"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764149057818,
+        "salePrice": 149,
+        "created_at": 1763640074667,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/1d5a1aa2-cf6e-4103-ba04-c3fc6511147f/110-0.jpg"
+        ],
+        "price": 199,
+        "description": "19cm Bracelet with a Silver Heart",
+        "id": "1d5a1aa2-cf6e-4103-ba04-c3fc6511147f",
+        "name": "Silver Heart"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259038893,
+        "salePrice": 179,
+        "created_at": 1764231397589,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/1f17d796-8503-445e-a271-494dfcb1c345/249-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "1f17d796-8503-445e-a271-494dfcb1c345",
+        "name": "Silver Striped Chain"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764348423119,
+        "salePrice": 299,
+        "created_at": 1764056436253,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/297c9947-6c91-49a6-ad35-7373ced8fd0e/355-0.jpg"
+        ],
+        "price": 349,
+        "description": "17-22cm Adjustable Bracelet with 11mm Black and White Clover Motif",
+        "id": "297c9947-6c91-49a6-ad35-7373ced8fd0e",
+        "name": "Two Toned Clover"
+    },
+    {
+        "quantity": 2,
+        "updated_at": 1764260527334,
+        "salePrice": 299,
+        "created_at": 1764056403312,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/2ccb806f-b4e8-4d08-822d-ce5e490048e8/358-0.jpg"
+        ],
+        "price": 349,
+        "description": "17-22cm Adjustable Bracelet with 11mm Gold Clover Motif",
+        "id": "2ccb806f-b4e8-4d08-822d-ce5e490048e8",
+        "name": "Gold Clover"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764145983374,
+        "salePrice": 299,
+        "created_at": 1764055656464,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/2d65fc81-0f37-49b8-a30d-6bdf4bcae506/15-0.jpg"
+        ],
+        "price": 349,
+        "description": "20-23cm Adjustable Hardware Bracelet",
+        "id": "2d65fc81-0f37-49b8-a30d-6bdf4bcae506",
+        "name": "Hardware"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764252676357,
+        "salePrice": 219,
+        "created_at": 1763638921449,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/2df5b1bd-d4c6-4d48-a412-a627d3882e5d/Untitled (800 x 800 px)-0.jpg"
+        ],
+        "price": 249,
+        "description": "20cm Adjustable Bracelet with a Silver Hollow Heart Design",
+        "id": "2df5b1bd-d4c6-4d48-a412-a627d3882e5d",
+        "name": "Silver Hollow Heart"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259752772,
+        "salePrice": 179,
+        "created_at": 1764224461020,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/33c0359b-a4da-4b4b-a7e1-83d6e91a4939/303-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "33c0359b-a4da-4b4b-a7e1-83d6e91a4939",
+        "name": "Multiple Chain"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764348157369,
+        "salePrice": 419,
+        "created_at": 1763637815296,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/37c46473-b07d-448c-a00d-91027d3f0b23/133-0.jpg"
+        ],
+        "price": 449,
+        "description": "20-21cm Adjustable Bracelet with 15mm Premium Silver Clover Motif",
+        "id": "37c46473-b07d-448c-a00d-91027d3f0b23",
+        "name": "Premium Silver Clover"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764147387597,
+        "salePrice": 299,
+        "created_at": 1763639557290,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/3c48fe4d-3bfa-4532-ba2b-ea937c2f7af4/78-0.jpg"
+        ],
+        "price": 349,
+        "description": "16-20cm Adjustable Silver Hardware Bracelet",
+        "id": "3c48fe4d-3bfa-4532-ba2b-ea937c2f7af4",
+        "name": "Small Silver Hardware"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764147208749,
+        "salePrice": 249,
+        "created_at": 1763637660042,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/415ed969-a22a-4286-a9c9-9ff7f54797f3/67-0.jpg"
+        ],
+        "price": 299,
+        "description": "17-22cm Adjustable Bracelet with 15mm Red Clover Motif",
+        "id": "415ed969-a22a-4286-a9c9-9ff7f54797f3",
+        "name": "Red Clover"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259393844,
+        "salePrice": 299,
+        "created_at": 1764235590472,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/424f3703-bb28-4b41-b1a4-ee80677c4679/280-0.jpg"
+        ],
+        "price": 349,
+        "description": "----------",
+        "id": "424f3703-bb28-4b41-b1a4-ee80677c4679",
+        "name": "Double Layered Stoned Paperclip"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764300123460,
+        "salePrice": 179,
+        "created_at": 1764226114314,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/43283d48-b68a-47b7-af8a-610a130ff1bb/368-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "43283d48-b68a-47b7-af8a-610a130ff1bb",
+        "name": "Silver Space Cuban"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764348026246,
+        "salePrice": 299,
+        "created_at": 1763639265559,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/43e5eb57-b419-478d-85b2-0dd251b5d6de/76-0.jpg"
+        ],
+        "price": 349,
+        "description": "16cm Silver Tennis Bracelet with Square Stones and a Premium Lock",
+        "id": "43e5eb57-b419-478d-85b2-0dd251b5d6de",
+        "name": "Silver Tennis"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764300520536,
+        "salePrice": 249,
+        "created_at": 1764231517567,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/473ef4e6-c838-44a3-8e23-461f0504a4e0/371-0.jpg"
+        ],
+        "price": 299,
+        "description": "----------",
+        "id": "473ef4e6-c838-44a3-8e23-461f0504a4e0",
+        "name": "White Butterfly Clover"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764146973021,
+        "salePrice": 199,
+        "created_at": 1763638750948,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/50ec7cb6-bd28-4e20-a9b6-48176f761b71/57-0.jpg"
+        ],
+        "price": 249,
+        "description": "19-24cm Adjustable Bracelet with a Black Clover Motif in a Diamond, a Gem, and Gold Beads Design",
+        "id": "50ec7cb6-bd28-4e20-a9b6-48176f761b71",
+        "name": "Black Diamond Clover"
+    },
+    {
+        "quantity": 2,
+        "updated_at": 1764147398036,
+        "salePrice": 299,
+        "created_at": 1763637081319,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/517eb379-c383-4cbd-814b-3650a6603ffc/79-0.jpg"
+        ],
+        "price": 349,
+        "description": "17-22cm Adjustable Bracelet with 9mm Gold Clover Motif",
+        "id": "517eb379-c383-4cbd-814b-3650a6603ffc",
+        "name": "Mini Gold Clover"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764300505737,
+        "salePrice": 179,
+        "created_at": 1763639656152,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/59e4b671-7511-4b93-9f9b-52c5a7f7a585/370-0.jpg"
+        ],
+        "price": 199,
+        "description": "20cm Gold Bracelet",
+        "id": "59e4b671-7511-4b93-9f9b-52c5a7f7a585",
+        "name": "Gold Bracelet"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764260541073,
+        "salePrice": 299,
+        "created_at": 1764056283277,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/5fe87935-2d1d-4440-ba3e-3b858aee4163/359-0.jpg"
+        ],
+        "price": 349,
+        "description": "17-22cm Adjustable Bracelet with 11mm Black Clover Motif",
+        "id": "5fe87935-2d1d-4440-ba3e-3b858aee4163",
+        "name": "Black Clover"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764260602709,
+        "salePrice": 299,
+        "created_at": 1764054629069,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/5ff9f235-0376-47bb-a267-c91a418bbf95/360-0.jpg"
+        ],
+        "price": 349,
+        "description": "19-24cm Adjustable Bracelet with 13mm Black and Stoned Clover Motif",
+        "id": "5ff9f235-0376-47bb-a267-c91a418bbf95",
+        "name": "Black & Diamond Clover"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764260629676,
+        "salePrice": 219,
+        "created_at": 1764056108708,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/60dc5eed-4bf2-4945-bd65-f5429c06a7ca/361-0.jpg"
+        ],
+        "price": 249,
+        "description": "21cm Adjustable Chain Bracelet attached to a Heart Pendant - \"Tiffany\" Inspired",
+        "id": "60dc5eed-4bf2-4945-bd65-f5429c06a7ca",
+        "name": "Heart Bracelet"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258741483,
+        "salePrice": 179,
+        "created_at": 1764237492474,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/624d940b-ec35-40df-a883-34dbb1fa0ba5/226-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "624d940b-ec35-40df-a883-34dbb1fa0ba5",
+        "name": "Gold Heart"
+    },
+    {
+        "quantity": 2,
+        "updated_at": 1764147091322,
+        "salePrice": 99,
+        "created_at": 1763640004288,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/66485ab4-12ba-486f-96a2-d2ae5763609b/60-0.jpg"
+        ],
+        "price": 149,
+        "description": "13-18cm Silver Snake Chain Bracelet",
+        "id": "66485ab4-12ba-486f-96a2-d2ae5763609b",
+        "name": "Snake Chain"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764260515117,
+        "salePrice": 299,
+        "created_at": 1764056508592,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/66fe4a85-3ec0-4dd6-80e0-276e61bb24ff/357-0.jpg"
+        ],
+        "price": 349,
+        "description": "17-22cm Adjustable Bracelet with 11mm Black and Silver Clover in a Silver Setting Motif",
+        "id": "66fe4a85-3ec0-4dd6-80e0-276e61bb24ff",
+        "name": "Black and Silver Clover"
+    },
+    {
+        "quantity": 3,
+        "updated_at": 1764148584500,
+        "salePrice": 299,
+        "created_at": 1763637009834,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/687bbdd3-0cd8-46ff-aded-b2de17f8c8ee/143-0.jpg"
+        ],
+        "price": 349,
+        "description": "17-22cm Adjustable Bracelet with 9mm Black Clover Motif",
+        "id": "687bbdd3-0cd8-46ff-aded-b2de17f8c8ee",
+        "name": "Mini Black Clover"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258336844,
+        "salePrice": 179,
+        "created_at": 1764226763013,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/6c1d3cdb-ebaa-4841-8620-e80bf677de75/208-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "6c1d3cdb-ebaa-4841-8620-e80bf677de75",
+        "name": "Chain Bracelet"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764147541148,
+        "salePrice": 349,
+        "created_at": 1763639059666,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/824ed62e-6890-4f0d-a5f2-62c933d31a0a/85-0.jpg"
+        ],
+        "price": 399,
+        "description": "17-20cm Adjustable Bracelet with a Mint Heart and Lock Design",
+        "id": "824ed62e-6890-4f0d-a5f2-62c933d31a0a",
+        "name": "Mint Heart & Lock"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764153414073,
+        "salePrice": 179,
+        "created_at": 1763639693069,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/82c78ef6-1483-42c7-b07b-105275023c8c/189-0.jpg"
+        ],
+        "price": 199,
+        "description": "20cm Adjustable Space Cuban Bracelet",
+        "id": "82c78ef6-1483-42c7-b07b-105275023c8c",
+        "name": "Space Cuban"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764348107405,
+        "salePrice": 299,
+        "created_at": 1763637559176,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/8a549391-158d-455e-8a34-21963f91aa09/99-0.jpg"
+        ],
+        "price": 349,
+        "description": "17-22cm Adjustable Bracelet with 13mm White Clover in a Silver Setting Motif",
+        "id": "8a549391-158d-455e-8a34-21963f91aa09",
+        "name": "White Clover - Silver Setting"
+    },
+    {
+        "quantity": 2,
+        "updated_at": 1764348054516,
+        "salePrice": 299,
+        "created_at": 1764054469036,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/8aced835-f0a9-4642-a7db-2a021a978641/144-0.jpg"
+        ],
+        "price": 349,
+        "description": "17-22cm Adjustable Bracelet with 9mm White Clover Motif",
+        "id": "8aced835-f0a9-4642-a7db-2a021a978641",
+        "name": "Mini White Clover"
+    },
+    {
+        "quantity": 2,
+        "updated_at": 1764147800809,
+        "salePrice": 299,
+        "created_at": 1763637482809,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/8c9a8f28-26d0-4f52-9a32-55cb15dd5d53/100-0.jpg"
+        ],
+        "price": 349,
+        "description": "16-21cm Adjustable Bracelet with 13mm Silver Clover Motif",
+        "id": "8c9a8f28-26d0-4f52-9a32-55cb15dd5d53",
+        "name": "Silver Clover"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259721004,
+        "salePrice": 299,
+        "created_at": 1764224401277,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/969ca2c8-5f5b-4028-adfb-013505f11e36/302-0.jpg"
+        ],
+        "price": 349,
+        "description": "----------",
+        "id": "969ca2c8-5f5b-4028-adfb-013505f11e36",
+        "name": "Mini Two Toned Clover"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259003132,
+        "salePrice": 249,
+        "created_at": 1764225982954,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/9c1e1148-cac8-49cb-a568-b21e01f3802a/246-0.jpg"
+        ],
+        "price": 279,
+        "description": "----------",
+        "id": "9c1e1148-cac8-49cb-a568-b21e01f3802a",
+        "name": "V Bracelet"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764152921412,
+        "salePrice": 199,
+        "created_at": 1764054381868,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/aba33310-4abc-41ce-a3c1-e9d2acc6c9a9/167-0.jpg"
+        ],
+        "price": 249,
+        "description": "19-24cm Adjustable Bracelet with a White Clover Motif in a Circle, a Gem, and Gold Beads Design",
+        "id": "aba33310-4abc-41ce-a3c1-e9d2acc6c9a9",
+        "name": "White Circle Clover"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259012798,
+        "salePrice": 179,
+        "created_at": 1764231124256,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/ade15344-3339-4eb0-9037-7d77aa9e96fc/247-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "ade15344-3339-4eb0-9037-7d77aa9e96fc",
+        "name": "Rope"
+    },
+    {
+        "quantity": 2,
+        "updated_at": 1764153023395,
+        "salePrice": 199,
+        "created_at": 1764054353173,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/ae31952e-c288-46a4-a232-a8fb90708f16/171-0.jpg"
+        ],
+        "price": 249,
+        "description": "19-24cm Adjustable Bracelet with a White Clover Motif in a Diamond, a Gem, and Gold Beads Design",
+        "id": "ae31952e-c288-46a4-a232-a8fb90708f16",
+        "name": "White Diamond Clover"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259252069,
+        "salePrice": 249,
+        "created_at": 1764233953569,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/b8db3e38-6291-4854-ba88-3097d50c3aec/267-0.jpg"
+        ],
+        "price": 299,
+        "description": "----------",
+        "id": "b8db3e38-6291-4854-ba88-3097d50c3aec",
+        "name": "Gold Tennis Knot"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764257964797,
+        "salePrice": 299,
+        "created_at": 1764226587244,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/bacdcd26-48a7-4c41-b54c-c32260c4ecdc/204-0.jpg"
+        ],
+        "price": 349,
+        "description": "----------",
+        "id": "bacdcd26-48a7-4c41-b54c-c32260c4ecdc",
+        "name": "Silver Tennis (Rectangular Stones)"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259365166,
+        "salePrice": 399,
+        "created_at": 1764235524358,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/bc11754a-f837-4785-9174-339624d6f2d7/278-0.jpg"
+        ],
+        "price": 449,
+        "description": "----------",
+        "id": "bc11754a-f837-4785-9174-339624d6f2d7",
+        "name": "Premium Stoned Hardware"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764146546982,
+        "salePrice": 479,
+        "created_at": 1763637745318,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/c38abc9f-49cc-4921-bbc3-1f258d031f55/38-0.jpg"
+        ],
+        "price": 499,
+        "description": "20-21cm Adjustable Bracelet with 15mm Premium Gold Clover Motif",
+        "id": "c38abc9f-49cc-4921-bbc3-1f258d031f55",
+        "name": "Premium Gold Clover"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258722224,
+        "salePrice": 249,
+        "created_at": 1764228075796,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/c48f92d8-d9fd-47a7-a83f-ad6b63bfaefc/225-0.jpg"
+        ],
+        "price": 299,
+        "description": "----------",
+        "id": "c48f92d8-d9fd-47a7-a83f-ad6b63bfaefc",
+        "name": "Adjustable Tennis"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259021172,
+        "salePrice": 349,
+        "created_at": 1764230079381,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/d2f0197d-883a-4a4d-aaff-6ff5f32497f5/248-0.jpg"
+        ],
+        "price": 399,
+        "description": "----------",
+        "id": "d2f0197d-883a-4a4d-aaff-6ff5f32497f5",
+        "name": "Silver Multiple Hearts"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764257972803,
+        "salePrice": 179,
+        "created_at": 1764226710553,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/dac4ccac-125e-47b6-84ae-4a4f1ffdeb84/205-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "dac4ccac-125e-47b6-84ae-4a4f1ffdeb84",
+        "name": "CD Bracelet"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764147374645,
+        "salePrice": 299,
+        "created_at": 1763639601212,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/df10b531-c100-4e78-a9c1-aa9018d64772/78-0.jpg"
+        ],
+        "price": 349,
+        "description": "21cm Silver Hardware Bracelet",
+        "id": "df10b531-c100-4e78-a9c1-aa9018d64772",
+        "name": "Silver Hardware"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259404750,
+        "salePrice": 349,
+        "created_at": 1764235756550,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/e641d0c4-f05f-4937-861a-892cd8207523/281-0.jpg"
+        ],
+        "price": 399,
+        "description": "----------",
+        "id": "e641d0c4-f05f-4937-861a-892cd8207523",
+        "name": "Multiple Holographic Clover"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259431022,
+        "salePrice": 299,
+        "created_at": 1764235682397,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/e7897b5d-e4c5-4848-907f-82e2ad8eb4a3/283-0.jpg"
+        ],
+        "price": 349,
+        "description": "----------",
+        "id": "e7897b5d-e4c5-4848-907f-82e2ad8eb4a3",
+        "name": "Single Pink Clover"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259380605,
+        "salePrice": 349,
+        "created_at": 1764235656695,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/e83efdc4-66c3-43d4-bf05-0016fcb7979f/279-0.jpg"
+        ],
+        "price": 399,
+        "description": "----------",
+        "id": "e83efdc4-66c3-43d4-bf05-0016fcb7979f",
+        "name": "Silver Multiple Round Heart"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764147361095,
+        "salePrice": 179,
+        "created_at": 1763639809055,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/ea03fcfa-a38f-4eae-bf17-33cd04e40605/77-0.jpg"
+        ],
+        "price": 199,
+        "description": "16-21cm Adjustable Peanut Bracelet",
+        "id": "ea03fcfa-a38f-4eae-bf17-33cd04e40605",
+        "name": "Peanut"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764153214778,
+        "salePrice": 219,
+        "created_at": 1764056145729,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/eba4d713-0b71-4654-8669-c1f33cf5f52d/184-0.jpg"
+        ],
+        "price": 249,
+        "description": "21cm Adjustable Silver Chain Bracelet attached to a Silver Heart Pendant - \"Tiffany\" Inspired",
+        "id": "eba4d713-0b71-4654-8669-c1f33cf5f52d",
+        "name": "Silver Heart Bracelet"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764348352040,
+        "salePrice": 299,
+        "created_at": 1763639208182,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/f083aa2f-0249-40e0-8eed-43b7cf56563e/10-0.jpg"
+        ],
+        "price": 349,
+        "description": "16cm Gold Tennis Bracelet with Circle Stones and a Premium Lock",
+        "id": "f083aa2f-0249-40e0-8eed-43b7cf56563e",
+        "name": "Gold Tennis"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764146854515,
+        "salePrice": 149,
+        "created_at": 1763639917317,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/f12005c7-f043-4850-8d66-ac9bcb32ba3e/50-0.jpg"
+        ],
+        "price": 199,
+        "description": "19-24cm Adjustable Padre Pio Bracelet",
+        "id": "f12005c7-f043-4850-8d66-ac9bcb32ba3e",
+        "name": "Padre Pio"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764260491381,
+        "salePrice": 299,
+        "created_at": 1764056476271,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/f6a21a47-09ce-4d57-8c00-53dadaa695e4/356-0.jpg"
+        ],
+        "price": 349,
+        "description": "17-22cm Adjustable Bracelet with 11mm Black Clover in a Silver Setting Motif",
+        "id": "f6a21a47-09ce-4d57-8c00-53dadaa695e4",
+        "name": "Black Clover - Silver Setting"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764145653247,
+        "salePrice": 179,
+        "created_at": 1763639770178,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/f6d8a3dd-1c2f-4f90-b193-990a0334edeb/3-0.jpg"
+        ],
+        "price": 199,
+        "description": "20cm Adjustable Paperclip Bracelet",
+        "id": "f6d8a3dd-1c2f-4f90-b193-990a0334edeb",
+        "name": "Paperclip"
+    },
+    {
+        "quantity": 2,
+        "updated_at": 1764348187061,
+        "salePrice": 249,
+        "created_at": 1763638247360,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/f73bcbb2-e055-474f-88a9-2cce7741d03a/122-0.jpg"
+        ],
+        "price": 349,
+        "description": "15-20cm Adjustable Bracelet with a Single 15mm White Clover Motif",
+        "id": "f73bcbb2-e055-474f-88a9-2cce7741d03a",
+        "name": "Single White Clover"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764146313584,
+        "salePrice": 249,
+        "created_at": 1763638275556,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/fab56782-02e0-4d6c-af91-e56ea81490f2/28-0.jpg"
+        ],
+        "price": 349,
+        "description": "15-20cm Adjustable Bracelet with a Single 15mm Black Clover Motif",
+        "id": "fab56782-02e0-4d6c-af91-e56ea81490f2",
+        "name": "Single Black Clover"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258311067,
+        "salePrice": 199,
+        "created_at": 1764226672189,
+        "status": "active",
+        "category": "bracelets",
+        "images": [
+            "bracelets/fc5720f8-1c8d-43df-a16e-cbe06a94a8b0/206-0.jpg"
+        ],
+        "price": 249,
+        "description": "----------",
+        "id": "fc5720f8-1c8d-43df-a16e-cbe06a94a8b0",
+        "name": "Knot"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764257933762,
+        "salePrice": 249,
+        "created_at": 1764225268730,
+        "status": "active",
+        "category": "bangles",
+        "images": [
+            "bangles/09becd65-93f3-4e9e-b922-bab1ca1799e4/202-0.jpg"
+        ],
+        "price": 299,
+        "description": "----------",
+        "id": "09becd65-93f3-4e9e-b922-bab1ca1799e4",
+        "name": "Thin Rose Gold Bangle"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764153134139,
+        "salePrice": 249,
+        "created_at": 1763640693151,
+        "status": "active",
+        "category": "bangles",
+        "images": [
+            "bangles/18d3370d-5919-4ab4-a0b0-006fede27479/179-0.jpg"
+        ],
+        "price": 299,
+        "description": "17cm Nail Bangle with \"Cartier\" Word",
+        "id": "18d3370d-5919-4ab4-a0b0-006fede27479",
+        "name": "Small Nail Bangle"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764257923885,
+        "salePrice": 249,
+        "created_at": 1764225245680,
+        "status": "active",
+        "category": "bangles",
+        "images": [
+            "bangles/22bf2829-fe64-4f9b-bdad-3d2f79dc67c5/201-0.jpg"
+        ],
+        "price": 299,
+        "description": "----------",
+        "id": "22bf2829-fe64-4f9b-bdad-3d2f79dc67c5",
+        "name": "Thin Gold Bangle"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764147453246,
+        "salePrice": 249,
+        "created_at": 1763640559968,
+        "status": "active",
+        "category": "bangles",
+        "images": [
+            "bangles/25f672b8-c035-48d3-866c-90311129decd/82-0.jpg"
+        ],
+        "price": 299,
+        "description": "19cm Silver Love Bangle",
+        "id": "25f672b8-c035-48d3-866c-90311129decd",
+        "name": "Medium Silver Love Bangle"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764260441466,
+        "salePrice": 299,
+        "created_at": 1764057368533,
+        "status": "active",
+        "category": "bangles",
+        "images": [
+            "bangles/359fbca1-c919-4d78-a086-907f457db129/352-0.jpg"
+        ],
+        "price": 349,
+        "description": "19cm Hollow Pattern Bangle",
+        "id": "359fbca1-c919-4d78-a086-907f457db129",
+        "name": "Hollow Pattern"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764148312976,
+        "salePrice": 349,
+        "created_at": 1763640642173,
+        "status": "active",
+        "category": "bangles",
+        "images": [
+            "bangles/3cf7792b-4ead-43bc-a664-420fd4ac3dc6/126-0.jpg"
+        ],
+        "price": 399,
+        "description": "19cm Stoned Thin Silver Love Bangle",
+        "id": "3cf7792b-4ead-43bc-a664-420fd4ac3dc6",
+        "name": "Stoned Thin Silver Love Bangle"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764260467501,
+        "salePrice": 299,
+        "created_at": 1764057257632,
+        "status": "active",
+        "category": "bangles",
+        "images": [
+            "bangles/3e9eeb95-ab3a-4ed2-b320-6094de65de18/354-0.jpg"
+        ],
+        "price": 349,
+        "description": "20cm Brown Belt Bangle",
+        "id": "3e9eeb95-ab3a-4ed2-b320-6094de65de18",
+        "name": "Brown Belt"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258638495,
+        "salePrice": 349,
+        "created_at": 1764228194344,
+        "status": "active",
+        "category": "bangles",
+        "images": [
+            "bangles/43518542-5f33-412a-9fab-76f4b12345f6/220-0.jpg"
+        ],
+        "price": 399,
+        "description": "----------",
+        "id": "43518542-5f33-412a-9fab-76f4b12345f6",
+        "name": "Thin Stoned Love Bangle"
+    },
+    {
+        "quantity": 3,
+        "updated_at": 1764152734096,
+        "salePrice": 299,
+        "created_at": 1764057168586,
+        "status": "active",
+        "category": "bangles",
+        "images": [
+            "bangles/47287413-45d1-43a4-86f5-7cbc313c47a7/155-0.jpg"
+        ],
+        "price": 349,
+        "description": "19cm Mother Pearl Bangle",
+        "id": "47287413-45d1-43a4-86f5-7cbc313c47a7",
+        "name": "Mother Pearl"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764158516511,
+        "salePrice": 249,
+        "created_at": 1763641149828,
+        "status": "active",
+        "category": "bangles",
+        "images": [
+            "bangles/547134a2-0484-4576-8eca-c564760a7c0d/128-0.jpg"
+        ],
+        "price": 299,
+        "description": "22cm Adjustable Thin Silver Charriol Bangle",
+        "id": "547134a2-0484-4576-8eca-c564760a7c0d",
+        "name": "Thin Silver Charriol"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259258570,
+        "salePrice": 299,
+        "created_at": 1764234001701,
+        "status": "active",
+        "category": "bangles",
+        "images": [
+            "bangles/5eb403d7-38ed-4855-808e-8f7e880913d2/268-0.jpg"
+        ],
+        "price": 349,
+        "description": "----------",
+        "id": "5eb403d7-38ed-4855-808e-8f7e880913d2",
+        "name": "V Brown Bangle"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764148325420,
+        "salePrice": 249,
+        "created_at": 1763640476494,
+        "status": "active",
+        "category": "bangles",
+        "images": [
+            "bangles/61806066-636c-481d-a7d4-606cf5f0cea3/127-0.jpg"
+        ],
+        "price": 299,
+        "description": "19cm Love Bangle with \"Cartier\" Word",
+        "id": "61806066-636c-481d-a7d4-606cf5f0cea3",
+        "name": "Love Bangle"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764147010646,
+        "salePrice": 299,
+        "created_at": 1763640772428,
+        "status": "active",
+        "category": "bangles",
+        "images": [
+            "bangles/6a08d02c-7903-454f-9227-1d3e5e9a98a7/59-0.jpg"
+        ],
+        "price": 349,
+        "description": "20cm Adjustable Bangle with Black & Stoned Clover Motif",
+        "id": "6a08d02c-7903-454f-9227-1d3e5e9a98a7",
+        "name": "Black & Stoned Clover"
+    },
+    {
+        "quantity": 5,
+        "updated_at": 1764347023890,
+        "salePrice": 75,
+        "created_at": 1764048774039,
+        "status": "active",
+        "category": "bangles",
+        "images": [
+            "bangles/6b164cda-8861-48ff-88bf-534e5acba2f6/necklace_1-0.jpg"
+        ],
+        "price": 150,
+        "description": "For testing purposes only.",
+        "id": "6b164cda-8861-48ff-88bf-534e5acba2f6",
+        "name": "TEST"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764260424888,
+        "salePrice": 349,
+        "created_at": 1764057464580,
+        "status": "active",
+        "category": "bangles",
+        "images": [
+            "bangles/6fdce1d6-5c70-4a47-9950-d9d6c15ac804/350-0.jpg"
+        ],
+        "price": 399,
+        "description": "19cm Premium Bangle with Double Design and a Gem",
+        "id": "6fdce1d6-5c70-4a47-9950-d9d6c15ac804",
+        "name": "Premium Gem"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764257890767,
+        "salePrice": 349,
+        "created_at": 1764226817226,
+        "status": "active",
+        "category": "bangles",
+        "images": [
+            "bangles/73065129-d3fd-4eef-ab2b-5cecbbcd8ae7/199-0.jpg"
+        ],
+        "price": 399,
+        "description": "----------",
+        "id": "73065129-d3fd-4eef-ab2b-5cecbbcd8ae7",
+        "name": "Lock"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258704067,
+        "salePrice": 249,
+        "created_at": 1764228216099,
+        "status": "active",
+        "category": "bangles",
+        "images": [
+            "bangles/75ef4fdd-4798-406d-9dd9-9a831aa53385/224-0.jpg"
+        ],
+        "price": 299,
+        "description": "----------",
+        "id": "75ef4fdd-4798-406d-9dd9-9a831aa53385",
+        "name": "Silver Nail"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764148367107,
+        "salePrice": 349,
+        "created_at": 1763641256226,
+        "status": "active",
+        "category": "bangles",
+        "images": [
+            "bangles/7b17e8c0-54a9-425a-b5ae-ab147d81d5a6/130-0.jpg"
+        ],
+        "price": 399,
+        "description": "18cm Belt-Like Bangle with a Twistable Lock",
+        "id": "7b17e8c0-54a9-425a-b5ae-ab147d81d5a6",
+        "name": "Belt Bangle"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764152934521,
+        "salePrice": 349,
+        "created_at": 1764057049103,
+        "status": "active",
+        "category": "bangles",
+        "images": [
+            "bangles/80b0a3de-10fa-4a5c-92dc-3fe95729d0d4/168-0.jpg"
+        ],
+        "price": 399,
+        "description": "19cm Stoned Love Bangle",
+        "id": "80b0a3de-10fa-4a5c-92dc-3fe95729d0d4",
+        "name": "Stoned Love Bangle"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258695321,
+        "salePrice": 349,
+        "created_at": 1764227647116,
+        "status": "active",
+        "category": "bangles",
+        "images": [
+            "bangles/8126bab8-213d-42d6-b9a7-9734e1a78dd3/223-0.jpg"
+        ],
+        "price": 399,
+        "description": "----------",
+        "id": "8126bab8-213d-42d6-b9a7-9734e1a78dd3",
+        "name": "Teardrop"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764147490143,
+        "salePrice": 249,
+        "created_at": 1763640421674,
+        "status": "active",
+        "category": "bangles",
+        "images": [
+            "bangles/89bc4467-fbf3-44da-8da6-c734a123cd25/83-0.jpg"
+        ],
+        "price": 299,
+        "description": "21cm Love Bangle",
+        "id": "89bc4467-fbf3-44da-8da6-c734a123cd25",
+        "name": "Large Love Bangle"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764257901319,
+        "salePrice": 349,
+        "created_at": 1764226186185,
+        "status": "active",
+        "category": "bangles",
+        "images": [
+            "bangles/8ddd8588-8da4-44fe-8be2-feba0fb0dc6f/200-0.jpg"
+        ],
+        "price": 399,
+        "description": "----------",
+        "id": "8ddd8588-8da4-44fe-8be2-feba0fb0dc6f",
+        "name": "Stoned Nail"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258667610,
+        "salePrice": 299,
+        "created_at": 1764228147743,
+        "status": "active",
+        "category": "bangles",
+        "images": [
+            "bangles/92ca9cc0-a9f0-4e0c-a905-35a7ee63ddfd/222-0.jpg"
+        ],
+        "price": 349,
+        "description": "----------",
+        "id": "92ca9cc0-a9f0-4e0c-a905-35a7ee63ddfd",
+        "name": "Stoned Clover"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764348386001,
+        "salePrice": 349,
+        "created_at": 1763641359456,
+        "status": "active",
+        "category": "bangles",
+        "images": [
+            "bangles/a3d08797-5e68-4533-9aa4-2b38666a6c29/129-0.jpg"
+        ],
+        "price": 399,
+        "description": "19cm Bangle with Stoned Tie Design",
+        "id": "a3d08797-5e68-4533-9aa4-2b38666a6c29",
+        "name": "Stoned Tie"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764147437898,
+        "salePrice": 349,
+        "created_at": 1763640717057,
+        "status": "active",
+        "category": "bangles",
+        "images": [
+            "bangles/a49d83c7-746b-47db-bde1-e5b2c9699bb1/81-0.jpg"
+        ],
+        "price": 399,
+        "description": "19cm Bamboo Nail Bangle",
+        "id": "a49d83c7-746b-47db-bde1-e5b2c9699bb1",
+        "name": "Bamboo Nail"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764257949326,
+        "salePrice": 299,
+        "created_at": 1764225190803,
+        "status": "active",
+        "category": "bangles",
+        "images": [
+            "bangles/ac76e535-0446-4dde-adc3-a6545ca2b84e/203-0.jpg"
+        ],
+        "price": 349,
+        "description": "----------",
+        "id": "ac76e535-0446-4dde-adc3-a6545ca2b84e",
+        "name": "Brown Bangle"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764146990632,
+        "salePrice": 249,
+        "created_at": 1763640292578,
+        "status": "active",
+        "category": "bangles",
+        "images": [
+            "bangles/bd69c14f-6af4-4fd6-9463-66bc33270a0a/58-0.jpg"
+        ],
+        "price": 299,
+        "description": "20cm Thin Silver Bangle with \"Cartier\" Word ",
+        "id": "bd69c14f-6af4-4fd6-9463-66bc33270a0a",
+        "name": "Thin Silver Bangle"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764348206286,
+        "salePrice": 299,
+        "created_at": 1764056848190,
+        "status": "active",
+        "category": "bangles",
+        "images": [
+            "bangles/c472bb34-b1d6-4923-b16f-598ce152cdeb/351-0.jpg"
+        ],
+        "price": 349,
+        "description": "19cm Bangle with Light Pattern Design",
+        "id": "c472bb34-b1d6-4923-b16f-598ce152cdeb",
+        "name": "Light Pattern"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764153426782,
+        "salePrice": 349,
+        "created_at": 1764057539794,
+        "status": "active",
+        "category": "bangles",
+        "images": [
+            "bangles/d195a008-7b70-41f5-8233-159a285a0f27/190-0.jpg"
+        ],
+        "price": 399,
+        "description": "19cm Hardware Bangle",
+        "id": "d195a008-7b70-41f5-8233-159a285a0f27",
+        "name": "Hardware"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764260458629,
+        "salePrice": 349,
+        "created_at": 1764057510054,
+        "status": "active",
+        "category": "bangles",
+        "images": [
+            "bangles/d39334f9-cdda-441b-af51-aa246c406dc4/353-0.jpg"
+        ],
+        "price": 399,
+        "description": "19cm Stoned Bangle",
+        "id": "d39334f9-cdda-441b-af51-aa246c406dc4",
+        "name": "Stoned Bangle"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259159630,
+        "salePrice": 249,
+        "created_at": 1764232690729,
+        "status": "active",
+        "category": "bangles",
+        "images": [
+            "bangles/dd12443a-8a47-4cb9-9321-74592094f186/258-0.jpg"
+        ],
+        "price": 299,
+        "description": "----------",
+        "id": "dd12443a-8a47-4cb9-9321-74592094f186",
+        "name": "Thin Silver Love Bangle"
+    },
+    {
+        "quantity": 2,
+        "updated_at": 1764147482177,
+        "salePrice": 249,
+        "created_at": 1764056952112,
+        "status": "active",
+        "category": "bangles",
+        "images": [
+            "bangles/de1cd558-f50a-406d-b406-20897917b921/83-0.jpg"
+        ],
+        "price": 299,
+        "description": "19cm Love Bangle",
+        "id": "de1cd558-f50a-406d-b406-20897917b921",
+        "name": "Medium Love Bangle"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258649049,
+        "salePrice": 249,
+        "created_at": 1764228117403,
+        "status": "active",
+        "category": "bangles",
+        "images": [
+            "bangles/e40931e6-ff32-429e-8a2b-ee079e2af7fe/221-0.jpg"
+        ],
+        "price": 299,
+        "description": "----------",
+        "id": "e40931e6-ff32-429e-8a2b-ee079e2af7fe",
+        "name": "Black and Gold Charriol"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764147473002,
+        "salePrice": 249,
+        "created_at": 1763640398295,
+        "status": "active",
+        "category": "bangles",
+        "images": [
+            "bangles/f19f66c4-2d0f-4926-8a8e-61328dd72cfc/83-0.jpg"
+        ],
+        "price": 299,
+        "description": "17cm Love Bangle",
+        "id": "f19f66c4-2d0f-4926-8a8e-61328dd72cfc",
+        "name": "Small Love Bangle"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259922209,
+        "salePrice": 79,
+        "created_at": 1764225002533,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/048b8380-b07f-403c-8098-eb4365a69f32/314-0.jpg"
+        ],
+        "price": 99,
+        "description": "----------",
+        "id": "048b8380-b07f-403c-8098-eb4365a69f32",
+        "name": "Stoned Cross"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764229680121,
+        "salePrice": 149,
+        "created_at": 1761815786752,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/08c86dc3-bb5e-42a5-8497-381e760b63cb/32-0.jpg"
+        ],
+        "price": 199,
+        "description": "11mm Hoop with a hanging 12mm White Marble Clover Motif",
+        "id": "08c86dc3-bb5e-42a5-8497-381e760b63cb",
+        "name": "White Clover Dangle Hoop"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764148033627,
+        "salePrice": 129,
+        "created_at": 1761824683539,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/08f97cc4-3b50-4f4d-8392-312e74e9b4ee/113-0.jpg"
+        ],
+        "price": 149,
+        "description": "13mm Stoned Heart Hoop with a Butterfly inside",
+        "id": "08f97cc4-3b50-4f4d-8392-312e74e9b4ee",
+        "name": "Heart Butterfly Hoop"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259847770,
+        "salePrice": 99,
+        "created_at": 1764224830536,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/0941b553-4d8d-4a8b-bf41-587ef6437651/307-0.jpg"
+        ],
+        "price": 119,
+        "description": "----------",
+        "id": "0941b553-4d8d-4a8b-bf41-587ef6437651",
+        "name": "Small Stoned Heart"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764147169537,
+        "salePrice": 149,
+        "created_at": 1761822603947,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/0ca74c56-ee75-4ad4-ba8d-385df4e77735/64-0.jpg"
+        ],
+        "price": 199,
+        "description": "18mm Abstract Heart with a Push-Back Lock",
+        "id": "0ca74c56-ee75-4ad4-ba8d-385df4e77735",
+        "name": "Abstract Heart"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764148009880,
+        "salePrice": 179,
+        "created_at": 1761824558188,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/0db80d50-99c4-4567-aff1-2aa83d776a74/111-0.jpg"
+        ],
+        "price": 199,
+        "description": "28mm Twisted Oval Hoop",
+        "id": "0db80d50-99c4-4567-aff1-2aa83d776a74",
+        "name": "Oval Hoop"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258960837,
+        "salePrice": 79,
+        "created_at": 1764229912317,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/10a6042b-6f15-453e-8b4d-5a463af06997/242-0.jpg"
+        ],
+        "price": 99,
+        "description": "----------",
+        "id": "10a6042b-6f15-453e-8b4d-5a463af06997",
+        "name": "Square Stud"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764347973301,
+        "salePrice": 199,
+        "created_at": 1761821746526,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/125ae62e-89b1-4b5b-833b-63c609c49634/Untitled (800 x 800 px) (3)-0.jpg"
+        ],
+        "price": 249,
+        "description": "10mm Silver Iced Out Gem with a Push-Back Lock",
+        "id": "125ae62e-89b1-4b5b-833b-63c609c49634",
+        "name": "Mini Silver Iced Out Gem"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259579568,
+        "salePrice": 149,
+        "created_at": 1764236220580,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/13186f96-4f07-4a18-9c4b-a15de32d4a15/295-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "13186f96-4f07-4a18-9c4b-a15de32d4a15",
+        "name": "CD Earrings"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764153011160,
+        "salePrice": 129,
+        "created_at": 1761825135050,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/1498f4c5-b109-468b-bf6d-aaec5b4e3148/170-0.jpg"
+        ],
+        "price": 149,
+        "description": "14mm Love Hoop",
+        "id": "1498f4c5-b109-468b-bf6d-aaec5b4e3148",
+        "name": "Love Hoop"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764223972339,
+        "salePrice": 129,
+        "created_at": 1761824988199,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/169e3b46-eaa1-4931-a47e-3bb9b799ca50/95-0.jpg"
+        ],
+        "price": 149,
+        "description": "18mm Twisted Hoop",
+        "id": "169e3b46-eaa1-4931-a47e-3bb9b799ca50",
+        "name": "Twisted Hoop - Lever Back"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259543512,
+        "salePrice": 129,
+        "created_at": 1764235412079,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/17e1a099-ba11-43f5-9315-33e069d1d3ac/292-0.jpg"
+        ],
+        "price": 149,
+        "description": "----------",
+        "id": "17e1a099-ba11-43f5-9315-33e069d1d3ac",
+        "name": "Serpenti Hoop"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764257854744,
+        "salePrice": 79,
+        "created_at": 1764226443141,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/19e52d7d-83e9-4ab0-81fe-5f8b634dbf23/196-0.jpg"
+        ],
+        "price": 99,
+        "description": "----------",
+        "id": "19e52d7d-83e9-4ab0-81fe-5f8b634dbf23",
+        "name": "Half Heart"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764347988191,
+        "salePrice": 129,
+        "created_at": 1761814645204,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/2200b27b-eed6-4961-affd-35da05eef9cc/182-0.jpg"
+        ],
+        "price": 149,
+        "description": "13mm White Marble Clover Motif with a Push-Back Lock",
+        "id": "2200b27b-eed6-4961-affd-35da05eef9cc",
+        "name": "White Clover"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258821709,
+        "salePrice": 79,
+        "created_at": 1764227825699,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/23220e92-b918-4f0e-bc2d-cd3f8de1d794/232-0.jpg"
+        ],
+        "price": 99,
+        "description": "----------",
+        "id": "23220e92-b918-4f0e-bc2d-cd3f8de1d794",
+        "name": "C Dot"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764260416176,
+        "salePrice": 129,
+        "created_at": 1764053767030,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/245be635-b713-4e93-843d-43858534cbc5/349-0.jpg"
+        ],
+        "price": 149,
+        "description": "10mm Hoop with a Stoned Bow Tie Design",
+        "id": "245be635-b713-4e93-843d-43858534cbc5",
+        "name": "Bow Tie Hoop"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764300860498,
+        "salePrice": 199,
+        "created_at": 1761821686196,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/290b6501-b28c-40ed-b435-8744786b2e32/Untitled (800 x 800 px) (3)-0.jpg"
+        ],
+        "price": 249,
+        "description": "12mm Silver Iced Out Gem with a Push-Back Lock",
+        "id": "290b6501-b28c-40ed-b435-8744786b2e32",
+        "name": "Silver Iced Out Gem"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259233208,
+        "salePrice": 129,
+        "created_at": 1764233776903,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/290c2e4f-7508-469b-88a3-882c7b7d648c/265-0.jpg"
+        ],
+        "price": 149,
+        "description": "----------",
+        "id": "290c2e4f-7508-469b-88a3-882c7b7d648c",
+        "name": "Spiky Stoned Huggies"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258879369,
+        "salePrice": 99,
+        "created_at": 1764228033112,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/2d495c62-7912-4645-847b-7bf264eb8cbf/235-0.jpg"
+        ],
+        "price": 119,
+        "description": "----------",
+        "id": "2d495c62-7912-4645-847b-7bf264eb8cbf",
+        "name": "Ring-and-Bar"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764148490259,
+        "salePrice": 99,
+        "created_at": 1761819610110,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/2e14e7e9-9adb-45da-aaf7-851d2b3ed3ef/140-0.jpg"
+        ],
+        "price": 119,
+        "description": "8mm Gold Circle Stud featuring Bvlg*ri written around, and a White Marble in its center, with a Push-Back Lock",
+        "id": "2e14e7e9-9adb-45da-aaf7-851d2b3ed3ef",
+        "name": "White Circle"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764348074029,
+        "salePrice": 199,
+        "created_at": 1761820768240,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/2e5fb769-0a3c-43e9-af0c-8fb2a5d2324f/92-0.jpg"
+        ],
+        "price": 249,
+        "description": "10mm Silver Stoned Square Stud with a Push-Back Lock",
+        "id": "2e5fb769-0a3c-43e9-af0c-8fb2a5d2324f",
+        "name": "Silver Iced Out Square"
+    },
+    {
+        "quantity": 2,
+        "updated_at": 1764147629183,
+        "salePrice": 199,
+        "created_at": 1761822352216,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/303bc2d1-ecc1-48e8-bbb1-abf31ad1b215/90-0.jpg"
+        ],
+        "price": 249,
+        "description": "13mm Gold Rectangular Gem with a Push-Back Lock",
+        "id": "303bc2d1-ecc1-48e8-bbb1-abf31ad1b215",
+        "name": "Premium Gem"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764147640778,
+        "salePrice": 199,
+        "created_at": 1761815075830,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/3041b46f-6f5c-4a85-93e6-8c70a64e8d88/91-0.jpg"
+        ],
+        "price": 249,
+        "description": "13mm Stoned Silver Clover Motif with a Push-Back Lock",
+        "id": "3041b46f-6f5c-4a85-93e6-8c70a64e8d88",
+        "name": "Stoned Silver Clover"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764148277749,
+        "salePrice": 99,
+        "created_at": 1761816969232,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/31e86d1b-59d7-4a4a-b461-097717667b7e/124-0.jpg"
+        ],
+        "price": 119,
+        "description": "9mm Stoned Double C Stud with a Rubber Lock",
+        "id": "31e86d1b-59d7-4a4a-b461-097717667b7e",
+        "name": "Mini Stoned Double C"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764260394881,
+        "salePrice": 129,
+        "created_at": 1764053464326,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/357757f9-2e0d-4ac3-bad7-0e946d04aebc/347-0.jpg"
+        ],
+        "price": 149,
+        "description": "10mm Hoop with Mini Stoned Leaf Design",
+        "id": "357757f9-2e0d-4ac3-bad7-0e946d04aebc",
+        "name": "Stoned Leaf Hoop"
+    },
+    {
+        "quantity": 12,
+        "updated_at": 1764260352194,
+        "salePrice": 99,
+        "created_at": 1764054042583,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/364414d4-b5c5-4856-8592-83e2d7fe307c/343-0.jpg"
+        ],
+        "price": 119,
+        "description": "10mm White Butterfly Stud with a Push-Back Lock",
+        "id": "364414d4-b5c5-4856-8592-83e2d7fe307c",
+        "name": "White Butterfly"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764146087274,
+        "salePrice": 99,
+        "created_at": 1761816319973,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/36ac5b19-f3ba-496c-a93c-436316d3991f/21-0.jpg"
+        ],
+        "price": 149,
+        "description": "12mm Black Diamond Clover Motif with a Push-Back Lock",
+        "id": "36ac5b19-f3ba-496c-a93c-436316d3991f",
+        "name": "Black Diamond Clover"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764146403293,
+        "salePrice": 149,
+        "created_at": 1761817127158,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/370f8768-871b-4850-9664-5ffa32118351/31-0.jpg"
+        ],
+        "price": 199,
+        "description": "12mm Stoned Double C with a Push-Back Lock",
+        "id": "370f8768-871b-4850-9664-5ffa32118351",
+        "name": "Stoned Double C"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258928619,
+        "salePrice": 129,
+        "created_at": 1764229499620,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/387ddedb-3f6e-4919-8c3f-98ef07c2e0fe/239-0.jpg"
+        ],
+        "price": 149,
+        "description": "----------",
+        "id": "387ddedb-3f6e-4919-8c3f-98ef07c2e0fe",
+        "name": "Round MK"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258982940,
+        "salePrice": 199,
+        "created_at": 1764229419737,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/39003356-ab9b-4382-8dde-cde901f1947a/244-0.jpg"
+        ],
+        "price": 249,
+        "description": "----------",
+        "id": "39003356-ab9b-4382-8dde-cde901f1947a",
+        "name": "V Earrings"
+    },
+    {
+        "quantity": 3,
+        "updated_at": 1764300914297,
+        "salePrice": 99,
+        "created_at": 1761821380647,
+        "status": "inactive",
+        "category": "earrings",
+        "images": [],
+        "price": 119,
+        "description": "8mm Nine-Stoned Square with a Push-Back Lock",
+        "id": "3aa97624-67cb-48f4-82ee-63a8cd468a5a",
+        "name": "Silver 9-Stoned Square"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259074113,
+        "salePrice": 299,
+        "created_at": 1764229311847,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/3e3adc26-a57e-4745-9155-5d16d318b1fc/252-0.jpg"
+        ],
+        "price": 379,
+        "description": "----------",
+        "id": "3e3adc26-a57e-4745-9155-5d16d318b1fc",
+        "name": "Two Toned Premium Hardware"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764145821913,
+        "salePrice": 79,
+        "created_at": 1764145821913,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/408931a1-337c-43ba-b6e6-6c02f7e120d3/6-0.jpg"
+        ],
+        "price": 99,
+        "description": "Two Design Butterfly with a Push-Back Lock",
+        "id": "408931a1-337c-43ba-b6e6-6c02f7e120d3",
+        "name": "Two Design Butterfly"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258809037,
+        "salePrice": 79,
+        "created_at": 1764227725785,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/41579c5c-d437-4c20-b47b-9b3dda6f5c73/231-0.jpg"
+        ],
+        "price": 99,
+        "description": "----------",
+        "id": "41579c5c-d437-4c20-b47b-9b3dda6f5c73",
+        "name": "Crown Stud"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764147735786,
+        "salePrice": 199,
+        "created_at": 1761824147495,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/427210c7-20d0-4ca5-95cd-9f1829b70af1/96-0.jpg"
+        ],
+        "price": 249,
+        "description": "15mm Crescent Hoop with a Push-Back Lock",
+        "id": "427210c7-20d0-4ca5-95cd-9f1829b70af1",
+        "name": "Crescent Hoop"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764260327085,
+        "salePrice": 129,
+        "created_at": 1764053937151,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/434fc53e-07ed-4e33-ac70-b72b45bee52f/341-0.jpg"
+        ],
+        "price": 149,
+        "description": "12mm Pearl Flower Design with a Push-Back Lock",
+        "id": "434fc53e-07ed-4e33-ac70-b72b45bee52f",
+        "name": "Pearl Flower"
+    },
+    {
+        "quantity": 4,
+        "updated_at": 1764148750042,
+        "salePrice": 129,
+        "created_at": 1761813920966,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/43c065bb-6c40-46be-aae8-77f70f80b6a3/149-0.jpg"
+        ],
+        "price": 149,
+        "description": "9mm Gold Clover Motif with a Push-Back Lock",
+        "id": "43c065bb-6c40-46be-aae8-77f70f80b6a3",
+        "name": "Mini Gold Clover"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259183137,
+        "salePrice": 79,
+        "created_at": 1764232344316,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/45b233c5-db96-4a85-9df2-9aa95ae18d8a/261-0.jpg"
+        ],
+        "price": 99,
+        "description": "----------",
+        "id": "45b233c5-db96-4a85-9df2-9aa95ae18d8a",
+        "name": "Plain Black Circle"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259270746,
+        "salePrice": 129,
+        "created_at": 1764234157134,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/47de3711-4cae-43a6-8242-aa6b2e9151c3/269-0.jpg"
+        ],
+        "price": 149,
+        "description": "----------",
+        "id": "47de3711-4cae-43a6-8242-aa6b2e9151c3",
+        "name": "Hardware Hoop"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764347937968,
+        "salePrice": 129,
+        "created_at": 1761811835934,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/492bd1b7-22c1-4cf0-80bd-e0e47a69f385/147-0.jpg"
+        ],
+        "price": 149,
+        "description": "9mm White Marble Clover Motif with a Push-Back Lock",
+        "id": "492bd1b7-22c1-4cf0-80bd-e0e47a69f385",
+        "name": "Mini White Clover"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764147314620,
+        "salePrice": 129,
+        "created_at": 1761814517182,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/4a016cc5-eaa5-42fd-9c76-fc613575d9fa/74-0.jpg"
+        ],
+        "price": 149,
+        "description": "9mm Red Clover Motif with a Push-Back Lock",
+        "id": "4a016cc5-eaa5-42fd-9c76-fc613575d9fa",
+        "name": "Mini Red Clover"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764145868788,
+        "salePrice": 199,
+        "created_at": 1761822731206,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/4a3f3793-d2f2-4f3f-87ec-f537cfa44e13/9-0.jpg"
+        ],
+        "price": 249,
+        "description": "17mm long Knot Stud with a Push-Back Lock",
+        "id": "4a3f3793-d2f2-4f3f-87ec-f537cfa44e13",
+        "name": "Knot Stud"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258939569,
+        "salePrice": 129,
+        "created_at": 1764229828557,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/4c7a40ef-754a-47f5-9b89-5fc9a3203a28/240-0.jpg"
+        ],
+        "price": 149,
+        "description": "----------",
+        "id": "4c7a40ef-754a-47f5-9b89-5fc9a3203a28",
+        "name": "Black Clover Hoop"
+    },
+    {
+        "quantity": 4,
+        "updated_at": 1764153394692,
+        "salePrice": 79,
+        "created_at": 1761825712828,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/4d55d244-a0ca-41b7-bf70-b645c84abf75/187-0.jpg"
+        ],
+        "price": 99,
+        "description": "10mm Pearl with a Push-Back Lock",
+        "id": "4d55d244-a0ca-41b7-bf70-b645c84abf75",
+        "name": "Large Pearl"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764147565164,
+        "salePrice": 129,
+        "created_at": 1761814764535,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/504f01e1-364d-4751-89ec-02d05593c6ff/87-0.jpg"
+        ],
+        "price": 149,
+        "description": "13mm Silver Clover Motif with a Push-Back Lock",
+        "id": "504f01e1-364d-4751-89ec-02d05593c6ff",
+        "name": "Silver Clover"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259518425,
+        "salePrice": 299,
+        "created_at": 1764235189241,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/518668f9-a27f-44f5-b579-13a60aef60a8/289-0.jpg"
+        ],
+        "price": 379,
+        "description": "----------",
+        "id": "518668f9-a27f-44f5-b579-13a60aef60a8",
+        "name": "Premium Hardware"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764146021866,
+        "salePrice": 99,
+        "created_at": 1761821913698,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/53f1afbb-d266-47d9-bd57-928c345ac9fa/18-0.jpg"
+        ],
+        "price": 119,
+        "description": "10mm Beak Stud with a Push-Back Lock",
+        "id": "53f1afbb-d266-47d9-bd57-928c345ac9fa",
+        "name": "Beak Teardrop Stud"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259175402,
+        "salePrice": 79,
+        "created_at": 1764232309118,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/54febd82-8d4a-4926-8dc0-cf85a8868702/260-0.jpg"
+        ],
+        "price": 99,
+        "description": "----------",
+        "id": "54febd82-8d4a-4926-8dc0-cf85a8868702",
+        "name": "Plain White Circle"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764146012916,
+        "salePrice": 199,
+        "created_at": 1761824333153,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/5543204e-9325-4d5e-a4e9-eac315d858cb/17-0.jpg"
+        ],
+        "price": 249,
+        "description": "15mm Double Twisted Hoop with a Push-Back Lock",
+        "id": "5543204e-9325-4d5e-a4e9-eac315d858cb",
+        "name": "Double Twisted Hoop"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259201469,
+        "salePrice": 99,
+        "created_at": 1764233715730,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/562f72bf-c355-4359-a07f-e3095652c56c/263-0.jpg"
+        ],
+        "price": 119,
+        "description": "----------",
+        "id": "562f72bf-c355-4359-a07f-e3095652c56c",
+        "name": "Silver Stoned Heart"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764148477292,
+        "salePrice": 79,
+        "created_at": 1761819905648,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/56582bb3-a1c9-439b-b617-3dd65f125a4f/139-0.jpg"
+        ],
+        "price": 99,
+        "description": "11mm Stoned Cross Stud with a Push-Back Lock",
+        "id": "56582bb3-a1c9-439b-b617-3dd65f125a4f",
+        "name": "Cross Stud"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764146438321,
+        "salePrice": 99,
+        "created_at": 1761816131096,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/58818083-f79a-4185-a5d9-5de1c94fbf81/33-0.jpg"
+        ],
+        "price": 119,
+        "description": "9mm White Marble Circle Clover Motif with a Push-Back Lock",
+        "id": "58818083-f79a-4185-a5d9-5de1c94fbf81",
+        "name": "White Circle Clover"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259651028,
+        "salePrice": 129,
+        "created_at": 1764223990572,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/5b8079fc-9767-40db-a7a4-6a3ffdda4891/299-0.jpg"
+        ],
+        "price": 149,
+        "description": "----------",
+        "id": "5b8079fc-9767-40db-a7a4-6a3ffdda4891",
+        "name": "Twisted Hoop - Latch Back"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258898491,
+        "salePrice": 149,
+        "created_at": 1764229337716,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/5b9213f6-e2c6-4a4e-8da1-d9e1c41d6acd/237-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "5b9213f6-e2c6-4a4e-8da1-d9e1c41d6acd",
+        "name": "Leaf"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764348131969,
+        "salePrice": 149,
+        "created_at": 1761820673195,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/5cc712c2-ed9c-4faa-8e99-cf7696bf84b7/93-0.jpg"
+        ],
+        "price": 199,
+        "description": "9mm Gem Stud with a Push-Back Lock",
+        "id": "5cc712c2-ed9c-4faa-8e99-cf7696bf84b7",
+        "name": "Gem Stud"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258830169,
+        "salePrice": 129,
+        "created_at": 1764227751898,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/5db6893d-8d1e-4178-af30-ce6a4c1fa50f/233-0.jpg"
+        ],
+        "price": 149,
+        "description": "----------",
+        "id": "5db6893d-8d1e-4178-af30-ce6a4c1fa50f",
+        "name": "Two Design Hoop"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764146099128,
+        "salePrice": 79,
+        "created_at": 1761817723688,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/5f1956cc-cb80-4d06-8c6d-837d8d1b788a/22-0.jpg"
+        ],
+        "price": 99,
+        "description": "6mm Bunny Stud with a Push-Back Lock",
+        "id": "5f1956cc-cb80-4d06-8c6d-837d8d1b788a",
+        "name": "Bunny"
+    },
+    {
+        "quantity": 6,
+        "updated_at": 1764260372581,
+        "salePrice": 99,
+        "created_at": 1764054276717,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/608fd142-67f7-4c54-bc1b-fb5fbb2f8139/345-0.jpg"
+        ],
+        "price": 119,
+        "description": "9mm Bunny Heart with a Push-Back Lock",
+        "id": "608fd142-67f7-4c54-bc1b-fb5fbb2f8139",
+        "name": "Bunny Heart"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259888075,
+        "salePrice": 99,
+        "created_at": 1764224894274,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/63519a58-2b04-40ea-bc83-c10b5ba2c5b3/311-0.jpg"
+        ],
+        "price": 119,
+        "description": "----------",
+        "id": "63519a58-2b04-40ea-bc83-c10b5ba2c5b3",
+        "name": "Silver Pretzel"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259189508,
+        "salePrice": 99,
+        "created_at": 1764232229379,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/63b4ab3e-80dc-4280-966f-8196bce4efc7/262-0.jpg"
+        ],
+        "price": 119,
+        "description": "----------",
+        "id": "63b4ab3e-80dc-4280-966f-8196bce4efc7",
+        "name": "Sun Stud"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258906807,
+        "salePrice": 299,
+        "created_at": 1764237216348,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/64a1d106-1c88-4af8-85eb-77e9183851a5/238-0.jpg"
+        ],
+        "price": 379,
+        "description": "----------",
+        "id": "64a1d106-1c88-4af8-85eb-77e9183851a5",
+        "name": "Lock"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764148044656,
+        "salePrice": 129,
+        "created_at": 1761824612922,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/6702f1d2-a339-4fa2-8b14-11c6c989b3f1/114-0.jpg"
+        ],
+        "price": 149,
+        "description": "13mm Stoned Butterfly Hoop",
+        "id": "6702f1d2-a339-4fa2-8b14-11c6c989b3f1",
+        "name": "Butterfly Hoop"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259293369,
+        "salePrice": 99,
+        "created_at": 1764234208637,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/6739b75d-83b6-4b5c-afb0-e289cb5f62d5/271-0.jpg"
+        ],
+        "price": 149,
+        "description": "----------",
+        "id": "6739b75d-83b6-4b5c-afb0-e289cb5f62d5",
+        "name": "White Diamond Clover"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764146042445,
+        "salePrice": 79,
+        "created_at": 1761820154358,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/68910f13-fca4-4a0c-bf12-442c42c51168/19-0.jpg"
+        ],
+        "price": 99,
+        "description": "9mm Silver Flower Stud with a Push-Back Lock",
+        "id": "68910f13-fca4-4a0c-bf12-442c42c51168",
+        "name": "Silver Flower"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764147197310,
+        "salePrice": 79,
+        "created_at": 1761820537946,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/6940b390-8228-4091-a555-d141feb66ed5/66-0.jpg"
+        ],
+        "price": 99,
+        "description": "11mm Heart-Shaped Hollow 4-Leaf Clover with a Push-Back Lock",
+        "id": "6940b390-8228-4091-a555-d141feb66ed5",
+        "name": "Hollow Clover"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764229698142,
+        "salePrice": 149,
+        "created_at": 1761815841455,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/6a54af4e-8ef6-43be-822b-2e2a993ef8d6/35-0.jpg"
+        ],
+        "price": 199,
+        "description": "11mm Hoop with a hanging 12mm Black Clover Motif",
+        "id": "6a54af4e-8ef6-43be-822b-2e2a993ef8d6",
+        "name": "Black Clover Dangle Hoop"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764148430523,
+        "salePrice": 219,
+        "created_at": 1761815508652,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/6a9ed3d3-5c8b-46a6-8270-c05bd907fad1/135-0.jpg"
+        ],
+        "price": 299,
+        "description": "Coded 15mm Shiny Gold Clover Motif with a Push-Back Lock",
+        "id": "6a9ed3d3-5c8b-46a6-8270-c05bd907fad1",
+        "name": "Premium Gold Clover"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764260406474,
+        "salePrice": 129,
+        "created_at": 1764053580934,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/6b58a93a-d453-4058-8906-a1025fd312b8/348-0.jpg"
+        ],
+        "price": 149,
+        "description": "11mm Hoop with Multiple Mini Hearts Design",
+        "id": "6b58a93a-d453-4058-8906-a1025fd312b8",
+        "name": "Multiple Hearts Hoop"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764347793994,
+        "salePrice": 99,
+        "created_at": 1761818758049,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/6bb22137-9d5e-47b1-9cd4-8ac2c675111f/73-0.jpg"
+        ],
+        "price": 119,
+        "description": "8mm Triple Stoned Triangle Stud with a Push-Back Lock",
+        "id": "6bb22137-9d5e-47b1-9cd4-8ac2c675111f",
+        "name": "Stoned Triangle"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259603804,
+        "salePrice": 79,
+        "created_at": 1764223708158,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/72788c34-8c9d-48cc-b28a-7eb85db13877/297-0.jpg"
+        ],
+        "price": 99,
+        "description": "----------",
+        "id": "72788c34-8c9d-48cc-b28a-7eb85db13877",
+        "name": "Hollow Heart"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764226274960,
+        "salePrice": 129,
+        "created_at": 1761825042950,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/73480fdb-ea93-4fa8-bc7f-0f65bc665adc/142-0.jpg"
+        ],
+        "price": 149,
+        "description": "12mm Stoned Huggies",
+        "id": "73480fdb-ea93-4fa8-bc7f-0f65bc665adc",
+        "name": "Mini Stoned Huggies"
+    },
+    {
+        "quantity": 2,
+        "updated_at": 1764148505729,
+        "salePrice": 179,
+        "created_at": 1761817526045,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/73aacbfe-0f1c-46ec-b1a0-2f8c8331d777/141-0.jpg"
+        ],
+        "price": 199,
+        "description": "10mm Pearl, hanging from a 12mm C Motif with a Push-Back Lock",
+        "id": "73aacbfe-0f1c-46ec-b1a0-2f8c8331d777",
+        "name": "C Pearl"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764259905461,
+        "salePrice": null,
+        "created_at": 1764224224025,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/746b1b8e-f513-44fd-b3e3-b4d0c7429b0f/313-0.jpg"
+        ],
+        "price": 79,
+        "description": "5mm Gold Stud with a 4mm Screw Back Lock",
+        "id": "746b1b8e-f513-44fd-b3e3-b4d0c7429b0f",
+        "name": "Gold Stud - Screw Back"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764147607342,
+        "salePrice": 129,
+        "created_at": 1761814874166,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/8b40b3c2-3708-4561-8151-9fa458519d5b/89-0.jpg"
+        ],
+        "price": 149,
+        "description": "13mm White Marble Clover Motif in a Silver Setting with a Push-Back Lock",
+        "id": "8b40b3c2-3708-4561-8151-9fa458519d5b",
+        "name": "White Clover - Silver Setting"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764146631910,
+        "salePrice": 129,
+        "created_at": 1761824494672,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/8c8e5fca-e8a7-4836-a5ae-319aa5282ba4/42-0.jpg"
+        ],
+        "price": 149,
+        "description": "8mm x 15mm Rectangle Hoop",
+        "id": "8c8e5fca-e8a7-4836-a5ae-319aa5282ba4",
+        "name": "Rectangle Hoop"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259631711,
+        "salePrice": 129,
+        "created_at": 1764224268731,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/9539b39c-7022-45bd-991a-7a4622202b9c/298-0.jpg"
+        ],
+        "price": 149,
+        "description": "----------",
+        "id": "9539b39c-7022-45bd-991a-7a4622202b9c",
+        "name": "Thick Huggies"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764257829371,
+        "salePrice": 79,
+        "created_at": 1764226395762,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/976b93f4-6459-4318-b091-d19787882aa5/195-0.jpg"
+        ],
+        "price": 99,
+        "description": "----------",
+        "id": "976b93f4-6459-4318-b091-d19787882aa5",
+        "name": "Mini Stoned Heart"
+    },
+    {
+        "quantity": 2,
+        "updated_at": 1764146738073,
+        "salePrice": 79,
+        "created_at": 1761820421003,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/9cc239e8-08c3-488d-ab3c-a340b7aa3fbe/44-0.jpg"
+        ],
+        "price": 99,
+        "description": "11mm Double Infinity Stud with a Push-Back Lock",
+        "id": "9cc239e8-08c3-488d-ab3c-a340b7aa3fbe",
+        "name": "Double Infinity"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259861018,
+        "salePrice": 149,
+        "created_at": 1764225145459,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/9ec999f6-ae0b-466f-81da-de3a5eccab6a/308-0.jpg"
+        ],
+        "price": 179,
+        "description": "----------",
+        "id": "9ec999f6-ae0b-466f-81da-de3a5eccab6a",
+        "name": "Stoned Rectangle Hoop"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258993780,
+        "salePrice": 99,
+        "created_at": 1764230013922,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/a00a3837-0c22-47c5-8bef-be3837236262/245-0.jpg"
+        ],
+        "price": 119,
+        "description": "----------",
+        "id": "a00a3837-0c22-47c5-8bef-be3837236262",
+        "name": "Silver Gem Pretzel"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764148018740,
+        "salePrice": 129,
+        "created_at": 1761825212575,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/a2c7ed2a-b258-4df7-b127-2c00e9d688ea/112-0.jpg"
+        ],
+        "price": 149,
+        "description": "11mm Silver Stoned Z Hoop",
+        "id": "a2c7ed2a-b258-4df7-b127-2c00e9d688ea",
+        "name": "Z Hoop"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764348405580,
+        "salePrice": 129,
+        "created_at": 1761814676057,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/a43b3b36-b6da-4881-9a35-fd788839d5d5/183-0.jpg"
+        ],
+        "price": 149,
+        "description": "13mm Black Clover Motif with a Push-Back Lock",
+        "id": "a43b3b36-b6da-4881-9a35-fd788839d5d5",
+        "name": "Black Clover"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258889552,
+        "salePrice": 99,
+        "created_at": 1764227855506,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/a480ef52-2bd5-4067-af01-af1a26653426/236-0.jpg"
+        ],
+        "price": 119,
+        "description": "----------",
+        "id": "a480ef52-2bd5-4067-af01-af1a26653426",
+        "name": "Heart Pearl"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259508920,
+        "salePrice": 129,
+        "created_at": 1764226290793,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/a8f82524-9bf7-4c72-9b17-df41b51cfb3e/288-0.jpg"
+        ],
+        "price": 149,
+        "description": "----------",
+        "id": "a8f82524-9bf7-4c72-9b17-df41b51cfb3e",
+        "name": "Stoned Huggies"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764148981352,
+        "salePrice": 79,
+        "created_at": 1761816798990,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/ab19713f-40a7-48b3-a5b3-6c9b22f4a9a5/20-0.jpg"
+        ],
+        "price": 99,
+        "description": "9mm Silver C Stud with a Push-Back Lock",
+        "id": "ab19713f-40a7-48b3-a5b3-6c9b22f4a9a5",
+        "name": "Silver C Stud"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259676394,
+        "salePrice": 129,
+        "created_at": 1764223583819,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/af094620-3d95-4b0a-8638-40b1ba3784a8/301-0.jpg"
+        ],
+        "price": 149,
+        "description": "----------",
+        "id": "af094620-3d95-4b0a-8638-40b1ba3784a8",
+        "name": "Striped Hoop"
+    },
+    {
+        "quantity": 2,
+        "updated_at": 1764148764260,
+        "salePrice": 129,
+        "created_at": 1761824806606,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/afca01d5-b0c1-422e-886d-65306b2a9d8f/150-0.jpg"
+        ],
+        "price": 149,
+        "description": "10mm Shear Huggies",
+        "id": "afca01d5-b0c1-422e-886d-65306b2a9d8f",
+        "name": "Mini Huggies"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259167668,
+        "salePrice": 199,
+        "created_at": 1764232192721,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/b01f794a-6461-4999-8c33-94f46a40c750/259-0.jpg"
+        ],
+        "price": 249,
+        "description": "----------",
+        "id": "b01f794a-6461-4999-8c33-94f46a40c750",
+        "name": "Abstract Teardrop"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259592645,
+        "salePrice": 149,
+        "created_at": 1764224312986,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/b0287046-9779-4e3d-a9fa-af5e89e91b46/296-0.jpg"
+        ],
+        "price": 249,
+        "description": "----------",
+        "id": "b0287046-9779-4e3d-a9fa-af5e89e91b46",
+        "name": "Teardrop"
+    },
+    {
+        "quantity": 3,
+        "updated_at": 1764153377713,
+        "salePrice": 79,
+        "created_at": 1761825611837,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/b4146cc8-bd02-4b7d-b405-b54db4ded9d4/187-0.jpg"
+        ],
+        "price": 99,
+        "description": "5mm Pearl with a Push-Back Lock",
+        "id": "b4146cc8-bd02-4b7d-b405-b54db4ded9d4",
+        "name": "Small Pearl"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764146717256,
+        "salePrice": 79,
+        "created_at": 1761816645575,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/b6951960-61c5-4ffc-a2fc-26e07cbf1305/43-0.jpg"
+        ],
+        "price": 99,
+        "description": "9mm Double C Stud with a Push-Back Lock",
+        "id": "b6951960-61c5-4ffc-a2fc-26e07cbf1305",
+        "name": "Double C Stud"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764301341189,
+        "salePrice": 79,
+        "created_at": 1761817893351,
+        "status": "inactive",
+        "category": "earrings",
+        "images": [],
+        "price": 99,
+        "description": "6m X Stud with a Push-Back Lock",
+        "id": "b75c6078-7b37-45e8-bb83-8415e7a09cc0",
+        "name": "X Stud"
+    },
+    {
+        "quantity": 3,
+        "updated_at": 1764348449725,
+        "salePrice": 79,
+        "created_at": 1764054108989,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/b87cf669-0383-4e9f-bad1-de41d9902b26/342-0.jpg"
+        ],
+        "price": 99,
+        "description": "9mm Stoned Bubble Heart with a Push-Back Lock",
+        "id": "b87cf669-0383-4e9f-bad1-de41d9902b26",
+        "name": "Bubble Heart"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764146747085,
+        "salePrice": 79,
+        "created_at": 1761818050069,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/b8d62b00-3f12-45bf-ab0c-4c7791469565/45-0.jpg"
+        ],
+        "price": 99,
+        "description": "10mm Twirl Stud with a Push-Back Lock",
+        "id": "b8d62b00-3f12-45bf-ab0c-4c7791469565",
+        "name": "Twirl Stud"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259535245,
+        "salePrice": 129,
+        "created_at": 1764235264498,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/b9430f7a-66b7-4f65-99cf-a94be177d586/291-0.jpg"
+        ],
+        "price": 149,
+        "description": "----------",
+        "id": "b9430f7a-66b7-4f65-99cf-a94be177d586",
+        "name": "Silver Slim Hoop"
+    },
+    {
+        "quantity": 3,
+        "updated_at": 1764145964554,
+        "salePrice": 79,
+        "created_at": 1761817789481,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/c29b3513-c1ce-42d6-bdfc-e96147194081/14-0.jpg"
+        ],
+        "price": 99,
+        "description": "8mm Silver Infinity Stud with a Push-Back Lock",
+        "id": "c29b3513-c1ce-42d6-bdfc-e96147194081",
+        "name": "Silver Infinity"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764257792502,
+        "salePrice": 99,
+        "created_at": 1764226333987,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/c4cb94ac-a5ca-49df-81f5-8cd78548a325/193-0.jpg"
+        ],
+        "price": 119,
+        "description": "----------",
+        "id": "c4cb94ac-a5ca-49df-81f5-8cd78548a325",
+        "name": "Silver Flakes"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259484994,
+        "salePrice": 149,
+        "created_at": 1764235363225,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/c5e5715a-0ab7-43fc-babc-acedb7e2bd94/287-0.jpg"
+        ],
+        "price": 179,
+        "description": "----------",
+        "id": "c5e5715a-0ab7-43fc-babc-acedb7e2bd94",
+        "name": "Small Pearl Halo"
+    },
+    {
+        "quantity": 2,
+        "updated_at": 1764146343459,
+        "salePrice": 99,
+        "created_at": 1761818502146,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/c8b444f3-b338-4e5c-8075-3c707c58011a/29-0.jpg"
+        ],
+        "price": 119,
+        "description": "10mm Pretzel Stud with a Gem, and a Push-Back Lock",
+        "id": "c8b444f3-b338-4e5c-8075-3c707c58011a",
+        "name": "Pretzel Stud"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764146452770,
+        "salePrice": 99,
+        "created_at": 1761816184398,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/cbc33d15-2b4c-4bf8-8dcc-f79bd20db763/34-0.jpg"
+        ],
+        "price": 119,
+        "description": "9mm Black Circle Clover Motif with a Push-Back Lock",
+        "id": "cbc33d15-2b4c-4bf8-8dcc-f79bd20db763",
+        "name": "Black Circle Clover"
+    },
+    {
+        "quantity": 2,
+        "updated_at": 1764153386626,
+        "salePrice": 79,
+        "created_at": 1761825645061,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/d0a9e0eb-f81c-4ca2-bd8f-5dbe3d46781b/187-0.jpg"
+        ],
+        "price": 99,
+        "description": "8mm Pearl with a Push-Back Lock",
+        "id": "d0a9e0eb-f81c-4ca2-bd8f-5dbe3d46781b",
+        "name": "Medium Pearl"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259663003,
+        "salePrice": 129,
+        "created_at": 1764224366077,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/d11c89fa-43da-4e88-97a0-f525cbbec133/300-0.jpg"
+        ],
+        "price": 149,
+        "description": "----------",
+        "id": "d11c89fa-43da-4e88-97a0-f525cbbec133",
+        "name": "Thin Twisted Hoop - Lever Back"
+    },
+    {
+        "quantity": 3,
+        "updated_at": 1764148445506,
+        "salePrice": 99,
+        "created_at": 1761819968807,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/d1205f60-ba9d-479a-ae7b-3de63e72d2b3/136-0.jpg"
+        ],
+        "price": 119,
+        "description": "9mm Stoned Horseshoe Stud with a Push-Back Lock",
+        "id": "d1205f60-ba9d-479a-ae7b-3de63e72d2b3",
+        "name": "Horseshoe Stud"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764147182030,
+        "salePrice": 79,
+        "created_at": 1761820291339,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/d4921ad6-5b67-49f0-ab21-f907f3506b30/65-0.jpg"
+        ],
+        "price": 99,
+        "description": "9mm Spiky Textured Heart with a Push-Back Lock",
+        "id": "d4921ad6-5b67-49f0-ab21-f907f3506b30",
+        "name": "Spiky Heart"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764148740449,
+        "salePrice": 129,
+        "created_at": 1761813685393,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/d5b15b02-5428-49e3-8535-884b18d87ca6/148-0.jpg"
+        ],
+        "price": 149,
+        "description": "9mm Black Clover Motif with a Push-Back Lock",
+        "id": "d5b15b02-5428-49e3-8535-884b18d87ca6",
+        "name": "Mini Black Clover"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764146596168,
+        "salePrice": 129,
+        "created_at": 1761818621263,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/d6ef0493-ef14-47a4-9351-9756d30aa234/39-0.jpg"
+        ],
+        "price": 149,
+        "description": "10mm Stoned Square Stud with a Push-Back Lock",
+        "id": "d6ef0493-ef14-47a4-9351-9756d30aa234",
+        "name": "Stoned Square"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258856944,
+        "salePrice": 129,
+        "created_at": 1764227685967,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/d6ef63de-3191-42fc-942d-eba04ded3b1f/234-0.jpg"
+        ],
+        "price": 149,
+        "description": "----------",
+        "id": "d6ef63de-3191-42fc-942d-eba04ded3b1f",
+        "name": "Croissant Hoop"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764158468571,
+        "salePrice": 149,
+        "created_at": 1761825523640,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/d7f46261-6571-4548-af8e-64304df00996/125-0.jpg"
+        ],
+        "price": 179,
+        "description": "8mm Pearl enclosed by a 18mm Silver Stoned Halo, with a Push-Back Lock",
+        "id": "d7f46261-6571-4548-af8e-64304df00996",
+        "name": "Pearl Halo"
+    },
+    {
+        "quantity": 6,
+        "updated_at": 1764148456030,
+        "salePrice": 99,
+        "created_at": 1761818135281,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/da3d9c18-0a59-4919-abdd-d71a42d1bee6/137-0.jpg"
+        ],
+        "price": 119,
+        "description": "10mm Black Butterfly Stud with a Push-Back Lock",
+        "id": "da3d9c18-0a59-4919-abdd-d71a42d1bee6",
+        "name": "Black Butterfly"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259526822,
+        "salePrice": 129,
+        "created_at": 1764235434752,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/dc9be714-5c87-4a68-b5bb-94c09cff5144/290-0.jpg"
+        ],
+        "price": 149,
+        "description": "----------",
+        "id": "dc9be714-5c87-4a68-b5bb-94c09cff5144",
+        "name": "Slim Hoop"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259897397,
+        "salePrice": 79,
+        "created_at": 1764224926387,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/e00ac428-b13c-4b70-bc84-e501e96d1de9/312-0.jpg"
+        ],
+        "price": 99,
+        "description": "----------",
+        "id": "e00ac428-b13c-4b70-bc84-e501e96d1de9",
+        "name": "Mini Butterfly"
+    },
+    {
+        "quantity": 2,
+        "updated_at": 1764348145996,
+        "salePrice": 179,
+        "created_at": 1761815554632,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/e111ebe0-e7f2-4b5f-a584-49d01e68d87a/134-0.jpg"
+        ],
+        "price": 249,
+        "description": "Coded 15mm Shiny Silver Clover Motif with a Push-Back Lock",
+        "id": "e111ebe0-e7f2-4b5f-a584-49d01e68d87a",
+        "name": "Premium Silver Clover"
+    },
+    {
+        "quantity": 2,
+        "updated_at": 1764146201722,
+        "salePrice": 79,
+        "created_at": 1761817970061,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/e213da8f-7654-428d-a679-96e903232d74/24-0.jpg"
+        ],
+        "price": 99,
+        "description": "7mm Heart Stud with a Push-Back Lock",
+        "id": "e213da8f-7654-428d-a679-96e903232d74",
+        "name": "Heart Stud"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764145954891,
+        "salePrice": 249,
+        "created_at": 1761822516051,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/e3996bb1-2f78-40cc-90ec-d4830d87ea5b/13-0.jpg"
+        ],
+        "price": 379,
+        "description": "15mm Green Clover Motif hanging from a 10mm Black Clover with a Push-Back Lock",
+        "id": "e3996bb1-2f78-40cc-90ec-d4830d87ea5b",
+        "name": "Premium Double Clover"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259211311,
+        "salePrice": 129,
+        "created_at": 1764232843952,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/e47f0eeb-fbed-4b23-bfb4-d33bdf733a9a/264-0.jpg"
+        ],
+        "price": 149,
+        "description": "----------",
+        "id": "e47f0eeb-fbed-4b23-bfb4-d33bdf733a9a",
+        "name": "Silver Stoned Square"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259879090,
+        "salePrice": 79,
+        "created_at": 1764224955344,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/ebab2844-ab1e-4ea5-8ca8-1f1f12f108cf/310-0.jpg"
+        ],
+        "price": 99,
+        "description": "----------",
+        "id": "ebab2844-ab1e-4ea5-8ca8-1f1f12f108cf",
+        "name": "Stoned Hollow Heart"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258952338,
+        "salePrice": 129,
+        "created_at": 1764229804841,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/ebbf2981-dc80-47d0-9d44-82b2c0624c83/241-0.jpg"
+        ],
+        "price": 149,
+        "description": "----------",
+        "id": "ebbf2981-dc80-47d0-9d44-82b2c0624c83",
+        "name": "White Clover Hoop"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764158502547,
+        "salePrice": 99,
+        "created_at": 1761814272866,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/ef1400e2-0442-4b29-8fbe-f82e7e2b3467/123-0.jpg"
+        ],
+        "price": 119,
+        "description": "10mm Stoned Gold Clover Motif with a Push-Back Lock",
+        "id": "ef1400e2-0442-4b29-8fbe-f82e7e2b3467",
+        "name": "Stoned Gold Clover"
+    },
+    {
+        "quantity": 2,
+        "updated_at": 1764145858530,
+        "salePrice": 99,
+        "created_at": 1761820043549,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/f0a18458-edef-4072-a571-81d64e34f8b3/8-0.jpg"
+        ],
+        "price": 119,
+        "description": "9mm Stoned Gold Flakes Stud with a Push-Back Lock",
+        "id": "f0a18458-edef-4072-a571-81d64e34f8b3",
+        "name": "Gold Flakes"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764158480905,
+        "salePrice": 249,
+        "created_at": 1761822167114,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/f1373dc9-e2f1-42cc-a1e7-4f5b81853ea1/12-0.jpg"
+        ],
+        "price": 379,
+        "description": "20mm Cuban Chain, 34in Long, with a Push-Back Lock",
+        "id": "f1373dc9-e2f1-42cc-a1e7-4f5b81853ea1",
+        "name": "Cuban Chain"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258972567,
+        "salePrice": 79,
+        "created_at": 1764229984430,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/f6873095-5c8a-44ac-8cd5-ae7b7ed4a4f4/243-0.jpg"
+        ],
+        "price": 99,
+        "description": "----------",
+        "id": "f6873095-5c8a-44ac-8cd5-ae7b7ed4a4f4",
+        "name": "Infinity Knot"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764260382465,
+        "salePrice": 129,
+        "created_at": 1764053657280,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/f69fe9e6-027d-49eb-904d-baef35b355e5/346-0.jpg"
+        ],
+        "price": 149,
+        "description": "10mm Hoop with Stoned Flake Design",
+        "id": "f69fe9e6-027d-49eb-904d-baef35b355e5",
+        "name": "Flakes Hoop"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764147707547,
+        "salePrice": 129,
+        "created_at": 1761824767761,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/f72c43dc-b55f-4616-a7db-cf11fbca9915/94-0.jpg"
+        ],
+        "price": 149,
+        "description": "13mm Crack-Designed Hoop",
+        "id": "f72c43dc-b55f-4616-a7db-cf11fbca9915",
+        "name": "Crack Hoop"
+    },
+    {
+        "quantity": 2,
+        "updated_at": 1764148467111,
+        "salePrice": 99,
+        "created_at": 1761818256518,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/f774aeac-1e82-4981-a575-cc48e4bff7d2/138-0.jpg"
+        ],
+        "price": 119,
+        "description": "10mm Three-Leaf White Marble Flower Stud with a Push-Back Lock",
+        "id": "f774aeac-1e82-4981-a575-cc48e4bff7d2",
+        "name": "3-Leaf White Flower"
+    },
+    {
+        "quantity": 2,
+        "updated_at": 1764152718922,
+        "salePrice": 129,
+        "created_at": 1761824910279,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/f89c7d9f-877b-4a93-ae86-456acad00b4e/154-0.jpg"
+        ],
+        "price": 149,
+        "description": "14mm Shear Huggies",
+        "id": "f89c7d9f-877b-4a93-ae86-456acad00b4e",
+        "name": "Huggies"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259869624,
+        "salePrice": 99,
+        "created_at": 1764225044905,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/f8fc1293-cb2f-43b6-9315-cc41f6c3fa7b/309-0.jpg"
+        ],
+        "price": 119,
+        "description": "----------",
+        "id": "f8fc1293-cb2f-43b6-9315-cc41f6c3fa7b",
+        "name": "Gold Butterfly"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764347923952,
+        "salePrice": 99,
+        "created_at": 1761814368131,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/f94d3805-0125-4f1d-a1ad-b9e6484b75b4/30-0.jpg"
+        ],
+        "price": 119,
+        "description": "8mm Stoned Gold Clover Motif with a Push-Back Lock",
+        "id": "f94d3805-0125-4f1d-a1ad-b9e6484b75b4",
+        "name": "Mini Stoned Gold Clover"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764260364305,
+        "salePrice": 129,
+        "created_at": 1764053727020,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/fa698083-75bb-43eb-a278-aeb5ea7f71a3/344-0.jpg"
+        ],
+        "price": 149,
+        "description": "12mm Hoop with Curved Design",
+        "id": "fa698083-75bb-43eb-a278-aeb5ea7f71a3",
+        "name": "Curve Hoop"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764153041366,
+        "salePrice": 199,
+        "created_at": 1761824403928,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/fcca6f26-b511-46eb-bd54-6f38fcb73aee/172-0.jpg"
+        ],
+        "price": 299,
+        "description": "22mm long Hardware Earrings with a Push-Back Lock",
+        "id": "fcca6f26-b511-46eb-bd54-6f38fcb73aee",
+        "name": "Hardware Earrings"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259244043,
+        "salePrice": 149,
+        "created_at": 1764233656755,
+        "status": "active",
+        "category": "earrings",
+        "images": [
+            "earrings/ffb79fba-df48-4ea8-81ef-fdd13946564d/266-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "ffb79fba-df48-4ea8-81ef-fdd13946564d",
+        "name": "Abstract Hoop"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259281256,
+        "salePrice": 199,
+        "created_at": 1764234073231,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/0214b11f-0e6a-42e1-b2fa-ff53697903d6/270-0.jpg"
+        ],
+        "price": 249,
+        "description": "----------",
+        "id": "0214b11f-0e6a-42e1-b2fa-ff53697903d6",
+        "name": "White Clover Paperclip"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764260255216,
+        "salePrice": 179,
+        "created_at": 1764054998879,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/02f97814-e626-4574-a5d3-46e3ffe08da0/336-0.jpg"
+        ],
+        "price": 199,
+        "description": "44cm Necklace with a Stoned Bell Pendant",
+        "id": "02f97814-e626-4574-a5d3-46e3ffe08da0",
+        "name": "Bell"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764259942919,
+        "salePrice": 179,
+        "created_at": 1763701634929,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/0427f338-2630-4f80-9a24-27bd0dde8e61/316-0.jpg"
+        ],
+        "price": 199,
+        "description": "41-46cm Adjustable Necklace with a Double Interlocked Circle Design",
+        "id": "0427f338-2630-4f80-9a24-27bd0dde8e61",
+        "name": "Double Circle"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764145742328,
+        "salePrice": 179,
+        "created_at": 1763641845109,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/0537941a-1000-42c9-82de-e512cfb8c7cf/5-0.jpg"
+        ],
+        "price": 199,
+        "description": "45cm Necklace with a Silver Stoned Barrel Pendant",
+        "id": "0537941a-1000-42c9-82de-e512cfb8c7cf",
+        "name": "Stoned Barrel"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764146261134,
+        "salePrice": 479,
+        "created_at": 1763644045256,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/06f132cc-5024-4948-b901-604f1437f0cf/26-0.jpg"
+        ],
+        "price": 499,
+        "description": "43-46cm Adjustable Necklace with a 15mm Premium Gold Center Chain Clover Motif",
+        "id": "06f132cc-5024-4948-b901-604f1437f0cf",
+        "name": "Premium Gold Clover"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764152905561,
+        "salePrice": 149,
+        "created_at": 1763702319453,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/0730c315-121e-4ea4-b090-3c04a05e2eb3/166-0.jpg"
+        ],
+        "price": 199,
+        "description": "44cm Necklace with a Padre Pio Pendant",
+        "id": "0730c315-121e-4ea4-b090-3c04a05e2eb3",
+        "name": "Padre Pio"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764260026605,
+        "salePrice": 179,
+        "created_at": 1764059759798,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/082fab84-642f-4e82-a8a5-992424af4649/322-0.jpg"
+        ],
+        "price": 199,
+        "description": "44cm Necklace with a Stoned Flower Pendant",
+        "id": "082fab84-642f-4e82-a8a5-992424af4649",
+        "name": "Stoned Flower"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764147285087,
+        "salePrice": 199,
+        "created_at": 1763701895225,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/08a21c28-1d53-49f3-9e15-324d8af3e43a/72-0.jpg"
+        ],
+        "price": 219,
+        "description": "45-50cm Adjustable Necklace with a Teardrop Pendant",
+        "id": "08a21c28-1d53-49f3-9e15-324d8af3e43a",
+        "name": "Teardrop"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764260268365,
+        "salePrice": 179,
+        "created_at": 1764055548166,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/08a5f014-c7bb-4688-aa61-7f0360ed7125/337-0.jpg"
+        ],
+        "price": 199,
+        "description": "44cm Necklace with a Twisted Hollow Heart Pendant",
+        "id": "08a5f014-c7bb-4688-aa61-7f0360ed7125",
+        "name": "Twisted Hollow Heart"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764147812158,
+        "salePrice": 179,
+        "created_at": 1763701435396,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/0aec2c51-c85b-4c1f-8ea7-76df8b9a7f4a/101-0.jpg"
+        ],
+        "price": 199,
+        "description": "44cm Necklace with a Black Diamond Clover Pendant",
+        "id": "0aec2c51-c85b-4c1f-8ea7-76df8b9a7f4a",
+        "name": "Black Diamond Clover"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764148237003,
+        "salePrice": 299,
+        "created_at": 1763702675548,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/0eda810b-ebda-4738-bd50-623167c54959/121-0.jpg"
+        ],
+        "price": 349,
+        "description": "40-45cm Adjustable Gold Tennis Necklace",
+        "id": "0eda810b-ebda-4738-bd50-623167c54959",
+        "name": "Gold Tennis"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764146273984,
+        "salePrice": 299,
+        "created_at": 1763702694382,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/13b604c4-1c39-47d9-a9f6-939454e8191e/27-0.jpg"
+        ],
+        "price": 349,
+        "description": "40-45cm Adjustable Silver Tennis Necklace",
+        "id": "13b604c4-1c39-47d9-a9f6-939454e8191e",
+        "name": "Silver Tennis"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764260282571,
+        "salePrice": 179,
+        "created_at": 1764054851780,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/163a0b99-c108-492b-920a-2a99681f89ed/338-0.jpg"
+        ],
+        "price": 199,
+        "description": "44cm Necklace with an Abstract Hollow Heart Pendant",
+        "id": "163a0b99-c108-492b-920a-2a99681f89ed",
+        "name": "Abstract Heart"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764348480333,
+        "salePrice": 199,
+        "created_at": 1764055146693,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/19dfc6a4-36bf-405b-a2c3-77ca690e66e1/340-0.jpg"
+        ],
+        "price": 219,
+        "description": "44cm Necklace with a 9mm White Clover Motif Pendant",
+        "id": "19dfc6a4-36bf-405b-a2c3-77ca690e66e1",
+        "name": "Mini White Clover"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259473503,
+        "salePrice": 179,
+        "created_at": 1764235827409,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/1bab295d-0723-4b51-9743-708a32a89ef8/286-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "1bab295d-0723-4b51-9743-708a32a89ef8",
+        "name": "Silver Cross"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764147871326,
+        "salePrice": 299,
+        "created_at": 1763645252464,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/1cd18ac8-1e6f-4eb1-ad13-3cd1db4658cc/105-0.jpg"
+        ],
+        "price": 349,
+        "description": "43-48cm Adjustable Necklace with a 13mm Silver Clover Center Chain Motif",
+        "id": "1cd18ac8-1e6f-4eb1-ad13-3cd1db4658cc",
+        "name": "Center Chain Silver Clover"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259120447,
+        "salePrice": 299,
+        "created_at": 1764232425710,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/1e229639-4963-4c99-b48d-0f42431c5487/256-0.jpg"
+        ],
+        "price": 349,
+        "description": "----------",
+        "id": "1e229639-4963-4c99-b48d-0f42431c5487",
+        "name": "Multiple White Diamond Clover"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764153124387,
+        "salePrice": 299,
+        "created_at": 1764057635446,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/1e8a7669-281f-44fd-b649-92b515bf2630/178-0.jpg"
+        ],
+        "price": 349,
+        "description": "43-48mm Adjustable Necklace with Multiple 9mm Gold Clover Motifs",
+        "id": "1e8a7669-281f-44fd-b649-92b515bf2630",
+        "name": "Multiple Mini Gold Clover"
+    },
+    {
+        "quantity": 2,
+        "updated_at": 1764152834643,
+        "salePrice": 179,
+        "created_at": 1764054714654,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/1ed6b074-cd97-49ad-b4fe-411d78315e88/160-0.jpg"
+        ],
+        "price": 199,
+        "description": "44cm Necklace with a Stoned H Barrel Pendant",
+        "id": "1ed6b074-cd97-49ad-b4fe-411d78315e88",
+        "name": "H Barrel"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764260109314,
+        "salePrice": 179,
+        "created_at": 1764060085851,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/22108ab8-078d-408e-9083-1aa7ee05486c/325-0.jpg"
+        ],
+        "price": 199,
+        "description": "44cm Necklace with Stoned Butterfly Pendant",
+        "id": "22108ab8-078d-408e-9083-1aa7ee05486c",
+        "name": "Stoned Hollow Butterfly"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764260226726,
+        "salePrice": 179,
+        "created_at": 1764055261697,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/25bb2cd4-a964-47a4-8330-19beac14a349/333-0.jpg"
+        ],
+        "price": 199,
+        "description": "44cm Necklace with a Gem Pendant",
+        "id": "25bb2cd4-a964-47a4-8330-19beac14a349",
+        "name": "Gem"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258470105,
+        "salePrice": 179,
+        "created_at": 1764226938288,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/2668c377-c371-4c8e-af50-9ba5d68561cd/214-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "2668c377-c371-4c8e-af50-9ba5d68561cd",
+        "name": "3-Stone Mother Pearl"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259064361,
+        "salePrice": 179,
+        "created_at": 1764232506290,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/26ffc076-3c1e-4c9d-8d93-ec1213aafec7/251-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "26ffc076-3c1e-4c9d-8d93-ec1213aafec7",
+        "name": "Single Barrel"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764147329823,
+        "salePrice": 699,
+        "created_at": 1763702968799,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/274a1c6a-2dd7-457f-8bc8-42cd89715f71/75-0.jpg"
+        ],
+        "price": 749,
+        "description": "37-42cm Adjustable Hardware Necklace with a Stoned Hardware",
+        "id": "274a1c6a-2dd7-457f-8bc8-42cd89715f71",
+        "name": "Premium Stoned Hardware"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764260079667,
+        "salePrice": 179,
+        "created_at": 1763641948380,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/275fbdb9-df16-459c-aaed-ba710c1196a1/152-0.jpg"
+        ],
+        "price": 199,
+        "description": "45cm Adjustable Necklace with a Silver Half Stoned Heart and Pearl Pendant",
+        "id": "275fbdb9-df16-459c-aaed-ba710c1196a1",
+        "name": "Silver Pearl Heart"
+    },
+    {
+        "quantity": 2,
+        "updated_at": 1764152824105,
+        "salePrice": 199,
+        "created_at": 1764059725493,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/2b6331a6-fab2-42e1-8cdd-e666f0dea166/159-0.jpg"
+        ],
+        "price": 219,
+        "description": "44cm Necklace with a Stoned Hardware Pendant",
+        "id": "2b6331a6-fab2-42e1-8cdd-e666f0dea166",
+        "name": "Stoned Hardware"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764260006042,
+        "salePrice": 199,
+        "created_at": 1764059372692,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/2b6821b6-4139-4aec-ae7c-00604470bf37/320-0.jpg"
+        ],
+        "price": 219,
+        "description": "40-45cm Adjustable Station Necklace with Butterflies and Beads Design",
+        "id": "2b6821b6-4139-4aec-ae7c-00604470bf37",
+        "name": "Station Necklace 3"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764153246907,
+        "salePrice": 179,
+        "created_at": 1764054762557,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/2c420099-72fa-4c5f-896d-2a1ea8d8abf8/185-0.jpg"
+        ],
+        "price": 199,
+        "description": "44cm Necklace with a Stoned Barrel Pendant",
+        "id": "2c420099-72fa-4c5f-896d-2a1ea8d8abf8",
+        "name": "Barrel"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764147527367,
+        "salePrice": 199,
+        "created_at": 1763646461463,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/2d2eed67-0164-4f88-ac18-653bfe2bf86f/84-0.jpg"
+        ],
+        "price": 249,
+        "description": "44cm Necklace with a 14mm Black Clover and an 11mm Stoned Hollow Clover Motif Pendant",
+        "id": "2d2eed67-0164-4f88-ac18-653bfe2bf86f",
+        "name": "Double Clover"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259764000,
+        "salePrice": 199,
+        "created_at": 1764224541986,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/2ec8e117-38b9-4a4f-971e-66f230bd65c5/304-0.jpg"
+        ],
+        "price": 219,
+        "description": "----------",
+        "id": "2ec8e117-38b9-4a4f-971e-66f230bd65c5",
+        "name": "White Hollow Clover"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258510400,
+        "salePrice": 179,
+        "created_at": 1764227401402,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/31566888-93a2-4459-ba22-e1d56d85f9b1/215-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "31566888-93a2-4459-ba22-e1d56d85f9b1",
+        "name": "Crown"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764147836532,
+        "salePrice": 149,
+        "created_at": 1763702389445,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/31acc8fe-8be6-46b2-afa4-cc1bd13180a4/102-0.jpg"
+        ],
+        "price": 199,
+        "description": "50cm Necklace with a Linked Hardware Pendant",
+        "id": "31acc8fe-8be6-46b2-afa4-cc1bd13180a4",
+        "name": "Hardware"
+    },
+    {
+        "quantity": 2,
+        "updated_at": 1764152803568,
+        "salePrice": 199,
+        "created_at": 1764054922328,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/31f3b1a0-a774-4247-be97-28dcc6715928/157-0.jpg"
+        ],
+        "price": 219,
+        "description": "44cm Necklace with a Silver Hardware, linked into a Stoned Hollow Clover Pendant",
+        "id": "31f3b1a0-a774-4247-be97-28dcc6715928",
+        "name": "Silver Hardware Clover"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258621703,
+        "salePrice": 179,
+        "created_at": 1764227376059,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/32edc318-e170-4a8d-9b88-aef4afa53ea4/219-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "32edc318-e170-4a8d-9b88-aef4afa53ea4",
+        "name": "Sun"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258323288,
+        "salePrice": 179,
+        "created_at": 1764227296381,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/357088e7-118c-430d-a8be-a3f12ec58f75/207-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "357088e7-118c-430d-a8be-a3f12ec58f75",
+        "name": "Silver Round Barrel"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764260137611,
+        "salePrice": 179,
+        "created_at": 1764054811473,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/38aad9cd-700e-4501-add6-e4a9326d182b/328-0.jpg"
+        ],
+        "price": 199,
+        "description": "44cm Necklace with a Stoned Thick C Pendant",
+        "id": "38aad9cd-700e-4501-add6-e4a9326d182b",
+        "name": "Thick C Necklace"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259460480,
+        "salePrice": 179,
+        "created_at": 1764235939836,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/40d3667e-dd27-4bbf-8b54-c359cfca487c/285-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "40d3667e-dd27-4bbf-8b54-c359cfca487c",
+        "name": "Lock Key"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764148217824,
+        "salePrice": 179,
+        "created_at": 1763702174425,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/47a67dc7-a094-4ebb-962a-bd92945c7d11/119-0.jpg"
+        ],
+        "price": 199,
+        "description": "45-50cm Adjustable Necklace with a Horseshoe Pendant",
+        "id": "47a67dc7-a094-4ebb-962a-bd92945c7d11",
+        "name": "Horseshoe"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764149229574,
+        "salePrice": 179,
+        "created_at": 1763702102907,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/4a87f22d-f71f-4f72-9e8f-aa803075d8ed/145-0.jpg"
+        ],
+        "price": 199,
+        "description": "44cm Necklace with a Pearl Pendant",
+        "id": "4a87f22d-f71f-4f72-9e8f-aa803075d8ed",
+        "name": "Pearl"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259111521,
+        "salePrice": 179,
+        "created_at": 1764232392631,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/4c3842f3-d721-4014-85ef-cdad09104cc6/255-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "4c3842f3-d721-4014-85ef-cdad09104cc6",
+        "name": "Heart"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764152813691,
+        "salePrice": 179,
+        "created_at": 1764055406780,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/4ce1cd1f-78e4-4d3a-a697-2bb791bd7ccd/158-0.jpg"
+        ],
+        "price": 199,
+        "description": "44cm Necklace with a Rectangular Mother Pearl Pendant",
+        "id": "4ce1cd1f-78e4-4d3a-a697-2bb791bd7ccd",
+        "name": "Mother Pearl"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258768942,
+        "salePrice": 179,
+        "created_at": 1764225870816,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/535a3415-f876-4cea-99de-f36d1a09755f/228-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "535a3415-f876-4cea-99de-f36d1a09755f",
+        "name": "Nail"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764148062055,
+        "salePrice": 299,
+        "created_at": 1763644263166,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/5492ad56-869b-4ad1-86d7-5e0910d1fea9/115-0.jpg"
+        ],
+        "price": 349,
+        "description": "41-46cm Adjustable Necklace with a 15mm White Clover Center Chain Motif",
+        "id": "5492ad56-869b-4ad1-86d7-5e0910d1fea9",
+        "name": "Center Chain White Clover"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764348460363,
+        "salePrice": 179,
+        "created_at": 1764060064848,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/5504f83f-348e-4607-9a22-7732e18f6c89/326-0.jpg"
+        ],
+        "price": 199,
+        "description": "44cm Necklace with Stoned Bubble Heart Pendant",
+        "id": "5504f83f-348e-4607-9a22-7732e18f6c89",
+        "name": "Stoned Bubble Heart"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258586334,
+        "salePrice": 179,
+        "created_at": 1764227613996,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/5571a786-2e80-4ec1-a105-0555f0e4132b/217-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "5571a786-2e80-4ec1-a105-0555f0e4132b",
+        "name": "Gold Butterfly"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764147858148,
+        "salePrice": 199,
+        "created_at": 1763701985041,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/5601b6d6-1d74-4eff-8b48-f93170810b79/104-0.jpg"
+        ],
+        "price": 219,
+        "description": "45-50cm Adjustable Necklace with a Stoned Tie Design",
+        "id": "5601b6d6-1d74-4eff-8b48-f93170810b79",
+        "name": "Stoned Tie"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764146927325,
+        "salePrice": 149,
+        "created_at": 1763641575527,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/59fa7af5-05af-46f2-83db-0625bb5f9f56/54-0.jpg"
+        ],
+        "price": 199,
+        "description": "50cm Adjustable Silver Paperclip",
+        "id": "59fa7af5-05af-46f2-83db-0625bb5f9f56",
+        "name": "Paperclip"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764147127827,
+        "salePrice": 179,
+        "created_at": 1763701699941,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/5a706908-ae57-4d5f-a9a9-631b15e163d6/62-0.jpg"
+        ],
+        "price": 199,
+        "description": "35-40cm Adjustable Necklace with a Gold Dot Design",
+        "id": "5a706908-ae57-4d5f-a9a9-631b15e163d6",
+        "name": "Single Dot"
+    },
+    {
+        "quantity": 2,
+        "updated_at": 1764153368071,
+        "salePrice": 299,
+        "created_at": 1764057600866,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/5ea32d20-8bed-44c1-8e9f-ac39e894dc2d/186-0.jpg"
+        ],
+        "price": 349,
+        "description": "40-45cm/42-47cm Adjustable Necklace with Multiple 9mm White Clover Motifs",
+        "id": "5ea32d20-8bed-44c1-8e9f-ac39e894dc2d",
+        "name": "Multiple Mini White Clover"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764148227903,
+        "salePrice": 419,
+        "created_at": 1763644071553,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/5f0d3b6f-78d7-4c94-bc12-b1f4005d9792/120-0.jpg"
+        ],
+        "price": 449,
+        "description": "43-46cm Adjustable Necklace with a 15mm Premium Silver Center Chain Clover Motif",
+        "id": "5f0d3b6f-78d7-4c94-bc12-b1f4005d9792",
+        "name": "Premium Silver Clover"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764260188331,
+        "salePrice": 179,
+        "created_at": 1764055075214,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/609076e2-2522-47be-a9af-c9ff244f0e43/331-0.jpg"
+        ],
+        "price": 199,
+        "description": "44cm Necklace with a Chunky Stoned Cross Pendant",
+        "id": "609076e2-2522-47be-a9af-c9ff244f0e43",
+        "name": "Silver Stoned Cross"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764259997358,
+        "salePrice": 299,
+        "created_at": 1764058492786,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/61ed22c0-9f23-4a72-b1ad-1e4907a7b4f2/319-0.jpg"
+        ],
+        "price": 349,
+        "description": "43-48cm Adjustable Necklace with Multiple 15mm White Clover Motifs",
+        "id": "61ed22c0-9f23-4a72-b1ad-1e4907a7b4f2",
+        "name": "Multiple White Clover"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259347294,
+        "salePrice": 199,
+        "created_at": 1764235052985,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/640f738c-0f94-4b6a-8318-7dc17262d149/276-0.jpg"
+        ],
+        "price": 249,
+        "description": "----------",
+        "id": "640f738c-0f94-4b6a-8318-7dc17262d149",
+        "name": "Premium Heart"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764152846001,
+        "salePrice": 179,
+        "created_at": 1764059932081,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/6681a02e-4045-467a-a155-8bd6a133f340/161-0.jpg"
+        ],
+        "price": 199,
+        "description": "44cm Necklace with Black Seed Clover Pendant",
+        "id": "6681a02e-4045-467a-a155-8bd6a133f340",
+        "name": "Black Seed Clover"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764152999228,
+        "salePrice": 179,
+        "created_at": 1764059872913,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/67176b3d-e639-49a1-a118-f1c950daaee8/169-0.jpg"
+        ],
+        "price": 199,
+        "description": "44cm Necklace with Stoned Heart Pendant",
+        "id": "67176b3d-e639-49a1-a118-f1c950daaee8",
+        "name": "Stoned Heart"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259560813,
+        "salePrice": 179,
+        "created_at": 1764236267286,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/6a78864b-4809-4325-82db-2f0e4402ba6c/293-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "6a78864b-4809-4325-82db-2f0e4402ba6c",
+        "name": "Thick Silver Cross"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764259931044,
+        "salePrice": 179,
+        "created_at": 1764055355188,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/6c7e6fdd-9a8f-4819-9cbc-f130522e4fad/315-0.jpg"
+        ],
+        "price": 199,
+        "description": "44cm Necklace with a Black Butterfly Pendant",
+        "id": "6c7e6fdd-9a8f-4819-9cbc-f130522e4fad",
+        "name": "Black Butterfly"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764302067027,
+        "salePrice": 299,
+        "created_at": 1763644329817,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/6d0edc0e-77e1-4d63-85dd-8471643ec36e/375-0.jpg"
+        ],
+        "price": 349,
+        "description": "41-46cm Adjustable Necklace with a 15mm Black Clover Center Chain Motif",
+        "id": "6d0edc0e-77e1-4d63-85dd-8471643ec36e",
+        "name": "Center Chain Black Clover"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764147157651,
+        "salePrice": 179,
+        "created_at": 1763641702127,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/6e0fec5f-3ea0-40dd-82c3-77caff6632a4/63-0.jpg"
+        ],
+        "price": 199,
+        "description": "45cm Necklace with a Silver Half Stoned Hollow Heart Pendant",
+        "id": "6e0fec5f-3ea0-40dd-82c3-77caff6632a4",
+        "name": "Half Stoned Hollow Heart"
+    },
+    {
+        "quantity": 2,
+        "updated_at": 1764348008823,
+        "salePrice": 199,
+        "created_at": 1764055331452,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/6ff7693f-34de-4a5e-83b9-1bf51606dd6a/339-0.jpg"
+        ],
+        "price": 219,
+        "description": "44cm Necklace with a 15mm White Clover Motif Pendant",
+        "id": "6ff7693f-34de-4a5e-83b9-1bf51606dd6a",
+        "name": "White Clover"
+    },
+    {
+        "quantity": 2,
+        "updated_at": 1764147232686,
+        "salePrice": 199,
+        "created_at": 1763646651490,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/749a5ade-15a9-47b2-93c9-c3120b3f6cd9/69-0.jpg"
+        ],
+        "price": 219,
+        "description": "44cm Necklace with a 15mm Black Clover Motif Pendant",
+        "id": "749a5ade-15a9-47b2-93c9-c3120b3f6cd9",
+        "name": "Black Clover"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764259953233,
+        "salePrice": 199,
+        "created_at": 1764059204996,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/768de785-8754-457d-96c1-2125c13fc277/317-0.jpg"
+        ],
+        "price": 219,
+        "description": "40-45cm Adjustable Station Necklace with Hollow Star, Gem and Beads Design",
+        "id": "768de785-8754-457d-96c1-2125c13fc277",
+        "name": "Station Necklace 1"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259449647,
+        "salePrice": 179,
+        "created_at": 1764235905423,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/7a4f7cff-ceee-4137-8009-ffd89e004030/284-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "7a4f7cff-ceee-4137-8009-ffd89e004030",
+        "name": "Silver Thick C"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764260127707,
+        "salePrice": 179,
+        "created_at": 1764060246411,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/7b240039-0c7c-410d-874f-4566f422ff5b/327-0.jpg"
+        ],
+        "price": 199,
+        "description": "44cm Necklace with Pearl Anchor Pendant",
+        "id": "7b240039-0c7c-410d-874f-4566f422ff5b",
+        "name": "Pearl Anchor"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764148206840,
+        "salePrice": 179,
+        "created_at": 1763702205748,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/7c3409dd-f3ab-4a7e-b9c8-bdd6651200af/118-0.jpg"
+        ],
+        "price": 199,
+        "description": "45-50cm Adjustable Necklace with a Twisted Heart Pendant",
+        "id": "7c3409dd-f3ab-4a7e-b9c8-bdd6651200af",
+        "name": "Hollow Heart"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764152875913,
+        "salePrice": 199,
+        "created_at": 1764060145472,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/7f8183d4-9372-40e5-a8bd-60a02c86d56a/163-0.jpg"
+        ],
+        "price": 219,
+        "description": "44cm Necklace with Hardware linked into a Stoned Hollow Clover Pendant",
+        "id": "7f8183d4-9372-40e5-a8bd-60a02c86d56a",
+        "name": "Hardware Clover"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258540097,
+        "salePrice": 179,
+        "created_at": 1764227520477,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/7f840f98-ed97-46df-8e26-6d794cbc80b1/216-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "7f840f98-ed97-46df-8e26-6d794cbc80b1",
+        "name": "Stoned Butterfly"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764152884977,
+        "salePrice": 179,
+        "created_at": 1764059813270,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/81c98bed-4f31-46ca-bb5b-e0ae03e735b6/164-0.jpg"
+        ],
+        "price": 199,
+        "description": "44cm Necklace with Stoned Leaf Pendant",
+        "id": "81c98bed-4f31-46ca-bb5b-e0ae03e735b6",
+        "name": "Stoned Leaf"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764147551318,
+        "salePrice": 199,
+        "created_at": 1763646557139,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/8363c379-9f50-4139-820c-aeae1aa4742e/86-0.jpg"
+        ],
+        "price": 249,
+        "description": "50cm Paperclip Chain with an 18mm Black Clover Motif",
+        "id": "8363c379-9f50-4139-820c-aeae1aa4742e",
+        "name": "Black Clover Paperclip"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764260164369,
+        "salePrice": 179,
+        "created_at": 1764055241091,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/8b162e98-c37b-4b78-8e1d-ef783a449a67/330-0.jpg"
+        ],
+        "price": 199,
+        "description": "44cm Necklace with a Gem Square Pendant",
+        "id": "8b162e98-c37b-4b78-8e1d-ef783a449a67",
+        "name": "Gem Square"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258422141,
+        "salePrice": 179,
+        "created_at": 1764227236179,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/8ce2461a-87ff-4b9e-aa38-e32fc0f508f9/210-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "8ce2461a-87ff-4b9e-aa38-e32fc0f508f9",
+        "name": "Silver Hollow Butterfly"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764153452589,
+        "salePrice": 179,
+        "created_at": 1764060009283,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/8d2d67ed-8e91-4469-9986-8191e029dd89/192-0.jpg"
+        ],
+        "price": 199,
+        "description": "44cm Necklace with Pearl Square Pendant",
+        "id": "8d2d67ed-8e91-4469-9986-8191e029dd89",
+        "name": "Pearl Square"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764259972206,
+        "salePrice": 199,
+        "created_at": 1764059333607,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/8d4381cf-7ad1-4746-9f4d-6f2f3ad48c3e/318-0.jpg"
+        ],
+        "price": 219,
+        "description": "40-45cm Adjustable Station Necklace with Hollow Butterfly, Gem and Beads Design",
+        "id": "8d4381cf-7ad1-4746-9f4d-6f2f3ad48c3e",
+        "name": "Station Necklace 2"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764147933397,
+        "salePrice": 299,
+        "created_at": 1763644433007,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/8dbc4ffd-030b-4d61-a664-e239320b8b18/109-0.jpg"
+        ],
+        "price": 349,
+        "description": "38-43cm Adjustable Necklace with a 9mm Black Clover Center Chain Motif",
+        "id": "8dbc4ffd-030b-4d61-a664-e239320b8b18",
+        "name": "Center Chain Mini Black Clover"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259790905,
+        "salePrice": 179,
+        "created_at": 1764224783583,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/901803d8-c90b-4b35-8813-9b7fc2560344/306-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "901803d8-c90b-4b35-8813-9b7fc2560344",
+        "name": "C Necklace"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258433391,
+        "salePrice": 179,
+        "created_at": 1764226861880,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/9089e597-9353-4027-b477-79a34e127788/211-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "9089e597-9353-4027-b477-79a34e127788",
+        "name": "Oval Mother Pearl"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764348368489,
+        "salePrice": 349,
+        "created_at": 1763643866742,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/91b4283a-169e-4353-b6b7-eaf3ecfd2786/373-0.jpg"
+        ],
+        "price": 399,
+        "description": "43-46cm Adjustable Necklace with a 15mm Premium White Center Chain Clover Motif",
+        "id": "91b4283a-169e-4353-b6b7-eaf3ecfd2786",
+        "name": "Premium White Clover"
+    },
+    {
+        "quantity": 2,
+        "updated_at": 1764152864884,
+        "salePrice": 179,
+        "created_at": 1764059828526,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/91dbfb31-a6cc-4dd6-909d-b58a9ec12f71/162-0.jpg"
+        ],
+        "price": 199,
+        "description": "44cm Necklace with Black Leaf Pendant",
+        "id": "91dbfb31-a6cc-4dd6-909d-b58a9ec12f71",
+        "name": "Black Leaf"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258443701,
+        "salePrice": 179,
+        "created_at": 1764227178309,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/92dacc2d-baed-450c-82d4-a02d443cea4f/212-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "92dacc2d-baed-450c-82d4-a02d443cea4f",
+        "name": "White Jade"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259573374,
+        "salePrice": 179,
+        "created_at": 1764236293074,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/9799b9f3-e696-406d-9d98-15c841cade3c/294-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "9799b9f3-e696-406d-9d98-15c841cade3c",
+        "name": "Silver Lock Key"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764347823875,
+        "salePrice": 179,
+        "created_at": 1764054685493,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/993b1d0a-ae21-45af-aa4b-1ee21f6b2b46/165-0.jpg"
+        ],
+        "price": 199,
+        "description": "44cm Necklace with a Stoned Heart Barrel Pendant",
+        "id": "993b1d0a-ae21-45af-aa4b-1ee21f6b2b46",
+        "name": "Heart Barrel"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259052344,
+        "salePrice": 179,
+        "created_at": 1764232569710,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/9f07c9a6-1d31-4c51-ab07-f7f7737e36e4/250-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "9f07c9a6-1d31-4c51-ab07-f7f7737e36e4",
+        "name": "Wide Barrel"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259773826,
+        "salePrice": 199,
+        "created_at": 1764224594481,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/9f9a7afa-7dbd-4fa5-991c-da47e23e8919/305-0.jpg"
+        ],
+        "price": 219,
+        "description": "----------",
+        "id": "9f9a7afa-7dbd-4fa5-991c-da47e23e8919",
+        "name": "Black Hollow Clover"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764147114536,
+        "salePrice": 299,
+        "created_at": 1763702801231,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/a1b0bdea-5276-4e34-9878-3b374c35edc8/61-0.jpg"
+        ],
+        "price": 379,
+        "description": "45-50cm Adjustable Necklace with a Lock Design",
+        "id": "a1b0bdea-5276-4e34-9878-3b374c35edc8",
+        "name": "Lock"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259086574,
+        "salePrice": 179,
+        "created_at": 1764232641484,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/a1d0c051-79ff-4d76-9d8e-c14dd8734274/253-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "a1d0c051-79ff-4d76-9d8e-c14dd8734274",
+        "name": "Cross"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764146937823,
+        "salePrice": 149,
+        "created_at": 1763641532544,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/a359d2b2-923b-4c60-bb15-8500bce0fd25/55-0.jpg"
+        ],
+        "price": 199,
+        "description": "50cm Adjustable Mini Silver Paperclip",
+        "id": "a359d2b2-923b-4c60-bb15-8500bce0fd25",
+        "name": "Mini Paperclip"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764252798099,
+        "salePrice": 249,
+        "created_at": 1763642030467,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/a40288e8-31a3-4d00-9d3b-d0044b4fd8b8/Untitled (800 x 800 px) (1)-0.jpg"
+        ],
+        "price": 299,
+        "description": "43-48cm Adjustable Premium Silver Stoned Heart Necklace",
+        "id": "a40288e8-31a3-4d00-9d3b-d0044b4fd8b8",
+        "name": "Silver Premium Heart"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764145844125,
+        "salePrice": 199,
+        "created_at": 1763702449119,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/a8bfeb7d-5238-4a9b-a798-9f6e2fab8194/7-0.jpg"
+        ],
+        "price": 219,
+        "description": "44cm Necklace with a 13mm Gold Clover Motif Pendant",
+        "id": "a8bfeb7d-5238-4a9b-a798-9f6e2fab8194",
+        "name": "Gold Clover"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764348436393,
+        "salePrice": 349,
+        "created_at": 1763643897704,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/a9d5d7a9-28f7-40ee-ac4b-ed3fa1ba3831/376-0.jpg"
+        ],
+        "price": 399,
+        "description": "43-46cm Adjustable Necklace with a 15mm Premium Black Center Chain Clover Motif",
+        "id": "a9d5d7a9-28f7-40ee-ac4b-ed3fa1ba3831",
+        "name": "Premium Black Clover"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764146947688,
+        "salePrice": 179,
+        "created_at": 1763701824653,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/aa3ecab6-3f74-4d21-9bc0-faad6e94044b/56-0.jpg"
+        ],
+        "price": 199,
+        "description": "44cm Necklace with a Stoned Money Tree Pendant",
+        "id": "aa3ecab6-3f74-4d21-9bc0-faad6e94044b",
+        "name": "Money Tree"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258362796,
+        "salePrice": 179,
+        "created_at": 1764227100718,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/ab67a25c-7b42-47f1-8076-b638a598a7b6/209-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "ab67a25c-7b42-47f1-8076-b638a598a7b6",
+        "name": "Stone Pearl"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259099217,
+        "salePrice": 179,
+        "created_at": 1764232536806,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/ac9b0006-ea9a-4a8b-8223-86a31015c65f/254-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "ac9b0006-ea9a-4a8b-8223-86a31015c65f",
+        "name": "Jesus Cross"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258779342,
+        "salePrice": 179,
+        "created_at": 1764229215796,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/ae089bfd-6185-4a5c-8ef3-c27172925a84/229-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "ae089bfd-6185-4a5c-8ef3-c27172925a84",
+        "name": "Middle Stoned Cross"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259356144,
+        "salePrice": 199,
+        "created_at": 1764235109491,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/b04e85be-5f35-4fcb-b1e9-2342502bc16b/277-0.jpg"
+        ],
+        "price": 219,
+        "description": "----------",
+        "id": "b04e85be-5f35-4fcb-b1e9-2342502bc16b",
+        "name": "Stoned Clover"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764260016064,
+        "salePrice": 299,
+        "created_at": 1764058330345,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/b09525e9-51a6-4241-87d2-289552e1710a/321-0.jpg"
+        ],
+        "price": 349,
+        "description": "43-48cm Adjustable Necklace with Multiple 15mm Black Clover Motifs",
+        "id": "b09525e9-51a6-4241-87d2-289552e1710a",
+        "name": "Multiple Black Clover"
+    },
+    {
+        "quantity": 2,
+        "updated_at": 1764146622739,
+        "salePrice": 299,
+        "created_at": 1763645906478,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/b0ccf995-f849-4a6f-8ce5-dd727cdda4b4/41-0.jpg"
+        ],
+        "price": 349,
+        "description": "43-48cm/ 45-50cm Adjustable Necklace with Multiple 9mm Black Clover Motifs",
+        "id": "b0ccf995-f849-4a6f-8ce5-dd727cdda4b4",
+        "name": "Multiple Mini Black Clover"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764147885299,
+        "salePrice": 299,
+        "created_at": 1763644593754,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/b2374ec0-d1a4-4df3-aec5-69b84b88d2f8/106-0.jpg"
+        ],
+        "price": 349,
+        "description": "43-48cm Adjustable Necklace with a 13mm Gold Clover Center Chain Motif",
+        "id": "b2374ec0-d1a4-4df3-aec5-69b84b88d2f8",
+        "name": "Center Chain Gold Clover"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764260091181,
+        "salePrice": 179,
+        "created_at": 1764060180986,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/b294c91c-e266-450f-b86d-7b947fc900d5/324-0.jpg"
+        ],
+        "price": 199,
+        "description": "44cm Necklace with Pearl Heart Pendant",
+        "id": "b294c91c-e266-450f-b86d-7b947fc900d5",
+        "name": "Pearl Heart"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764147844910,
+        "salePrice": 149,
+        "created_at": 1763701510504,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/b298fd3a-25d1-4aa8-bacf-eabb335f40db/103-0.jpg"
+        ],
+        "price": 199,
+        "description": "50cm Paperclip Necklace with a Green Teardrop Jade Pendant",
+        "id": "b298fd3a-25d1-4aa8-bacf-eabb335f40db",
+        "name": "Green Jade"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764260215837,
+        "salePrice": 179,
+        "created_at": 1764054981427,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/b4917e66-316c-4304-b902-ff912457e9ae/332-0.jpg"
+        ],
+        "price": 199,
+        "description": "44cm Necklace with a Silver Stoned Butterfly Pendant",
+        "id": "b4917e66-316c-4304-b902-ff912457e9ae",
+        "name": "Silver Stoned Butterfly"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764260145383,
+        "salePrice": 179,
+        "created_at": 1764054734163,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/b73fccf4-7833-45f8-92d9-3209c297df4b/329-0.jpg"
+        ],
+        "price": 199,
+        "description": "44cm Necklace with a Stoned X Barrel Pendant",
+        "id": "b73fccf4-7833-45f8-92d9-3209c297df4b",
+        "name": "X Barrel"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258798081,
+        "salePrice": 179,
+        "created_at": 1764229073407,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/b80fe3c7-578b-4b9d-9b2b-347e1ad5b493/230-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "b80fe3c7-578b-4b9d-9b2b-347e1ad5b493",
+        "name": "Silver Stoned Heart"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764260236162,
+        "salePrice": 179,
+        "created_at": 1764055588531,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/c5605bb6-97b1-44d3-9be3-ad3695ba43c5/334-0.jpg"
+        ],
+        "price": 199,
+        "description": "44cm Necklace with a Stoned Cross Pendant",
+        "id": "c5605bb6-97b1-44d3-9be3-ad3695ba43c5",
+        "name": "Premium Cross"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258609548,
+        "salePrice": 179,
+        "created_at": 1764227583035,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/c6c9fb1a-d84e-477d-8fae-5ca5eec90e72/218-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "c6c9fb1a-d84e-477d-8fae-5ca5eec90e72",
+        "name": "Stoned Hollow Heart"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764257806043,
+        "salePrice": 179,
+        "created_at": 1764237122667,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/cb5c6dcb-3e35-47db-8f22-c28a2ad65b05/194-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "cb5c6dcb-3e35-47db-8f22-c28a2ad65b05",
+        "name": "Airplane"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764301742141,
+        "salePrice": 199,
+        "created_at": 1763646313112,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/d54a996d-e4a9-47cd-aaf8-e18b65b13e55/374-0.jpg"
+        ],
+        "price": 219,
+        "description": "44cm Necklace with a 9mm Gold Clover Motif Pendant",
+        "id": "d54a996d-e4a9-47cd-aaf8-e18b65b13e55",
+        "name": "Mini Gold Clover"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258459773,
+        "salePrice": 199,
+        "created_at": 1764226891402,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/e177e8ad-c716-4d9f-ae88-cc7a19949544/213-0.jpg"
+        ],
+        "price": 219,
+        "description": "----------",
+        "id": "e177e8ad-c716-4d9f-ae88-cc7a19949544",
+        "name": "V Necklace"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764347839402,
+        "salePrice": 179,
+        "created_at": 1764060211756,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/e26774c0-7d09-40bd-b5f5-27514fd0ff27/323-0.jpg"
+        ],
+        "price": 199,
+        "description": "44cm Necklace with a Lock and Key Pendant",
+        "id": "e26774c0-7d09-40bd-b5f5-27514fd0ff27",
+        "name": "Lock Key Barrel"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764260246737,
+        "salePrice": 179,
+        "created_at": 1764055436259,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/e5dcabbf-f7f3-42a2-9753-b5b445de7494/335-0.jpg"
+        ],
+        "price": 199,
+        "description": "44cm Necklace with a Sharp Heart Pendant",
+        "id": "e5dcabbf-f7f3-42a2-9753-b5b445de7494",
+        "name": "Sharp Heart"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764258756959,
+        "salePrice": 179,
+        "created_at": 1764228802703,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/ee74c9bc-8810-4fa0-ae0c-2fb1ce4a6618/227-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "ee74c9bc-8810-4fa0-ae0c-2fb1ce4a6618",
+        "name": "Round Barrel"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764259137757,
+        "salePrice": 179,
+        "created_at": 1764232452147,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/ef3372f6-5546-478a-871d-4f87ce92026f/257-0.jpg"
+        ],
+        "price": 199,
+        "description": "----------",
+        "id": "ef3372f6-5546-478a-871d-4f87ce92026f",
+        "name": "Silver Pearl Gem"
+    },
+    {
+        "quantity": 0,
+        "updated_at": 1764300494454,
+        "salePrice": 199,
+        "created_at": 1764225368958,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/f659865f-117a-4fe9-9a3e-3f4dd5ad2bd3/369-0.jpg"
+        ],
+        "price": 219,
+        "description": "----------",
+        "id": "f659865f-117a-4fe9-9a3e-3f4dd5ad2bd3",
+        "name": "Hollow Mother Pearl"
+    },
+    {
+        "quantity": 1,
+        "updated_at": 1764148132632,
+        "salePrice": 179,
+        "created_at": 1763701363634,
+        "status": "active",
+        "category": "necklaces",
+        "images": [
+            "necklaces/faa114ef-f4a5-434d-855a-942fb38a92d8/117-0.jpg"
+        ],
+        "price": 199,
+        "description": "44cm Necklace with a Stoned Eye Pendant",
+        "id": "faa114ef-f4a5-434d-855a-942fb38a92d8",
+        "name": "Eye"
+    }
+]
