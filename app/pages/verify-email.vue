@@ -103,6 +103,12 @@ const router = useRouter();
 // Get email from query params
 const email = ref((route.query.email as string) || '');
 
+// Get redirect parameter from query
+const redirectPath = computed(() => {
+  const redirect = route.query.redirect as string;
+  return redirect || null;
+});
+
 // Redirect if no email provided
 onMounted(() => {
   if (!email.value) {
@@ -185,9 +191,22 @@ const handleVerify = async () => {
     if (result.success) {
       successMessage.value = 'Email verified successfully! Redirecting...';
       
-      // Wait a moment then redirect to login or auto-sign in
-      setTimeout(() => {
-        router.push('/login');
+      // Wait a moment then redirect
+      setTimeout(async () => {
+        // Check if user is automatically signed in after verification
+        await authStore.checkAuthStatus();
+        
+        if (authStore.isAuthenticated) {
+          // User is auto-signed in, redirect to intended destination or home
+          const destination = redirectPath.value || '/';
+          router.push(destination);
+        } else {
+          // User needs to sign in, redirect to login with redirect parameter
+          const loginUrl = redirectPath.value 
+            ? `/login?redirect=${encodeURIComponent(redirectPath.value)}`
+            : '/login';
+          router.push(loginUrl);
+        }
       }, 1500);
     } else {
       errorMessage.value = result.error || 'Failed to verify email';

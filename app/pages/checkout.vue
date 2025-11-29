@@ -128,6 +128,18 @@
                 </div>
             </div>
 
+            <!-- Promotional Discount Banner -->
+            <div v-if="promotionalDiscountAmount > 0" class="max-w-6xl mx-auto mb-6">
+                <div class="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-lg p-4 shadow-sm">
+                    <div class="flex items-center gap-3">
+                        <UIcon name="i-heroicons-sparkles" class="w-6 h-6 text-green-600 flex-shrink-0" />
+                        <p class="text-base font-semibold text-green-800">
+                            Congratulations! You are one of the first 10 buyers &#8211; enjoy your 10% OFF!
+                        </p>
+                    </div>
+                </div>
+            </div>
+
             <!-- Main Content -->
             <div class="max-w-6xl mx-auto">
                 <div class="flex flex-col md:grid md:grid-cols-3 gap-6">
@@ -139,33 +151,34 @@
                             <!-- Item Breakdown -->
                             <div v-for="item in cartStore.items" :key="item.id" class="flex justify-between text-sm">
                                 <span class="text-gray-600">{{ item.name }} x {{ item.quantity }}</span>
-                                <span>₱{{ (item.price * item.quantity).toFixed(2) }}</span>
+                                <span>₱{{ formatPrice(item.price * item.quantity) }}</span>
                             </div>
-                            <div class="flex justify-between text-sm">
+                            <div class="border-t border-gray-200 my-2"></div>
+                            <div class="flex justify-between text-sm mb-5">
                                 <span class="text-gray-600">Subtotal</span>
-                                <span>₱{{ cartStore.total.toFixed(2) }}</span>
+                                <span>₱{{ formatPrice(cartStore.total) }}</span>
                             </div>
                             <div v-if="promotionalDiscountAmount > 0" class="flex justify-between text-sm text-green-600">
-                                <span class="text-gray-600">
+                                <span class="text-gray-600 font-bold">
                                     Promotional Discount (10%)
                                 </span>
-                                <span class="font-medium">-₱{{ promotionalDiscountAmount.toFixed(2) }}</span>
+                                <span class="font-medium">-₱{{ formatPrice(promotionalDiscountAmount) }}</span>
                             </div>
                             <div class="flex justify-between text-sm">
-                                <span class="text-gray-600">
+                                <span class="text-gray-600 font-bold">
                                     Shipping ({{ getDeliveryMethodLabel(deliveryMethod) }})
                                     <span v-if="totalItemCount >= 5" class="text-xs text-green-600">(Free for 5+ items)</span>
                                 </span>
                                 <span :class="shippingCost === 0 ? 'text-green-600 font-medium' : ''">
-                                    {{ shippingCost === 0 ? 'FREE' : `₱${shippingCost.toFixed(2)}` }}
+                                    {{ shippingCost === 0 ? 'FREE' : `₱${formatPrice(shippingCost)}` }}
                                 </span>
                             </div>
                             <div v-if="paperBagQuantity > 0" class="flex justify-between text-sm">
-                                <span class="text-gray-600">
+                                <span class="text-gray-600 font-bold">
                                     Paper Bag{{ paperBagQuantity > 1 ? ` (x${paperBagQuantity})` : '' }}
                                 </span>
                                 <span :class="paperBagCost === 0 ? 'text-green-600 font-medium' : ''">
-                                    {{ paperBagCost === 0 ? 'FREE' : `₱${paperBagCost.toFixed(2)}` }}
+                                    {{ paperBagCost === 0 ? 'FREE' : `₱${formatPrice(paperBagCost)}` }}
                                 </span>
                             </div>
                         </div>
@@ -174,13 +187,9 @@
 
                         <div class="flex justify-between text-lg font-bold">
                             <span>Total</span>
-                            <span class="text-primary-600">₱{{ orderTotal.toFixed(2) }}</span>
+                            <span class="text-primary-600">₱{{ formatPrice(orderTotal) }}</span>
                         </div>
 
-                        <div class="mt-4 p-3 bg-blue-50 rounded text-xs text-blue-800">
-                            <UIcon name="i-heroicons-information-circle" class="inline" />
-                            Your order will be processed after payment verification
-                        </div>
                     </div>
 
                     <!-- Order Details Form (Left Column) -->
@@ -191,18 +200,6 @@
                             <!-- Delivery Method Selection -->
                             <div>
                                 <h3 class="font-semibold text-lg mb-3">Delivery Method</h3>
-                                <div class="mb-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
-                                    <div class="flex items-start gap-2">
-                                        <UIcon name="i-heroicons-information-circle" class="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                                        <div class="text-sm text-blue-800">
-                                            <p class="font-medium mb-1">How to get a free shipping fee:</p>
-                                            <ul class="list-disc list-outside pl-5 space-y-1 text-blue-700">
-                                                <li class="pl-1">Orders containing items from the "Sets" category qualify for free shipping</li>
-                                                <li class="pl-1">Orders with 5 or more items qualify for free shipping</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="space-y-3">
                                     <label class="flex items-center p-4 border-2 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors" :class="deliveryMethod === 'meet_up' ? 'border-primary-600 bg-primary-50' : 'border-gray-200'">
                                         <input
@@ -254,6 +251,21 @@
                                             <p class="text-sm text-gray-500">Ship to your address via J&T Express</p>
                                         </div>
                                     </label>
+                                </div>
+                            </div>
+
+                            <!-- Free Shipping Information (Conditional - Only for Ship via J&T) -->
+                            <div v-if="deliveryMethod === 'ship_via_jt'">
+                                <div class="mb-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+                                    <div class="flex items-start gap-2">
+                                        <UIcon name="i-heroicons-information-circle" class="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                                        <div class="text-sm text-blue-800">
+                                            <p class="font-medium mb-1">How to get a free shipping fee:</p>
+                                            <ul class="list-disc list-outside pl-5 space-y-1 text-blue-700">
+                                                <li class="pl-1">Orders with 5 or more items qualify for free shipping</li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -391,6 +403,12 @@
                                 ></textarea>
                             </div>
 
+
+                            <div class="mt-4 p-3 bg-blue-50 rounded text-xs text-blue-800 flex items-start gap-2">
+                                <UIcon name="i-heroicons-information-circle" class="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                                <span>Your order will be processed after payment verification</span>
+                            </div>
+
                             <!-- Submit Button -->
                             <UButton 
                                 block 
@@ -426,6 +444,11 @@ import { useUser } from '~/composables/api/useUser'
 import { useInventoryAdjustments } from '~/composables/useInventoryAdjustments'
 import type { IOrderItem, IOrderInput } from '~/types/order'
 import getImageUrl from '~/utils/get-image-url'
+import formatPrice from '~/utils/format-price'
+
+definePageMeta({
+  middleware: ['auth']
+})
 
 const router = useRouter()
 const toast = useToast()
@@ -467,26 +490,13 @@ onMounted(async () => {
         return
     }
     
-    // Redirect to login if not authenticated
-    if (!authStore.isAuthenticated) {
-        toast.add({
-            title: 'Authentication Required',
-            description: 'Please sign in or register to proceed with checkout',
-            color: 'error'
-        })
-        router.push('/login')
-        return
-    }
-    
-    // Ensure products are loaded for category lookups
+    // Auth middleware will handle authentication redirect
+    // Just ensure products are loaded for category lookups
     if (productsStore.products.length === 0) {
         await productsStore.fetchProducts()
     }
 })
 
-const formatPrice = (price: number) => {
-    return price.toFixed(2)
-}
 
 // Calculate total item count (sum of quantities)
 const totalItemCount = computed(() => {
@@ -583,14 +593,13 @@ const getDeliveryMethodLabel = (method: string): string => {
 }
 
 const handleSubmitOrder = async () => {
-    // Validate authentication
+    // Auth middleware ensures user is authenticated, but double-check for safety
     if (!authStore.isAuthenticated) {
         toast.add({
             title: 'Authentication Required',
-            description: 'Please sign in to complete your order',
+            description: 'Please create an account to complete your order',
             color: 'error'
         })
-        router.push('/login')
         return
     }
 

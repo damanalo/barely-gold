@@ -54,7 +54,7 @@
           </UButton>
           <UButton 
             v-if="!authStore.isAuthenticated"
-            @click="navigateTo('/login')" 
+            @click="handleLoginClick" 
             icon="i-heroicons-arrow-right-on-rectangle" 
             color="primary"
             variant="ghost" 
@@ -134,7 +134,7 @@
 
             <div class="flex-1 min-w-0">
               <h4 class="text-sm font-medium text-gray-900 dark:text-white truncate">{{ item.name }}</h4>
-              <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">{{ formatPrice(item.price) }}</p>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">₱{{ formatPrice(item.price) }}</p>
               
               <div class="flex items-center gap-2 mt-3">
                 <UButton 
@@ -171,7 +171,7 @@
 
             <div class="text-right">
               <p class="text-sm font-medium text-gray-900 dark:text-white">
-                {{ formatPrice(item.price * item.quantity) }}
+                ₱{{ formatPrice(item.price * item.quantity) }}
               </p>
             </div>
           </div>
@@ -193,7 +193,7 @@
               Total
             </span>
             <div class="text-3xl font-bold" style="color: var(--color-gold-600)">
-              {{ formatPrice(cartStore.total) }}
+              ₱{{ formatPrice(cartStore.total) }}
             </div>
           </div>
 
@@ -219,6 +219,7 @@ import LogoMini from '~/components/LogoMini.vue'
 import { useAuthStore } from '~/stores/auth'
 import { useCartStore } from '~/stores/cart'
 import { useCategoriesStore } from '~/stores/categories'
+import formatPrice from '~/utils/format-price'
 
 const authStore = useAuthStore()
 await authStore.checkAuthStatus();
@@ -318,12 +319,6 @@ const handleProductsClick = async () => {
   }
 }
 
-const formatPrice = (price: number) => {
-  return new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'PHP'
-  }).format(price)
-}
 
 const handleCheckout = async (close?: () => void) => {
   // Close the slideover UI and navigate to checkout
@@ -335,6 +330,15 @@ const handleCheckout = async (close?: () => void) => {
 const handleContinueShopping = async () => {
   cartStore.closeCart()
   await navigateTo('/products')
+}
+
+const handleLoginClick = async () => {
+  // Preserve current route when navigating to login
+  const currentPath = route.fullPath
+  await navigateTo({
+    path: '/login',
+    query: { redirect: currentPath }
+  })
 }
 
 const isAdmin = computed(() => {

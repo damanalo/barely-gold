@@ -65,7 +65,7 @@
         <p class="text-gray-600 text-sm">
           Don't have an account?
           <NuxtLink 
-            to="/signup" 
+            :to="route.query.redirect ? `/signup?redirect=${encodeURIComponent(route.query.redirect as string)}` : '/signup'"
             class="font-semibold ml-1"
             style="color: var(--color-gold-700);"
           >
@@ -78,7 +78,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { useAuthStore } from '~/stores/auth';
 import AuthCard from '~/components/auth/AuthCard.vue';
 import AuthInput from '~/components/auth/AuthInput.vue';
@@ -161,10 +161,13 @@ const handleSignIn = async () => {
         router.push(redirect);
       }
     } else if (result.code === 'UserNotConfirmedException') {
-      // Redirect to verify email page
+      // Redirect to verify email page, preserving redirect parameter
       errorMessage.value = result.error || 'Please verify your email';
+      const redirect = route.query.redirect as string;
+      const verifyEmailUrl = `/verify-email?email=${encodeURIComponent(email.value)}`;
+      const redirectParam = redirect ? `&redirect=${encodeURIComponent(redirect)}` : '';
       setTimeout(() => {
-        router.push(`/verify-email?email=${encodeURIComponent(email.value)}`);
+        router.push(`${verifyEmailUrl}${redirectParam}`);
       }, 2000);
     } else {
       errorMessage.value = result.error || 'Failed to sign in';

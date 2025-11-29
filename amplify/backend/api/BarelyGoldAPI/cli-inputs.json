@@ -20,25 +20,6 @@
         "setting": "private"
       }
     },
-    "/products": {
-      "name": "/products",
-      "lambdaFunction": "BGProductsCRUD",
-      "permissions": {
-        "groups": {
-          "Admin": [
-            "create",
-            "read",
-            "update",
-            "delete"
-          ],
-          "Customer": [
-            "read",
-            "update"
-          ]
-        },
-        "setting": "private"
-      }
-    },
     "/orders": {
       "name": "/orders",
       "lambdaFunction": "BGOrdersCRUD",
@@ -57,6 +38,34 @@
           ]
         },
         "setting": "private"
+      }
+    },
+    "/products": {
+      "name": "/products",
+      "lambdaFunction": "BGProductsCRUD",
+      "permissions": {
+        "setting": "protected",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ],
+        "guest": [
+          "read"
+        ],
+        "groups": {
+          "Admin": [
+            "create",
+            "read",
+            "update",
+            "delete"
+          ],
+          "Customer": [
+            "read",
+            "update"
+          ]
+        }
       }
     }
   }

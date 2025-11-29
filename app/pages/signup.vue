@@ -105,7 +105,7 @@
         <p class="text-gray-600 text-sm">
           Already have an account?
           <NuxtLink 
-            to="/login" 
+            :to="redirectPath ? `/login?redirect=${encodeURIComponent(redirectPath)}` : '/login'"
             class="font-semibold ml-1"
             style="color: var(--color-gold-700);"
           >
@@ -131,6 +131,13 @@ definePageMeta({
 
 const authStore = useAuthStore();
 const router = useRouter();
+const route = useRoute();
+
+// Get redirect parameter from query
+const redirectPath = computed(() => {
+  const redirect = route.query.redirect as string;
+  return redirect || null;
+});
 
 // Get config to check if coming soon is enabled
 const { public: config } = useRuntimeConfig();
@@ -243,8 +250,10 @@ const handleSignUp = async () => {
     );
     
     if (result.success) {
-      // Redirect to verify email page
-      router.push(`/verify-email?email=${encodeURIComponent(email.value)}`);
+      // Redirect to verify email page, preserving redirect parameter
+      const verifyEmailUrl = `/verify-email?email=${encodeURIComponent(email.value)}`;
+      const redirectParam = redirectPath.value ? `&redirect=${encodeURIComponent(redirectPath.value)}` : '';
+      router.push(`${verifyEmailUrl}${redirectParam}`);
     } else {
       errorMessage.value = result.error || 'Failed to create account';
     }

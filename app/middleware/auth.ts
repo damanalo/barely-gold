@@ -19,10 +19,16 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
   // Check if user is authenticated
   const isAuthPage = authPages.includes(to.path);
   
+  // Allow unauthenticated users to access auth pages
+  if (!authStore.isAuthenticated && isAuthPage) {
+    return; // Allow access to login, signup, etc.
+  }
+  
+  // Redirect unauthenticated users trying to access protected pages
   if (!authStore.isAuthenticated && !isAuthPage) {
-    // Store the intended destination
+    // Store the intended destination and redirect to signup
     return navigateTo({
-      path: '/login',
+      path: '/signup',
       query: { redirect: to.fullPath }
     });
   }

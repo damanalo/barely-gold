@@ -15,8 +15,6 @@ export const useProducts = () => {
 
       const data = await operation.body.json()
 
-      console.log('API Response Data:', data);
-
       return data as unknown as IProduct[]
     }
     catch (error) {
@@ -56,8 +54,6 @@ export const useProducts = () => {
       }).response
 
       const response = await operation.body.json() as any
-
-      console.log('API Response Data:', response);
 
       if(response && response.success && product.images) {
         // Upload all images to storage (with 'public/' prefix for S3)
@@ -119,8 +115,6 @@ export const useProducts = () => {
       }).response
 
       const response = await operation.body.json() as any
-
-      console.log('API Response Data:', response);
 
       // Only upload new images if they were provided
       if(response && response.success && product.images && product.images.length > 0) {

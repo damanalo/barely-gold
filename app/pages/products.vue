@@ -176,11 +176,11 @@
                 <!-- Price Display -->
                 <div class="flex-1">
                   <div v-if="product.salePrice" class="flex items-center gap-2">
-                    <span class="text-xl font-bold" style="color: var(--color-gold-600)">&#8369;{{ product.salePrice.toFixed(2) }}</span>
-                    <span class="text-sm text-stone-500 line-through">&#8369;{{ product.price.toFixed(2) }}</span>
+                    <span class="text-xl font-bold" style="color: var(--color-gold-600)">&#8369;{{ formatPrice(product.salePrice) }}</span>
+                    <span class="text-sm text-stone-500 line-through">&#8369;{{ formatPrice(product.price) }}</span>
                   </div>
                   <div v-else>
-                    <span class="text-xl font-bold" style="color: var(--color-gold-600)">&#8369;{{ product.price.toFixed(2) }}</span>
+                    <span class="text-xl font-bold" style="color: var(--color-gold-600)">&#8369;{{ formatPrice(product.price) }}</span>
                   </div>
                 </div>
               </div>
@@ -190,7 +190,7 @@
                 class="flex flex-wrap items-center gap-2"
               >
                 <span class="inline-block bg-green-100 text-green-800 px-2 py-0.5 rounded text-xs font-semibold">
-                  Save &#8369;{{ (product.price - product.salePrice).toFixed(2) }}
+                  Save &#8369;{{ formatPrice(product.price - product.salePrice) }}
                 </span>
                 <span class="inline-block bg-green-100 text-green-800 px-2 py-0.5 rounded text-xs font-semibold">
                   {{ Math.round(((product.price - product.salePrice) / product.price) * 100) }}% OFF
@@ -247,15 +247,15 @@
               <div v-if="selectedProduct.salePrice" class="flex flex-col gap-2">
                 <div class="flex items-center gap-3">
                   <span class="text-3xl font-bold" style="color: var(--color-gold-600)">
-                    &#8369;{{ selectedProduct.salePrice.toFixed(2) }}
+                    &#8369;{{ formatPrice(selectedProduct.salePrice) }}
                   </span>
                   <span class="text-lg text-stone-500 line-through">
-                    &#8369;{{ selectedProduct.price.toFixed(2) }}
+                    &#8369;{{ formatPrice(selectedProduct.price) }}
                   </span>
                 </div>
                 <div class="flex items-center gap-2">
                   <span class="inline-block bg-green-100 text-green-800 px-3 py-1 rounded text-sm font-semibold">
-                    Save &#8369;{{ (selectedProduct.price - selectedProduct.salePrice).toFixed(2) }}
+                    Save &#8369;{{ formatPrice(selectedProduct.price - selectedProduct.salePrice) }}
                   </span>
                   <span class="inline-block bg-green-100 text-green-800 px-3 py-1 rounded text-sm font-semibold">
                     {{ Math.round(((selectedProduct.price - selectedProduct.salePrice) / selectedProduct.price) * 100) }}% OFF
@@ -264,7 +264,7 @@
               </div>
               <div v-else>
                 <span class="text-3xl font-bold" style="color: var(--color-gold-600)">
-                  &#8369;{{ selectedProduct.price.toFixed(2) }}
+                  &#8369;{{ formatPrice(selectedProduct.price) }}
                 </span>
               </div>
             </div>
@@ -328,6 +328,7 @@ import { useProductsStore } from '~/stores/products'
 import { useCategoriesStore } from '~/stores/categories'
 import type { IProduct } from '~/types/product'
 import getImageUrl from '~/utils/get-image-url'
+import formatPrice from '~/utils/format-price'
 const route = useRoute()
 const router = useRouter()
 const cartStore = useCartStore()

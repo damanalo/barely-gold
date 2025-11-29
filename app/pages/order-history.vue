@@ -83,7 +83,7 @@
                                 </p>
                             </div>
                             <div class="text-right">
-                                <p class="text-lg font-bold text-primary-600">₱{{ order.total.toFixed(2) }}</p>
+                                <p class="text-lg font-bold text-primary-600">₱{{ formatPrice(order.total) }}</p>
                             </div>
                         </div>
                     </div>
@@ -238,11 +238,11 @@
                                                 <div class="flex-1">
                                                     <p class="font-medium">{{ item.name }}</p>
                                                     <p class="text-sm text-gray-600">
-                                                        Qty: {{ item.quantity }} × ₱{{ item.price.toFixed(2) }}
+                                                        Qty: {{ item.quantity }} × ₱{{ formatPrice(item.price) }}
                                                     </p>
                                                 </div>
                                                 <div class="text-right">
-                                                    <p class="font-semibold">₱{{ (item.price * item.quantity).toFixed(2) }}</p>
+                                                    <p class="font-semibold">₱{{ formatPrice(item.price * item.quantity) }}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -424,17 +424,17 @@
                                 <div class="space-y-2">
                                     <div class="flex justify-between text-sm">
                                         <span class="text-gray-600">Subtotal:</span>
-                                        <span class="font-medium">₱{{ order.subtotal.toFixed(2) }}</span>
+                                        <span class="font-medium">₱{{ formatPrice(order.subtotal) }}</span>
                                     </div>
                                     <div class="flex justify-between text-sm">
                                         <span class="text-gray-600">Shipping:</span>
                                         <span class="font-medium text-green-600">
-                                            {{ order.shipping_cost === 0 ? 'FREE' : `₱${order.shipping_cost.toFixed(2)}` }}
+                                            {{ order.shipping_cost === 0 ? 'FREE' : `₱${formatPrice(order.shipping_cost)}` }}
                                         </span>
                                     </div>
                                     <div class="flex justify-between text-lg font-bold border-t border-gray-200 pt-3 mt-2">
                                         <span>Total:</span>
-                                        <span class="text-primary-600">₱{{ order.total.toFixed(2) }}</span>
+                                        <span class="text-primary-600">₱{{ formatPrice(order.total) }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -450,6 +450,7 @@
 import { useOrdersStore } from '~/stores/orders'
 import type { IOrder } from '~/types/order'
 import getImageUrl from '~/utils/get-image-url'
+import formatPrice from '~/utils/format-price'
 
 const ordersStore = useOrdersStore()
 const toast = useToast()

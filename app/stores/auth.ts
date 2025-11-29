@@ -360,7 +360,7 @@ export const useAuthStore = defineStore('auth', {
       userStore.clearUser();
       cartStore.resetCart();
       
-      navigateTo('/login');
+      navigateTo('/');
     },
   },
 });
