@@ -24,13 +24,6 @@
       "name": "/products",
       "lambdaFunction": "BGProductsCRUD",
       "permissions": {
-        "setting": "protected",
-        "auth": [
-          "read"
-        ],
-        "guest": [
-          "read"
-        ],
         "groups": {
           "Admin": [
             "create",
@@ -39,9 +32,11 @@
             "delete"
           ],
           "Customer": [
-            "read"
+            "read",
+            "update"
           ]
-        }
+        },
+        "setting": "private"
       }
     },
     "/orders": {
@@ -52,11 +47,13 @@
           "Admin": [
             "create",
             "read",
-            "update"
+            "update",
+            "delete"
           ],
           "Customer": [
             "create",
-            "read"
+            "read",
+            "update"
           ]
         },
         "setting": "private"
