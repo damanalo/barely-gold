@@ -21,7 +21,7 @@
       "function": {
         "AdminQueries35b7b913": {
           "deploymentBucketName": "amplify-barelygoldui-prod-15beb-deployment",
-          "s3Key": "amplify-builds/AdminQueries35b7b913-2b70546f623573676a32-build.zip"
+          "s3Key": "amplify-builds/AdminQueries35b7b913-387456316534394d7652-build.zip"
         },
         "BGProductsCRUD": {
           "deploymentBucketName": "amplify-barelygoldui-prod-15beb-deployment",
