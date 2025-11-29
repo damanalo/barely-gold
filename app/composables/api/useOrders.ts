@@ -2,7 +2,7 @@ import type { IOrder, IOrderInput } from '~/types/order'
 import { get, post, put } from 'aws-amplify/api'
 import { fetchUserAttributes } from 'aws-amplify/auth'
 import { v4 as uuidv4 } from 'uuid'
-import { uploadData } from 'aws-amplify/storage'
+import { uploadData, remove } from 'aws-amplify/storage'
 
 export const useOrders = () => {
   const config = useRuntimeConfig()
@@ -145,6 +145,19 @@ export const useOrders = () => {
     paymentProofFile: File
   ): Promise<boolean> => {
     try {
+      // Delete existing payment proof from S3 if it exists
+      if (order.payment_proof) {
+        try {
+          await remove({
+            path: `public/${order.payment_proof}`
+          })
+          console.log('Deleted old payment proof:', order.payment_proof)
+        } catch (deleteError) {
+          // Log error but don't fail the upload if deletion fails
+          console.warn('Failed to delete old payment proof, continuing with upload:', deleteError)
+        }
+      }
+
       // Upload payment proof to S3
       const fileExtension = paymentProofFile.name.substring(paymentProofFile.name.lastIndexOf('.') + 1)
       const s3Path = `orders/${order.user_id}/${order.id}/payment-proof.${fileExtension}`

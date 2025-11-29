@@ -3,13 +3,8 @@
   "policyUUID": "33d6b977",
   "bucketName": "bgs3bucket",
   "storageAccess": "authAndGuest",
-  "guestAccess": [
-    "READ"
-  ],
-  "authAccess": [
-    "READ"
-  ],
-  "triggerFunction": "NONE",
+  "guestAccess": [],
+  "authAccess": [],
   "groupAccess": {
     "Admin": [
       "CREATE_AND_UPDATE",
@@ -17,7 +12,9 @@
       "DELETE"
     ],
     "Customer": [
-      "READ"
+      "CREATE_AND_UPDATE",
+      "READ",
+      "DELETE"
     ]
   }
 }
