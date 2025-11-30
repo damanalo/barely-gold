@@ -23,11 +23,13 @@
 
         <div
           v-else
+          ref="categoryFiltersContainer"
           class="flex gap-3 overflow-x-auto pb-1 -mx-2 px-2"
         >
           <button
             v-for="category in displayCategories"
             :key="category.id"
+            :ref="(el) => setCategoryButtonRef(el, category.id)"
             type="button"
             @click="handleCategorySelect(category.id)"
             :aria-pressed="currentCategoryId === category.id ? 'true' : 'false'"
@@ -415,7 +417,17 @@ onMounted(async () => {
   await ensureCategoryQuery()
   await categoriesStore.fetchCategories()
   await productsStore.fetchProducts()
+  
+  // Scroll to active filter after categories are loaded
+  await nextTick()
+  scrollToActiveFilter()
 })
+
+// Watch for route changes (e.g., from navigation) and scroll to active filter
+watch(() => route.query.category, async () => {
+  await nextTick()
+  scrollToActiveFilter()
+}, { immediate: false })
 
 
 const filteredProducts = computed(() => {
@@ -469,6 +481,33 @@ const pageTitle = computed(() => {
   return category ? category.name : 'Products'
 })
 
+// Refs for category filter buttons
+const categoryFiltersContainer = ref<HTMLElement | null>(null)
+const categoryButtonRefs = ref<Map<string, HTMLElement>>(new Map())
+
+const setCategoryButtonRef = (el: any, categoryId: string) => {
+  if (el) {
+    categoryButtonRefs.value.set(categoryId, el)
+  }
+}
+
+// Scroll active filter into view
+const scrollToActiveFilter = () => {
+  if (!categoryFiltersContainer.value) return
+  
+  const activeCategoryId = currentCategoryId.value
+  const activeButton = categoryButtonRefs.value.get(activeCategoryId)
+  
+  if (activeButton && categoryFiltersContainer.value) {
+    // Use scrollIntoView with smooth behavior and center alignment
+    activeButton.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'center'
+    })
+  }
+}
+
 const handleCategorySelect = async (categoryId: string) => {
   if (categoryId === currentCategoryId.value) {
     return
@@ -476,6 +515,10 @@ const handleCategorySelect = async (categoryId: string) => {
 
   const nextQuery = { ...route.query, category: categoryId } as Record<string, any>
   await router.replace({ query: nextQuery })
+  
+  // Scroll to active filter after navigation
+  await nextTick()
+  scrollToActiveFilter()
 }
 
 const addToCart = async (product: IProduct) => {

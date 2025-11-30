@@ -19,23 +19,25 @@
         </div>
 
         <!-- Desktop Category Navigation -->
-        <nav class="hidden md:flex items-center gap-1">
+        <nav ref="navContainer" class="hidden md:flex items-center gap-1 relative">
           <button
             v-for="category in categoriesStore.categories"
             :key="category.id"
+            :ref="(el) => setNavButtonRef(el, category.id)"
             @click="handleCategoryClick(category.id)"
-            class="px-3 py-2 text-sm font-medium transition-all duration-200 cursor-pointer relative"
+            class="px-3 py-2 text-sm font-medium transition-colors duration-200 cursor-pointer relative"
             :class="activeCategory === category.id 
               ? 'text-[var(--color-gold-700)]' 
               : 'text-gray-600 hover:text-gray-900'"
           >
             {{ category.name }}
-            <span 
-              v-if="activeCategory === category.id"
-              class="absolute bottom-0 left-0 right-0 h-0.5 rounded-full"
-              style="background-color: var(--color-gold-700)"
-            ></span>
           </button>
+          <!-- Animated underline -->
+          <span 
+            v-if="underlineStyle"
+            class="absolute bottom-0 h-0.5 rounded-full transition-all duration-300 ease-out"
+            :style="underlineStyle"
+          ></span>
         </nav>
 
         <!-- Cart and Settings -->
@@ -252,6 +254,35 @@ const activeCategory = computed(() => {
   return route.query.category as string | undefined
 })
 
+// Navigation underline animation
+const navContainer = ref<HTMLElement | null>(null)
+const navButtonRefs = ref<Map<string, HTMLElement>>(new Map())
+
+const setNavButtonRef = (el: any, categoryId: string) => {
+  if (el) {
+    navButtonRefs.value.set(categoryId, el)
+  }
+}
+
+const underlineStyle = computed(() => {
+  if (!navContainer.value || !activeCategory.value) return null
+  
+  const activeButton = navButtonRefs.value.get(activeCategory.value)
+  if (!activeButton) return null
+  
+  const containerRect = navContainer.value.getBoundingClientRect()
+  const buttonRect = activeButton.getBoundingClientRect()
+  
+  const left = buttonRect.left - containerRect.left
+  const width = buttonRect.width
+  
+  return {
+    left: `${left}px`,
+    width: `${width}px`,
+    backgroundColor: 'var(--color-gold-700)'
+  }
+})
+
 // Category navigation handlers
 const handleCategoryClick = async (categoryId: string) => {
   await navigateTo(`/products?category=${categoryId}`)
@@ -292,6 +323,15 @@ const initializeUserData = async () => {
   }
 }
 
+// Handle window resize for underline recalculation
+const handleResize = () => {
+  // Force recomputation of underline style
+  if (underlineStyle.value) {
+    // Trigger reactivity by accessing the computed
+    void underlineStyle.value
+  }
+}
+
 // Initialize on mount
 onMounted(async () => {
   await categoriesStore.fetchCategories()
@@ -300,6 +340,16 @@ onMounted(async () => {
     await productsStore.fetchProducts()
   }
   await initializeUserData()
+  
+  // Recalculate underline position after categories load
+  await nextTick()
+  
+  // Add resize listener for underline recalculation
+  window.addEventListener('resize', handleResize)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', handleResize)
 })
 
 // Watch for authentication changes and reload cart

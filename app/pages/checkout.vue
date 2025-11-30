@@ -282,6 +282,52 @@
                             <div v-if="deliveryMethod === 'ship_via_jt'" ref="shippingAddressRef">
                                 <h3 class="font-semibold text-lg mb-3">Shipping Address</h3>
                                 <div class="space-y-4">
+                                    <div ref="nameRef">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Name *</label>
+                                        <input
+                                            v-model="shippingAddress.name"
+                                            type="text"
+                                            placeholder="Full name"
+                                            :class="[
+                                                'w-full px-4 py-2 border rounded-md focus:ring-2 focus:border-transparent transition-colors',
+                                                fieldErrors.shippingAddress.name 
+                                                    ? 'border-red-500 focus:ring-red-500' 
+                                                    : 'border-gray-300 focus:ring-primary-600'
+                                            ]"
+                                            required
+                                            @input="fieldErrors.shippingAddress.name = ''"
+                                        />
+                                        <p v-if="fieldErrors.shippingAddress.name" class="mt-1 text-sm text-red-600">
+                                            {{ fieldErrors.shippingAddress.name }}
+                                        </p>
+                                    </div>
+                                    <div ref="contactNumberRef">
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Mobile Number *</label>
+                                        <input
+                                            v-model="shippingAddress.contact_number"
+                                            type="tel"
+                                            placeholder="09XXXXXXXXX (11 digits)"
+                                            maxlength="11"
+                                            :class="[
+                                                'w-full px-4 py-2 border rounded-md focus:ring-2 focus:border-transparent transition-colors',
+                                                fieldErrors.shippingAddress.contact_number 
+                                                    ? 'border-red-500 focus:ring-red-500' 
+                                                    : 'border-gray-300 focus:ring-primary-600'
+                                            ]"
+                                            required
+                                            @input="(e) => {
+                                                const value = (e.target as HTMLInputElement).value
+                                                const numericValue = filterNumericOnly(value)
+                                                // Limit to 11 digits
+                                                shippingAddress.contact_number = numericValue.slice(0, 11)
+                                                fieldErrors.shippingAddress.contact_number = ''
+                                            }"
+                                        />
+                                        <p v-if="fieldErrors.shippingAddress.contact_number" class="mt-1 text-sm text-red-600">
+                                            {{ fieldErrors.shippingAddress.contact_number }}
+                                        </p>
+                                        <p class="mt-1 text-xs text-gray-500">Format: 09XXXXXXXXX (11 digits, starts with 09)</p>
+                                    </div>
                                     <div ref="streetAddressRef">
                                         <label class="block text-sm font-medium text-gray-700 mb-1">Street Address *</label>
                                         <input
@@ -341,14 +387,27 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <div>
+                                    <div ref="postalCodeRef">
                                         <label class="block text-sm font-medium text-gray-700 mb-1">Postal Code</label>
                                         <input
                                             v-model="shippingAddress.postal_code"
                                             type="text"
                                             placeholder="Postal Code"
-                                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-600 focus:border-transparent"
+                                            :class="[
+                                                'w-full px-4 py-2 border rounded-md focus:ring-2 focus:border-transparent transition-colors',
+                                                fieldErrors.shippingAddress.postal_code 
+                                                    ? 'border-red-500 focus:ring-red-500' 
+                                                    : 'border-gray-300 focus:ring-primary-600'
+                                            ]"
+                                            @input="(e) => {
+                                                const value = (e.target as HTMLInputElement).value
+                                                shippingAddress.postal_code = filterNumericOnly(value)
+                                                fieldErrors.shippingAddress.postal_code = ''
+                                            }"
                                         />
+                                        <p v-if="fieldErrors.shippingAddress.postal_code" class="mt-1 text-sm text-red-600">
+                                            {{ fieldErrors.shippingAddress.postal_code }}
+                                        </p>
                                     </div>
                                     <div>
                                         <label class="block text-sm font-medium text-gray-700 mb-1">Country</label>
@@ -502,6 +561,8 @@ const deliveryMethod = ref<'meet_up' | 'pick_up' | 'ship_via_jt'>('meet_up')
 
 // Shipping address form
 const shippingAddress = ref({
+    name: '',
+    contact_number: '',
     street: '',
     city: '',
     province: '',
@@ -522,33 +583,62 @@ const isSubmitting = ref(false)
 const fieldErrors = reactive({
     deliveryMethod: '',
     shippingAddress: {
+        name: '',
+        contact_number: '',
         street: '',
         city: '',
-        province: ''
+        province: '',
+        postal_code: ''
     }
 })
 
 // Helper function to clear all field errors
 const clearAllErrors = () => {
     fieldErrors.deliveryMethod = ''
+    fieldErrors.shippingAddress.name = ''
+    fieldErrors.shippingAddress.contact_number = ''
     fieldErrors.shippingAddress.street = ''
     fieldErrors.shippingAddress.city = ''
     fieldErrors.shippingAddress.province = ''
+    fieldErrors.shippingAddress.postal_code = ''
 }
 
 // Helper function to clear shipping address errors
 const clearShippingAddressErrors = () => {
+    fieldErrors.shippingAddress.name = ''
+    fieldErrors.shippingAddress.contact_number = ''
     fieldErrors.shippingAddress.street = ''
     fieldErrors.shippingAddress.city = ''
     fieldErrors.shippingAddress.province = ''
+    fieldErrors.shippingAddress.postal_code = ''
 }
 
 // Template refs for scrolling to error fields
 const deliveryMethodRef = ref<HTMLElement | null>(null)
 const shippingAddressRef = ref<HTMLElement | null>(null)
+const nameRef = ref<HTMLElement | null>(null)
+const contactNumberRef = ref<HTMLElement | null>(null)
 const streetAddressRef = ref<HTMLElement | null>(null)
 const cityRef = ref<HTMLElement | null>(null)
 const provinceRef = ref<HTMLElement | null>(null)
+const postalCodeRef = ref<HTMLElement | null>(null)
+
+// Helper function to check if a string contains only numbers
+const isNumericOnly = (value: string): boolean => {
+    return /^\d+$/.test(value)
+}
+
+// Helper function to filter out non-numeric characters
+const filterNumericOnly = (value: string): string => {
+    return value.replace(/\D/g, '')
+}
+
+// Helper function to validate Philippines mobile number format
+// Valid formats: 09XXXXXXXXX (11 digits starting with 09)
+const isValidPhilippinesMobileNumber = (value: string): boolean => {
+    // Must be exactly 11 digits and start with 09
+    return /^09\d{9}$/.test(value)
+}
 
 // Function to scroll to the first field with an error
 const scrollToFirstError = () => {
@@ -565,6 +655,20 @@ const scrollToFirstError = () => {
 
         // Check shipping address errors (only if ship_via_jt is selected)
         if (deliveryMethod.value === 'ship_via_jt') {
+            if (fieldErrors.shippingAddress.name && nameRef.value) {
+                nameRef.value.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center' 
+                })
+                return
+            }
+            if (fieldErrors.shippingAddress.contact_number && contactNumberRef.value) {
+                contactNumberRef.value.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center' 
+                })
+                return
+            }
             if (fieldErrors.shippingAddress.street && streetAddressRef.value) {
                 streetAddressRef.value.scrollIntoView({ 
                     behavior: 'smooth', 
@@ -581,6 +685,13 @@ const scrollToFirstError = () => {
             }
             if (fieldErrors.shippingAddress.province && provinceRef.value) {
                 provinceRef.value.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center' 
+                })
+                return
+            }
+            if (fieldErrors.shippingAddress.postal_code && postalCodeRef.value) {
+                postalCodeRef.value.scrollIntoView({ 
                     behavior: 'smooth', 
                     block: 'center' 
                 })
@@ -740,6 +851,22 @@ const handleSubmitOrder = async () => {
     if (deliveryMethod.value === 'ship_via_jt') {
         let hasErrors = false
 
+        if (!shippingAddress.value.name || !shippingAddress.value.name.trim()) {
+            fieldErrors.shippingAddress.name = 'Name is required'
+            hasErrors = true
+        }
+
+        if (!shippingAddress.value.contact_number || !shippingAddress.value.contact_number.trim()) {
+            fieldErrors.shippingAddress.contact_number = 'Mobile number is required'
+            hasErrors = true
+        } else if (!isNumericOnly(shippingAddress.value.contact_number)) {
+            fieldErrors.shippingAddress.contact_number = 'Mobile number must contain only numbers'
+            hasErrors = true
+        } else if (!isValidPhilippinesMobileNumber(shippingAddress.value.contact_number)) {
+            fieldErrors.shippingAddress.contact_number = 'Please enter a valid Philippines mobile number (09XXXXXXXXX - 11 digits starting with 09)'
+            hasErrors = true
+        }
+
         if (!shippingAddress.value.street || !shippingAddress.value.street.trim()) {
             fieldErrors.shippingAddress.street = 'Street address is required'
             hasErrors = true
@@ -753,6 +880,14 @@ const handleSubmitOrder = async () => {
         if (!shippingAddress.value.province || !shippingAddress.value.province.trim()) {
             fieldErrors.shippingAddress.province = 'Province is required'
             hasErrors = true
+        }
+
+        // Validate postal code if provided (optional field, but must be numeric if filled)
+        if (shippingAddress.value.postal_code && shippingAddress.value.postal_code.trim()) {
+            if (!isNumericOnly(shippingAddress.value.postal_code)) {
+                fieldErrors.shippingAddress.postal_code = 'Postal code must contain only numbers'
+                hasErrors = true
+            }
         }
 
         if (hasErrors) {
