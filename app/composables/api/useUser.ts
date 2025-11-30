@@ -38,8 +38,6 @@ export const useUser = () => {
 
       const data = await operation.body.json() as any
 
-      console.log('Get User API Response:', data);
-
       // Normalize: if user does not exist yet, return a default object
       if (!data || !data.id) {
         const nowIso = new Date().toISOString()
@@ -97,8 +95,6 @@ export const useUser = () => {
       }).response
 
       const response = await operation.body.json() as any
-
-      console.log('Update User API Response:', response);
 
       return response?.success || false
     }

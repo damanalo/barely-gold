@@ -296,7 +296,6 @@ const handleMobileCategoryClick = async (categoryId: string) => {
 // Initialize user data and cart when authenticated
 const initializeUserData = async () => {
   if (authStore.isAuthenticated) {
-    console.log('Initializing user data and cart...')
     // Import and initialize user store
     const { useUserStore } = await import('~/stores/user')
     const userStore = useUserStore()
@@ -308,17 +307,13 @@ const initializeUserData = async () => {
     const hasGuestCart = cartStore.items.length > 0 && cartStore.isGuest
     
     if (hasGuestCart) {
-      console.log('Syncing guest cart to backend...')
       await cartStore.syncGuestCartToBackend()
     } else {
       // Initialize cart from backend
       await cartStore.initCart(true)
     }
-    
-    console.log('User data and cart initialized. Cart items:', cartStore.items)
   } else {
     // Initialize guest cart from localStorage
-    console.log('Initializing guest cart...')
     await cartStore.initCart(false)
   }
 }
@@ -355,10 +350,8 @@ onUnmounted(() => {
 // Watch for authentication changes and reload cart
 watch(() => authStore.isAuthenticated, async (isAuth) => {
   if (isAuth) {
-    console.log('User authenticated, syncing and loading cart...')
     await initializeUserData()
   } else {
-    console.log('User logged out, switching to guest cart...')
     cartStore.resetCart()
   }
 })

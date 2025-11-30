@@ -146,7 +146,7 @@ const showComingSoon = computed(() => String(config.showComingSoon) === 'true');
 // Check if signup should be blocked
 onMounted(() => {
   if (showComingSoon.value) {
-    router.push('/coming-soon');
+    router.push('/403');
   }
 });
 

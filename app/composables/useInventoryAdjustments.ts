@@ -120,7 +120,6 @@ export const useInventoryAdjustments = () => {
             name: product.name,
             newQuantity
           })
-          console.log(`Reserved ${orderItem.quantity} from product ${product.name}. New quantity: ${newQuantity}`)
         } else {
           errors.push(`Failed to update quantity for product "${product.name}"`)
         }
@@ -199,7 +198,6 @@ export const useInventoryAdjustments = () => {
             name: product.name,
             newQuantity
           })
-          console.log(`Released ${orderItem.quantity} back to product ${product.name}. New quantity: ${newQuantity}`)
         } else {
           errors.push(`Failed to update quantity for product "${product.name}"`)
         }

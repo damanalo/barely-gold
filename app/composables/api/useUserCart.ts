@@ -16,8 +16,6 @@ export const useUserCart = () => {
         return []
       }
 
-      console.log('Get Cart from User Data:', userData.cart);
-
       return userData.cart || []
     }
     catch (error) {
@@ -54,8 +52,6 @@ export const useUserCart = () => {
       // Update user with new cart
       const success = await updateUser({ cart: updatedCart })
 
-      console.log('Add to Cart Success:', success);
-
       return success
     }
     catch (error) {
@@ -77,8 +73,6 @@ export const useUserCart = () => {
 
       const success = await updateUser({ cart: updatedCart })
 
-      console.log('Update Cart Item Success:', success);
-
       return success
     }
     catch (error) {
@@ -98,8 +92,6 @@ export const useUserCart = () => {
 
       const success = await updateUser({ cart: updatedCart })
 
-      console.log('Remove from Cart Success:', success);
-
       return success
     }
     catch (error) {
@@ -114,8 +106,6 @@ export const useUserCart = () => {
   const clearCart = async (): Promise<boolean> => {
     try {
       const success = await updateUser({ cart: [] })
-
-      console.log('Clear Cart Success:', success);
 
       return success
     }

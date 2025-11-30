@@ -59,7 +59,6 @@ export const useCartStore = defineStore('cart', {
         const savedCart = localStorage.getItem(GUEST_CART_KEY)
         if (savedCart) {
           this.items = JSON.parse(savedCart)
-          console.log('Guest cart loaded from localStorage:', this.items)
         }
       } catch (error) {
         console.error('Failed to load guest cart:', error)
@@ -74,7 +73,6 @@ export const useCartStore = defineStore('cart', {
       
       try {
         localStorage.setItem(GUEST_CART_KEY, JSON.stringify(this.items))
-        console.log('Guest cart saved to localStorage')
       } catch (error) {
         console.error('Failed to save guest cart:', error)
       }
@@ -88,7 +86,6 @@ export const useCartStore = defineStore('cart', {
       
       try {
         localStorage.removeItem(GUEST_CART_KEY)
-        console.log('Guest cart cleared from localStorage')
       } catch (error) {
         console.error('Failed to clear guest cart:', error)
       }
@@ -106,11 +103,9 @@ export const useCartStore = defineStore('cart', {
           const { getCart } = useUserCart()
           const cartItems = await getCart()
           this.items = cartItems
-          console.log('Authenticated cart initialized with items:', cartItems)
         } else {
           // Load from localStorage for guests
           this.loadGuestCart()
-          console.log('Guest cart initialized with items:', this.items)
         }
         this.initialized = true
       } catch (error) {
@@ -130,7 +125,6 @@ export const useCartStore = defineStore('cart', {
     async syncGuestCartToBackend() {
       if (this.items.length === 0) return
 
-      console.log('Syncing guest cart to backend:', this.items)
       const { addToCart } = useUserCart()
       
       try {
@@ -144,8 +138,6 @@ export const useCartStore = defineStore('cart', {
         
         // Refresh cart from backend
         await this.refreshCart(true)
-        
-        console.log('Guest cart synced to backend successfully')
       } catch (error) {
         console.error('Failed to sync guest cart to backend:', error)
       }
@@ -189,7 +181,6 @@ export const useCartStore = defineStore('cart', {
             this.items.push(newItem)
           }
           this.saveGuestCart()
-          console.log('Item added to guest cart')
           // Show success toast
           toast.add({
             title: 'Added to cart',
@@ -242,7 +233,6 @@ export const useCartStore = defineStore('cart', {
           if (index > -1) {
             this.items.splice(index, 1)
             this.saveGuestCart()
-            console.log('Item removed from guest cart')
           }
         } else {
           // Authenticated user - remove from backend
@@ -292,7 +282,6 @@ export const useCartStore = defineStore('cart', {
         if (item) {
           item.quantity = quantity
           this.saveGuestCart()
-          console.log('Item quantity updated in guest cart')
         }
       } else {
         // Authenticated user - update in backend
@@ -357,7 +346,6 @@ export const useCartStore = defineStore('cart', {
           // Guest user - clear from localStorage
           this.items = []
           this.clearGuestCart()
-          console.log('Guest cart cleared')
         } else {
           // Authenticated user - clear from backend
           const { clearCart } = useUserCart()
@@ -387,11 +375,9 @@ export const useCartStore = defineStore('cart', {
           const { getCart } = useUserCart()
           const cartItems = await getCart()
           this.items = cartItems
-          console.log('Authenticated cart refreshed with items:', cartItems)
         } else {
           // Refresh from localStorage for guests
           this.loadGuestCart()
-          console.log('Guest cart refreshed with items:', this.items)
         }
       } catch (error) {
         console.error('Failed to refresh cart:', error)

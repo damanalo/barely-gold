@@ -87,7 +87,6 @@ export const useOrdersStore = defineStore('orders', {
         const { getUserOrders } = useOrders()
         const orders = await getUserOrders()
         this.orders = orders
-        console.log('Orders fetched:', orders)
       } catch (error) {
         console.error('Failed to fetch orders:', error)
         this.error = 'Failed to load orders'
@@ -121,7 +120,6 @@ export const useOrdersStore = defineStore('orders', {
           }
         }
 
-        console.log('Order fetched:', order)
         return order
       } catch (error) {
         console.error('Failed to fetch order:', error)
@@ -147,7 +145,6 @@ export const useOrdersStore = defineStore('orders', {
           // Add to orders list
           this.orders.push(newOrder)
           this.currentOrder = newOrder
-          console.log('Order created:', newOrder)
           return newOrder
         } else {
           this.error = 'Failed to create order'
@@ -176,7 +173,6 @@ export const useOrdersStore = defineStore('orders', {
         if (success) {
           // Refresh the order to get updated data
           await this.fetchOrder(order.user_id, order.created_at)
-          console.log('Payment proof uploaded successfully')
           return true
         } else {
           this.error = 'Failed to upload payment proof'
@@ -202,7 +198,6 @@ export const useOrdersStore = defineStore('orders', {
         const { getAllOrders } = useOrders()
         const orders = await getAllOrders()
         this.allOrders = orders
-        console.log('All orders fetched:', orders)
       } catch (error) {
         console.error('Failed to fetch all orders:', error)
         this.error = 'Failed to load all orders'
@@ -239,7 +234,6 @@ export const useOrdersStore = defineStore('orders', {
             this.orders[userIndex] = order
           }
 
-          console.log('Order updated successfully')
           return true
         } else {
           this.error = 'Failed to update order'

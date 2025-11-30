@@ -29,8 +29,6 @@ export const useOrders = () => {
 
       const data = await operation.body.json()
 
-      console.log('Get User Orders API Response:', data)
-
       return data as unknown as IOrder[]
     }
     catch (error) {
@@ -50,8 +48,6 @@ export const useOrders = () => {
       }).response
 
       const data = await operation.body.json() as any
-
-      console.log('Get Order API Response:', data)
 
       if (!data || !data.id) {
         return null
@@ -123,8 +119,6 @@ export const useOrders = () => {
 
       const response = await operation.body.json() as any
 
-      console.log('Create Order API Response:', response)
-
       if (response && response.success) {
         return orderData
       }
@@ -151,7 +145,6 @@ export const useOrders = () => {
           await remove({
             path: `public/${order.payment_proof}`
           })
-          console.log('Deleted old payment proof:', order.payment_proof)
         } catch (deleteError) {
           // Log error but don't fail the upload if deletion fails
           console.warn('Failed to delete old payment proof, continuing with upload:', deleteError)
@@ -188,8 +181,6 @@ export const useOrders = () => {
 
       const response = await operation.body.json() as any
 
-      console.log('Update Order Payment Proof API Response:', response)
-
       return response?.success || false
     }
     catch (error) {
@@ -209,8 +200,6 @@ export const useOrders = () => {
       }).response
 
       const data = await operation.body.json()
-
-      console.log('Get All Orders API Response:', data)
 
       return data as unknown as IOrder[]
     }
@@ -240,8 +229,6 @@ export const useOrders = () => {
       }).response
 
       const response = await operation.body.json() as any
-
-      console.log('Update Order API Response:', response)
 
       return response?.success || false
     }
