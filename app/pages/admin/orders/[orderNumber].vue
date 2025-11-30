@@ -146,6 +146,14 @@
           <div class="bg-white rounded-lg shadow p-6">
             <h3 class="font-semibold text-lg mb-4">Shipping Address</h3>
             <div class="text-sm text-gray-700" v-if="getShippingAddress(order.shipping_address)">
+              <div v-if="getShippingAddress(order.shipping_address).name" class="mb-2">
+                <span class="text-gray-600">Name:</span>
+                <span class="ml-2 font-medium">{{ getShippingAddress(order.shipping_address).name }}</span>
+              </div>
+              <div v-if="getShippingAddress(order.shipping_address).contact_number" class="mb-2">
+                <span class="text-gray-600">Mobile Number:</span>
+                <span class="ml-2 font-medium">{{ getShippingAddress(order.shipping_address).contact_number }}</span>
+              </div>
               <p class="font-medium">{{ getShippingAddress(order.shipping_address).street }}</p>
               <p class="mt-1">
                 {{ getShippingAddress(order.shipping_address).city }}, 

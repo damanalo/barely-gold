@@ -81,6 +81,9 @@
                 <td class="px-6 py-4">
                   <div class="text-sm text-gray-900">{{ order.customer_name }}</div>
                   <div class="text-sm text-gray-500">{{ order.email }}</div>
+                  <div v-if="getShippingMobileNumber(order.shipping_address)" class="text-sm text-gray-500">
+                    {{ getShippingMobileNumber(order.shipping_address) }}
+                  </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
                   <div class="text-sm text-gray-900">
@@ -185,5 +188,18 @@ const getPaymentStatusColor = (status: string): 'primary' | 'secondary' | 'succe
 
 const navigateToOrder = (orderId: string) => {
   router.push(`/admin/orders/${orderId}`)
+}
+
+// Helper function to get mobile number from shipping address
+const getShippingMobileNumber = (addressString: string): string | null => {
+  try {
+    const address = JSON.parse(addressString)
+    if (address.contact_number) {
+      return `Mobile: ${address.contact_number}`
+    }
+    return null
+  } catch {
+    return null
+  }
 }
 </script>
