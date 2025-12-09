@@ -421,6 +421,9 @@ onMounted(async () => {
   // Scroll to active filter after categories are loaded
   await nextTick()
   scrollToActiveFilter()
+  
+  // Check if product parameter exists in URL and open modal
+  await handleProductFromUrl()
 })
 
 // Watch for route changes (e.g., from navigation) and scroll to active filter
@@ -428,6 +431,68 @@ watch(() => route.query.category, async () => {
   await nextTick()
   scrollToActiveFilter()
 }, { immediate: false })
+
+// Watch for product query parameter changes
+watch(() => route.query.product, async (productId) => {
+  if (productId) {
+    await handleProductFromUrl()
+  } else {
+    // If product param is removed, close modal
+    if (isModalOpen.value) {
+      isModalOpen.value = false
+      selectedProduct.value = null
+    }
+  }
+}, { immediate: false })
+
+// Watch for modal state changes (e.g., when closed via backdrop or X button)
+watch(isModalOpen, (isOpen) => {
+  if (!isOpen && route.query.product) {
+    // Modal was closed but product param still exists, remove it
+    const nextQuery = { ...route.query } as Record<string, any>
+    delete nextQuery.product
+    router.replace({ query: nextQuery })
+    selectedProduct.value = null
+  }
+})
+
+// Handle product from URL parameter
+const handleProductFromUrl = async () => {
+  const productId = route.query.product
+  
+  if (!productId || typeof productId !== 'string') {
+    return
+  }
+  
+  // If modal is already open with this product, no need to update
+  if (selectedProduct.value?.id === productId && isModalOpen.value) {
+    return
+  }
+  
+  // Wait for products to load if they're still loading
+  if (productsStore.loading) {
+    await new Promise<void>((resolve) => {
+      const unwatch = watch(() => productsStore.loading, (loading) => {
+        if (!loading) {
+          unwatch()
+          resolve()
+        }
+      })
+    })
+  }
+  
+  // Find product by ID
+  const product = productsStore.activeProducts.find(p => p.id === productId)
+  
+  if (product) {
+    // Product found, open modal
+    selectedProduct.value = product
+    isModalOpen.value = true
+  } else {
+    // Product not found, redirect to 404
+    navigateTo('/404')
+  }
+}
 
 
 const filteredProducts = computed(() => {
@@ -534,11 +599,20 @@ const addToCart = async (product: IProduct) => {
 const openProductModal = (product: IProduct) => {
   selectedProduct.value = product
   isModalOpen.value = true
+  
+  // Update URL with product parameter, preserving other query params
+  const nextQuery = { ...route.query, product: product.id } as Record<string, any>
+  router.replace({ query: nextQuery })
 }
 
 const closeModal = () => {
   isModalOpen.value = false
   selectedProduct.value = null
+  
+  // Remove product parameter from URL, preserving other query params
+  const nextQuery = { ...route.query } as Record<string, any>
+  delete nextQuery.product
+  router.replace({ query: nextQuery })
 }
 
 const addToCartFromModal = () => {
