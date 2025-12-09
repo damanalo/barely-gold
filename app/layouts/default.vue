@@ -82,7 +82,7 @@
       <slot />
     </main>
 
-    <footer class="mt-12 bg-[#f7e7ce]">
+    <footer :class="['bg-[#f7e7ce]', { 'mt-12': !isErrorPage }]">
       <UContainer class="py-6 text-sm text-gray-500 flex flex-col md:flex-row items-center justify-center md:justify-between gap-4">
         <div class="flex items-center gap-3 flex-wrap justify-center order-1 md:order-2">
           <ULink to="/faqs" class="hover:text-primary-600">FAQs</ULink>
@@ -252,6 +252,11 @@ const isCartOpen = computed({
 // Active category based on route query
 const activeCategory = computed(() => {
   return route.query.category as string | undefined
+})
+
+// Check if we're on an error page (403 or 404)
+const isErrorPage = computed(() => {
+  return route.path === '/403' || route.path === '/404'
 })
 
 // Navigation underline animation
