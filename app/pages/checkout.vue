@@ -425,6 +425,12 @@
                             <div>
                                 <h3 class="font-semibold text-lg mb-3">Paper Bag</h3>
                                 
+                                <img 
+                                    :src="getImageUrl('misc/bg-packaging.jpg')" 
+                                    alt="Paper bag packaging" 
+                                    class="max-w-[50%] w-full mx-auto rounded-lg mb-4 object-cover"
+                                />
+                                
                                 <!-- Information about free paper bag -->
                                 <div class="mb-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
                                     <div class="flex items-start gap-2">
