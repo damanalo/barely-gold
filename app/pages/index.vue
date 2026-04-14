@@ -158,7 +158,8 @@
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { useAuthStore } from '~/stores/auth'
 import { useCategoriesStore } from '~/stores/categories'
-import bannerUrl from '~/assets/images/banner.jpeg'
+
+const bannerUrl = '/banner.jpeg'
 
 const categoriesStore = useCategoriesStore()
 const authStore = useAuthStore()
