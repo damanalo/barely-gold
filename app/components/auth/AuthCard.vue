@@ -56,7 +56,7 @@
 
 <script setup lang="ts">
 import LogoMini from '~/components/LogoMini.vue';
-import bannerUrl from '~/assets/images/banner.jpeg';
+const bannerUrl = '/banner.jpeg';
 
 interface Props {
   title?: string;
