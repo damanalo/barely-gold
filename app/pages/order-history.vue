@@ -308,7 +308,7 @@
                                                 <div class="text-center">
                                                     <div class="flex flex-col md:flex-row gap-4 justify-center">
                                                         <img
-                                                            :src="getImageUrl('misc/gcash_qr_code_250_290.jpg')"
+                                                            :src="getImageUrl('misc/gcash_qr_code_250_290-2.jpg')"
                                                             alt="GCash QR Code"
                                                             class="object-cover rounded"
                                                         />
