@@ -498,16 +498,17 @@ const handleProductFromUrl = async () => {
 const filteredProducts = computed(() => {
   // Start with active products from store
   let source = productsStore.activeProducts
+  let filteredSource = source.filter(product => product.quantity !== 0)
   
   // Filter by category
   if (currentCategoryId.value !== 'all') {
-    source = source.filter(product => product.category === currentCategoryId.value)
+    filteredSource = filteredSource.filter(product => product.category === currentCategoryId.value)
   }
   
   // Apply search filter
   if (searchQuery.value.trim()) {
     const query = searchQuery.value.toLowerCase()
-    source = source.filter(product => {
+    filteredSource = filteredSource.filter(product => {
       const nameMatch = product.name.toLowerCase().includes(query)
       const descriptionMatch = product.description.toLowerCase().includes(query)
       return nameMatch || descriptionMatch
@@ -516,7 +517,7 @@ const filteredProducts = computed(() => {
   
   // Apply sort
   if (_sortField.value) {
-    const sorted = [...source]
+    const sorted = [...filteredSource]
     if (_sortField.value === 'price') {
       sorted.sort((a, b) => {
         const priceA = a.salePrice ?? a.price
@@ -535,7 +536,7 @@ const filteredProducts = computed(() => {
     }
   }
   
-  return source
+  return filteredSource
 })
 
 const pageTitle = computed(() => {
