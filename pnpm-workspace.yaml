@@ -1,0 +1,6 @@
+# This is the official layout required by pnpm v11 to authorize dependency compilation
+allowBuilds:
+  "@parcel/watcher": true
+  "@tailwindcss/oxide": true
+  "esbuild": true
+  "vue-demi": true
