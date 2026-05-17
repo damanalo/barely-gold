@@ -27,13 +27,5 @@
     "@tailwindcss/vite": "^4.1.13",
     "tailwindcss": "^4.1.13",
     "tsx": "^4.19.2"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@parcel/watcher",
-      "@tailwindcss/oxide",
-      "esbuild",
-      "vue-demi"
-    ]
   }
 }
