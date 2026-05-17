@@ -35,11 +35,11 @@
 
             <div class="mt-12 grid grid-cols-2 gap-6 text-left text-[#c59042]">
               <div class="glass-stat shadow-lg">
-                <p class="text-4xl font-semibold text-[#8b5200]">400+</p>
+                <p class="text-4xl font-semibold text-[#8b5200]">480+</p>
                 <p class="text-xs uppercase tracking-[0.4em] text-[#8b5200]">Designs</p>
               </div>
               <div class="glass-stat shadow-lg">
-                <p class="text-4xl font-semibold text-[#8b5200]">800+</p>
+                <p class="text-4xl font-semibold text-[#8b5200]">1000+</p>
                 <p class="text-xs uppercase tracking-[0.4em] text-[#8b5200]">Pieces Sold</p>
               </div>
             </div>
